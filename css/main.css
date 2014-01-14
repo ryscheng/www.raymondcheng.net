@@ -53,6 +53,10 @@ body {
   letter-spacing: -1px;
 }
 
+.featurette-image {
+  border:1px solid black ;
+}
+
 /* RESPONSIVE CSS
 * -------------------------------------------------- */
 @media (min-width: 768px) {
