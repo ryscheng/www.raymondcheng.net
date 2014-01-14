@@ -10,7 +10,7 @@ body {
 }
 
 .contactico {
-  width: 15px;
+  width: 25px;
 }
 
 /* CUSTOMIZE THE CAROUSEL
@@ -54,7 +54,7 @@ body {
 }
 
 .featurette-image {
-  border:1px solid black ;
+  //border:1px solid black ;
 }
 
 /* RESPONSIVE CSS
