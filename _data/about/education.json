@@ -1,0 +1,21 @@
+{
+  "title": "Student &amp; Teacher",
+  "descriptions": [
+    "Univ. of Washington Ph.D. Candidate Computer Science<br>",
+    "Univ. of Washington M.S. Computer Science<br>",
+    "MIT M.Eng. Electrical Engineering and Computer Science<br>",
+    "MIT B.S. Electrical Engineering and Computer Science<br>",
+    "MIT B.S. Physics<br>"
+  ],
+  "images": [
+    {
+      "src": "/img/pic/schools.png",
+      "alt": "UW MIT"
+    }
+  ],
+  "quotes": [{
+    "text": "Did you ever feel, as though you had something inside you that was only waiting for you to give it a chance to come out? Some sort of extra power that you aren't using - you know, like all the water that goes down the falls instead of through the turbines?",
+    "source": "Hemholtz Watson from <em>Brave New World</em>"
+  }],
+  "accordians": []
+}

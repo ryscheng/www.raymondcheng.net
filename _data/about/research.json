@@ -1,0 +1,40 @@
+{
+  "title": "Scientist &amp; Hacker",
+  "descriptions": [],
+  "images": [
+    {
+      "src": "/img/pic/office.jpg",
+      "alt": "office"
+    }
+  ],
+  "quotes": [{
+    "text": "The best way to predict the future is to invent it.",
+    "source": "Alan Kay"
+  }],
+  "accordians": [
+    {
+      "title": "Active Research",
+      "ref": "research",
+      "text": [],
+      "includes": [
+        "research-active.html"
+      ]
+    },
+    {
+      "title": "Hacks",
+      "ref": "hacks",
+      "text": [],
+      "includes": [
+        "research-hacks.html"
+      ]
+    },
+    {
+      "title": "Previous Projects",
+      "ref": "previous",
+      "text": [],
+      "includes": [
+        "research-previous.html"
+      ]
+    }
+  ]
+}

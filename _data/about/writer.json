@@ -1,0 +1,32 @@
+{
+  "title": "Writer &amp; Speaker",
+  "descriptions": [],
+  "images": [
+    {
+      "src": "/img/pic/talks.jpg",
+      "alt": "speaker"
+    }
+  ],
+  "quotes": [{
+    "text": "They cannot be worthy of the respect and admiration of the people unless they add to the virtue of obedience some other virtues—the virtues of manliness, of truth, of courage, of willingness to risk positions, of the willingness to risk criticism, of the willingness to risk the misunderstanding that so often comes when people do the heroic thing.",
+    "source": "Louis Brandeis (Glavis-Ballinger 1910)"
+  }],
+  "accordians": [
+    {
+      "title": "Publications",
+      "ref": "publicationss",
+      "text": [],
+      "includes": [
+        "writer-publications.html"
+      ]
+    },
+    {
+      "title": "Talks",
+      "ref": "talks",
+      "text": [],
+      "includes": [
+        "writer-talks.html"
+      ]
+    }
+  ]
+}
