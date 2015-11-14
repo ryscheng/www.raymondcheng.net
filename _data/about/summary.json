@@ -1,16 +1,18 @@
 {
   "title": "Human Being",
-  "descriptions": [
+  "subtitles": [
     "<a href='https://github.com/ryscheng'><img class='contactico' src='/img/ico/github.ico' alt='github'></a> &nbsp;",
     "<a href='http://hypem.com/djmontagged'><img class='contactico' src='/img/ico/hypem.ico' alt='hypem'></a> &nbsp;",
-    "<a href='http://hypem.com/djmontagged'><img class='contactico' src='/img/ico/hypem.ico' alt='soundcloud'></a> &nbsp;",
+    "<a href='https://soundcloud.com/djmontaggedyourmommy'><img class='contactico' src='/img/ico/soundcloud.ico' alt='soundcloud'></a> &nbsp;",
     "<!-- <a href='http://blog.raymondcheng.net'><img class='contactico' src='/img/ico/blogger.ico' alt='blogger'></a> &nbsp; -->",
     "<a href='https://plus.google.com/+RaymondCheng00'><img class='contactico' src='/img/ico/google.ico' alt='google'></a> &nbsp;",
     "<a href='https://www.facebook.com/ryscheng'><img class='contactico' src='/img/ico/facebook.ico' alt='facebook'></a> &nbsp;",
     "<a href='https://twitter.com/RaymondCheng00'><img class='contactico' src='/img/ico/twitter.ico' alt='twitter'></a> &nbsp;",
-    "<a href='https://twitter.com/RaymondCheng00'><img class='contactico' src='/img/ico/twitter.ico' alt='instagram'></a> &nbsp;",
+    "<a href='https://instagram.com/ryscheng/'><img class='contactico' src='/img/ico/instagram.ico' alt='instagram'></a> &nbsp;",
     "<a href='https://www.linkedin.com/pub/raymond-cheng/26/367/95'><img class='contactico' src='/img/ico/linkedin.ico' alt='linkedin'></a> &nbsp;<br>",
-    "<img height='50px' src='/img/emailaddr.jpg' alt='email'><br>",
+    "<img height='50px' src='/img/emailaddr.jpg' alt='email'><br>"
+  ],
+  "descriptions": [
     "PhD Student @ University of Washington<br>",
     "<a href='http://cs.washington.edu/'>CSE</a>",
     "<a href='http://netlab.cs.washington.edu/'>Network Lab</a>:", 

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: About
 permalink: /about/
 ---
@@ -17,6 +17,14 @@ permalink: /about/
   {% endcase %}
   <div class="col-md-7">
     <h2 class="featurette-heading">{{ feature.title }}</h2>
+    <!-- SUBTITLES -->
+    <div>
+      <p>
+        {% for sub in feature.subtitles %}
+          {{ sub }}
+        {% endfor %}
+      </p>
+    </div>
     <!-- DESCRIPTIONS -->
     <div>
       <p class="lead">
