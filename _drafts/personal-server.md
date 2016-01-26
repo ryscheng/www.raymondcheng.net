@@ -5,7 +5,10 @@ date:   2015-11-19 12:47:18 -0700
 categories: projects
 ---
 
-
+[](https://vincent.composieux.fr/article/install-configure-and-automatically-renew-let-s-encrypt-ssl-certificate)
+[](http://bitsandpieces.jonmoniaci.com/2014/07/using-iodine-dns-tunneling-on-os-x-mavericks/)
+[](http://code.kryo.se/iodine/check-it/)
+[](https://github.com/yarrick/iodine)
 
 
 

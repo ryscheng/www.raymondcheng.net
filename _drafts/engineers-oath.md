@@ -5,6 +5,4 @@ date:   2015-11-19 12:47:18 -0700
 categories: projects
 ---
 
-
-Moral obligation of developers, not users
-[](http://robindoherty.com/2016/01/06/nothing-to-hide.html)
+[Uber](http://www.zdnet.com/article/uber-fined-peanuts-in-god-view-surveillance-data-breach-investigation/)
