@@ -15,3 +15,6 @@ Why should they care? Liability, morality,
 
 Moral obligation of developers, not users
 [](http://robindoherty.com/2016/01/06/nothing-to-hide.html)
+
+[](https://z.cash/blog/helloworld.html)
+
