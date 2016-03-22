@@ -122,3 +122,10 @@ In the 90's and early 2000's, I maintained a very opinionated server setup. But 
 
 I'm really excited to see free and open source projects like Gitlab, ownCloud, and Signal mature into usable products that compete with their centralized proprietary counterparts. For at least the data that is most prized to me (my files, contacts, calendar, code, and messages), I've been using free and open source software on my own hardware and I haven't looked back since. This guide series is for all of you who want to reclaim your data and have some familiarity with UNIX.
 
+
+
+
+
+https://outcoldman.com/en/archive/2015/03/18/docker-for-home-server/
+Sandstorm
+http://www.linux-magazine.com/Issues/2014/168/Docker-with-OwnCloud/(offset)/3
