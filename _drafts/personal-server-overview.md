@@ -129,3 +129,4 @@ I'm really excited to see free and open source projects like Gitlab, ownCloud, a
 https://outcoldman.com/en/archive/2015/03/18/docker-for-home-server/
 Sandstorm
 http://www.linux-magazine.com/Issues/2014/168/Docker-with-OwnCloud/(offset)/3
+https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx/
