@@ -6,3 +6,6 @@ categories: projects
 ---
 
 [Uber](http://www.zdnet.com/article/uber-fined-peanuts-in-god-view-surveillance-data-breach-investigation/)
+
+Privacy
+Recycle ability macbook

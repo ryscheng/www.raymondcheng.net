@@ -13,3 +13,6 @@ Building something that should exist doesn't fit the bar
 Solving something that hasn't been solved yet usually doesn't either
 
 Privacy research:
+
+
+Tom's advice

@@ -18,3 +18,6 @@ Moral obligation of developers, not users
 
 [](https://z.cash/blog/helloworld.html)
 
+http://techcrunch.com/2016/05/17/why-you-should-bet-big-on-privacy/
+http://m.pnas.org/content/113/20/5536.full
+http://techcrunch.com/2016/05/17/stanford-quantifies-the-privacy-stripping-power-of-metadata/
