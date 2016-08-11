@@ -7,6 +7,8 @@ permalink: /about/
 {% for feature_key in site.data.about.order.sections %}
 {% assign feature = site.data.about[feature_key] %}
 <div id="{{ feature_key }}" class="row featurette">
+
+  <!-- LEFT IMAGE -->
   {% case forloop.index %}
   {% when 0 or 2 or 4 or 6 or 8 or 10 or 12 or 14 or 16 or 18 or 20 %}
     <div class="col-md-5">
@@ -15,6 +17,8 @@ permalink: /about/
       {% endfor %}
     </div>
   {% endcase %}
+
+  <!-- CONTENT -->
   <div class="col-md-7">
     <h2 class="featurette-heading">{{ feature.title }}</h2>
     <!-- SUBTITLES -->
@@ -68,6 +72,8 @@ permalink: /about/
     </div> <!-- accordian -->
 
   </div> <!-- column -->
+
+  <!-- RIGHT IMAGE -->
   {% case forloop.index %}
   {% when 1 or 3 or 5 or 7 or 9 or 11 or 13 or 15 or 17 or 19 %}
     <div class="col-md-5">

@@ -13,13 +13,15 @@
     "<img height='50px' src='/img/emailaddr.jpg' alt='email'><br>"
   ],
   "descriptions": [
-    "PhD Student @ University of Washington<br>",
-    "<a href='http://cs.washington.edu/'>CSE</a>",
-    "<a href='http://netlab.cs.washington.edu/'>Network Lab</a>:", 
-    "<a href='http://cs.washington.edu/homes/tom'>Tom Anderson</a>",
-    "&amp; <a href='http://cs.washington.edu/homes/arvind'>Arvind Krishnamurthy</a><br>",
+    "PhD Student @",
+    "<a href='https://www.washington.edu/'>University of Washington</a><br>",
+    "<a href='https://www.cs.washington.edu/'>Computer Science and Engineering Dept.</a><br>",
+    "<a href='https://syslab.cs.washington.edu/'>Systems</a> and ",
+    "<a href='https://netlab.cs.washington.edu/'>Networks</a> Lab<br>", 
+    "Advised by <a href='https://cs.washington.edu/homes/tom'>Tom Anderson</a>",
+    "&amp; <a href='https://cs.washington.edu/homes/arvind'>Arvind Krishnamurthy</a><br>",
     "Specialty in distributed systems, networks, security, web, Internet freedom, &amp; electrofunk.<br>",
-    "<a href='https://dl.dropboxusercontent.com/u/16740992/papers/cv2.pdf'><span class='glyphicon glyphicon-book'></span> &nbsp;Check out my CV</a>, son."
+    "<a href='/download/cv.pdf'><span class='glyphicon glyphicon-book'></span> &nbsp;Check out my CV</a>, son."
   ],
   "images": [
     {
