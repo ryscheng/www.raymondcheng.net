@@ -15,7 +15,7 @@
   "accordians": [
     {
       "title": "Publications",
-      "ref": "publicationss",
+      "ref": "publications",
       "text": [],
       "includes": [
         "writer-publications.html"

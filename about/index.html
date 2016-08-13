@@ -6,7 +6,7 @@ permalink: /about/
 
 {% for feature_key in site.data.about.order.sections %}
 {% assign feature = site.data.about[feature_key] %}
-<div id="{{ feature_key }}" class="row featurette">
+<div id="{{ feature_key }}" class="row featurette" name="{{ feature_key }}">
 
   <!-- LEFT IMAGE -->
   {% case forloop.index %}
@@ -49,7 +49,7 @@ permalink: /about/
     <!-- ACCORDIANS -->
     <div class="panel-group" id="{{feature_key}}-accordion">
       {% for acc in feature.accordians %}
-      <div class="panel panel-default">
+      <div class="panel panel-default" name="{{feature_key}}-{{acc.ref}}">
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#{{feature_key}}-accordion" href="#{{feature_key}}-{{acc.ref}}">

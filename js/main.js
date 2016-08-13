@@ -1,3 +1,6 @@
 console.log('raymondcheng.net.');
 
-$('.collapse').collapse('hide');
+$(".collapse").collapse("hide");
+if(window.location.hash) {
+  $(window.location.hash).find(".collapse").collapse("show");
+}
