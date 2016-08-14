@@ -1,0 +1,33 @@
+{
+  "title": "Diver",
+  "subtitles": [],
+  "descriptions": [],
+  "images": [
+    {
+      "src": "/img/pic/dive.jpg",
+      "alt": "dive"
+    }
+  ],
+  "quotes": [{
+    "text": "The happiness of the bee and the dolphin is to exist. For man it is to know that and to wonder at it.",
+    "source": "Jacques Yves Cousteau"
+  }],
+  "accordians": [
+    {
+      "title": "Certifications",
+      "ref": "certifications",
+      "text": [
+        "PADI Open Water Diver (2015/09) <br> Advanced Open Water (2016/02) <br><br>",
+        "Specialties:<br> - Dry Suit (2016/02) <br>"
+      ],
+      "includes": []
+    }, {
+
+      "title": "Dives",
+      "ref": "dives",
+      "text": ["Alki Beach (2015/09) <br> Oahu (2016/06)"],
+      "includes": []
+
+    }
+  ]
+}
