@@ -13,6 +13,11 @@ Consumer devices adversarial
 Developers care
 Why should they care? Liability, morality,
 
+things get cheaper
+  historically, meant we could own ore ourselves
+  now - fundamentally different - service mentality
+    data entitlement
+
 Moral obligation of developers, not users
 [](http://robindoherty.com/2016/01/06/nothing-to-hide.html)
 
