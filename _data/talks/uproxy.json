@@ -1,0 +1,43 @@
+{
+  "title": "uProxy: a Social Proxy for Your Browser",
+  "venues": [
+    {
+      "name": "Circumvention Tech Festival",
+      "date": "Mar 2015",
+      "location": "Valencia, Spain",
+      "url": "https://openitp.org/festival/circumvention-tech-festival.html"
+    },
+    {
+      "name": "TA3M",
+      "date": "Nov 2014",
+      "location": "New York, NY",
+      "url": "https://ta3m.org/"
+    },
+    {
+      "name": "RIPE69",
+      "date": "Nov 2014",
+      "location": "London, UK",
+      "url": "https://ripe69.ripe.net/"
+    }
+  ],
+  "slides": [
+    {
+      "name": "PDF1",
+      "url": "https://ripe69.ripe.net/presentations/27-uProxy.pdf"
+    },
+    {
+      "name": "PDF2",
+      "url": "/download/slides/2014-ripe-uproxy.pdf"
+    }
+  ],
+  "videos": [
+    {
+      "name": "RIPE",
+      "url": "https://ripe69.ripe.net/archives/video/189"
+    },
+    {
+      "name": "TA3M",
+      "url": "https://www.youtube.com/watch?v=ljiHVe--DtM"
+    }
+  ]
+}

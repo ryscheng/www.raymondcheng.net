@@ -1,0 +1,28 @@
+{
+  "title": "Radiatus: a Shared-Nothing Server-Side Web Architecture",
+  "authors": [
+    "raymond_cheng",
+    "will_scott",
+    "paul_ellenbogen",
+    "jon_howell",
+    "franzi_roesner",
+    "arvind_krishnamurthy",
+    "tom_anderson"
+  ],
+  "venue": {
+    "name": "ACM Symposium on Cloud Computing (SOCC)",
+    "url": "https://acmsocc.github.io/2016/"
+  },
+  "year": 2016,
+  "paper": [
+    {
+      "name": "PDF1",
+      "url": "http://dl.acm.org/citation.cfm?id=2987571"
+    },
+    {
+      "name": "PDF2",
+      "url": "/download/papers/radiatus-socc.pdf"
+    }
+  ],
+  "bibtex": "/download/papers/radiatus-socc.bib"
+}

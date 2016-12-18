@@ -1,0 +1,25 @@
+{
+  "title": "SolocoRank: Social Signals for Local Search Quality",
+  "authors": [
+    "raymond_cheng",
+    "michael_schueppert",
+    "hila_becker",
+    "mayur_thakur"
+  ],
+  "venue": {
+    "name": "UW Technical Report",
+    "url": "https://norfolk.cs.washington.edu/htbin-post/unrestricted/tr/list.cgi?sortby=date"
+  },
+  "year": 2013,
+  "paper": [
+    {
+      "name": "PDF1",
+      "url": "https://www.cs.washington.edu/tr/2013/11/UW-CSE-13-11-05.pdf"
+    },
+    {
+      "name": "PDF2",
+      "url": "/download/papers/solocorank-tr.pdf"
+    }
+  ],
+  "bibtex": "/download/papers/solocorank-tr.bib"
+}

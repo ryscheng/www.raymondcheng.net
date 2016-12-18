@@ -1,0 +1,29 @@
+{
+  "title": "FreeDOM: a New Baseline for the Web",
+  "authors": [
+    "raymond_cheng",
+    "will_scott",
+    "arvind_krishnamurthy",
+    "tom_anderson"
+  ],
+  "venue": {
+    "name": "The 11th ACM Workshop on Hot Topics in Networks (HotNets XI)",
+    "url": "http://conferences.sigcomm.org/hotnets/2012/program.shtml"
+  },
+  "year": 2012,
+  "paper": [
+    {
+      "name": "PDF1",
+      "url": "https://dl.acm.org/citation.cfm?doid=2390231.2390252"
+    },
+    {
+      "name": "PDF2",
+      "url": "http://conferences.sigcomm.org/hotnets/2012/papers/hotnets12-final141.pdf"
+    },
+    {
+      "name": "PDF3",
+      "url": "/download/papers/freedom-hotnets.pdf"
+    }
+  ],
+  "bibtex": "/download/papers/freedom-hotnets.bib"
+}

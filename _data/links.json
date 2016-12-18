@@ -1,0 +1,145 @@
+{
+  "uw": {
+    "name": "University of Washington",
+    "url": "https://www.washington.edu/"
+  },
+  "uwcse": {
+    "name": "UW Computer Science and Engineering",
+    "url": "https://www.cs.washington.edu/"
+  },
+  "uwnetlab": {
+    "name": "UW Networks Lab",
+    "url": "https://netlab.cs.washington.edu"
+  },
+  "uwsyslab": {
+    "name": "UW Systems Lab",
+    "url": "https://syslab.cs.washington.edu"
+  },
+  "jigsaw": {
+    "name": "Jigsaw",
+    "url": "https://jigsaw.google.com/"
+  },
+
+
+
+  "raymond_cheng": {
+    "name": "Raymond Cheng",
+    "url": "https://raymondcheng.net"
+  },
+  "tom_anderson": {
+    "name": "Tom Anderson",
+    "url": "https://www.cs.washington.edu/people/faculty/tom"
+  },
+  "arvind_krishnamurthy": {
+    "name": "Arvind Krishnamurthy",
+    "url": "https://www.cs.washington.edu/people/faculty/arvind"
+  },
+  "henry_levy": {
+    "name": "Henry Levy",
+    "url": "http://www.cs.washington.edu/people/faculty/levy"
+  },
+  "franzi_roesner": {
+    "name": "Franzi Roesner",
+    "url": "http://www.franziroesner.com/"
+  }, 
+  "michael_ernst": {
+    "name": "Michael Ernst",
+    "url": "https://homes.cs.washington.edu/~mernst/"
+  },
+  "bryan_parno": {
+    "name": "Bryan Parno",
+    "url": "https://www.csd.cs.cmu.edu/people/faculty/bryan-parno"
+  },
+  "jon_howell": {
+    "name": "Jon Howell",
+    "url": "http://www.jonh.net/~jonh/cv/"
+  },
+  "will_scott": {
+    "name": "Will Scott",
+    "url": "https://wills.co.tt/"
+  },
+  "irene_zhang": {
+    "name": "Irene Zhang",
+    "url": "http://irenezhang.net/"
+  },
+  "niel_lebeck": {
+    "name": "Niel Lebeck",
+    "url": "https://homes.cs.washington.edu/~nl35/"
+  },
+  "pedro_fonseca": {
+    "name": "Pedro Fonseca",
+    "url": "https://homes.cs.washington.edu/~pfonseca/"
+  },
+  "brandon_holt": {
+    "name": "Brandon Holt",
+    "url": "http://homes.cs.washington.edu/~bholt/"
+  },
+  "ariadna_norberg": {
+    "name": "Ariadna Norberg",
+    "url": "https://www.linkedin.com/in/ariadna-norberg-9952b296"
+  },
+  "paul_ellenbogen": {
+    "name": "Paul Ellenbogen",
+    "url": "https://www.ellenbogen.xyz/"
+  },
+  "ravi_bhoraskar": {
+    "name": "Ravi Bhoraskar",
+    "url": "http://ravi.bhoraskar.com/"
+  },
+  "dominic_langenegger": {
+    "name": "Dominic Langenegger",
+    "url": "https://www.linkedin.com/in/dominic-langenegger-a0979a51"
+  },
+  "pingyang_he": {
+    "name": "Pingyang He",
+    "url": "https://www.linkedin.com/in/pingyang-he-a656062a"
+  },
+  "michael_schueppert": {
+    "name": "Michael Schueppert",
+    "url": "https://www.linkedin.com/in/michael-schueppert-6005256"
+  },
+  "hila_becker": {
+    "name": "Hila Becker",
+    "url": "http://www.cs.columbia.edu/~hila/"
+  },
+  "mayur_thakur": {
+    "name": "Mayur Thakur",
+    "url": "https://industry.datascience.columbia.edu/profile/mayur-thakur"
+  },
+  "ji_hong": {
+    "name": "Ji Hong",
+    "url": "https://www.linkedin.com/in/ji-hong-0117b415"
+  },
+  "aapo_kyrola": {
+    "name": "Aapo Kyrola",
+    "url": "http://www.cs.cmu.edu/~akyrola/"
+  },
+  "youshan_miao": {
+    "name": "Youshan Miao",
+    "url": "https://www.linkedin.com/in/youshanmiao"
+  },
+  "xuetian_weng": {
+    "name": "Xuetian Weng",
+    "url": "https://scholar.google.com/citations?user=zvfOH0wAAAAJ&hl=en"
+  },
+  "ming_wu": {
+    "name": "Ming Wu",
+    "url": "https://www.microsoft.com/en-us/research/people/miw/"
+  },
+  "fan_yang": {
+    "name": "Fan Yang",
+    "url": "https://www.microsoft.com/en-us/research/people/fanyang/"
+  },
+  "lidong_zhou": {
+    "name": "Lidong Zhou",
+    "url": "https://www.microsoft.com/en-us/research/people/lidongz/"
+  },
+  "feng_zhao": {
+    "name": "Feng Zhao",
+    "url": "http://fengzhao.com/"
+  },
+  "enhong_chen": {
+    "name": "En-Hong Chen",
+    "url": "http://staff.ustc.edu.cn/~cheneh/"
+  }
+}

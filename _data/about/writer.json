@@ -17,17 +17,19 @@
       "title": "Publications",
       "ref": "publications",
       "text": [],
-      "includes": [
-        "writer-publications.html"
-      ]
+      "includemd": [
+        "writer-publications.md"
+      ],
+      "includes": []
     },
     {
       "title": "Talks",
       "ref": "talks",
       "text": [],
-      "includes": [
-        "writer-talks.html"
-      ]
+      "includemd": [
+        "writer-talks.md"
+      ],
+      "includes": []
     }
   ]
 }

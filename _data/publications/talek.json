@@ -1,0 +1,27 @@
+{
+  "title": "Talek: a Private Publish-Subscribe Protocol",
+  "authors": [
+    "raymond_cheng",
+    "will_scott",
+    "bryan_parno",
+    "irene_zhang",
+    "arvind_krishnamurthy",
+    "tom_anderson"
+  ],
+  "venue": {
+    "name": "In Submission",
+    "url": ""
+  },
+  "year": 2016,
+  "paper": [
+    {
+      "name": "PDF1",
+      "url": "http://www.cs.washington.edu/public_files/grad/tech_reports/UW-CSE-16-11-01.pdf"
+    },
+    {
+      "name": "PDF2",
+      "url": "/download/papers/talek-tr.pdf"
+    }
+  ],
+  "bibtex": "/download/papers/talek-tr.bib"
+}

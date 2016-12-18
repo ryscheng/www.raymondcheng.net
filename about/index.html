@@ -37,6 +37,20 @@ permalink: /about/
         {% endfor %}
       </p>
     </div>
+    <!-- DESCRIPTIONMD -->
+    <div>
+      {% for desc in feature.descriptionmd %}
+        {% markdown {{ desc }} %}
+      {% endfor %}
+    </div>
+    <!-- DESCRIPTIONINCLUDE -->
+    <div>
+      <p class="lead">
+      {% for desc in feature.descriptioninclude %}
+        {% include {{ desc }} %}
+      {% endfor %}
+      </p>
+    </div>
     <!-- QUOTES -->
     <div>
       {% for quote in feature.quotes %}
@@ -61,6 +75,10 @@ permalink: /about/
           <div class="panel-body">
             {% for t in acc.text %}
               {{ t }}
+            {% endfor %}
+            {% for i in acc.includemd %}
+              {% markdown {{i}} %}
+              <hr>
             {% endfor %}
             {% for i in acc.includes %}
               {% include {{i}} %}

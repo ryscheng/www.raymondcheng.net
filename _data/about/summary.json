@@ -14,17 +14,11 @@
     "<br>",
     "<img height='50px' src='/img/emailaddr.jpg' alt='email'><br>"
   ],
-  "descriptions": [
-    "PhD Student @",
-    "<a href='https://www.washington.edu/'>University of Washington</a><br>",
-    "<a href='https://www.cs.washington.edu/'>Computer Science and Engineering Dept.</a><br>",
-    "<a href='https://syslab.cs.washington.edu/'>Systems</a> and ",
-    "<a href='https://netlab.cs.washington.edu/'>Networks</a> Lab<br>", 
-    "Advised by <a href='https://cs.washington.edu/homes/tom'>Tom Anderson</a>",
-    "&amp; <a href='https://cs.washington.edu/homes/arvind'>Arvind Krishnamurthy</a><br>",
-    "Specialty in distributed systems, networks, security, web, Internet freedom, &amp; electrofunk.<br>",
-    "<a href='/download/cv.pdf'><span class='glyphicon glyphicon-book'></span> &nbsp;Check out my CV</a>, son."
+  "descriptions": [],
+  "descriptioninclude": [
+    "summary.html"
   ],
+  "descriptionmd": [],
   "images": [
     {
       "src": "/img/pic/me.jpg",

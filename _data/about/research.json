@@ -17,14 +17,19 @@
       "title": "Active Research",
       "ref": "research",
       "text": [],
-      "includes": [
-        "research-active.html"
-      ]
+      "includemd": [
+        "research-talek.md",
+        "research-radiatus.md",
+        "research-uproxy.md",
+        "research-freedomjs.md"
+      ],
+      "includes": []
     },
     {
       "title": "Hacks",
       "ref": "hacks",
       "text": [],
+      "includemd": [],
       "includes": [
         "research-hacks.html"
       ]
@@ -33,6 +38,7 @@
       "title": "Previous Projects",
       "ref": "previous",
       "text": [],
+      "includemd": [],
       "includes": [
         "research-previous.html"
       ]
