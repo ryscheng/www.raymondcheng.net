@@ -8,16 +8,16 @@
       "url": "https://openitp.org/festival/circumvention-tech-festival.html"
     },
     {
-      "name": "TA3M",
-      "date": "Nov 2014",
-      "location": "New York, NY",
-      "url": "https://ta3m.org/"
-    },
-    {
       "name": "RIPE69",
       "date": "Nov 2014",
       "location": "London, UK",
       "url": "https://ripe69.ripe.net/"
+    },
+    {
+      "name": "TA3M",
+      "date": "Nov 2014",
+      "location": "New York, NY",
+      "url": "https://ta3m.org/"
     }
   ],
   "slides": [

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raymond Cheng</title>
+    <description>Homepage for Raymond Cheng
+</description>
+    <link>https://raymondcheng.net/</link>
+    <atom:link href="https://raymondcheng.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 18 Dec 2016 16:06:25 -0800</pubDate>
+    <lastBuildDate>Sun, 18 Dec 2016 16:06:25 -0800</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Retrospective: Solar Printer</title>
+        <description>&lt;h3 id=&quot;self-sufficient-printing&quot;&gt;Self-sufficient printing&lt;/h3&gt;
+&lt;p&gt;One of my first projects at MIT was at the Media Lab, where we were exploring self-sufficient technologies. My advisor, Richard Fletcher, and I wanted to build a completely self-sufficient printer for use in developing countries.&lt;/p&gt;
+
+&lt;h3 id=&quot;low-cost-reusable-materials&quot;&gt;Low-cost reusable materials&lt;/h3&gt;
+&lt;p&gt;Existing printers use an excessive amount of consumables, from paper, to toner, to grid electricity. Recent advances in reversible forms of organic photochromic compounds enabled us to explore a different part of the design space. These chemicals change color depending on the wavelength of light it is exposed to.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-focus-uv-onto-photochromic-paper&quot;&gt;How? Focus UV onto photochromic paper&lt;/h3&gt;
+&lt;p&gt;The printer uses a motorized chassis, which moves over a sheet of photochromic paper. It controls exposure to UV light through a stencil, effectively imprinting characters onto the sheet. By using low-power DC motors and an MSP430, we were able to keep power consumption to less than 0.4 watts, sourced by a solar panel.&lt;/p&gt;
+
+&lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/yzVeC9tzkVU&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This was such an incredible experience for an incoming freshman who had no experience with a machine room, microcontrollers, C programming, or embedded devices. Thank you, Dr. Fletcher, for your patience and guidance!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 14 Nov 2015 13:23:18 -0800</pubDate>
+        <link>https://raymondcheng.net/research/2015/11/14/retrospective-solar-printer.html</link>
+        <guid isPermaLink="true">https://raymondcheng.net/research/2015/11/14/retrospective-solar-printer.html</guid>
+        
+        
+        <category>research</category>
+        
+      </item>
+    
+      <item>
+        <title>Welcome!</title>
+        <description>&lt;p&gt;For years, my website was a single gigantic HTML file. Adding content and making edits felt a lot like stacking Jenga blocks a mile high. While that was fun in many ways, it is 2015 and it is time to move to some form of automated system like Jekyll.&lt;/p&gt;
+
+&lt;p&gt;On here, you can expect to see more transparency into my research, my thoughts, and projects.&lt;br /&gt;
+Enjoy!&lt;/p&gt;
+</description>
+        <pubDate>Fri, 13 Nov 2015 13:23:18 -0800</pubDate>
+        <link>https://raymondcheng.net/general/2015/11/13/welcome.html</link>
+        <guid isPermaLink="true">https://raymondcheng.net/general/2015/11/13/welcome.html</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
+    
+  </channel>
+</rss>
