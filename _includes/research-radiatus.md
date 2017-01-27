@@ -1,7 +1,7 @@
 ![radiatus.io](/img/projects/radiatus.png){: .projectlogo}
 **Radiatus: a Shared-Nothing Server-Side Web Architecture**  
 [{{ site.data.links.uwnetlab.name }}]({{ site.data.links.uwnetlab.url }}) - 
-{% for author in site.data.publications.talek.authors %}[{{ site.data.links[author].name }}]({{ site.data.links[author].url }}), {% endfor %}  
+{% for author in site.data.publications.radiatus.authors %}[{{ site.data.links[author].name }}]({{ site.data.links[author].url }}), {% endfor %}  
 Radiatus is a decentralized web framework for designing more secure web apps.
 In Radiatus, all application-specific computation running on the server is
 executed within a sandbox with the privileges of the end-user.
