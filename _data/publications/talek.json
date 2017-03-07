@@ -16,11 +16,11 @@
   "paper": [
     {
       "name": "PDF1",
-      "url": "http://www.cs.washington.edu/public_files/grad/tech_reports/UW-CSE-16-11-01.pdf"
+      "url": "/download/papers/talek-tr.pdf"
     },
     {
       "name": "PDF2",
-      "url": "/download/papers/talek-tr.pdf"
+      "url": "http://www.cs.washington.edu/public_files/grad/tech_reports/UW-CSE-16-11-01.pdf"
     }
   ],
   "bibtex": "/download/papers/talek-tr.bib"

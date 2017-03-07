@@ -1,4 +1,5 @@
 # To install `bundle`
+#	sudo apt-get install ruby-dev
 #	gem install bundler
 #
 #
