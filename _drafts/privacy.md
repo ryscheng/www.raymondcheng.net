@@ -26,6 +26,7 @@ Moral obligation of developers, not users
 http://techcrunch.com/2016/05/17/why-you-should-bet-big-on-privacy/
 http://m.pnas.org/content/113/20/5536.full
 http://techcrunch.com/2016/05/17/stanford-quantifies-the-privacy-stripping-power-of-metadata/
+[1](https://www.schneier.com/blog/archives/2006/05/the_value_of_pr.html), [2](http://chronicle.com/article/Why-Privacy-Matters-Even-if/127461/), and [3](https://robindoherty.com/2016/01/06/nothing-to-hide.html).
 
 Personal Liberties:
 Even if live in a country with rights, sets an example for how surveillance can be done in others

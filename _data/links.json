@@ -1,10 +1,30 @@
 {
+  "ucb": {
+    "name": "University of California, Berkeley",
+    "url": "http://www.berkeley.edu/"
+  },
+  "ucb_cs": {
+    "name": "Electrical Engineering and Computer Sciences",
+    "url": "https://cs.berkeley.edu/"
+  },
+  "ucb_seclab": {
+    "name": "UC Berkeley Security Research Lab",
+    "url": "http://security.cs.berkeley.edu/"
+  },
+  "ucb_riselab": {
+    "name": "RISELab",
+    "url": "https://rise.cs.berkeley.edu/"
+  },
+  "ucb_bairlab": {
+    "name": "BAIR Lab",
+    "url": "http://bair.berkeley.edu/"
+  },
   "uw": {
     "name": "University of Washington",
     "url": "https://www.washington.edu/"
   },
   "uwcse": {
-    "name": "UW Computer Science and Engineering",
+    "name": "Paul G. Allen School of Computer Science and Engineering",
     "url": "https://www.cs.washington.edu/"
   },
   "uwnetlab": {
@@ -21,10 +41,13 @@
   },
 
 
-
   "raymond_cheng": {
     "name": "Raymond Cheng",
     "url": "https://raymondcheng.net"
+  },
+  "dawn_song": {
+    "name": "Dawn Xiaodong Song",
+    "url": "https://people.eecs.berkeley.edu/~dawnsong/"
   },
   "tom_anderson": {
     "name": "Tom Anderson",
