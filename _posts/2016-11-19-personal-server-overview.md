@@ -10,7 +10,7 @@ In this blog post, I'll show you how to configure a Docker-based personal server
 #### Goals
 - **Replicable**: If you want to move to a new server, you should be up and running with little effort.
 - **Simple backups**: It should be as easy as a single `rsync` to back up all important state.
-- **Secure**: All connections to my server should be over secure channels (e.g. TLS or SSH).
+- **Secure**: All connections to your server should be over secure channels (e.g. TLS or SSH).
 - **Low maintenance**: Aside from making sure the machine stays on and periodic software updates, there should be little to no maintenance.
 
 ---
@@ -93,7 +93,7 @@ $ sudo apt-get install nginx docker.io docker-compose
 
 ## Step 2: Domain Name
 
-You'll need a domain name that points to your server. In my example, I'll set `*.raymondcheng.net` to point to the same machine. 
+You'll need a domain name that points to your server. In this example, I'll set `*.raymondcheng.net` to point to the same machine. 
 
 ![DNS record for \*.raymondcheng.net](/img/diagrams/personal-server-wildcard-dns.png)
 
@@ -164,7 +164,7 @@ Create a service named `gitlab`, using the Docker image `gitlab/gitlab-ce`. The 
       - ~/docker/gitlab/logs:/var/log/gitlab
       - ~/docker/gitlab/data:/var/opt/gitlab
 ```
-These are parameters you'll need to set for every service you enable. Ports define port forwarding rules from your host computer to the container. Gitlab by default has internal ports 80 and 22 for the web service and SSH, respectively. These rules expose the ports to 8765 and 2345 on the host computer respectively. As such, you should be able to access the service at [http://localhost:8765](http://localhost:8765). Eventually, we will block access to 8765 in [Step 5: Firewall](#step-5-firewall). Similarly, the Gitlab SSH service is accessible at tcp://localhost:2345.
+These are parameters you'll need to set for every service you enable. Ports define port forwarding rules from your host computer to the container. Gitlab by default has internal ports 80 and 22 for the web service and SSH, respectively. These rules expose the ports to 8765 and 2345 on the host computer respectively. As such, you should be able to access the service at [http://localhost:8765](http://localhost:8765). Eventually, we will block access to 8765 in [Step 5: Firewall](#step-5-firewall). Similarly, the Gitlab SSH service is accessible at ssh://localhost:2345.
 
 We also configure Docker volumes to store all Gitlab related state to a folder on the host computer. In the example, the **configurations** can be found in `~/docker/gitlab/config`, the **logs** in `~/docker/gitlab/logs`, and the **data** in `~/docker/gitlab/data`. These folders are mapped into the container at the specified paths.
 
@@ -305,6 +305,8 @@ $ sudo ufw allow 2345/tcp
 
 Once the Gitlab service is running, you can access it through your service-specific domain (e.g. [https://gitlab.raymondcheng.net](https://gitlab.raymondcheng.net)). Gitlab will walk you through the initial configuration. There, you'll create users, groups, and repositories.
 
+Gitlab's configuration file is found at `~/docker/gitlab/config/gitlab.rb`.
+
 #### Gitlab backups
 
 For some reason just for Gitlab, recovery hasn't been as easy as copying all of the Docker volumes to a new machine. So just in case, I also do Gitlab-specific backups.
@@ -340,7 +342,10 @@ Because all important files from the Docker containers are stored a local direct
 $ rsync --delete -avz -e ssh /docker [USER@]HOST:DEST
 ```
 
-If you ever replace your machine or hard drive, simply copy this directory back to your new hard drive and relaunch your `docker-compose` configuration.
+Also be sure to keep backups of your SSL certificates and Nginx configurations. You'll need those
+
+If you ever replace your machine or hard drive, simply copy this directory back to your new hard drive, relaunch your `docker-compose` configuration, and re-setup Nginx/firewall.
+
 
 ---
 
@@ -374,7 +379,7 @@ Check out the following application-specific guides for setting up
 ---
 
 ## Final Thoughts
-In the 90's and early 2000's, I maintained a very opinionated server setup. But for anyone that has ever tried to maintain an email or chat server, you'll know just how much of a pain of an ass it was back then. I'm really excited to see open source projects like Gitlab, Nextcloud, and Signal mature into usable products that compete with their centralized proprietary counterparts. For at least the data that is most prized to me (my files, contacts, calendar, code, and messages), I've been using free and open source software on my own hardware and I haven't looked back since.
+In the 90's and early 2000's, I maintained a very opinionated server setup. But for anyone that has ever tried to maintain an email or chat server, you'll know just how much of a pain of an ass it was back then. I'm really excited to see open source projects like Gitlab, Nextcloud, and Signal mature into usable products that compete with their centralized proprietary counterparts. For at least the data that is most prized to me (files, contacts, calendar, code, and messages), I've been using free and open source software on my own hardware and I haven't looked back since.
 
 Here are some other guides that cover similar topics:
 - [Using docker at home](https://outcoldman.com/en/archive/2015/03/18/docker-for-home-server/)
