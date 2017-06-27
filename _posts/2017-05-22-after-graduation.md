@@ -4,7 +4,6 @@ title:  "How much longer until you graduate?"
 date:   2017-05-22 12:47:18 -0700
 categories: thoughts
 ---
-![-](http://www.phdcomics.com/comics/archive/phd0227.gif)
 
 Have you ever had that awkward moment with a PhD student, where someone asks:
 
@@ -13,6 +12,8 @@ Have you ever had that awkward moment with a PhD student, where someone asks:
 
 The student hesitates to answer, or worse, bolts in the other direction. For the majority of people who will never get their PhD, I'll give my explanation for the reason why. 
 *Disclaimer: this opinion will be heavily biased towards PhD's in computer science and may not apply to other fields.*
+
+![-](http://www.phdcomics.com/comics/archive/phd0227.gif)
 
 When most people think about school, they usually imagine the type of experience one shares in grade school or a 4-year college.
 - School has a finite length: 12 years for grade school, 4 years for college, 1-2 years for a masters

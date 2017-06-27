@@ -1,7 +1,7 @@
 {
   "title": "Pilot",
   "subtitles": [],
-  "descriptions": [ ],
+  "descriptions": [],
   "images": [
     {
       "src": "/img/pic/fly.jpg",
@@ -26,7 +26,8 @@
       "title": "Airports",
       "ref": "airports",
       "text": [],
-      "includes": [ "fly-airports.html" ]
+      "includes": [],
+      "includemd": [ "pilot-airports.md" ]
     }
   ]
 }

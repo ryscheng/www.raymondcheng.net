@@ -1,7 +1,7 @@
 {  
   "title": "Seaman",
   "subtitles": [],
-  "descriptions": [ "More updates soon..." ],
+  "descriptions": [],
   "images": [
     {
       "src": "/img/pic/boat.jpg",
@@ -12,5 +12,14 @@
     "text": "You make a million decisions that mean nothing, and then one day, you order take-out, and it changes your life.",
     "source": "Annie Reed, Sleepless in Seattle"
   }],
-  "accordians": []
+  "accordians": [
+    {
+      "title": "Boats",
+      "ref": "boats",
+      "text": [],
+      "includes": [],
+      "includemd": [ "boat-trips.md" ]
+    }
+
+  ]
 }

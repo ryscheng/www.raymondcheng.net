@@ -1,0 +1,12 @@
+
+- **Three Buoys Tortolla Cruiser** - 58' Houseboat
+- **Catalina 34** - 34' Sailboat
+  - Lake Union to Duwamish River, WA (2017)
+- **Bayliner 32xx** - 32' Powerboat
+  - Lake Union, WA (2012)
+- **Coronado 23 MKII** - 23' Sailboat
+  - Lake Union to Blake Island, WA (2017)
+- **Pearson Ensign** - 22' Sailboat
+  - Union Bay, WA (2016)
+- **Flying Junior** - 13' Sailboat
+  - Union Bay, WA (2016)
