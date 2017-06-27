@@ -307,6 +307,8 @@ Once the Gitlab service is running, you can access it through your service-speci
 
 Gitlab's configuration file is found at `~/docker/gitlab/config/gitlab.rb`.
 
+The official Gitlab docker guide can be found [here](https://docs.gitlab.com/omnibus/docker/).
+
 #### Gitlab backups
 
 For some reason just for Gitlab, recovery hasn't been as easy as copying all of the Docker volumes to a new machine. So just in case, I also do Gitlab-specific backups.
