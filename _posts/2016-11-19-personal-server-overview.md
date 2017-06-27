@@ -5,7 +5,7 @@ date:   2016-11-19 12:47:18 -0700
 categories: projects
 ---
 
-In this blog post, I'll show you how to configure a Docker-based personal server, running each service in a separate Docker container. Modern devops tools have made it easier than ever to run your own server and for anyone with basic familiarity with Linux, it's worth a try.
+In this blog post, I'll show you how to configure a Docker-based personal server, running each service in a separate Docker container. Modern devops tools have made it easier than ever to run your own server and for anyone with basic familiarity with Linux, it's worth a try. In this tutorial, we'll use [Gitlab](https://about.gitlab.com/) as a running example.
 
 #### Goals
 - **Replicable**: If you want to move to a new server, you should be up and running with little effort.
@@ -65,13 +65,13 @@ Check out [More Services](#more-services) for setting up specific applications.
 Our strategy is threefold:
 
 **Docker Compose to declare services**
-[Docker Compose](https://docs.docker.com/compose/) allows you to declaratively specify a set of services that you want to run on your Docker engine. Then, starting all of your services is as easy as `docker-compose up`, which will also download any missing Docker images from [Docker Hub](https://hub.docker.com/).
+[Docker Compose](https://docs.docker.com/compose/) allows you to declaratively specify a set of services that you want to run on your Docker engine. Then, starting all of your services is as easy as `docker-compose up`, which will also download application images from [Docker Hub](https://hub.docker.com/).
 
 **Store persistent state in Docker volumes**
 [Docker volumes](https://docs.docker.com/engine/userguide/dockervolumes/) allow you to mount a local directory into the Docker container. For example, you may want to store the data from a MySQL database (*/var/lib/mysql*) locally. Docker volumes can then easily be backed up and restored on a new machine.
 
 **Routing with wildcard DNS and TLS**
-In order to make our Docker-ized services securely accessible from subdomains (e.g. https://owncloud.example.com), we'll set up wildcard DNS entries to point to the server and configure an Nginx reverse proxy to route requests to the proper container.
+In order to make our Docker-ized services securely accessible from subdomains (e.g. https://gitlab.example.com), we'll set up wildcard DNS entries to point to the server and configure an Nginx reverse proxy to route requests to the proper container.
 
 ---
 
@@ -132,8 +132,8 @@ services:
     image: gitlab/gitlab-ce
     hostname: gitlab.raymondcheng.net
     ports:
-      - 8004:80
-      - 2224:22
+      - 8765:80
+      - 2345:22
     volumes:
       - ~/docker/gitlab/config:/etc/gitlab
       - ~/docker/gitlab/logs:/var/log/gitlab
@@ -157,14 +157,14 @@ Create a service named `gitlab`, using the Docker image `gitlab/gitlab-ce`. The 
 
 ```yml
     ports:
-      - 8004:80
-      - 2224:22
+      - 8765:80
+      - 2345:22
     volumes:
       - ~/docker/gitlab/config:/etc/gitlab
       - ~/docker/gitlab/logs:/var/log/gitlab
       - ~/docker/gitlab/data:/var/opt/gitlab
 ```
-These are parameters you'll need to set for every service you enable. Ports define port forwarding rules from your host computer to the container. Gitlab by default has internal ports 80 and 22 for the web service and SSH, respectively. These rules expose the ports to 8004 and 2224 on the host computer respectively. As such, you should be able to access the service at [http://localhost:8004](http://localhost:8004). Eventually, we will block access to 8004 in [Step 5: Firewall](#step-5-firewall). Similarly, the Gitlab SSH service is accessible at tcp://localhost:2224.
+These are parameters you'll need to set for every service you enable. Ports define port forwarding rules from your host computer to the container. Gitlab by default has internal ports 80 and 22 for the web service and SSH, respectively. These rules expose the ports to 8765 and 2345 on the host computer respectively. As such, you should be able to access the service at [http://localhost:8765](http://localhost:8765). Eventually, we will block access to 8765 in [Step 5: Firewall](#step-5-firewall). Similarly, the Gitlab SSH service is accessible at tcp://localhost:2345.
 
 We also configure Docker volumes to store all Gitlab related state to a folder on the host computer. In the example, the **configurations** can be found in `~/docker/gitlab/config`, the **logs** in `~/docker/gitlab/logs`, and the **data** in `~/docker/gitlab/data`. These folders are mapped into the container at the specified paths.
 
@@ -184,18 +184,152 @@ $ docker-compose down
 ---
 
 ## Step 4: Nginx and SSL Certificates
+We use Nginx as a reverse HTTP proxy, terminating SSL connections and routing HTTP requests to the proper container. 
+*Note: We run Nginx locally on the host computer, instead of in a Docker container as common in [other guides](https://www.outcoldman.com/en/archive/2015/03/18/docker-for-home-server/). It works either way, I just find this easier to debug when things go wrong.*
 
-[3](https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx/)
-[Let's Encrypt](https://vincent.composieux.fr/article/install-configure-and-automatically-renew-let-s-encrypt-ssl-certificate)
-[Commercial CA](https://www.digitalocean.com/community/tutorials/how-to-install-an-ssl-certificate-from-a-commercial-certificate-authority)
+First, you'll need to get an SSL certificate for your wildcard domain (e.g. *.raymondcheng.net). You can get these fairly cheap from a commercial certificate authority. I recommend using Namecheap, as best described in this guide:
+[How To Install an SSL Certificate from a Commercial Certificate Authority](https://www.digitalocean.com/community/tutorials/how-to-install-an-ssl-certificate-from-a-commercial-certificate-authority)
+
+You can also use a free certificate authority, like Let's Encrypt. Here are 2 guides that I recommmend:
+- [Install, configure and automatically renew Let's Encrypt SSL certificate](https://vincent.composieux.fr/article/install-configure-and-automatically-renew-let-s-encrypt-ssl-certificate)
+- [Let's Encrypt & Nginx](https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx/)
+
+Once you've completed one of these guides, you should have 2 files:
+1. an SSL Certificate (e.g. `server.crt`)
+2. a private key (e.g. `server.key`) - *Keep this safe!*
+
+Now we'll configure Nginx to use these certificates. You'll need to generate an Nginx configuration **for each** Docker service that you are running. I recommend that you use the [Mozilla SSL Configuration Generator](https://mozilla.github.io/server-side-tls/ssl-config-generator/) to generate yours.
+
+```javascript
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+
+  # Redirect all HTTP requests to HTTPS with a 301 Moved Permanently response.
+  return 301 https://$host$request_uri;
+}
+
+server {
+  server_name gitlab.raymondcheng.net
+  listen 443 ssl http2;
+  listen [::]:443 ssl http2;
+
+  # certs sent to the client in SERVER HELLO are concatenated in ssl_certificate
+  # certs should be signed and include intermediates;
+  ssl_certificate /path/to/server.crt
+  ssl_certificate_key /path/to/server.key;
+  ssl_session_timeout 1d;
+  ssl_session_cache shared:SSL:50m;
+  ssl_session_tickets off;
+
+  # modern configuration. tweak to your needs.
+  ssl_protocols TLSv1.2;
+  ssl_ciphers 'ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256';
+  ssl_prefer_server_ciphers on;
+
+  # HSTS (ngx_http_headers_module is required) (15768000 seconds = 6 months)
+  add_header Strict-Transport-Security max-age=15768000;
+
+  # OCSP Stapling ---
+  # fetch OCSP records from URL in ssl_certificate and cache them
+  ssl_stapling on;
+  ssl_stapling_verify on;
+
+  # Proxy
+  add_header X-Frame-Options DENY;
+  add_header X-Content-Type-Options nosniff;
+  client_max_body_size 10G;
+  location / {
+    proxy_pass http://localhost:8765;
+  }
+}
+```
+
+Most of these settings are good as is. I'll explain the few changes that need to be made manually:
+
+```javascript
+server {
+  server_name gitlab.raymondcheng.net
+  ...
+```
+Configure Nginx to use this configuration only for requests to gitlab.raymondcheng.net
+
+```javascript
+  ssl_certificate /path/to/server.crt
+  ssl_certificate_key /path/to/server.key;
+```
+Point these to the SSL certificate and key generated earlier.
+
+```javascript
+  # Proxy
+  add_header X-Frame-Options DENY;
+  add_header X-Content-Type-Options nosniff;
+  client_max_body_size 10G;
+  location / {
+    proxy_pass http://localhost:8765;
+  }
+```
+Prevent our pages from being included in an iframe, prevent MIME-type sniffing, allow forwarding of data payloads up to 10GB, and forward all requests to our Docker container at `http://localhost:8765`.
+
+Last but not least, configure Nginx to use this file and restart Nginx. In Ubuntu, this is as easy as copying the file to `/etc/nginx/sites-enabled` and restarting the service
+
+```bash
+$ sudo cp gitlab.conf /etc/nginx/sites-enabled/
+$ sudo service nginx restart
+```
+
+Verify that the service started properly: by running `sudo service nginx status`.
 
 ---
 
 ## Step 5: Firewall
 
+If the service only exposes a web interface, you usually want to block access to the HTTP port, and only access through SSL connections to Nginx. In our Gitlab example, I'd block access to port 8765 (the exposed port from our Docker container) and allow access to Nginx on port 443. On Ubuntu, this is configured using `ufw`.
+
+```bash
+$ sudo ufw enable         # Blocks all ports by default 
+$ sudo ufw allow 443/tcp
+```
+
+Remember that Gitlab also has an SSH interface, which we exposed on port 2345. We'll need to open access to that too
+
+```bash
+$ sudo ufw allow 2345/tcp
+```
+
 ---
 
 ## Step 6: Gitlab-specific Configuration
+
+#### Setup
+
+Once the Gitlab service is running, you can access it through your service-specific domain (e.g. [https://gitlab.raymondcheng.net](https://gitlab.raymondcheng.net)). Gitlab will walk you through the initial configuration. There, you'll create users, groups, and repositories.
+
+#### Gitlab backups
+
+For some reason just for Gitlab, recovery hasn't been as easy as copying all of the Docker volumes to a new machine. So just in case, I also do Gitlab-specific backups.
+
+```bash
+$ docker exec -i -t scripts_gitlab_1 gitlab-rake gitlab:backup:create
+```
+In this example, `scripts_gitlab_1` is the ID of the Docker container running Gitlab at the moment. You can find the ID of any running container by running `docker ps`. Backup files will be generated and stored in `~/docker/gitlab/data/backups/`. Since it's part of the Docker volume, it'll be backed up with the rest of the files, just in case you need it.
+
+#### Accessing Gitlab
+
+Because we configure Gitlab SSH to be on a non-standard port, it is easiest to add it to your `~/.ssh/config`.
+
+```yml
+Host gitlab
+Hostname gitlab.raymondcheng.net
+  User git
+  Port 2345
+```
+
+In this case, you can now just clone repositories using the shorthand:
+
+```bash
+$ git clone gitlab:user/repo.git
+```
 
 ---
 
@@ -234,10 +368,8 @@ $ docker rmi $(docker images -q -f dangling=true)
 ## More Services
 Check out the following application-specific guides for setting up 
 
-- [Owncloud]()
-- [Gitlab]()
+- [Nextcloud]()
 - [OpenVPN]()
-- [Iodine]()
 
 ---
 
@@ -247,3 +379,5 @@ In the 90's and early 2000's, I maintained a very opinionated server setup. But 
 Here are some other guides that cover similar topics:
 - [Using docker at home](https://outcoldman.com/en/archive/2015/03/18/docker-for-home-server/)
 - [Docker with Owncloud](http://www.linux-magazine.com/Issues/2014/168/Docker-with-OwnCloud/)
+
+Feel free to email me with feedback if any of this gets outdated.
