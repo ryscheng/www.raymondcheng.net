@@ -23,7 +23,7 @@ permalink: /blog/
     </ul>
 
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-  </div>
+  </div> <!-- column -->
 
   <!-- RIGHT -->
   <div class="col-md-5">
@@ -50,6 +50,8 @@ permalink: /blog/
       {% endfor %}
       </ul>
     </div>
-  </div>
-</div>
+
+    {% include duckduckgo.html %}
+  </div> <!-- column -->
+</div> <!-- row -->
 <hr class="featurette-divider">
