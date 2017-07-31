@@ -16,6 +16,7 @@
     "title": "Trips",
     "ref": "trips",
     "text": [],
-    "includes": [ "motorcycle-trips.html" ]
+    "includes": [],
+    "includemd": [ "motorcycle-trips.md" ]
   }]
 }
