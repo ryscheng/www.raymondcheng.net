@@ -1,4 +1,4 @@
-Home Airports: [Black Rock City Airport](http://airport.burningman.org/) (88NV), [Boeing Field](http://www.kingcounty.gov/transportation/kcdot/Airport.aspx) (BFI), [Tipton Airport]("http://www.tiptonairport.org/) (FME)
+Home Airports: [Black Rock City Airport](http://airport.burningman.org/) (88NV), [Boeing Field](http://www.kingcounty.gov/transportation/kcdot/Airport.aspx) (BFI), [Tipton Airport](http://www.tiptonairport.org/) (FME)
 
 Destination: Everywhere
 
