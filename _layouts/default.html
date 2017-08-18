@@ -4,20 +4,25 @@
   {% include head.html %}
 
   <body>
-    <div class="container">
+
     {% include header.html %}
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
+    <div class="container">
 
-    {% include footer.html %}
+      <div class="page-content">
+        <div class="wrapper">
+          {{ content }}
+        </div>
+      </div>
+
+      {% include footer.html %}
+
     </div>
   </body>
+
 <script src='/js/jquery.min.js' type='text/javascript'></script>
 <script src='/js/bootstrap.min.js' type='text/javascript'></script>
 <script src='/js/main.js' type='text/javascript'></script>
 {% include analytics.html %}
+
 </html>

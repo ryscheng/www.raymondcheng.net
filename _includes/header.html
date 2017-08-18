@@ -1,30 +1,27 @@
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">{{ site.title }}</a>
-    </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/about/#research">Research</a></li>
-        <li><a href="/about/#writer">Publications</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="">
-          <a href="http://www.google.com/recaptcha/mailhide/d?k=01J3mh8KN6Ooms129vMGl__A==&c=6ds0cmIxcYvjHxEv3OOonjCe8oQtT4i2gN0JoJbwueE=">
-            <span class="glyphicon glyphicon-envelope"></span>
-            Email Me
-          </a>
-        </li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div>
-</div>
+<nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+  <a class="navbar-brand" href="/">{{ site.title }}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about/#research">Research</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about/#writer">Publications</a>
+      </li>
+    </ul>
+
+    <a href="http://www.google.com/recaptcha/mailhide/d?k=01acpirUAdGm8kXTEX3VqxAQ==&amp;c=hQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01acpirUAdGm8kXTEX3VqxAQ\x3d\x3d\x26c\x3dhQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">
+      <button class="btn btn-outline-success my-2 my-sm-0">Email Me</button>
+    </a>
+  </div>
+</nav>
