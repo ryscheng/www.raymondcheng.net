@@ -8,5 +8,9 @@
   - Lake Union to Blake Island, WA (2017)
 - **Pearson Ensign** - 22' Sailboat
   - Union Bay, WA (2016)
+- **Cobalt 220** - 22' Bowrider
+  - Lake Union to Lake Washington, WA (2017)
+- **Hot Tub Boat** - 15' Hot tub
+  - Lake Union, WA (2017)
 - **Flying Junior** - 13' Sailboat
   - Union Bay, WA (2016)
