@@ -52,27 +52,32 @@ permalink: /about/
       </p>
     </div>
     <!-- QUOTES -->
-    <div>
+    <div class="highlight">
       {% for quote in feature.quotes %}
-      <blockquote>
-        <p>{{ quote.text }}</p>
-        <small class="text-right">{{ quote.source }}</small>
+      <blockquote class="blockquote">
+        <p class="mb-0">{{ quote.text }}</p>
+        <footer class="blockquote-footer text-right">{{ quote.source }}</footer>
       </blockquote>
       {% endfor %}
     </div>
     <!-- ACCORDIANS -->
-    <div class="panel-group" id="{{feature_key}}-accordion">
+    <div role="tablist" id="{{feature_key}}-accordion">
       {% for acc in feature.accordians %}
-      <div class="panel panel-default" name="{{feature_key}}-{{acc.ref}}">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#{{feature_key}}-accordion" href="#{{feature_key}}-{{acc.ref}}">
+      <!-- CARD -->
+      <div class="card">
+        
+        <!-- CARD-HEADER -->
+        <div class="card-header" role="tab" id="{{feature_key}}-{{acc.ref}}-heading">
+          <h5 class="mb-0">
+            <a data-toggle="collapse" href="#{{feature_key}}-{{acc.ref}}" aria-expanded="true" aria-controls="{{feature_key}}-{{acc.ref}}">
               {{acc.title}}
             </a>
-          </h4>
+          </h5>
         </div>
-        <div id="{{feature_key}}-{{acc.ref}}" class="panel-collapse collapse in">
-          <div class="panel-body">
+
+        <!-- CARD-BODY -->
+        <div id="{{feature_key}}-{{acc.ref}}" class="collapse" role="tabpanel" aria-labelledby="{{feature_key}}-{{acc.ref}}-heading" data-parent="#{{feature_key}}-accordion">
+          <div class="card-body">
             {% for t in acc.text %}
               {{ t }}
             {% endfor %}
@@ -86,9 +91,9 @@ permalink: /about/
           </div>
         </div>
       </div>
+
       {% endfor %}
     </div> <!-- accordian -->
-
   </div> <!-- column -->
 
   <!-- RIGHT IMAGE -->

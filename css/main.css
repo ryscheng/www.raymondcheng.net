@@ -9,6 +9,16 @@ body {
 /*  min-height: 2000px; */
 }
 
+blockquote {
+  padding-left: 8px;
+  border-left: solid #e7e7e9;
+}
+
+pre {
+  padding: 12px;
+  background-color: #f7f7f9;
+}
+
 .contactico {
   width: 25px;
 }
@@ -58,6 +68,7 @@ body {
 }
 
 .featurette-image {
+  width: 100%;
   //border:1px solid black ;
 }
 
