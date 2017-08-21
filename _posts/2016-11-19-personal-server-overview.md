@@ -40,19 +40,7 @@ In this blog post, I'll show you how to configure a Docker-based personal server
 
 **Control**: Keep your data on your own hardware and directly control who has access to see it.
 
-Docker images are now available for a wide-variety of server applications. A small sample:
-
-- [Nextcloud](https://hub.docker.com/_/nextcloud/) instead of Dropbox/Google Drive/OneDrive
-  - also supports syncing calendars, contacts, and tasks
-- [Gitlab](https://hub.docker.com/r/gitlab/gitlab-ce/) instead of GitHub/Bitbucket
-- [OpenVPN](https://hub.docker.com/r/kylemanna/openvpn/) is a VPN server
-- [Iodine](https://hub.docker.com/r/ryscheng/docker-iodine/) helps you tunnel out of restricted networks.
-- [Mailpile](https://www.mailpile.is/) is a searchable e-mail client.
-- [Mattermost](https://hub.docker.com/r/mattermost/platform/) is a chat server with functionality similar to Slack.
-- [ShareLaTeX](https://hub.docker.com/r/sharelatex/sharelatex/) for collaborative real-time LaTeX editing
-- [Piwik](https://hub.docker.com/_/piwik/) instead of Google Analytics
-- [Home Assistant](https://hub.docker.com/r/homeassistant/home-assistant/) for home automation
-
+Docker images are now available for a wide-variety of server applications. 
 Check out [More Services](#more-services) for setting up specific applications.
 
 ---
@@ -375,8 +363,17 @@ $ docker rmi $(docker images -q -f dangling=true)
 ## More Services
 Check out the following application-specific guides for setting up 
 
-- [Nextcloud]()
-- [OpenVPN]()
+- [Nextcloud](https://hub.docker.com/_/nextcloud/) instead of Dropbox/Google Drive/OneDrive
+  - also supports syncing calendars, contacts, and tasks
+- [Gitlab](https://hub.docker.com/r/gitlab/gitlab-ce/) instead of GitHub/Bitbucket
+- [OpenVPN](https://hub.docker.com/r/kylemanna/openvpn/) is a VPN server over SSL/TLS
+- [Libreswan](https://github.com/hwdsl2/docker-ipsec-vpn-server/blob/master/README.md) is a VPN server over IPSec
+- [Iodine](https://hub.docker.com/r/ryscheng/docker-iodine/) helps you tunnel out of restricted networks.
+- [Mailpile](https://www.mailpile.is/) is a searchable e-mail client.
+- [Mattermost](https://hub.docker.com/r/mattermost/platform/) is a chat server with functionality similar to Slack.
+- [ShareLaTeX](https://hub.docker.com/r/sharelatex/sharelatex/) for collaborative real-time LaTeX editing
+- [Piwik](https://hub.docker.com/_/piwik/) instead of Google Analytics
+- [Home Assistant](https://hub.docker.com/r/homeassistant/home-assistant/) for home automation
 
 ---
 
