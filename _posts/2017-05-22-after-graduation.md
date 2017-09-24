@@ -29,7 +29,7 @@ It's this last point that really makes the difference. A thesis is essentially a
 
 So what is novel? That question has led all grad students to cry at least two ramen cups full of tears. Some grad students quit before they figure it out. Some theses go on to change the world. Most are just barely novel at all, but take too many years to crank out.
 
-In addition, grad students must learn to solve the problems with little to no guidance. Sometimes, the student has to literally invent the science and techniques necessary. It can be a painfully lonely path and at the root there is often a lot of insecurity. 
+In addition, grad students must learn to solve the problems with little to no guidance. Sometimes, the student has to literally invent the science and techniques necessary. It can be a painfully lonely path and at the root there is often a lot of insecurity. Most grad students don't know exactly how long it will take.
 
 So what should you do when you see a grad student? As with any goal where the path is long and complicated, just show support and interest. Instead of asking about line items on a resume (e.g. *"what have you been up to?"*), engage in thoughts, ideas, and feelings (e.g. *"what have you been most excited about lately?"*). The answer will be 10x more interesting to you, 10x easier to answer for the student to answer, and generally lead to better understanding. They might even thank you for it in their next therapy session.
 

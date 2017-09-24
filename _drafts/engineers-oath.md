@@ -9,3 +9,17 @@ categories: projects
 
 Privacy
 Recycle ability macbook
+
+The future is the union of what we all put our time towards
+  engineers play a big part in it
+The market doesn't determine what is right and wrong
+  laws can, but not always
+Build the future you want your kids to live in
+
+Question why, 'ignorance is bliss' is not acceptable
+Do things consistent with your own moral code
+Speak up - to the extent you can
+Stories about when punished for doing what you believed was right
+
+vs lawyers - not everyone is entitled to an engineer
+vs medical - no clear right and wrong
