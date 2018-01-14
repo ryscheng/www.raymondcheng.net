@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
-gem 'github-pages', group: :jekyll_plugins
-gem 'jekyll-scholar', group: :jekyll_plugins
+Encoding.default_external = Encoding::UTF_8
+group :jekyll_plugins do
+  gem 'jekyll'
+  #gem 'github-pages'
+  gem 'jekyll-scholar'
+end
 gem "therubyracer"
