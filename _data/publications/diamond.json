@@ -23,6 +23,10 @@
     {
       "name": "PDF2",
       "url": "/download/papers/diamond-osdi.pdf"
+    },
+    {
+      "name": "Slides",
+      "url": "/download/papers/diamond-osdi-slides.pdf"
     }
   ],
   "bibtex": "/download/papers/diamond-osdi.bib"

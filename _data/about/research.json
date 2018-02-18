@@ -19,11 +19,22 @@
       "text": [],
       "includemd": [
         "research-talek.md",
-        "research-radiatus.md",
-        "research-uproxy.md",
-        "research-freedomjs.md"
+        "research-uproxy.md"
       ],
       "includes": []
+    },
+    {
+      "title": "Past Projects",
+      "ref": "previous",
+      "text": [],
+      "includemd": [
+        "research-diamond.md",
+        "research-radiatus.md",
+        "research-freedomjs.md"
+      ],
+      "includes": [
+        "research-previous.html"
+      ]
     },
     {
       "title": "Hacks",
@@ -32,15 +43,6 @@
       "includemd": [],
       "includes": [
         "research-hacks.html"
-      ]
-    },
-    {
-      "title": "Previous Projects",
-      "ref": "previous",
-      "text": [],
-      "includemd": [],
-      "includes": [
-        "research-previous.html"
       ]
     }
   ]
