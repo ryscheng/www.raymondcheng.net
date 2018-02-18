@@ -13,7 +13,6 @@ docker run --rm -t -i \
   -w /code \
   -e LC_CTYPE=en_US.UTF-8 \
   -e LANG=en_US.UTF-8 \
-  -p 8000:8000 \
   ruby:2.3 \
   bash
-
+  #-p 8000:8000 \
