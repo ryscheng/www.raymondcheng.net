@@ -24,5 +24,15 @@
     "text": "Did you ever feel, as though you had something inside you that was only waiting for you to give it a chance to come out? Some sort of extra power that you aren't using - you know, like all the water that goes down the falls instead of through the turbines?",
     "source": "Hemholtz Watson from <em>Brave New World</em>"
   }],
-  "accordians": []
+  "accordians": [
+    {
+      "title": "Classes",
+      "ref": "classes",
+      "text": [],
+      "includemd": [
+        "education-classes.md"
+      ],
+      "includes": []
+    }
+  ]
 }

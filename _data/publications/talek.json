@@ -1,18 +1,18 @@
 {
-  "title": "Talek: a Private Publish-Subscribe Protocol",
+  "title": "Talek: Private Group Messaging with Indistinguishable Access Patterns",
   "authors": [
     "raymond_cheng",
     "will_scott",
-    "bryan_parno",
     "irene_zhang",
+    "tom_anderson",
     "arvind_krishnamurthy",
-    "tom_anderson"
+    "bryan_parno"
   ],
   "venue": {
     "name": "In Submission",
     "url": ""
   },
-  "year": 2016,
+  "year": 2018,
   "paper": [
     {
       "name": "PDF1",

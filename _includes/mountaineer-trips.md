@@ -1,4 +1,5 @@
 
+- [Mt Diablo](http://www.parks.ca.gov/?page_id=517) - Walnut Creek (2018)
 - [Snoqualmie Tunnel](http://www.wta.org/go-hiking/hikes/iron-horse-tunnel) - Cascade Range (2017)
 - [Mount Healy](https://www.nps.gov/dena/planyourvisit/overlook.htm) - Denali National Park (2017)
 - [Hoh River Trail to Blue Glacier](http://www.wta.org/go-hiking/hikes/hoh-river-blue-glacier) - Olympic National Park (2017)

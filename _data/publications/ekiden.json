@@ -1,0 +1,18 @@
+{
+  "title": "Ekiden: A Platform for Private, Trustworthy, and Performant Smart Contract Execution",
+  "authors": [
+    "raymond_cheng"
+  ],
+  "venue": {
+    "name": "In Submission",
+    "url": ""
+  },
+  "year": 2018,
+  "paper": [
+    {
+      "name": "PDF",
+      "url": "/download/papers/ekiden-tr.pdf"
+    }
+  ],
+  "bibtex": "/download/papers/ekiden-tr.bib"
+}

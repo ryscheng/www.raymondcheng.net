@@ -18,6 +18,7 @@
       "ref": "research",
       "text": [],
       "includemd": [
+        "research-ekiden.md",
         "research-talek.md",
         "research-uproxy.md"
       ],
