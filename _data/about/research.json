@@ -45,6 +45,16 @@
       "includes": [
         "research-hacks.html"
       ]
+    },
+    {
+      "title": "Press",
+      "ref": "press",
+      "text": [],
+      "includemd": [
+        "research-press.md"
+      ],
+      "includes": []
     }
+
   ]
 }

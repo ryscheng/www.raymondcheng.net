@@ -15,8 +15,8 @@
     },
     {
       "name": "PDF2",
-      "url": "http://localhost:8000/download/papers/whanausip-thesis.pdf"
+      "url": "/download/papers/whanausip-thesis.pdf"
     }
   ],
-  "bibtex": "http://localhost:8000/download/papers/whanausip-thesis.bib"
+  "bibtex": "/download/papers/whanausip-thesis.bib"
 }

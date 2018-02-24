@@ -1,0 +1,22 @@
+{
+  "title": "Practical Improvements to User Privacy in Cloud Applications",
+  "authors": [
+    "raymond_cheng"
+  ],
+  "venue": {
+    "name": "Ph.D. thesis, University of Washington",
+    "url": "https://www.cs.washington.edu/"
+  },
+  "year": 2017,
+  "paper": [
+    {
+      "name": "PDF1",
+      "url": "https://digital.lib.washington.edu/researchworks/handle/1773/40542"
+    },
+    {
+      "name": "PDF2",
+      "url": "/download/papers/ryscheng-thesis.pdf"
+    }
+  ],
+  "bibtex": "/download/papers/ryscheng-thesis.bib"
+}
