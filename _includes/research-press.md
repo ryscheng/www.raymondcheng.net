@@ -1,5 +1,6 @@
 #### UC Berkeley
 - [Cryptocurrencies Come to Campus](https://www.nytimes.com/2018/02/08/technology/cryptocurrencies-come-to-campus.html)
+- [The crypto craze has spread to college campuses](https://www.cnbc.com/2018/03/22/colleges-are-now-offering-courses-in-cryptocurrencies-and-blockchain.html)
 
 #### uProxy   
 - [Google Unveils Tools to Access Web From Repressive Countries](http://business.time.com/2013/10/21/google-digital-rebels/)
