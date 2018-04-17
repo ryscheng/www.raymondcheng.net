@@ -12,6 +12,10 @@
     {
       "name": "PDF",
       "url": "/download/papers/ekiden-tr.pdf"
+    },
+    {
+      "name": "Arxiv",
+      "url": "http://arxiv.org/abs/1804.05141"
     }
   ],
   "bibtex": "/download/papers/ekiden-tr.bib"
