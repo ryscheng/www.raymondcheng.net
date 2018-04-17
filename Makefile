@@ -15,4 +15,4 @@ run:
 
 # Build and run web server as production
 prod:
-	bundle exec jekyll serve
+	JEKYLL_ENV=production bundle exec jekyll serve
