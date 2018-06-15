@@ -57,6 +57,14 @@
     "name": "Arvind Krishnamurthy",
     "url": "https://www.cs.washington.edu/people/faculty/arvind"
   },
+  "ari_juels": {
+    "name": "Ari Juels",
+    "url": "http://www.arijuels.com/"
+  },
+  "andrew_miller": {
+    "name": "Andrew Miller",
+    "url": "http://soc1024.ece.illinois.edu/"
+  },
   "henry_levy": {
     "name": "Henry Levy",
     "url": "http://www.cs.washington.edu/people/faculty/levy"
@@ -77,9 +85,25 @@
     "name": "Jon Howell",
     "url": "http://www.jonh.net/~jonh/cv/"
   },
+  "noah_johnson": {
+    "name": "Noah Johnson",
+    "url": "http://people.eecs.berkeley.edu/~noahj/"
+  },
   "will_scott": {
     "name": "Will Scott",
     "url": "https://wills.co.tt/"
+  },
+  "fan_zhang": {
+    "name": "Fan Zhang",
+    "url": "http://www.fanzhang.me/"
+  },
+  "jernej_kos": {
+    "name": "Jernej Kos",
+    "url": "https://unico.re/"
+  },
+  "warren_he": {
+    "name": "Warren He",
+    "url": "https://www.linkedin.com/in/warrenh"
   },
   "irene_zhang": {
     "name": "Irene Zhang",

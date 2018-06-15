@@ -1,7 +1,14 @@
 {
   "title": "Ekiden: A Platform for Private, Trustworthy, and Performant Smart Contract Execution",
   "authors": [
-    "raymond_cheng"
+    "raymond_cheng",
+    "fan_zhang",
+    "jernej_kos",
+    "warren_he",
+    "noah_johnson",
+    "ari_juels",
+    "andrew_miller",
+    "dawn_song"
   ],
   "venue": {
     "name": "In Submission",
@@ -10,9 +17,9 @@
   "year": 2018,
   "paper": [
     {
-      "name": "PDF",
-      "url": "/download/papers/ekiden-tr.pdf"
+      "name": "Arxiv",
+      "url": "https://arxiv.org/abs/1804.05141"
     }
   ],
-  "bibtex": "/download/papers/ekiden-tr.bib"
+  "bibtex": "http://dblp.uni-trier.de/rec/bibtex/journals/corr/abs-1804-05141"
 }

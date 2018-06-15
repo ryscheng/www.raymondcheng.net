@@ -14,3 +14,6 @@
   - Lake Union, WA (2017)
 - **Flying Junior** - 13' Sailboat
   - Union Bay, WA (2016)
+- **Windsurfing**
+  - Union Bay, WA
+  - Berkeley Marina, CA
