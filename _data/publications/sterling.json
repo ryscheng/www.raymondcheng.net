@@ -1,0 +1,22 @@
+{
+  "title": "A Demonstration of Sterling: A Privacy-Preserving Data Marketplace",
+  "authors": [
+    "nick_hynes",
+    "raymond_cheng",
+    "noah_johnson",
+    "david_dao",
+    "dawn_song"
+  ],
+  "venue": {
+    "name": "VLDB Demo",
+    "url": "http://vldb2018.lncc.br/accepted-demostrations.html"
+  },
+  "year": 2018,
+  "paper": [
+    {
+      "name": "Arxiv",
+      "url": ""
+    }
+  ],
+  "bibtex": ""
+}
