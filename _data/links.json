@@ -1,4 +1,8 @@
 {
+  "oasislabs": {
+    "name": "Oasis Labs",
+    "url": "https://www.oasislabs.com/"
+  },
   "ucb": {
     "name": "University of California, Berkeley",
     "url": "http://www.berkeley.edu/"
