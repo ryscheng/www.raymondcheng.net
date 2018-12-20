@@ -56,10 +56,8 @@ To install these on MacOS with [Homebrew](https://brew.sh/)
 ```bash
 $ brew install yubikey-personalization
 $ brew install gnupg2
-$ brew install gpg-agent
 $ brew install pinentry-mac
 ```
-
 
 ## Yubikey Configuration
 
