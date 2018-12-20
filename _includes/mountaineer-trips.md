@@ -1,5 +1,8 @@
 
-- [Muir Woods](https://www.nps.gov/muwo/index.htm) - (2018)
+- [Tomales Point Trail](https://www.alltrails.com/trail/us/california/tomales-point-trail) - Point Reyes National Seashore (2018)
+- [Sentinel Dome](https://www.yosemite.com/what-to-do/sentinel-dome-taft-point/) - Yosemite National Park (2018)
+- [Vernal Falls](https://www.nps.gov/yose/planyourvisit/vernalnevadatrail.htm) - Yosemite National Park (2018)
+- [Muir Woods](https://www.nps.gov/muwo/index.htm) - Marin (2018)
 - [Mt Diablo](http://www.parks.ca.gov/?page_id=517) - Walnut Creek (2018)
 - [Snoqualmie Tunnel](http://www.wta.org/go-hiking/hikes/iron-horse-tunnel) - Cascade Range (2017)
 - [Mount Healy](https://www.nps.gov/dena/planyourvisit/overlook.htm) - Denali National Park (2017)

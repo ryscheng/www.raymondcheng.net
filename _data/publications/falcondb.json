@@ -1,10 +1,10 @@
 {
-  "title": "Saber: Parallel and Asynchronous Smart Contract Execution with Dispute Resolution",
+  "title": "FalconDB: Blockchain-based Collaborative Database",
   "authors": [
-    "jian_liu",
-    "peilun_li",
+    "yanqing_peng",
+    "min_du",
+    "feifei_li",
     "raymond_cheng",
-    "n_asokan",
     "dawn_song"
   ],
   "venue": {

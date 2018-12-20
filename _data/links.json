@@ -49,156 +49,183 @@
     "name": "Raymond Cheng",
     "url": "https://raymondcheng.net"
   },
-  "dawn_song": {
-    "name": "Dawn Xiaodong Song",
-    "url": "https://people.eecs.berkeley.edu/~dawnsong/"
-  },
-  "tom_anderson": {
-    "name": "Tom Anderson",
-    "url": "https://www.cs.washington.edu/people/faculty/tom"
-  },
-  "arvind_krishnamurthy": {
-    "name": "Arvind Krishnamurthy",
-    "url": "https://www.cs.washington.edu/people/faculty/arvind"
-  },
-  "ari_juels": {
-    "name": "Ari Juels",
-    "url": "http://www.arijuels.com/"
+
+
+
+  "aapo_kyrola": {
+    "name": "Aapo Kyrola",
+    "url": "http://www.cs.cmu.edu/~akyrola/"
   },
   "andrew_miller": {
     "name": "Andrew Miller",
     "url": "http://soc1024.ece.illinois.edu/"
   },
-  "henry_levy": {
-    "name": "Henry Levy",
-    "url": "http://www.cs.washington.edu/people/faculty/levy"
-  },
-  "franzi_roesner": {
-    "name": "Franzi Roesner",
-    "url": "http://www.franziroesner.com/"
-  }, 
-  "michael_ernst": {
-    "name": "Michael Ernst",
-    "url": "https://homes.cs.washington.edu/~mernst/"
-  },
-  "bryan_parno": {
-    "name": "Bryan Parno",
-    "url": "https://www.csd.cs.cmu.edu/people/faculty/bryan-parno"
-  },
-  "jon_howell": {
-    "name": "Jon Howell",
-    "url": "http://www.jonh.net/~jonh/cv/"
-  },
-  "noah_johnson": {
-    "name": "Noah Johnson",
-    "url": "http://people.eecs.berkeley.edu/~noahj/"
-  },
-  "nick_hynes": {
-    "name": "Nick Hynes",
-    "url": "http://github.com/nhynes"
-  },
-  "david_dao": {
-    "name": "David Dao",
-    "url": "https://daviddao.org/"
-  },
-  "will_scott": {
-    "name": "Will Scott",
-    "url": "https://wills.co.tt/"
-  },
-  "fan_zhang": {
-    "name": "Fan Zhang",
-    "url": "http://www.fanzhang.me/"
-  },
-  "jernej_kos": {
-    "name": "Jernej Kos",
-    "url": "https://unico.re/"
-  },
-  "warren_he": {
-    "name": "Warren He",
-    "url": "https://www.linkedin.com/in/warrenh"
-  },
-  "irene_zhang": {
-    "name": "Irene Zhang",
-    "url": "http://irenezhang.net/"
-  },
-  "niel_lebeck": {
-    "name": "Niel Lebeck",
-    "url": "https://homes.cs.washington.edu/~nl35/"
-  },
-  "pedro_fonseca": {
-    "name": "Pedro Fonseca",
-    "url": "https://homes.cs.washington.edu/~pfonseca/"
-  },
-  "brandon_holt": {
-    "name": "Brandon Holt",
-    "url": "http://bholt.org/"
+  "ari_juels": {
+    "name": "Ari Juels",
+    "url": "http://www.arijuels.com/"
   },
   "ariadna_norberg": {
     "name": "Ariadna Norberg",
     "url": "https://www.linkedin.com/in/ariadna-norberg-9952b296"
   },
-  "paul_ellenbogen": {
-    "name": "Paul Ellenbogen",
-    "url": "https://www.ellenbogen.xyz/"
+  "arvind_krishnamurthy": {
+    "name": "Arvind Krishnamurthy",
+    "url": "https://www.cs.washington.edu/people/faculty/arvind"
   },
-  "ravi_bhoraskar": {
-    "name": "Ravi Bhoraskar",
-    "url": "http://ravi.bhoraskar.com/"
+  "brandon_holt": {
+    "name": "Brandon Holt",
+    "url": "http://bholt.org/"
+  },
+  "bryan_parno": {
+    "name": "Bryan Parno",
+    "url": "https://www.csd.cs.cmu.edu/people/faculty/bryan-parno"
+  },
+  "david_dao": {
+    "name": "David Dao",
+    "url": "https://daviddao.org/"
+  },
+  "dawn_song": {
+    "name": "Dawn Xiaodong Song",
+    "url": "https://people.eecs.berkeley.edu/~dawnsong/"
   },
   "dominic_langenegger": {
     "name": "Dominic Langenegger",
     "url": "https://www.linkedin.com/in/dominic-langenegger-a0979a51"
   },
-  "pingyang_he": {
-    "name": "Pingyang He",
-    "url": "https://www.linkedin.com/in/pingyang-he-a656062a"
-  },
-  "michael_schueppert": {
-    "name": "Michael Schueppert",
-    "url": "https://www.linkedin.com/in/michael-schueppert-6005256"
-  },
-  "hila_becker": {
-    "name": "Hila Becker",
-    "url": "http://www.cs.columbia.edu/~hila/"
-  },
-  "mayur_thakur": {
-    "name": "Mayur Thakur",
-    "url": "https://industry.datascience.columbia.edu/profile/mayur-thakur"
-  },
-  "ji_hong": {
-    "name": "Ji Hong",
-    "url": "https://www.linkedin.com/in/ji-hong-0117b415"
-  },
-  "aapo_kyrola": {
-    "name": "Aapo Kyrola",
-    "url": "http://www.cs.cmu.edu/~akyrola/"
-  },
-  "youshan_miao": {
-    "name": "Youshan Miao",
-    "url": "https://www.linkedin.com/in/youshanmiao"
-  },
-  "xuetian_weng": {
-    "name": "Xuetian Weng",
-    "url": "https://scholar.google.com/citations?user=zvfOH0wAAAAJ&hl=en"
-  },
-  "ming_wu": {
-    "name": "Ming Wu",
-    "url": "https://www.microsoft.com/en-us/research/people/miw/"
+  "enhong_chen": {
+    "name": "En-Hong Chen",
+    "url": "http://staff.ustc.edu.cn/~cheneh/"
   },
   "fan_yang": {
     "name": "Fan Yang",
     "url": "https://www.microsoft.com/en-us/research/people/fanyang/"
   },
-  "lidong_zhou": {
-    "name": "Lidong Zhou",
-    "url": "https://www.microsoft.com/en-us/research/people/lidongz/"
+  "fan_zhang": {
+    "name": "Fan Zhang",
+    "url": "http://www.fanzhang.me/"
+  },
+  "feifei_li": {
+    "name": "Feifei Li",
+    "url": "https://www.cs.utah.edu/~lifeifei/"
   },
   "feng_zhao": {
     "name": "Feng Zhao",
     "url": "http://fengzhao.com/"
   },
-  "enhong_chen": {
-    "name": "En-Hong Chen",
-    "url": "http://staff.ustc.edu.cn/~cheneh/"
+  "franzi_roesner": {
+    "name": "Franzi Roesner",
+    "url": "http://www.franziroesner.com/"
+  }, 
+  "henry_levy": {
+    "name": "Henry Levy",
+    "url": "http://www.cs.washington.edu/people/faculty/levy"
+  },
+  "hila_becker": {
+    "name": "Hila Becker",
+    "url": "http://www.cs.columbia.edu/~hila/"
+  },
+  "irene_zhang": {
+    "name": "Irene Zhang",
+    "url": "http://irenezhang.net/"
+  },
+  "jernej_kos": {
+    "name": "Jernej Kos",
+    "url": "https://unico.re/"
+  },
+  "ji_hong": {
+    "name": "Ji Hong",
+    "url": "https://www.linkedin.com/in/ji-hong-0117b415"
+  },
+  "jian_liu": {
+    "name": "Jian Liu",
+    "url": "https://people.eecs.berkeley.edu/~jian.liu/"
+  },
+  "jon_howell": {
+    "name": "Jon Howell",
+    "url": "http://www.jonh.net/~jonh/cv/"
+  },
+  "lidong_zhou": {
+    "name": "Lidong Zhou",
+    "url": "https://www.microsoft.com/en-us/research/people/lidongz/"
+  },
+  "mayur_thakur": {
+    "name": "Mayur Thakur",
+    "url": "https://industry.datascience.columbia.edu/profile/mayur-thakur"
+  },
+  "michael_ernst": {
+    "name": "Michael Ernst",
+    "url": "https://homes.cs.washington.edu/~mernst/"
+  },
+  "michael_schueppert": {
+    "name": "Michael Schueppert",
+    "url": "https://www.linkedin.com/in/michael-schueppert-6005256"
+  },
+  "min_du": {
+    "name": "Min Du",
+    "url": "https://www.flux.utah.edu/profile/mind"
+  },
+  "ming_wu": {
+    "name": "Ming Wu",
+    "url": "https://www.microsoft.com/en-us/research/people/miw/"
+  },
+  "n_asokan": {
+    "name": "N. Asokan",
+    "url": "https://asokan.org/asokan/"
+  },
+  "nick_hynes": {
+    "name": "Nick Hynes",
+    "url": "http://github.com/nhynes"
+  },
+  "niel_lebeck": {
+    "name": "Niel Lebeck",
+    "url": "https://homes.cs.washington.edu/~nl35/"
+  },
+  "noah_johnson": {
+    "name": "Noah Johnson",
+    "url": "http://people.eecs.berkeley.edu/~noahj/"
+  },
+  "paul_ellenbogen": {
+    "name": "Paul Ellenbogen",
+    "url": "https://www.ellenbogen.xyz/"
+  },
+  "pedro_fonseca": {
+    "name": "Pedro Fonseca",
+    "url": "https://homes.cs.washington.edu/~pfonseca/"
+  },
+  "peilun_li": {
+    "name": "Peilun Li",
+    "url": "http://iiis.tsinghua.edu.cn/peilunli/"
+  },
+  "pingyang_he": {
+    "name": "Pingyang He",
+    "url": "https://www.linkedin.com/in/pingyang-he-a656062a"
+  },
+  "ravi_bhoraskar": {
+    "name": "Ravi Bhoraskar",
+    "url": "http://ravi.bhoraskar.com/"
+  },
+  "tom_anderson": {
+    "name": "Tom Anderson",
+    "url": "https://www.cs.washington.edu/people/faculty/tom"
+  },
+  "warren_he": {
+    "name": "Warren He",
+    "url": "https://www.linkedin.com/in/warrenh"
+  },
+  "will_scott": {
+    "name": "Will Scott",
+    "url": "https://wills.co.tt/"
+  },
+  "xuetian_weng": {
+    "name": "Xuetian Weng",
+    "url": "https://scholar.google.com/citations?user=zvfOH0wAAAAJ&hl=en"
+  },
+  "yanqing_peng": {
+    "name": "Yanqing Peng",
+    "url": "https://www.cs.utah.edu/~ypeng/"
+  },
+  "youshan_miao": {
+    "name": "Youshan Miao",
+    "url": "https://www.linkedin.com/in/youshanmiao"
   }
 }

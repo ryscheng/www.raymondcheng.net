@@ -12,6 +12,8 @@
   - Lake Union to Lake Washington, WA (2017)
 - **Hot Tub Boat** - 15' Hot tub
   - Lake Union, WA (2017)
+- **RS Quest** - 14' Sailboat
+  - Berkeley Marina, CA
 - **Flying Junior** - 13' Sailboat
   - Union Bay, WA (2016)
 - **Windsurfing**

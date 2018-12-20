@@ -14,9 +14,13 @@
   "year": 2018,
   "paper": [
     {
-      "name": "Arxiv",
-      "url": ""
+      "name": "PDF",
+      "url": "http://www.vldb.org/pvldb/vol11/p2086-hynes.pdf"
+    },
+    {
+      "name": "ACM",
+      "url": "https://dl.acm.org/citation.cfm?id=3275603"
     }
   ],
-  "bibtex": ""
+  "bibtex": "https://dblp.uni-trier.de/rec/bibtex/journals/pvldb/HynesDYCS18"
 }
