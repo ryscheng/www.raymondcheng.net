@@ -13,27 +13,28 @@ Of course you can reuse this guide to authenticate with any other SSH server as 
 **Why use Yubikeys?**  
 These devices store private key material in a way that cannot be copied from the device.
 An attacker would need to steal the physical device to use your keys.
-This is contrast to keys stored on your local hard drive,
+This setup is in contrast to keys stored on your local hard drive,
 which can be easily copied by any program running on your computer.
 
 **Overview**  
 Yubikeys store GPG keys. We will first generate keys on the device.
 Then your computer needs to be configured with `gpg-agent`,
-will manage the keys. `git` and `ssh` can then be configured to consult
+which will manage access to the keys. `git` and `ssh` can then be configured to consult
 the `gpg-agent` for signing commits and SSH authentication by default (instead of `ssh-agent`).
 
 **New machines**  
 If you have already generated the keys on your Yubikey and just want to setup 
-your computer to use it, skip to ["Setup gpg-agent"](#setup-gpg-agent)
+your computer to use it, skip to the [gpg-agent configuration section](#gpg-agent-configuration)
 
 ---
 ## Table of Contents
 - [Install tools](#install-tools)
-- [Configure the Yubikey](#configure-the-yubikey)
-- [Generate Keys](#generate-keys)
-- [Setup gpg-agent](#setup-gpg-agent)
-- [Configure git](#configure-git)
-- [Configure GitHub](#configure-github)
+- [Yubikey configuration](#yubikey-configuration)
+- [Generate your keys](#generate-your-keys)
+- [gpg-agent configuration](#gpg-agent-configuration)
+- [Signed git commits by default](#signed-git-commits-by-default)
+- [Upload public keys to GitHub](#upload-public-keys-to-github)
+- [Testing SSH Authentication](#testing-ssh-authentication)
 
 ---
 
@@ -59,9 +60,13 @@ $ brew install gpg-agent
 $ brew install pinentry-mac
 ```
 
-## Configure the Yubikey
 
-First make sure that the Yubikey is plugged in and check that `gpg` can see it
+## Yubikey Configuration
+
+First make sure that the Yubikey is plugged in and check that `gpg` can see it.
+If you can't see the card, you're probably missing some smart card driver for your system.
+You probably don't need to restart your computer, but that could also be worth a shot.
+
 ```bash
 $ gpg --card-status
 Reader ...........: Yubico Yubikey XXX
@@ -87,11 +92,11 @@ General key info..: [none]
 
 Now we will change the key size, PIN, and Admin PIN on the device from its defaults.
 In this guide we will use RSA4096, but you should choose the configuration that works best for you.
-The default PIN and Admin PIN values are 123456 and 12345678 respectively.
+The default PIN and Admin PIN values for Yubikeys are 123456 and 12345678 respectively.
 
 Note: If you incorrectly enter your Admin PIN three times,
 you will be locked out of your Yubikey and it will be useless.
-Check out the [factory reset instructions](https://support.yubico.com/support/solutions/articles/15000008845-resetting-your-yubikey-4-or-yubikey-neo-to-factory-defaults).
+If that happens, check out the [factory reset instructions](https://support.yubico.com/support/solutions/articles/15000008845-resetting-your-yubikey-4-or-yubikey-neo-to-factory-defaults).
 
 ```bash
 $ gpg --card-edit
@@ -141,7 +146,7 @@ gpg/card> quit
 
 Now let's set the Yubikey mode to U2F/CCID composite mode.
 U2F mode is used for 2-factor authentication for web services like Google/GitHub.
-CCID mode is used for gpg operations.
+CCID mode is used for `gpg` operations.
 We will disable OTP mode to avoid the annoying keyboard behavior when the button is accidentally pressed.
 Note that mode 5 is specific to Yubikey 3.0 and above
 ([details](https://developers.yubico.com/yubikey-personalization/Manuals/ykpersonalize.1.html)).
@@ -157,15 +162,15 @@ Commit? (y/n) [n]: y
 WARNING: Changing mode will require you to use another tool (ykneomgr or u2f-host) to switch back if OTP mode is disabled, really commit? (y/n) [n]: y
 ```
 
-Now disconnect and reconnect your Yubikey to reset.
+Now disconnect and reconnect your Yubikey to apply the new settings.
 You'll notice that pushing the Yubikey button no longer leads to keyboard strokes.
 
-It is also recommended to enable a touch requirement for all authentication requests,
-which means you have the physically touch the device to approve these requests.
+***Optional***: It is also recommended to enable a touch requirement for all authentication requests,
+which means you have the physically touch the device to approve any encryption/signing/authentication requests.
 See [here](https://gist.github.com/a-dma/797e4fa2ac4b5c9024cc)
 for a bash script that will enable this requirement for Yubikey 4.
 
-## Generate Keys
+## Generate Your Keys
 
 Now let's have the Yubikey generate its own keys.
 This way, we can be sure the keys never existed outside the device.
@@ -251,11 +256,11 @@ $ gpg --armor --export AED9256FF8CEC558 > AED9256FF8CEC558.asc
 You will need to manually copy this signature public key to any computer that you want
 to use for git commit signing.
 
-## Setup gpg-agent
+## gpg-agent Configuration
 
 First, you need to import your signature public key onto the machine.
 You can skip this if you generated the key on this computer.
-For example, if you signature public key is in `AED9256FF8CEC558.asc`:
+For example, if your signature public key is in `AED9256FF8CEC558.asc`:
 ```bash
 $ gpg --import < AED9256FF8CEC558.asc
 ```
@@ -285,10 +290,10 @@ If you don't have gpg-agent setup to run automatically, you can start it manuall
 $ gpg-agent --daemon --enable-ssh-support
 ```
 
-## Configure git
+## Signed git Commits by Default
 In order to have git automatically sign all commits for you,
 add this to your `~/.gitconfig`.
-Your signing key fingerprint is from the last step of ["Generating Keys"](#generating-keys).
+Your signing key fingerprint is from the last step of the [generate your keys section](#generate-your-keys).
 
 ```
 [user]
@@ -297,7 +302,12 @@ Your signing key fingerprint is from the last step of ["Generating Keys"](#gener
   gpgsign = true
 ```
 
-## Configure GitHub
+You can also manually ask git to sign at commit time
+```bash
+$ git commit -S -m 'commit message'
+```
+
+## Upload Public Keys to GitHub
 
 When the Yubikey is plugged in, `gpg-agent` is properly running, 
 and your terminal is setup with the correct `SSH_AUTH_SOCK`,
@@ -312,23 +322,66 @@ the authentication key fingerprint:
 $ gpg --export-ssh-key AUTHENTICATION_KEY_FINGERPRINT
 ```
 
-With that SSH key, you can now add it as an authorized to any SSH server
+With that SSH key, you can now add it as an authorized key to any SSH server
 (e.g. via `~/.ssh/authorized_keys`).
 
-You can add the SSH key to GitHub here:  
+**Add the SSH key to GitHub here:**   
 [https://github.com/settings/keys](https://github.com/settings/keys)
 
-You should also add your GPG signature public key.
-We previously exported it to a file at the end of ["Generating Keys"](#generating-keys).
+You should also add your GPG signature public key to GitHub.
+We previously exported it to a file at the end of the ["generate your keys section](#generate-your-keys).
 From any computer where the public key is already loaded,
 you can get it again by running:
 ```bash
 $ gpg --armor --export SIGNATURE_KEY_FINGERPRINT
 ```
 
-Don't forget to set up your Yubikey as a 2-factor authentication "security key":  
+**Add the Yubikey as a security key for two-factor authentication here:**   
 [https://github.com/settings/two_factor_authentication/configure](https://github.com/settings/two_factor_authentication/configure)
 
+## Testing SSH Authentication
+
+You should now be able to SSH to servers.
+Whenever the Yubikey is asked to sign or authenticate,
+you'll need to enter your PIN into the `pinentry` program.
+If you configured a touch requirement, you'll also need to touch the Yubikey.
+
+Try it out with the `-v` flag on `ssh` to see if the right key is being used:
+```bash
+$ ssh -v example.com
+OpenSSH_6.7p1, OpenSSL 1.0.2 22 Jan 2015
+debug1: Connecting to example.com [127.0.0.1] port 22.
+debug1: Connection established.
+debug1: Enabling compatibility mode for protocol 2.0
+debug1: Local version string SSH-2.0-OpenSSH_6.7
+debug1: Remote protocol version 2.0, remote software version OpenSSH_6.4
+debug1: match: OpenSSH_6.4 pat OpenSSH* compat 0x04000000
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: server->client aes128-ctr umac-64-etm@openssh.com none
+debug1: kex: client->server aes128-ctr umac-64-etm@openssh.com none
+debug1: sending SSH2_MSG_KEX_ECDH_INIT
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: Server host key: RSA xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx
+debug1: Host 'example.com' is known and matches the RSA host key.
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: Roaming not allowed by server
+debug1: SSH2_MSG_SERVICE_REQUEST sent
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic
+debug1: Next authentication method: publickey
+# this is where we see our YubiKey is being used
+debug1: Offering RSA public key: cardno:XXXXXXXXXXXX
+debug1: Server accepts key: pkalg ssh-rsa blen 279
+debug1: Authentication succeeded (publickey).
+Authenticated to localhost ([127.0.0.1]:22).
+debug1: channel 0: new [client-session]
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+[user@localhost]~$
+```
 
 ## Wrapping Up
 That's pretty much it!
