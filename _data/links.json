@@ -84,6 +84,10 @@
     "name": "David Dao",
     "url": "https://daviddao.org/"
   },
+  "david_yan": {
+    "name": "David Yan",
+    "url": ""
+  },
   "dawn_song": {
     "name": "Dawn Xiaodong Song",
     "url": "https://people.eecs.berkeley.edu/~dawnsong/"
@@ -99,7 +103,6 @@
   "fan_yang": {
     "name": "Fan Yang",
     "url": "https://www.microsoft.com/en-us/research/people/fanyang/"
-  },
   "fan_zhang": {
     "name": "Fan Zhang",
     "url": "http://www.fanzhang.me/"
