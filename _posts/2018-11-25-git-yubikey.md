@@ -22,6 +22,10 @@ Then your computer needs to be configured with `gpg-agent`,
 will manage the keys. `git` and `ssh` can then be configured to consult
 the `gpg-agent` for signing commits and SSH authentication by default (instead of `ssh-agent`).
 
+**New machines**  
+If you have already generated the keys on your Yubikey and just want to setup 
+your computer to use it, skip to ["Setup gpg-agent"](#setup-gpg-agent)
+
 ---
 ## Table of Contents
 - [Install tools](#install-tools)
@@ -204,13 +208,59 @@ This step may take several minutes as the device generates keys with sufficient 
 It will generate unique subkeys for signatures, encryption, and authentication.
 
 Now verify that you have keys on the card. Look for a `Signature key`, `Encryption key`, and `Authentication key`.
+In particular make note of your signature key fingerprint:
 ```bash
 $ gpg --card-status
+Reader ...........: Yubico Yubikey XXX
+Application ID ...: XXXXX
+Version ..........: X.X
+Manufacturer .....: Yubico
+Serial number ....: XXXXX
+Name of cardholder: [not set]
+Language prefs ...: [not set]
+Sex ..............: unspecified
+URL of public key : [not set]
+Login data .......: [not set]
+Signature PIN ....: forced
+Key attributes ...: rsa4096 rsa4096 rsa4096
+Max. PIN lengths .: 127 127 127
+PIN retry counter : 3 3 3
+Signature counter : 0
+Signature key ....: XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX
+  created ....: 2018-01-01 00:00:00
+Encryption key....: XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX
+  created ....: 2018-01-01 00:00:00
+Authentication key: XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX
+  created ....: 2018-01-01 00:00:00
+General key info..: pub  rsa4096/E75C7AE71312EF23 2018-12-20 Raymond Cheng <me@raymondcheng.net>
+sec>  rsa4096/XXXXXXXXXXXXXXXX  created: 2018-01-01  expires: never  <=== THIS ONE
+                                card-no: 0000 00000000
+ssb>  rsa4096/XXXXXXXXXXXXXXXX  created: 2018-01-01  expires: never
+                                card-no: 0000 00000000
+ssb>  rsa4096/XXXXXXXXXXXXXXXX  created: 2018-01-01  expires: never
+                                card-no: 0000 00000000
 ```
+
+Make a note of your `SIGNATURE_KEY_FINGERPRINT`.
+Then export your signature public key.
+For example, if your fingerprint is AED9256FF8CEC558:
+```bash
+$ gpg --armor --export AED9256FF8CEC558 > AED9256FF8CEC558.asc
+```
+
+You will need to manually copy this signature public key to any computer that you want
+to use for git commit signing.
 
 ## Setup gpg-agent
 
-First, `gpg-agent` needs to be configured with SSH support.
+First, you need to import your signature public key onto the machine.
+You can skip this if you generated the key on this computer.
+For example, if you signature public key is in `AED9256FF8CEC558.asc`:
+```bash
+$ gpg --import < AED9256FF8CEC558.asc
+```
+
+Then, `gpg-agent` needs to be configured with SSH support.
 Put the following in your `~/.gnupg/gpg-agent.conf`:
 ```
 # if on MacOS, we recommend you use pinentry-mac
@@ -238,46 +288,13 @@ $ gpg-agent --daemon --enable-ssh-support
 ## Configure git
 In order to have git automatically sign all commits for you,
 add this to your `~/.gitconfig`.
+Your signing key fingerprint is from the last step of ["Generating Keys"](#generating-keys).
 
 ```
 [user]
   signingkey = <fingerprint>
 [commit]
   gpgsign = true
-```
-
-The signing key fingerprint can be found by running the following.
-Look for the fingerprint that corresponds to the "Signature key".
-```bash
-$ gpg --card-status
-Reader ...........: Yubico Yubikey XXX
-Application ID ...: XXXXX
-Version ..........: X.X
-Manufacturer .....: Yubico
-Serial number ....: XXXXX
-Name of cardholder: [not set]
-Language prefs ...: [not set]
-Sex ..............: unspecified
-URL of public key : [not set]
-Login data .......: [not set]
-Signature PIN ....: forced
-Key attributes ...: rsa4096 rsa4096 rsa4096
-Max. PIN lengths .: 127 127 127
-PIN retry counter : 3 3 3
-Signature counter : 0
-Signature key ....: XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX
-  created ....: 2018-01-01 00:00:00
-Encryption key....: XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX
-  created ....: 2018-01-01 00:00:00
-Authentication key: XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX
-  created ....: 2018-01-01 00:00:00
-General key info..: pub  rsa4096/E75C7AE71312EF23 2018-12-20 Raymond Cheng <me@raymondcheng.net>
-sec>  rsa4096/**XXXXXXXXXXXXXXXX**  created: 2018-01-01  expires: never
-                                card-no: 0000 00000000
-ssb>  rsa4096/XXXXXXXXXXXXXXXX  created: 2018-01-01  expires: never
-                                card-no: 0000 00000000
-ssb>  rsa4096/XXXXXXXXXXXXXXXX  created: 2018-01-01  expires: never
-                                card-no: 0000 00000000
 ```
 
 ## Configure GitHub
@@ -301,7 +318,10 @@ With that SSH key, you can now add it as an authorized to any SSH server
 You can add the SSH key to GitHub here:  
 [https://github.com/settings/keys](https://github.com/settings/keys)
 
-Be sure to also add your GPG signature public key, which you can get by running:
+You should also add your GPG signature public key.
+We previously exported it to a file at the end of ["Generating Keys"](#generating-keys).
+From any computer where the public key is already loaded,
+you can get it again by running:
 ```bash
 $ gpg --armor --export SIGNATURE_KEY_FINGERPRINT
 ```
