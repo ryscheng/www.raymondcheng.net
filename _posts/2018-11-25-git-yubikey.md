@@ -225,11 +225,15 @@ enable-ssh-support
 To setup your terminal to use `gpg-agent` as your SSH agent,
 put the following in your `~/.bashrc` or `~/.bash_profile`:
 ```
-export SSH_AUTH_SOCK=”$(gpgconf --list-dirs agent-ssh-socket)”
+export SSH_AUTH_SOCK=`gpgconf --list-dirs agent-ssh-socket`
 export GPG_TTY=$(tty)
 ```
 
 Remember to restart your gpg-agent and terminal for these settings to take effect.
+If you don't have gpg-agent setup to run automatically, you can start it manually:
+```bash
+$ gpg-agent --daemon --enable-ssh-support
+```
 
 ## Configure git
 In order to have git automatically sign all commits for you,
