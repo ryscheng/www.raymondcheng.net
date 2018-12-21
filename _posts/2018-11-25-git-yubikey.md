@@ -235,7 +235,7 @@ Encryption key....: XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX
   created ....: 2018-01-01 00:00:00
 Authentication key: XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX
   created ....: 2018-01-01 00:00:00
-General key info..: pub  rsa4096/E75C7AE71312EF23 2018-12-20 Raymond Cheng <me@raymondcheng.net>
+General key info..: pub  rsa4096/XXXXXXXXXXXXXXXX 2018-01-01 NAME <EMAIL>
 sec>  rsa4096/XXXXXXXXXXXXXXXX  created: 2018-01-01  expires: never  <=== THIS ONE
                                 card-no: 0000 00000000
 ssb>  rsa4096/XXXXXXXXXXXXXXXX  created: 2018-01-01  expires: never
