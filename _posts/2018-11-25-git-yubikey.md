@@ -151,7 +151,7 @@ Note that mode 5 is specific to Yubikey 3.0 and above
 Make sure you're setting the correct mode for your Yubikey.
 
 ```bash
-ykpersonalize -m 5
+$ ykpersonalize -m 5
 Firmware version X.X.X Touch level XXX Program sequence X
 
 The USB mode will be set to: 0x5
@@ -327,7 +327,7 @@ With that SSH key, you can now add it as an authorized key to any SSH server
 [https://github.com/settings/keys](https://github.com/settings/keys)
 
 You should also add your GPG signature public key to GitHub.
-We previously exported it to a file at the end of the ["generate your keys section](#generate-your-keys).
+We previously exported it to a file at the end of the [generate your keys section](#generate-your-keys).
 From any computer where the public key is already loaded,
 you can get it again by running:
 ```bash
