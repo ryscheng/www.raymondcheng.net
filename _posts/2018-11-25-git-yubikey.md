@@ -26,15 +26,16 @@ the `gpg-agent` for signing commits and SSH authentication by default (instead o
 If you have already generated the keys on your Yubikey and just want to setup 
 your computer to use it, skip to the [gpg-agent configuration section](#gpg-agent-configuration)
 
+*Credits: This guide was adapted from this great [post](https://www.isi.edu/~calvin/yubikeyssh.htm) by [Calvin Ardi](https://www.isi.edu/~calvin/)*
+
 ---
 ## Table of Contents
 - [Install tools](#install-tools)
 - [Yubikey configuration](#yubikey-configuration)
 - [Generate your keys](#generate-your-keys)
 - [gpg-agent configuration](#gpg-agent-configuration)
-- [Signed git commits by default](#signed-git-commits-by-default)
-- [Upload public keys to GitHub](#upload-public-keys-to-github)
-- [Testing SSH Authentication](#testing-ssh-authentication)
+- [Signed git commits](#signed-git-commits)
+- [SSH Authentication](#ssh-authentication)
 
 ---
 
@@ -48,15 +49,21 @@ To install these on Ubuntu 18.04:
 ```bash
 $ sudo apt-get repository ppa:yubico/stable
 $ sudo apt-get update
-$ sudo apt-get install yubikey-personalization-gui yubikey-neo-manager yubikey-personalization
 $ sudo apt-get install pcscd scdaemon pcsc-tools gnupg2 gnupg-agent
+$ sudo apt-get install yubikey-manager yubikey-personalization-gui yubikey-personalization
 ```
 
 To install these on MacOS with [Homebrew](https://brew.sh/)
 ```bash
-$ brew install yubikey-personalization
 $ brew install gnupg2
 $ brew install pinentry-mac
+$ brew install ykman
+$ brew install yubikey-personalization
+```
+
+To install these on MacOS with [MacPorts](https://www.macports.org/)
+```bash
+$ sudo port install gnupg2 pinentry-mac yubikey-manager ykpers
 ```
 
 ## Yubikey Configuration
@@ -165,8 +172,13 @@ You'll notice that pushing the Yubikey button no longer leads to keyboard stroke
 
 ***Optional***: It is also recommended to enable a touch requirement for all authentication requests,
 which means you have the physically touch the device to approve any encryption/signing/authentication requests.
-See [here](https://gist.github.com/a-dma/797e4fa2ac4b5c9024cc)
-for a bash script that will enable this requirement for Yubikey 4.
+For details, see [here](https://support.yubico.com/support/solutions/articles/15000012643-yubikey-manager-cli-ykman-user-manual#ykman_openpgp_touche3jqno).
+
+```bash
+$ ykman openpgp touch aut on
+$ ykman openpgp touch enc on
+$ ykman openpgp touch sig on
+```
 
 ## Generate Your Keys
 
@@ -288,8 +300,19 @@ If you don't have gpg-agent setup to run automatically, you can start it manuall
 $ gpg-agent --daemon --enable-ssh-support
 ```
 
-## Signed git Commits by Default
-In order to have git automatically sign all commits for you,
+## Signed git Commits
+You can manually ask git to sign at commit time.
+To do so, you need to remember to add the `-S` flag every time you commit.
+```bash
+$ git commit -S -m 'commit message'
+```
+
+*Note: Whenever the Yubikey is asked to sign or authenticate,
+you'll need to enter your PIN into the `pinentry` program.
+If you configured a touch requirement, you'll also need to touch the Yubikey.*
+
+#### Automatically Signing Commits by Default
+In order to have git automatically sign all commits for you (without the `-S` flag),
 add this to your `~/.gitconfig`.
 Your signing key fingerprint is from the last step of the [generate your keys section](#generate-your-keys).
 
@@ -300,12 +323,41 @@ Your signing key fingerprint is from the last step of the [generate your keys se
   gpgsign = true
 ```
 
-You can also manually ask git to sign at commit time
+#### Upload GPG Keys to GitHub
+Now add your GPG signature public key to GitHub.  
+[https://github.com/settings/keys](https://github.com/settings/keys)
+
+We previously exported it to a file at the end of the [generate your keys section](#generate-your-keys).
+From any computer where the public key is already loaded,
+you can get it again by running:
 ```bash
-$ git commit -S -m 'commit message'
+$ gpg --armor --export SIGNATURE_KEY_FINGERPRINT
 ```
 
-## Upload Public Keys to GitHub
+After you do this,
+GitHub will [verify your commits](https://help.github.com/articles/adding-a-new-gpg-key-to-your-github-account/)
+and show a verified status in commit history.
+
+#### Checking Signatures
+After you've signed your first commit, you will see verified commits
+in the commit log both locally and on GitHub.
+```bash
+$ git log --show-signature
+Author: NAME <EMAIL>
+Date:  Mon Jan 01 00:00:00 2018 -0000
+
+  commit message
+
+commit xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+gpg: Signature made Mon Jan 01 00:00:00 2018 PST
+gpg:                using RSA key XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+gpg: Good signature from "NAME <EMAIL>" [unknown]
+Primary key fingerprint: XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX
+```
+
+## SSH Authentication
+
+#### Get Your SSH Public Key
 
 When the Yubikey is plugged in, `gpg-agent` is properly running, 
 and your terminal is setup with the correct `SSH_AUTH_SOCK`,
@@ -320,25 +372,15 @@ the authentication key fingerprint:
 $ gpg --export-ssh-key AUTHENTICATION_KEY_FINGERPRINT
 ```
 
-With that SSH key, you can now add it as an authorized key to any SSH server
-(e.g. via `~/.ssh/authorized_keys`).
+#### Add Your Key to a Remote Server
+With that SSH key, you can now add it as an authorized key to any SSH server.
 
-**Add the SSH key to GitHub here:**   
+To tell GitHub about this key, add the SSH key here:   
 [https://github.com/settings/keys](https://github.com/settings/keys)
 
-You should also add your GPG signature public key to GitHub.
-We previously exported it to a file at the end of the [generate your keys section](#generate-your-keys).
-From any computer where the public key is already loaded,
-you can get it again by running:
-```bash
-$ gpg --armor --export SIGNATURE_KEY_FINGERPRINT
-```
+You can also add it to any SSH server by adding it to `~/.ssh/authorized_keys`.
 
-**Add the Yubikey as a security key for two-factor authentication here:**   
-[https://github.com/settings/two_factor_authentication/configure](https://github.com/settings/two_factor_authentication/configure)
-
-## Testing SSH Authentication
-
+#### Test Out SSH
 You should now be able to SSH to servers.
 Whenever the Yubikey is asked to sign or authenticate,
 you'll need to enter your PIN into the `pinentry` program.
@@ -384,9 +426,14 @@ debug1: Entering interactive session.
 ## Wrapping Up
 That's pretty much it!
 
+While not technically part of this guide, it's usually a good idea to set
+up your Yubikey as a security key for two-factor authentication.
+
+**Setup your GitHub two-factor authentication here:**   
+[https://github.com/settings/two_factor_authentication/configure](https://github.com/settings/two_factor_authentication/configure)
+
 If you have any trouble, check out the troubleshooting section in this
 [guide](https://www.isi.edu/~calvin/yubikeyssh.htm).
-Shout out to Calvin for making an awesome guide.
 
 If you ever lose your Yubikey, remember to remove it as an authorized key on
 GitHub and any SSH servers you may be using.
