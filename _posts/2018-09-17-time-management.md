@@ -85,6 +85,13 @@ Don't let this happen to you, adhere to a strict budget so you balance the (impo
 along with the (urgent, not important).
 You can always add more time to respond to certain emails in a following day, balanced with your other priorities.
 
+Putting things on a schedule also avoids impulsive decisions.
+If I were to ask myself every morning, "Do you feel like going to the gym today?",
+the answer would probably be "No" most days;
+and I'd probably spend 15 min debating myself before coming to that conclusion.
+Putting it on the calendar takes the thinking out of it.
+Just do what your planning-self says, not your emotional-reaction-self.
+
 | Day |
 |-|
 | 07:30-08:00 Get Ready |
