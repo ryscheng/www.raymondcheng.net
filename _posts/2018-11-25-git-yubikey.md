@@ -47,7 +47,7 @@ You will need the following tools on your system:
 
 To install these on Ubuntu 18.04:
 ```bash
-$ sudo apt-get repository ppa:yubico/stable
+$ sudo add-apt-repository ppa:yubico/stable
 $ sudo apt-get update
 $ sudo apt-get install pcscd scdaemon pcsc-tools gnupg2 gnupg-agent
 $ sudo apt-get install yubikey-manager yubikey-personalization-gui yubikey-personalization
