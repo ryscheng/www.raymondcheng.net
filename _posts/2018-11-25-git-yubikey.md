@@ -423,6 +423,17 @@ debug1: Entering interactive session.
 [user@localhost]~$
 ```
 
+#### Using Your Yubikey on a Chromebook
+If you've provisioned your Yubikey on another machine, it is possible to use it for SSH authentication on a Chromebook.
+First, make sure you've installed the following Chrome Apps:
+- [SSH](https://chrome.google.com/webstore/detail/secure-shell-app/pnhechapfaindjhompbnflcldabbghjo)
+- [Smart Card Connector](https://chrome.google.com/webstore/detail/smart-card-connector/khpfeaanjngmcnplbdlpegiifgpfgdco)
+
+Because Crostini (the project that brings a Debian VM to Chromebooks) does not currently support natively accessing the Yubikey through USB, you have to SSH into your Linux VM with agent-forwarding. That way, the SSH agent running in the Smart Card Connector will be accessible to the VM, which you use to authenticate from within the VM.
+Crostini is ([not available on all Chromebooks](https://chromium.googlesource.com/chromiumos/docs/+/master/containers_and_vms.md#supported)).
+Follow this [guide](https://blog.merzlabs.com/posts/yubikey-crostini/) to set up SSH and agent forwarding.
+If you have any issues, here's a [reference doc](https://chromium.googlesource.com/apps/libapps/+/HEAD/nassh/doc/hardware-keys.md).
+
 ## Wrapping Up
 That's pretty much it!
 

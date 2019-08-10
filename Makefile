@@ -1,10 +1,3 @@
-# To install `bundle`
-#	sudo apt-get install ruby-dev
-#	gem install bundler
-#
-# Install dependencies
-setup:
-	bundle install
 
 pre:
 	cat ./download/papers/*.bib > ./_bibliography/references.bib
