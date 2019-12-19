@@ -1,5 +1,5 @@
 {
-  "title": "Enterpriser",
+  "title": "Entrepreneur",
   "subtitles": [],
   "descriptions": [],
   "images": [
@@ -17,12 +17,14 @@
       "title": "Active",
       "ref": "active",
       "text": [ "Work in Progress" ],
+      "includemd": [],
       "includes": []
     },
     {
       "title": "Inactive",
       "ref": "inactive",
       "text": [ "N/A" ],
+      "includemd": [],
       "includes": []
     }
   ]

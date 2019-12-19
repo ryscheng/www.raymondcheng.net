@@ -1,5 +1,5 @@
 {
-  "title": "Writer &amp; Speaker",
+  "title": "Scientist &amp; Writer",
   "subtitles": [],
   "descriptions": [],
   "images": [
@@ -18,7 +18,7 @@
       "ref": "publications",
       "text": [],
       "includemd": [
-        "writer-publications.md"
+        "scientist-publications.md"
       ],
       "includes": []
     },
@@ -27,7 +27,7 @@
       "ref": "talks",
       "text": [],
       "includemd": [
-        "writer-talks.md"
+        "scientist-talks.md"
       ],
       "includes": []
     }

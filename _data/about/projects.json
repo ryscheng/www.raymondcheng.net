@@ -1,5 +1,5 @@
 {
-  "title": "Scientist &amp; Hacker",
+  "title": "Hacker &amp; Entrepreneur",
   "subtitles": [],
   "descriptions": [],
   "images": [
@@ -14,27 +14,28 @@
   }],
   "accordians": [
     {
-      "title": "Active Research",
-      "ref": "research",
+      "title": "Ongoing Work",
+      "ref": "active",
       "text": [],
       "includemd": [
-        "research-ekiden.md",
-        "research-talek.md",
-        "research-uproxy.md"
+        "projects-oasislabs.md",
+        "projects-talek.md"
       ],
       "includes": []
     },
     {
-      "title": "Past Projects",
-      "ref": "previous",
+      "title": "Mature Projects",
+      "ref": "past",
       "text": [],
       "includemd": [
-        "research-diamond.md",
-        "research-radiatus.md",
-        "research-freedomjs.md"
+        "projects-ekiden.md",
+        "projects-uproxy.md",
+        "projects-diamond.md",
+        "projects-radiatus.md",
+        "projects-freedomjs.md"
       ],
       "includes": [
-        "research-previous.html"
+        "projects-previous.html"
       ]
     },
     {
@@ -43,7 +44,7 @@
       "text": [],
       "includemd": [],
       "includes": [
-        "research-hacks.html"
+        "projects-hacks.html"
       ]
     },
     {
@@ -51,7 +52,7 @@
       "ref": "press",
       "text": [],
       "includemd": [
-        "research-press.md"
+        "projects-press.md"
       ],
       "includes": []
     }
