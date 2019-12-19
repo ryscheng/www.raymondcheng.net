@@ -1,4 +1,9 @@
-Home Airports: [Black Rock City Airport](http://airport.burningman.org/) (88NV), [Boeing Field](http://www.kingcounty.gov/transportation/kcdot/Airport.aspx) (BFI), [Tipton Airport](http://www.tiptonairport.org/) (FME)
+Home Airports: 
+
+- [Ed R. Levin County Park](https://www.sccgov.org/sites/parks/parkfinder/Pages/Ed-Levin.aspx), Milpitas, CA
+- [88NV](http://airport.burningman.org/) - Black Rock City Airport, Black Rock City, NV
+- [BFI](http://www.kingcounty.gov/transportation/kcdot/Airport.aspx) Boeing Field, Seattle, WA
+- [FME](http://www.tiptonairport.org/) Tipton Airport, MD
 
 Destination: Everywhere
 

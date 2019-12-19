@@ -14,14 +14,11 @@
   }],
   "accordians": [
     {
-      "title": "Planes",
-      "ref": "planes",
-      "text": [ 
-        "Cessna 152<br>",
-        "Cessna 172<br>",
-        "Hang glider<br>"
-      ],
-      "includes": []
+      "title": "Aircraft",
+      "ref": "aircraft",
+      "text": [],
+      "includes": [],
+      "includemd": [ "pilot-aircraft.md" ]
     },
     {
       "title": "Airports",

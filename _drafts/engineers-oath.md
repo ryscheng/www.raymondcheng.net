@@ -23,3 +23,7 @@ Stories about when punished for doing what you believed was right
 
 vs lawyers - not everyone is entitled to an engineer
 vs medical - no clear right and wrong
+
+AI2
+Contract for the web
+ACM ethics code

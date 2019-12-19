@@ -1,4 +1,9 @@
 
+- [Lakes Trail](https://www.nps.gov/seki/planyourvisit/lakes-trail.htm) - Sequoia & Kings Canyon National Park (2019)
+- [Half Dome](https://www.nps.gov/yose/planyourvisit/halfdome.htm) - Yosemite National Park (2019)
+- [Coyote Lake Harvey Bear Ranch](https://www.sccgov.org/sites/parks/parkfinder/Pages/CoyoteLake.aspx) - Gilroy, CA (2019)
+- [Mt Madonna](https://www.sccgov.org/sites/parks/parkfinder/Pages/MtMadonna.aspx) - Santa Cruz Mountain Range (2019)
+- [Sanborn County Park](https://www.sccgov.org/sites/parks/parkfinder/Pages/Sanborn.aspx) - Santa Cruz Mountain Range (2019)
 - [Tomales Point Trail](https://www.alltrails.com/trail/us/california/tomales-point-trail) - Point Reyes National Seashore (2018)
 - [Sentinel Dome](https://www.yosemite.com/what-to-do/sentinel-dome-taft-point/) - Yosemite National Park (2018)
 - [Vernal Falls](https://www.nps.gov/yose/planyourvisit/vernalnevadatrail.htm) - Yosemite National Park (2018)

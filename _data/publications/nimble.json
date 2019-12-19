@@ -1,0 +1,31 @@
+{
+  "title": "Nimble: A New Approach to Scalability",
+  "authors": [
+    "bennet_yee",
+    "jernej_kos",
+    "raymond_cheng",
+    "yawning_angel",
+    "jan_bercic",
+    "andrej_bukosek",
+    "peter_gilbert",
+    "warren_he",
+    "tadej_janez",
+    "matevz_jekovec",
+    "eunjin_jung",
+    "will_scott",
+    "peter_us",
+    "dawn_song"
+  ],
+  "venue": {
+    "name": "Whitepaper",
+    "url": "https://www.oasis-protocol.org/"
+  },
+  "year": 2019,
+  "paper": [
+    {
+      "name": "DocSend",
+      "url": "https://docsend.com/view/grdq39h"
+    }
+  ],
+  "bibtex": ""
+}

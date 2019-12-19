@@ -56,6 +56,10 @@
     "name": "Aapo Kyrola",
     "url": "http://www.cs.cmu.edu/~akyrola/"
   },
+  "andrej_bukosek": {
+    "name": "Andrej Bukosek",
+    "url": "https://bukosek.si/"
+  },
   "andrew_miller": {
     "name": "Andrew Miller",
     "url": "http://soc1024.ece.illinois.edu/"
@@ -71,6 +75,10 @@
   "arvind_krishnamurthy": {
     "name": "Arvind Krishnamurthy",
     "url": "https://www.cs.washington.edu/people/faculty/arvind"
+  },
+  "bennet_yee": {
+    "name": "Bennet Yee",
+    "url": "https://www.bennetyee.org/"
   },
   "brandon_holt": {
     "name": "Brandon Holt",
@@ -96,9 +104,17 @@
     "name": "Dominic Langenegger",
     "url": "https://www.linkedin.com/in/dominic-langenegger-a0979a51"
   },
+  "elisaweta_masserova": {
+    "name": "Elisaweta Masserova",
+    "url": "https://csd.cmu.edu/people/graduate-student/elisaweta-masserova"
+  },
   "enhong_chen": {
     "name": "En-Hong Chen",
     "url": "http://staff.ustc.edu.cn/~cheneh/"
+  },
+  "eunjin_jung": {
+    "name": "Eunjin Jung",
+    "url": "https://www.usfca.edu/faculty/eunjin-ej-jung"
   },
   "fan_yang": {
     "name": "Fan Yang",
@@ -132,6 +148,10 @@
     "name": "Irene Zhang",
     "url": "http://irenezhang.net/"
   },
+  "jan_bercic": {
+    "name": "Jan Bercic",
+    "url": "https://github.com/jberci"
+  },
   "jernej_kos": {
     "name": "Jernej Kos",
     "url": "https://unico.re/"
@@ -151,6 +171,10 @@
   "lidong_zhou": {
     "name": "Lidong Zhou",
     "url": "https://www.microsoft.com/en-us/research/people/lidongz/"
+  },
+  "matevz_jekovec": {
+    "name": "Matevz Jekovec",
+    "url": "https://github.com/matevz"
   },
   "mayur_thakur": {
     "name": "Mayur Thakur",
@@ -200,6 +224,14 @@
     "name": "Peilun Li",
     "url": "http://iiis.tsinghua.edu.cn/peilunli/"
   },
+  "peter_gilbert": {
+    "name": "Peter Gilbert",
+    "url": "https://github.com/peterjgilbert"
+  },
+  "peter_us": {
+    "name": "Peter Us",
+    "url": "https://github.com/ptrus"
+  },
   "pingyang_he": {
     "name": "Pingyang He",
     "url": "https://www.linkedin.com/in/pingyang-he-a656062a"
@@ -208,9 +240,17 @@
     "name": "Ravi Bhoraskar",
     "url": "http://ravi.bhoraskar.com/"
   },
+  "tadej_janez": {
+    "name": "Tadej Janez",
+    "url": "https://tadej.ja.nez.si/"
+  },
   "tom_anderson": {
     "name": "Tom Anderson",
     "url": "https://www.cs.washington.edu/people/faculty/tom"
+  },
+  "vipul_goyal": {
+    "name": "Vipul Goyal",
+    "url": "https://www.cs.cmu.edu/~goyal/"
   },
   "warren_he": {
     "name": "Warren He",
@@ -227,6 +267,10 @@
   "yanqing_peng": {
     "name": "Yanqing Peng",
     "url": "https://www.cs.utah.edu/~ypeng/"
+  },
+  "yawning_angel": {
+    "name": "Yawning Angel",
+    "url": "http://www.schwanenlied.me/"
   },
   "youshan_miao": {
     "name": "Youshan Miao",
