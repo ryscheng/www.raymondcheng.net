@@ -26,7 +26,7 @@ kramdown:
   input: GFM #Github-Flavored Markdown
 
 # Ignore
-exclude: [ "Makefile", "Dockerfile", "CNAME", "README.md", "*.sh", "Gemfile*" ]
+exclude: [ "*.sh", "Gemfile*", "Makefile", "Dockerfile", "README.md" ]
 
 # Jekyll Scholar
 # https://techblog.lankes.org/2015/04/06/From-Wordpress-to-Jekyll/
