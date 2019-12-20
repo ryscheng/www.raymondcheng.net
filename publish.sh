@@ -19,3 +19,9 @@ fi
 cd $CWD
 
 echo "=== Committing Changes ==="
+cp -r $CWD/_site/* $GIT_PATH/
+cd $GIT_PATH/
+git add -A .
+git commit
+echo "=== Pushing Changes ==="
+git push
