@@ -29,5 +29,5 @@
       "url": "/download/papers/diamond-osdi-slides.pdf"
     }
   ],
-  "bibtex": "/download/papers/diamond-osdi.bib"
+  "bibtex": "https://dblp.uni-trier.de/rec/bibtex/conf/osdi/ZhangLFHCNKL16"
 }
