@@ -11,13 +11,15 @@
       "name": "RIPE69",
       "date": "Nov 2014",
       "location": "London, UK",
-      "url": "https://ripe69.ripe.net/"
+      "url": "https://ripe69.ripe.net/",
+      "videourl": "https://ripe69.ripe.net/archives/video/189"
     },
     {
       "name": "TA3M",
       "date": "Nov 2014",
       "location": "New York, NY",
-      "url": "https://ta3m.org/"
+      "url": "https://ta3m.org/",
+      "videourl": "https://www.youtube.com/watch?v=ljiHVe--DtM"
     }
   ],
   "slides": [
@@ -30,14 +32,5 @@
       "url": "/download/slides/2014-ripe-uproxy.pdf"
     }
   ],
-  "videos": [
-    {
-      "name": "RIPE",
-      "url": "https://ripe69.ripe.net/archives/video/189"
-    },
-    {
-      "name": "TA3M",
-      "url": "https://www.youtube.com/watch?v=ljiHVe--DtM"
-    }
-  ]
+  "videos": []
 }

@@ -2,19 +2,23 @@
   "title": "Talek: Private Group Messaging with Indistinguishable Access Patterns",
   "venues": [
     {
-      "name": "Stanford Security Seminar",
-      "date": "Apr 2017",
-      "location": "Stanford, CA",
-      "url": "https://crypto.stanford.edu/seclab/sem.html"
-    },
-    {
       "name": "UC Berkeley RISE/Sunblaze Security Seminar",
       "date": "Oct 2017",
       "location": "Berkeley, CA",
       "url": "http://security.cs.berkeley.edu/"
+    },
+    {
+      "name": "Stanford Security Seminar",
+      "date": "Apr 2017",
+      "location": "Stanford, CA",
+      "url": "https://crypto.stanford.edu/seclab/sem.html"
     }
   ],
   "slides": [
+    {
+      "name": "PDF",
+      "url": "https://www.dropbox.com/s/63u1f5uek0m79ij/2017-talek.pdf?dl=0"
+    }
   ],
   "videos": [
   ]

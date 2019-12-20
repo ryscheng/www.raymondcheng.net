@@ -1,6 +1,5 @@
 ![Oasis Labs](/img/projects/oasislabs.png){: .projectlogo}  
-Co-Founder  
-Formerly CTO
+Co-Founder and CTO
 
 Oasis Labs is building a new platform to use data without liability, easily comply with new regulations, and collaborate on shared data without risking privacy or losing control. With Oasis Labs’ tools your company can confidently share and analyze sensitive data without the risk of accidental leaks or violating privacy.
 

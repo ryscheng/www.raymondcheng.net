@@ -20,11 +20,14 @@
 - [Mashable: "Google’s uProxy: A Peer-to-Peer Gateway to Internet Freedom"](http://mashable.com/2013/10/21/google-uproxy-internet-freedom/)
 - [Engadget: "Google announces uProxy: internet censorship avoidance in a browser extension"](http://www.engadget.com/2013/10/21/google-ideas-uproxy/)
 - [NBC: "’Running battle’: How Google hopes to beat countries cracking down on Internet freedom"](http://usnews.nbcnews.com/ news/2013/10/23/21080699-running-battle-how-googlehopes-to-beat-countries-cracking-down-on-internet-freedom)
-- [Geek: "Google uProxy lets you surf securely through a friends connection"](http://www.geek.com/apps/google-uproxy-lets-you-surf-securely-through-a-friends-connection1574584/)
-- [Fast Company: "This Google Browser Extension Will Allow You To Bypass Internet Censorship"](http://www.fastcompany.com/3020362/fast-feed/this-google-browser-extension-willallow-you-to-bypass-internet-censorship)
 - [Reuters: "Google unveils services promoting free expression"](http://www.reuters.com/article/2013/10/22/google-tools-idUSL1N0IB25B20131022)
-- [UW CSE: "uProxy unveiled at Google Ideas Summit in NYC"](http://news.cs.washington.edu/2013/10/22/uw-cses-uproxy-unveiled-at-google-ideassummit-in-nyc/)
+- [Fast Company: "This Google Browser Extension Will Allow You To Bypass Internet Censorship"](http://www.fastcompany.com/3020362/fast-feed/this-google-browser-extension-willallow-you-to-bypass-internet-censorship)
+- [Ars Technica: "Don’t trust VPNs? Create your own with a friend and a browser extension"](https://arstechnica.com/information-technology/2013/10/dont-trust-vpns-create-your-own-with-a-friend-and-a-browser-extension/)
+- [Geek: "Google uProxy lets you surf securely through a friends connection"](http://www.geek.com/apps/google-uproxy-lets-you-surf-securely-through-a-friends-connection1574584/)
 - [New Scientist: "Get round internet censors using a friend’s connection"](http://www.newscientist.com/article/mg22029415.500-get-round-internet-censors-usinga-friends-connection.html)
+- [UW CSE: "uProxy unveiled at Google Ideas Summit in NYC"](http://news.cs.washington.edu/2013/10/22/uw-cses-uproxy-unveiled-at-google-ideassummit-in-nyc/)
+- [The Guardian: "Why Google and other tech giants are creating tools for political dissidents"](https://www.theguardian.com/sustainable-business/2015/may/08/tech-industry-democracy-free-speech-rights-google-politics)
+- [Wired: "Inside Google’s Internet Justice League and Its AI-Powered War on Trolls"](https://www.wired.com/2016/09/inside-googles-internet-justice-league-ai-powered-war-trolls/)
 
 #### FreeDOM
 - [Congratulations to the winners of the Madrona Prize and the Peoples Choice Awards!](http://news.cs.washington.edu/2012/10/24/congratulations-to-the-winners-of-the-madronaprize-and-the-peoples-choice-awards/)
