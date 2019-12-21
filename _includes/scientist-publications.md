@@ -1,7 +1,7 @@
 [//]: # (jekyll-scholar)
 
 [//]: # (Custom)
-{% for pKey in site.data.publications.order.list %}
+{% for pKey in site.data.publications.order.shortlist %}
 
   **{{ site.data.publications[pKey].title }}**   
   {% for aKey in site.data.publications[pKey].authors %} {{ site.data.links[aKey].name }}, {% endfor %}     
@@ -12,3 +12,6 @@
 
 
 {% endfor %}
+
+<hr />
+*For the complete list, click [here](/about/publications/#publications)*

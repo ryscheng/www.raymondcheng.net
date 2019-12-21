@@ -1,4 +1,10 @@
 {
+  "shortlist":[
+    "nimble",
+    "talek",
+    "falcondb",
+    "ekiden"
+  ],
   "list": [
     "nimble",
     "ekiden-oasis",

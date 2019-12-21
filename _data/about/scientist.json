@@ -14,7 +14,7 @@
   }],
   "accordians": [
     {
-      "title": "Publications",
+      "title": "Selected Publications",
       "ref": "publications",
       "text": [],
       "includemd": [
@@ -23,7 +23,7 @@
       "includes": []
     },
     {
-      "title": "Talks",
+      "title": "Selected Talks",
       "ref": "talks",
       "text": [],
       "includemd": [

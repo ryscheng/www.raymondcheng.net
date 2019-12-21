@@ -13,5 +13,16 @@
     "diving",
     "motorcycle",
     "dance"
+  ],
+  "projects_ongoing": [
+    "projects-oasislabs.md",
+    "projects-talek.md"
+  ],
+  "projects_mature": [
+    "projects-ekiden.md",
+    "projects-uproxy.md",
+    "projects-diamond.md",
+    "projects-radiatus.md",
+    "projects-freedomjs.md"
   ]
 }

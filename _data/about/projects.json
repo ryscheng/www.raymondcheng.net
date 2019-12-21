@@ -17,42 +17,15 @@
       "title": "Ongoing Work",
       "ref": "active",
       "text": [],
-      "includemd": [
-        "projects-oasislabs.md",
-        "projects-talek.md"
-      ],
-      "includes": []
-    },
-    {
-      "title": "Mature Projects",
-      "ref": "past",
-      "text": [],
-      "includemd": [
-        "projects-ekiden.md",
-        "projects-uproxy.md",
-        "projects-diamond.md",
-        "projects-radiatus.md",
-        "projects-freedomjs.md"
-      ],
-      "includes": [
-        "projects-previous.html"
-      ]
-    },
-    {
-      "title": "Hacks",
-      "ref": "hacks",
-      "text": [],
       "includemd": [],
-      "includes": [
-        "projects-hacks.html"
-      ]
+      "includes": [ "projects-ongoing.html" ]
     },
     {
-      "title": "Press",
+      "title": "Selected Press",
       "ref": "press",
       "text": [],
       "includemd": [
-        "projects-press.md"
+        "projects-press-short.md"
       ],
       "includes": []
     }

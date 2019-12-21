@@ -1,21 +1,7 @@
 {
   "title": "Student &amp; Teacher",
   "subtitles": [],
-  "descriptions": [
-    "<small>",
-    "<b>University of San Francisco</b><br>",
-    "Adjunct Faculty, Computer Science<br>",
-    "<b>University of California, Berkeley</b><br>",
-    "Postdoctoral Researcher and Lecturer, EECS<br>",
-    "<b>University of Washington</b><br>",
-    "Ph.D. Computer Science and Engineering<br>",
-    "M.S. Computer Science and Engineering<br>",
-    "<b>Massachusetts Institute of Technology</b><br>",
-    "M.Eng. Electrical Engineering and Computer Science<br>",
-    "B.S. Electrical Engineering and Computer Science<br>",
-    "B.S. Physics<br>",
-    "</small>"
-  ],
+  "descriptions": [],
   "images": [
     {
       "src": "/img/pic/schools.png",
@@ -27,6 +13,25 @@
     "source": "Hemholtz Watson from <em>Brave New World</em>"
   }],
   "accordians": [
+    {
+      "title": "Degrees and Positions",
+      "ref": "degrees",
+      "text": [
+        "<b>University of San Francisco</b><br>",
+        "Adjunct Faculty, Computer Science<br>",
+        "<b>University of California, Berkeley</b><br>",
+        "Postdoctoral Researcher and Lecturer, EECS<br>",
+        "<b>University of Washington</b><br>",
+        "Ph.D. Computer Science and Engineering<br>",
+        "M.S. Computer Science and Engineering<br>",
+        "<b>Massachusetts Institute of Technology</b><br>",
+        "M.Eng. Electrical Engineering and Computer Science<br>",
+        "B.S. Electrical Engineering and Computer Science<br>",
+        "B.S. Physics<br>"
+      ],
+      "includemd": [],
+      "includes": []
+    },
     {
       "title": "Classes",
       "ref": "classes",

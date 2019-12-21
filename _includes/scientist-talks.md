@@ -1,4 +1,4 @@
-{% for pKey in site.data.talks.order.list %}
+{% for pKey in site.data.talks.order.shortlist %}
 
 **{{ site.data.talks[pKey].title }}**    
 {% for slides in site.data.talks[pKey].slides %} [![](/img/ico/ppt.gif){{ slides.name }}]({{ slides.url }}) {% endfor %}{% for video in site.data.talks[pKey].videos %} [![](/img/ico/video.png){{ video.name }}]({{ video.url }}) {% endfor %}   
@@ -7,3 +7,5 @@
 <hr />
 
 {% endfor %}
+
+*For the complete list, click [here](/about/publications/#talks)*
