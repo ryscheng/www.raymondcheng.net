@@ -31,6 +31,8 @@ http://techcrunch.com/2016/05/17/stanford-quantifies-the-privacy-stripping-power
 Personal Liberties:
 Even if live in a country with rights, sets an example for how surveillance can be done in others
 
+Thesis: Loss of privacy is a negative externality. Anything that is a negative externality is difficult to get users to choose to change their behavior. I'm not going to pay stop flying on airplanes and walk to NYC because its bad for the environment. But noone tells me - "users are dumb, noone cares about the environment". It's up to regulators to price in the cost of the negative externality. Noone is going to stop using Weibo because we know it can be used to harm innocents. The network effects and convenience dominates.
+
 Current:
 
 
