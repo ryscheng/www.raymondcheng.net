@@ -134,9 +134,9 @@ Informally, verifiable computing is a set of techniques that enable clients to v
 ![Lens Verification](/img/diagrams/twitter-lens-verification.png)
 
 In a world where Twitter is a globally trusted platform, this component may not strictly be necessary. Users would just need to trust that the platform is in fact executing the algorithm they asked for. However, there are a number of reasons to at least begin to design the Lens SDK with this in mind:
-- Users and governments are skeptical: Big tech is going through a public reckoning, as more of the public is realizing the power of the systems these companies control. It is really powerful for platforms to be able to claim the system provably behaves correctly even if the platform was not trustworthy.
-- Decentralized systems are typically designed for a stronger threat model: Modern decentralized systems, like blockchains, are typically designed for this threat model, where some fraction of the infrastructure can be actively malicious. In today’s security setting, it is difficult to rely on assumptions that everyone on the Internet will behave honestly.
-- Interfaces are hard to change: The biggest interface surface we are introducing is at the Lens SDK. Verifiable computing techniques typically require a specialized toolchain. The sooner we can at least get developers building lenses in this way, the more work we can reuse as we continue towards a path of decentralization.
+- **Users and governments are skeptical**: Big tech is going through a public reckoning, as more of the public is realizing the power of the systems these companies control. It is really powerful for platforms to be able to claim the system provably behaves correctly even if the platform was not trustworthy.
+- **Decentralized systems are typically designed for a stronger threat model**: Modern decentralized systems, like blockchains, are typically designed for this threat model, where some fraction of the infrastructure can be actively malicious. In today’s security setting, it is difficult to rely on assumptions that everyone on the Internet will behave honestly.
+- **Interfaces are hard to change**: The biggest interface surface we are introducing is at the Lens SDK. Verifiable computing techniques typically require a specialized toolchain. The sooner we can at least get developers building lenses in this way, the more work we can reuse as we continue towards a path of decentralization.
 
 ### Background Technology: Verifiable Computing
 
