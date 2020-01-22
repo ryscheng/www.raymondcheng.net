@@ -1,4 +1,5 @@
 
+- [Uvas Canyon County Park](https://www.sccgov.org/sites/parks/parkfinder/Pages/UvasCanyon.aspx) - Santa Cruz Mountain Range (2020)
 - [Lakes Trail](https://www.nps.gov/seki/planyourvisit/lakes-trail.htm) - Sequoia & Kings Canyon National Park (2019)
 - [Half Dome](https://www.nps.gov/yose/planyourvisit/halfdome.htm) - Yosemite National Park (2019)
 - [Coyote Lake Harvey Bear Ranch](https://www.sccgov.org/sites/parks/parkfinder/Pages/CoyoteLake.aspx) - Gilroy, CA (2019)
