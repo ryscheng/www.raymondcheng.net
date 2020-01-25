@@ -1,5 +1,5 @@
 {
-  "title": "Talek: Private Group Messaging with Indistinguishable Access Patterns",
+  "title": "Talek: Private Group Messaging with Hidden Access Patterns",
   "authors": [
     "raymond_cheng",
     "will_scott",
@@ -17,13 +17,13 @@
   "year": 2020,
   "paper": [
     {
-      "name": "PDF1",
-      "url": "/download/papers/talek-tr.pdf"
+      "name": "Arxiv",
+      "url": "https://arxiv.org/abs/2001.08250"
     },
     {
-      "name": "PDF2",
-      "url": "http://www.cs.washington.edu/public_files/grad/tech_reports/UW-CSE-16-11-01.pdf"
+      "name": "Cryptology ePrint",
+      "url": "https://eprint.iacr.org/2020/066.pdf"
     }
   ],
-  "bibtex": "/download/papers/talek-tr.bib"
+  "bibtex": "https://dblp.uni-trier.de/rec/bibtex/journals/corr/abs-2001-08250"
 }
