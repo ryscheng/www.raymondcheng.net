@@ -1,8 +1,8 @@
 
-- [MacKerricher State Park](https://www.parks.ca.gov/?page_id=436)
-- [Russian Gulch State Park](https://www.parks.ca.gov/?page_id=432)
-- [Hendy Woods State Park](https://www.parks.ca.gov/?page_id=438)
-- [Lake Sonoma](http://www.lakesonoma.com/)
+- [MacKerricher State Park](https://www.parks.ca.gov/?page_id=436) - North CA Coast (2020)
+- [Russian Gulch State Park](https://www.parks.ca.gov/?page_id=432) - North CA Coast (2020)
+- [Hendy Woods State Park](https://www.parks.ca.gov/?page_id=438) - Hendy Grove (2020)
+- [Lake Sonoma](http://www.lakesonoma.com/) - Sonoma County (2020)
 - [Uvas Canyon County Park](https://www.sccgov.org/sites/parks/parkfinder/Pages/UvasCanyon.aspx) - Santa Cruz Mountain Range (2020)
 - [Lakes Trail](https://www.nps.gov/seki/planyourvisit/lakes-trail.htm) - Sequoia & Kings Canyon National Park (2019)
 - [Half Dome](https://www.nps.gov/yose/planyourvisit/halfdome.htm) - Yosemite National Park (2019)
