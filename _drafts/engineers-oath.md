@@ -27,3 +27,6 @@ vs medical - no clear right and wrong
 AI2
 Contract for the web
 ACM ethics code
+
+The Great Google Revolt
+https://www.nytimes.com/interactive/2020/02/18/magazine/google-revolt.html
