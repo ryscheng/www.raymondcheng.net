@@ -1,4 +1,5 @@
 
+- [Marshall Gold Discovery State Historic Park](http://www.parks.ca.gov/?page_id=484) - (2020)
 - [MacKerricher State Park](https://www.parks.ca.gov/?page_id=436) - North CA Coast (2020)
 - [Russian Gulch State Park](https://www.parks.ca.gov/?page_id=432) - North CA Coast (2020)
 - [Hendy Woods State Park](https://www.parks.ca.gov/?page_id=438) - Hendy Grove (2020)
