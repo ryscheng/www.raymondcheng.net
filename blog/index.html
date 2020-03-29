@@ -35,13 +35,19 @@ permalink: /blog/
       </a>
     {% endfor %}
     <div>
+      <img height='50px' src='/img/emailaddr.jpg' alt='email' />
+      <br />
       <p class="lead">
-        {% for sub in site.data.about.summary.subtitles %}
-          {{ sub }}
-        {% endfor %}
+        Follow me on: <br />
+      </p>
+      <p>
+        {% include social-long.html %}
       </p>
     </div>
     <div>
+      <p class="lead">
+        Jump to an About Me section:
+      </p>
       <ul>
       {% for section in site.data.about.order.sections %}
         <li>
