@@ -3,12 +3,13 @@
 CWD=`pwd`
 REPO_NAME="ryscheng.github.io"
 REPO_URL="git@github.com:ryscheng/ryscheng.github.io.git"
-GIT_PATH=/tmp/$REPO_NAME
+PARENT_PATH=/tmp
+GIT_PATH=$PARENT_PATH/$REPO_NAME
 
 echo "Current directory is $CWD"
 
 echo "=== Cloning Repo ==="
-cd /tmp
+cd $PARENT_PATH
 if [ -d $GIT_PATH ]; then
   echo "github:ryscheng.github.io already cloned. Pulling..."
   cd $REPO_NAME
