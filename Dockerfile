@@ -1,4 +1,4 @@
-FROM ruby:2.3
+FROM ruby:2
 
 RUN mkdir -p /setup/
 COPY Gemfile /setup/

@@ -2,15 +2,16 @@
 layout: post
 title:  "A Path to Opening Up Twitter"
 date:   2019-12-30 12:47:18 -0700
-categories: thoughts
+categories: [thoughts, decentralization]
 ---
-*By [Raymond Cheng](https://raymondcheng.net) and [Jeffrey Dash Hsu](https://thectozone.com/)*
 
-### Key Takeaways
-- **Centralized proprietary recommendation algorithms are hard to get right. Social media platforms are failing us as sole arbiters of truth on their platforms.**
-- **Let’s open up the ability for 3rd party developers to create recommendation algorithms on Twitter services.**
-- **Instead of jumping straight into a fully decentralized protocol, which is risky and takes a lot of work, let’s test the underlying assumptions on production Twitter first.**
-- **If decentralization is the ultimate goal, any work we do here will be useful on the path.**
+#### Key Takeaways
+- Centralized proprietary recommendation algorithms are hard to get right. Social media platforms are failing us as sole arbiters of truth on their platforms.
+- Let’s open up the ability for 3rd party developers to create recommendation algorithms on Twitter services.
+- Instead of jumping straight into a fully decentralized protocol, which is risky and takes a lot of work, let’s test the underlying assumptions on production Twitter first.
+- If decentralization is the ultimate goal, any work we do here will be useful on the path.
+
+*Blog post by [Raymond Cheng](https://raymondcheng.net) and [Jeffrey Dash Hsu](https://thectozone.com/)*
 
 Earlier this month, [Jack Dorsey](https://twitter.com/jack) issued a [tweetstorm](https://twitter.com/jack/status/1204766078468911106), declaring the formation of a new team to explore an “open and decentralized standard for social media”. The response from the community has been incredible, with tens of thousands of retweets and likes in just a couple of weeks. I’d like to suggest a potential iterative path forward. I have seen too many good projects under smart leadership slowly fade because they were building something so radically different all at once that no one ultimately wanted. I worry that an “independent” team of 5 open source developers designing a completely new architecture may suffer the same fate if Twitter finds it too costly to switch later on. An iterative path tightly looped with Twitter’s production would allow the effort to both, experiment with smaller scoped experiments in the market quickly, as well as test whether the architecture is compatible with Twitter. A sequence of upgrades that is compatible with Twitter’s technical architecture is far more likely to succeed in the end. One that is compatible, or even better, reinforces Twitter’s business model will accelerate our path towards decentralization.
 
@@ -46,7 +47,7 @@ Each unique combination of recommendation algorithm and user interface, which we
 
 By opening up Twitter to support external lens publishers, Twitter will enable anyone to build a robotic editor, who can generate real-time feeds for every Twitter user. There exists an infinite universe of lenses, each optimizing for different goals and perspectives, which allows different communities to experiment towards what works best for them and enables diversity of opinion. The abstraction of a lens opens up the ability to publicly experiment and debate how we, as a society, want algorithms steering our attention. Any decentralized protocol will need to solve this problem as well, and testing our assumptions on production Twitter will lead to less costly and quicker lessons.
 
-![Lens Overview](/img/diagrams/twitter-lens-overview.png)
+![Lens Overview](/img/diagrams/decentralizing-twitter/twitter-lens-overview.png)
 
 *Note: This idea has also been proposed in other articles, including by [Wolfram](https://writings.stephenwolfram.com/2019/06/testifying-at-the-senate-about-a-i-selected-content-on-the-internet/) and
 [Masnick](https://knightcolumbia.org/content/protocols-not-platforms-a-technological-approach-to-free-speech)*
@@ -63,7 +64,7 @@ The main philosophy behind decentralization through federation is to enable data
 
 With the advent of protocols to make the social web open, federated social networks such as [GnuSocial](https://www.gnu.org/software/social/), [Diaspora](https://diasporafoundation.org/), and [Friendica](https://friendi.ca/) were started in 2010 aimed to be the open alternative to beat Facebook and Twitter, with [Mastodon](https://joinmastodon.org/) (2016) being one of the more recent iterations. Here is an estimate of the current numbers of the “Fediverse”:
 
-![Fediverse Stats](/img/diagrams/fediverse-stats-2019.png)
+![Fediverse Stats](/img/diagrams/decentralizing-twitter/fediverse-stats-2019.png)
 
 Almost a decade in, adoption of the “Fediverse” has not taken off. Why?
 
@@ -81,7 +82,7 @@ These open social networks don’t have recurring ad revenue remotely near the o
 
 Even if adoption was high, the “Fediverse” has not yet been battle tested to handle Twitter scale. Take a #hashtag search for example. Searching #blessed over heterogeneous federated systems would require you either to 1. spam every single server with a #blessed query and join all the results in a third party system or 2. flood every single server with all tweets for the query. With Twitter’s generating ~150 GB of tweets every single day, handling this scale of data simply would not be viable with the infrastructure and resources of these federated systems.
 
-![Twitter Scale](/img/diagrams/twitter-numbers-2019.png)
+![Twitter Scale](/img/diagrams/decentralizing-twitter/twitter-numbers-2019.png)
 
 Federated systems do provide a physical separation of services, which can be used to implement the lens abstraction. For example, different servers could tailor their recommendation algorithms towards different communities. However, each server is also responsible for maintaining fault-tolerant service; if your local service goes down you may lose access. In our proposal, we suggest to enable this abstraction while still outsourcing service reliability to Twitter’s existing scalable infrastructure.
 
@@ -107,11 +108,11 @@ In this section, we start by proposing an initial centralized technical design t
 
 Let’s consider 2 different types of users. *Consumers* engage with Twitter through official channels --- i.e. web and mobile apps. *3rd-party developers* experiment with novel recommendation algorithms for newsfeeds and potentially even new user interfaces to consume Twitter. The *platform* runs the infrastructure, in this case Twitter.
 
-![Lens Store](/img/diagrams/twitter-lens-store.png)
+![Lens Store](/img/diagrams/decentralizing-twitter/twitter-lens-store.png)
 
 ## User experience
 
-![Twitter UX](/img/diagrams/twitter-lens-ux.png)
+![Twitter UX](/img/diagrams/decentralizing-twitter/twitter-lens-ux.png)
 
 Users continue to interact with the Twitter app the way they normally do. Twitter already exposes a toggle, which allows you to choose between “Latest Tweets”, which shows tweets in chronological order, and “Top Tweets”, a proprietary recommendation algorithm. We propose to augment this interface with new choices, where users can select from a range of different *“lenses”* from different 3rd-party developers. The native experience does not change, beyond a different prioritization of how content shows up in the app.
 
@@ -131,7 +132,7 @@ Lenses strictly affect the view that users are presented when reading tweets. Po
 
 Informally, verifiable computing is a set of techniques that enable clients to verify that a remote computation was executed correctly on a server. When clients issue a request to the server, the remote server would return a proof along with the result. Crucially, the proof of correctness can be efficiently verified with low computational effort and works even if the server is potentially dishonest. For example when applied to Twitter, any user would be able to request tweets from Twitter and verify a proof that the tweets were the result of a specific recommendation algorithm they chose.
 
-![Lens Verification](/img/diagrams/twitter-lens-verification.png)
+![Lens Verification](/img/diagrams/decentralizing-twitter/twitter-lens-verification.png)
 
 In a world where Twitter is a globally trusted platform, this component may not strictly be necessary. Users would just need to trust that the platform is in fact executing the algorithm they asked for. However, there are a number of reasons to at least begin to design the Lens SDK with this in mind:
 - **Users and governments are skeptical**: Big tech is going through a public reckoning, as more of the public is realizing the power of the systems these companies control. It is really powerful for platforms to be able to claim the system provably behaves correctly even if the platform was not trustworthy.
@@ -202,7 +203,7 @@ While we presented proper incentive design as a goal, this proposal does not pro
 
 The proposal sketch above addresses many of the problems initially laid out in @jack’s tweets, with the caveat that it assumes Twitter will faithfully store and serve any data as required by the lens developer from its centralized infrastructure. This provides a path to enable fast experimentation of recommendation algorithms, but it does not fundamentally address the issue of data censorship by the platform. Fully decentralizing to combat censorship is a monumental engineering challenge that I would not recommend tackling as a first step. However, the proposal above lays the groundwork for evolving into a more decentralized platform if Twitter decides to in the future.
 
-![Decentralization Overview](/img/diagrams/twitter-decentralization.png)
+![Decentralization Overview](/img/diagrams/decentralizing-twitter/twitter-decentralization.png)
 
 Let’s drastically simplify the problem and assume that the Twitter distributed system consists of clients, application servers, and database servers. I hold no illusions that their architecture is this simple, but the simplification makes it easier to explain how we’d decentralize and ancillary services could follow a similar path.
 
@@ -232,3 +233,4 @@ We could apply a similar effort to run real-time advertising auctions trustlessl
 # Thanks @jack!
 
 I want to thank [@jack](https://twitter.com/jack) for opening up this exciting possibility to engage with the open source and research communities to further improve Twitter. It’s a unique opportunity to solve one of society’s biggest challenges in a way that Twitter may find difficult to do alone. My hope is to simply bring to light an alternative way of thinking about the challenge that may yield a more incremental path for Twitter to follow. [@jack](https://twitter.com/jack) and whoever you [hire](https://twitter.com/bluesky) to lead this project, please don’t let this good intention die in vain.
+

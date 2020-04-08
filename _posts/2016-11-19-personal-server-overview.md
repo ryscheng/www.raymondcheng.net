@@ -46,7 +46,7 @@ Check out [More Services](#more-services) for setting up specific applications.
 ---
 
 ## Overview
-![Architecture](/img/diagrams/personal-server-architecture.png)
+![Architecture](/img/diagrams/personal-server/personal-server-architecture.png)
 
 [Docker](https://www.docker.com/what-docker) makes it trivially easy to package an application with all of its dependencies in a standardized unit that runs in an isolated Linux container. For basic tutorials on how to use it, Docker maintains excellent documentation [here](https://docs.docker.com/).
 
@@ -83,7 +83,7 @@ $ sudo apt-get install nginx docker.io docker-compose
 
 You'll need a domain name that points to your server. In this example, I'll set `*.raymondcheng.net` to point to the same machine. 
 
-![DNS record for \*.raymondcheng.net](/img/diagrams/personal-server-wildcard-dns.png)
+![DNS record for \*.raymondcheng.net](/img/diagrams/personal-server/personal-server-wildcard-dns.png)
 
 Verify that DNS queries are properly returning the address
 
