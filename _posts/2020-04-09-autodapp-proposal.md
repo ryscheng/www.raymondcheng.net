@@ -111,7 +111,7 @@ Do you think this is cool? Do you want to AutoDapp-ify the Web with us? Join us!
 1. Star us on GitHub: [https://github.com/autodapp/autodapp](https://github.com/autodapp/autodapp)     
 Maybe we’ll host the project on an AutoDapp’ed git hosting application in the future. The possibilities are endless!
 2. File issues on GitHub. Tell us what applications you want to see supported and tested with AutoDapp!
-3. Join the AutoDapp mailing list for updates
+3. Join the [AutoDapp mailing list](https://autodapp.io/) for updates
 <!-- Begin Mailchimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
 <style type="text/css">
