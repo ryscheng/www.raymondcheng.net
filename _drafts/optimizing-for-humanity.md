@@ -1,4 +1,9 @@
 
+  - Free will
+    Choice maximalism
+    Env provide choice
+    Individual to make them - close other opportunities
+    modern definition of freedom
 
 
 Robot overlords are already here

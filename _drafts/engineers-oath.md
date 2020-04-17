@@ -7,6 +7,10 @@ categories: projects
 
 [Uber](http://www.zdnet.com/article/uber-fined-peanuts-in-god-view-surveillance-data-breach-investigation/)
 
+    empowering evil - avoiding conflict
+    choosing leaders
+    courage vs self-preservation
+
 Privacy
 Recycle ability macbook
 
