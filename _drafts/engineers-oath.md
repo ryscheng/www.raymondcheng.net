@@ -37,3 +37,5 @@ https://www.nytimes.com/interactive/2020/02/18/magazine/google-revolt.html
 
 Hacker Manifesto
 
+
+https://a16z.com/2020/04/18/its-time-to-build/
