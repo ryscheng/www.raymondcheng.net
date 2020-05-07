@@ -10,3 +10,6 @@ life is a constant struggle
   accept the struggle
   embrace the struggle
   choose the struggle
+
+Work as sacrifice va work as enjoyment
+
