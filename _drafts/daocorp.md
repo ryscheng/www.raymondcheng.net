@@ -5,3 +5,5 @@
     Theory of the firm, new incentives, decentralization
     https://twitter.com/balajis/status/1171158043364478976?s=19
     Next blockchain hype
+
+  https://www.nytimes.com/2020/02/22/us/politics/digital-tax-economy-europe-united-states.html
