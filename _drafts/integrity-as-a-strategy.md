@@ -10,4 +10,7 @@ Arc history bend justice
 
  Successful Entrepreneurs Are Usually Liars - blogpost
 
-
+Lessons we teach our kids
+- look out for the vulnerable (e.g. from bullies)
+- play fair, take turns, dont cheat or change the rules
+- be honest
