@@ -14,3 +14,6 @@ Lessons we teach our kids
 - look out for the vulnerable (e.g. from bullies)
 - play fair, take turns, dont cheat or change the rules
 - be honest
+
+
+http://scholars-stage.blogspot.com/2019/12/the-problem-isnt-merit-its-ocracy.html?m=1
