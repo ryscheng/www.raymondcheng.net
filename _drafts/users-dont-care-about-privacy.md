@@ -4,6 +4,7 @@ users don't care about
 - the environment (e.g.H&M incineration)
 - Arbitration rights
 - Paid sick/family leave
+- Chic-fil-a gay comments, sales grow fast thru crisis, CNBC YouTube
 
 Obviously stupid example
 - not just about loss, also about opportunity cost
