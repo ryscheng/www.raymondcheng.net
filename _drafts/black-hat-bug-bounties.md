@@ -6,3 +6,8 @@
       Phineas fishcer bank hack
     endangered animals
     native americans
+
+
+Why?
+- expose vulnerabilities only used for surveillance
+- current cloud architecture enables surveillance
