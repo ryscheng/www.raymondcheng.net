@@ -11,3 +11,9 @@
 Why?
 - expose vulnerabilities only used for surveillance
 - current cloud architecture enables surveillance
+
+
+Forgiveness culture
+- not the service's fault, can't possibly protect against more sophisticated adversaries.
+- If not held responsible, they'll never change their model.
+
