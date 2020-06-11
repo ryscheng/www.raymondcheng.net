@@ -7,3 +7,11 @@
     Next blockchain hype
 
   https://www.nytimes.com/2020/02/22/us/politics/digital-tax-economy-europe-united-states.html
+
+Remote work
+- blurring lines between organizations
+- chat systems are highly integrated
+- video systems don't delineate
+- code / work product easy to share
+- customers, vs teammates, hard to distinguish, just doing work that other people need
+  what if we had more agile organizations?
