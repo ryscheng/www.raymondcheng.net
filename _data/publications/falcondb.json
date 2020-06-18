@@ -14,9 +14,13 @@
   "year": 2020,
   "paper": [
     {
-      "name": "TBD",
-      "url": ""
+      "name": "ACM",
+      "url": "https://dl.acm.org/doi/pdf/10.1145/3318464.3380594"
+    },
+    {
+      "name": "PDF",
+      "url": "http://www.cs.utah.edu/~lifeifei/papers/falcondb.pdf"
     }
   ],
-  "bibtex": ""
+  "bibtex": "https://dblp.uni-trier.de/rec/bibtex/conf/sigmod/PengDL0S20"
 }

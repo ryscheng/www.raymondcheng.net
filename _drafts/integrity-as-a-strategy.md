@@ -21,3 +21,10 @@ http://scholars-stage.blogspot.com/2019/12/the-problem-isnt-merit-its-ocracy.htm
 "game theory of integrity"
 
 http://www.paulgraham.com/good.html
+
+
+venn diagram of
+- what's enforceable (e.g. thru courts/police/contracts)
+   limited by the laws of physics - what's observable, what's controllable
+- what's allowed by the law (defined by society - mostly historically)
+- personal ethical standards
