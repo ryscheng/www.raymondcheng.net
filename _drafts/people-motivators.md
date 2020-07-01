@@ -1,4 +1,6 @@
 
+Optimizers, idealists, and adventurers
+https://www.lsankar.com/#/optimizers-idealists-and-adventurers
 
 agnostics
 idealists
