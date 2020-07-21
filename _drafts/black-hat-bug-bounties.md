@@ -17,3 +17,8 @@ Forgiveness culture
 - not the service's fault, can't possibly protect against more sophisticated adversaries.
 - If not held responsible, they'll never change their model.
 
+As Microsoft have no intensions of ever paying me for all my submitted vulnerabilities I am forced to do this.
+Countdown starts today- then I will post them all public.
+Ms is just trying to get time to patch them then never pay me.
+I have for over 100.000$ in submissions.
+https://twitter.com/jonasLyk/status/1282945750746509313
