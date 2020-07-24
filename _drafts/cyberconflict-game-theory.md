@@ -26,3 +26,5 @@ what role does security play
 either offensive or defensive or tech builders?
 
 
+Accuse, Evict, Repeat: Why Punishing China and Russia for Cyberattacks Fails
+https://www.nytimes.com/2020/07/22/us/politics/china-russia-trump-cyberattacks.html
