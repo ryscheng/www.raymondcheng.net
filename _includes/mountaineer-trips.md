@@ -1,4 +1,5 @@
 
+- [Big Basin Redwoods State Park](http://www.parks.ca.gov/?page_id=540) - Santa Cruz Mountain Range (2020)
 - [Wunderlich Park](https://parks.smcgov.org/wunderlich-park) - (2020)
 - [Marshall Gold Discovery State Historic Park](http://www.parks.ca.gov/?page_id=484) - (2020)
 - [MacKerricher State Park](https://www.parks.ca.gov/?page_id=436) - North CA Coast (2020)
