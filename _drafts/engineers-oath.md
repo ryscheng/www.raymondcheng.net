@@ -37,5 +37,8 @@ https://www.nytimes.com/interactive/2020/02/18/magazine/google-revolt.html
 
 Hacker Manifesto
 
+Microsoft President, Brad Smith: Why We Urgently Need a Hippocratic Oath for Software Engineers
+https://capitalandgrowth.org/answers/Article/3323627/Microsoft-President-Brad-Smith-Why-We-Urgently-Need-a-Hippocratic-Oath-for-Software-Engineers
+
 
 https://a16z.com/2020/04/18/its-time-to-build/

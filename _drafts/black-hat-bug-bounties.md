@@ -22,3 +22,6 @@ Countdown starts today- then I will post them all public.
 Ms is just trying to get time to patch them then never pay me.
 I have for over 100.000$ in submissions.
 https://twitter.com/jonasLyk/status/1282945750746509313
+
+Here’s Why Credit Card Fraud is Still a Thing — Krebs on Security
+https://krebsonsecurity.com/2020/07/heres-why-credit-card-fraud-is-still-a-thing/
