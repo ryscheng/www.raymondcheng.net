@@ -1,3 +1,7 @@
+
+#### Hang gliding
+- [Paragliding enthusiasts go high in the sky for enjoyment](https://www.pressreader.com/usa/the-mercury-news/20200825/281672552322785)
+
 #### Oasis Labs
 
 - [Wired: "How a Startup is Using the Blockchain to Protect Your Privacy"](https://www.wired.com/story/how-a-startup-is-using-the-blockchain-to-protect-your-privacy/)
