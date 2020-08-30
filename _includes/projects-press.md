@@ -1,6 +1,6 @@
 
 #### Hang gliding
-- [Paragliding enthusiasts go high in the sky for enjoyment](https://www.pressreader.com/usa/the-mercury-news/20200825/281672552322785)
+- [Paragliding enthusiasts go high in the sky for enjoyment](https://www.mercurynews.com/2020/08/25/skydivers-flying-high-around-the-bay/)
 
 #### Oasis Labs
 
