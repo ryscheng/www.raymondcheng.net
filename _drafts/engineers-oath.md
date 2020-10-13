@@ -42,3 +42,10 @@ https://capitalandgrowth.org/answers/Article/3323627/Microsoft-President-Brad-Sm
 
 
 https://a16z.com/2020/04/18/its-time-to-build/
+
+
+Tech is value neutral, just an amplifier
+  Tools of oppression outpacing anti-oppression
+  Open sourcing architectures, best practices
+    SV complicit
+    architectures only make sense in a country with human rights laws
