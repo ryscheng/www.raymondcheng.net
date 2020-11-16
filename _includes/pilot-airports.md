@@ -7,6 +7,7 @@ Home Airports:
 
 Destination: Everywhere
 
+- [McClure](https://mlsralakemcclure.wixsite.com/lakemcclurehg) - Lake McClure, CA (2020)
 - [HHR](http://www.cityofhawthorne.org/airport/) - Hawthorne Municipal Airport, Los Angeles, CA (2018)
 - [LAS](https://www.mccarran.com/) - McCarran International Airport, Las Vegas, NV (2018)
 - [GCN](https://www.azdot.gov/about/GrandCanyonAirport/overview) - Grand Canyon Airport, Tusayan, AZ (2018)
