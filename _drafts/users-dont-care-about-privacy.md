@@ -18,3 +18,6 @@ Flawed logic
 Ways to look at this:
 - Good for society
 - Human rights - always come at a cost to other things to optimize for
+
+Privacy matters even if “you have nothing to hide”
+https://write.privacytools.io/freddy/why-privacy-matters-even-if-you-have-nothing-to-hide

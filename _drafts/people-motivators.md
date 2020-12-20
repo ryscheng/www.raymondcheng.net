@@ -25,3 +25,5 @@ Ethics / morality
 - maximizers more likely to put it secondary to their primary objective
   type to rationalize decisions using game theory - game theory doesn't define right or wrong, just helps determine optimal strategies
 
+
+Dunning-Kruger effect
