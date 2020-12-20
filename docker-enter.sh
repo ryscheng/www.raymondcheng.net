@@ -8,7 +8,7 @@ which docker >/dev/null || {
 }
 
 echo "===== BUILDING =====" && \
-  docker build -t jekyll . && \
+  docker build -t local/jekyll . && \
   echo "===== RUNNING =====" && \
   docker run --rm -t -i \
     --name "website" \
@@ -17,6 +17,6 @@ echo "===== BUILDING =====" && \
     -w /code \
     -e LC_CTYPE=en_US.UTF-8 \
     -e LANG=en_US.UTF-8 \
-    jekyll \
+    local/jekyll \
     bash
     #ruby:2.3 \

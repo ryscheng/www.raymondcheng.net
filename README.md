@@ -13,3 +13,9 @@ $ bash docker-enter.sh
 
 # Commands
 See `Makefile` for list of commands
+
+# To push to prod
+
+```bash
+bash publish.sh
+```
