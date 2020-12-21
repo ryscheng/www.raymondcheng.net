@@ -16,7 +16,7 @@ These thoughts typically fall into one of three categories:
 
 [//]: # (regret-minimization  https://www.youtube.com/watch?v=jwG_qR6XmDQ)
 
-I believe it is important to ***life my life with intention***.
+I believe it is important to ***live my life with intention***.
 I want to make sure that my time in this world is spent how I want it,
 and not how others or circumstances dictate.
 I believe that the best way towards personal freedom is by exercising your free will,
@@ -158,7 +158,7 @@ Hopefully, these tips will help you focus on the things that matter to you.
 Re-reading this blog post 2 years later has been fascinating to me. A couple of things clearly stand out.
 
 - I still use this same framework today, with minor modifications. As a framework for achieving greater focus and velocity, it has worked pretty well.
-- The examples I used in the original post were pre-dominantly work-related goals, with some fun hobbies sprinkled in.
+- The examples I used in the original post were predominantly work-related goals, with some fun hobbies sprinkled in.
 
 Honestly, the examples were a reasonably accurate reflection of my priorities at the time, but it is worth pointing out that the blog post says nothing about:
 
@@ -182,7 +182,7 @@ You'd be surprised at how often the traditional path is **not** the optimal stra
 
 One of my favorite quotes comes from former Supreme Court justice and original author of the "Right to Privacy", Louis Brandeis.
 Brandeis ran one of the biggest law firms in his day and later became one of the most impactful justices in our high court.
-He always took a month off with his wife and found himself more productive for it.
+He always took a month off every year with his wife and found himself more productive for it.
 Taking a month off may not be the right strategy for everyone, so find out what works for you.
 
 For me, I make sure to dedicate large blocks of time for family and friends without worrying about running to the next meeting or getting back to work.
