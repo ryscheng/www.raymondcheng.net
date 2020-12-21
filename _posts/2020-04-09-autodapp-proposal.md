@@ -140,4 +140,4 @@ This is just the beginning, look out for more blog posts on progress and updates
 
 Acknowledgements: Huge thank you to Armani Ferrante, Nick Hynes, Will Scott, Reuven Gonzales, and Christopher Heymann for their helpful feedback and comments.
 
-
+To follow the conversation on Hacker News, check it out [here](https://news.ycombinator.com/item?id=22814681)

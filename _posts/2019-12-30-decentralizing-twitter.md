@@ -234,3 +234,4 @@ We could apply a similar effort to run real-time advertising auctions trustlessl
 
 I want to thank [@jack](https://twitter.com/jack) for opening up this exciting possibility to engage with the open source and research communities to further improve Twitter. It’s a unique opportunity to solve one of society’s biggest challenges in a way that Twitter may find difficult to do alone. My hope is to simply bring to light an alternative way of thinking about the challenge that may yield a more incremental path for Twitter to follow. [@jack](https://twitter.com/jack) and whoever you [hire](https://twitter.com/bluesky) to lead this project, please don’t let this good intention die in vain.
 
+To follow the conversation on Hacker News, check it out [here](https://news.ycombinator.com/item?id=21959996)

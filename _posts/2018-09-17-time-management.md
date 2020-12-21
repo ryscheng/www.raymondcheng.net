@@ -152,3 +152,39 @@ Think of it as pacing in the marathon of life.
 It takes repetition to build it into a habit.
 And if you slip, don't fret; just recenter, readjust, and try again.
 Hopefully, these tips will help you focus on the things that matter to you.
+
+# Update (2020-12)
+
+Re-reading this blog post 2 years later has been fascinating to me. A couple of things clearly stand out.
+
+- I still use this same framework today, with minor modifications. As a framework for achieving greater focus and velocity, it has worked pretty well.
+- The examples I used in the original post were pre-dominantly work-related goals, with some fun hobbies sprinkled in.
+
+Honestly, the examples were a reasonably accurate reflection of my priorities at the time, but it is worth pointing out that the blog post says nothing about:
+
+1. Are the goals you set the right goals in your life?
+2. Is the proposed strategy to achieve those goals the most effective for you?
+
+It's remarkable to see how much my goals in life have evolved in such a short period of time.
+I'd recommend people read ["The 7 Habits of Highly Effective People"](https://en.wikipedia.org/wiki/The_7_Habits_of_Highly_Effective_People) by Dr. Stephen Covey.
+In the book, he talks about developing a [personal mission statement](https://resources.franklincovey.com/the-7-habits-of-highly-effective-people/habit-2-begin-with-the-end-in-mind).
+The book also describes a useful exercise of envisioning your [80th birthday exercise](https://www.youtube.com/watch?v=IUtPjJDBs6I),
+thinking through what you'd want your community to say about you.
+This exercise has profoundly helped me find clarity in my purpose on this Earth.
+
+Secondly, it's important to regularly re-evaluate your strategy on how you plan to achieve your personal mission.
+It is painfully common among my peers, myself included, to spend your early career grinding away at work, with less than ideal results to show for it.
+The cliche "work smarter, not harder" is easy to overlook when you're in the grind.
+After you've planned and measured all of the time you've input, remember to analyze the outcomes regularly and change strategies if you are not achieving the outcomes you want.
+You'd be surprised at how often the traditional path is **not** the optimal strategy.
+
+> "I can get a year's worth of work done in 11 months, but not 12." - Louis Brandeis
+
+One of my favorite quotes comes from former Supreme Court justice and original author of the "Right to Privacy", Louis Brandeis.
+Brandeis ran one of the biggest law firms in his day and later became one of the most impactful justices in our high court.
+He always took a month off with his wife and found himself more productive for it.
+Taking a month off may not be the right strategy for everyone, so find out what works for you.
+
+For me, I make sure to dedicate large blocks of time for family and friends without worrying about running to the next meeting or getting back to work.
+It's easy to forget how important this is for your mental health, satisfaction in life, and surprisingly, productivity.
+
