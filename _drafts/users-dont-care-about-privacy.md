@@ -21,3 +21,6 @@ Ways to look at this:
 
 Privacy matters even if “you have nothing to hide”
 https://write.privacytools.io/freddy/why-privacy-matters-even-if-you-have-nothing-to-hide
+
+What Privacy Is For
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2175406
