@@ -4,7 +4,7 @@ pre:
 
 # Build and run web server with drafts
 run:
-	bundle exec jekyll serve --drafts --port 8000 --host 0.0.0.0
+	bundle exec jekyll serve --drafts --future --port 8000 --host 0.0.0.0
 
 # Build and run web server as production
 prod:
