@@ -54,29 +54,31 @@ permalink: /about/
     <!-- QUOTES -->
     <div class="highlight">
       {% for quote in feature.quotes %}
-      <blockquote class="blockquote">
-        <p class="mb-0">{{ quote.text }}</p>
-        <footer class="blockquote-footer text-right">{{ quote.source }}</footer>
-      </blockquote>
+      <figure>
+        <blockquote class="blockquote">
+          <p class="mb-0">{{ quote.text }}</p>
+        </blockquote>
+        <figcaption class="blockquote-footer text-end">
+          {{ quote.source }}
+        </figcaption>
+      </figure>
       {% endfor %}
     </div>
     <!-- ACCORDIANS -->
-    <div role="tablist" id="{{feature_key}}-accordion">
+    <div class="accordion" id="{{feature_key}}-accordion">
       {% for acc in feature.accordians %}
       <!-- CARD -->
-      <div class="card">
+      <div class="accordion-item">
         
         <!-- CARD-HEADER -->
-        <div class="card-header" role="tab" id="{{feature_key}}-{{acc.ref}}-heading">
-          <h5 class="mb-0">
-            <a data-toggle="collapse" href="#{{feature_key}}-{{acc.ref}}" aria-expanded="true" aria-controls="{{feature_key}}-{{acc.ref}}">
-              {{acc.title}}
-            </a>
-          </h5>
-        </div>
+        <h5 class="accordion-header" id="{{feature_key}}-{{acc.ref}}-heading">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{feature_key}}-{{acc.ref}}" aria-expanded="false" aria-controls="{{feature_key}}-{{acc.ref}}">
+            {{acc.title}}
+          </button>
+        </h5>
 
         <!-- CARD-BODY -->
-        <div id="{{feature_key}}-{{acc.ref}}" class="collapse" role="tabpanel" aria-labelledby="{{feature_key}}-{{acc.ref}}-heading" data-parent="#{{feature_key}}-accordion">
+        <div id="{{feature_key}}-{{acc.ref}}" class="accordion-collapse collapse" aria-labelledby="{{feature_key}}-{{acc.ref}}-heading" data-bs-parent="#{{feature_key}}-accordion">
           <div class="card-body">
             {% for t in acc.text %}
               {{ t }}

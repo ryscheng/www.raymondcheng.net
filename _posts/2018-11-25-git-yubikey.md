@@ -3,6 +3,7 @@ layout: post
 title:  "Signing Git Commits and SSH Authentication with Yubikey"
 date:   2018-11-25 12:47:18 -0700
 categories: projects
+tags: popular
 ---
 
 In this blog post, I'll show you how to setup a Yubikey with both signing and authentication keys.

@@ -3,6 +3,7 @@ layout: post
 title:  "Time Management"
 date:   2018-09-17 12:47:18 -0700
 categories: thoughts
+tags: popular
 ---
 
 > "Time is the most valuable thing a man can spend." Theophrastus
