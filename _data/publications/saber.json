@@ -1,5 +1,5 @@
 {
-  "title": "Saber: Parallel and Asynchronous Smart Contract Execution with Dispute Resolution",
+  "title": "Saber: Parallel and Asynchronous Smart Contract Execution",
   "authors": [
     "jian_liu",
     "peilun_li",
@@ -8,14 +8,14 @@
     "dawn_song"
   ],
   "venue": {
-    "name": "In Submission",
-    "url": ""
+    "name": "IEEE Transactions on Parallel and Distributed Systems",
+    "url": "https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=71"
   },
-  "year": 2019,
+  "year": 2021,
   "paper": [
     {
-      "name": "TBD",
-      "url": ""
+      "name": "IEEE Xplore",
+      "url": "https://ieeexplore.ieee.org/abstract/document/9477197"
     }
   ],
   "bibtex": ""
