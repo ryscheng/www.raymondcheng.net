@@ -127,3 +127,4 @@ It's filled with lovely pilots who are ready to answer questions, share trip pla
 - Ask questions! Answer questions! Including about this post.
 - Plan trips: You'll make some cool friends
 
+*Thanks to Jess Koerner, Richard Sibley, and Bayley Adams for their feedback on the post. Thanks to Scarlet Passer for joining us on this journey. And a million thanks to Takeo Eda and Masayo Miyauchi for mentoring us through countless weekends at Ed Levin.*
