@@ -5,7 +5,7 @@ date:   2021-10-06 06:47:18 -0700
 categories: [thoughts]
 ---
 
-After a long 2.5 years of training to get to our H3 rating, we thought it would help to share our journey and what we wished we knew when we first started. Of course this is our limited opinion, so take it all with a grain of salt and get advice from other pilots you trust.
+After a long 2.5 years of training to get to our H3 rating, we thought it would help to share our journey and what we wished we knew when we first started; advice that could have helped us finish in <1 year. Of course this is our limited opinion, so take it all with a grain of salt and get advice from other pilots you trust.
 
 *Blog post by [Raymond Cheng](https://raymondcheng.net/) and [Brandon Holt](http://bholt.org/)*
 
@@ -18,7 +18,7 @@ We took our first hang gliding lessons because we loved the idea of flying and w
 
 Now we could see ourselves continuing doing it for the rest of our lives, committed to achieving some level of mastery. This dream of soaring, riding thermals, chasing lift from ridge to mountain top, requires the accumulation of many important skills. Assuming you're already interested in learning to hang glide, let's first start by convincing you why it's worth it to go all the way through H1 and H2 to get to H3 rating.
 
-[USHPA](https://www.ushpa.org/) is the organization dedicated to making free flight (hang gliding and paragliding) possible and safe. They are responsible for certifying flying sites and standardizing the skills required to fly them safely, through the USHPA ratings system. You will need a certain minimum rating for most sites, often with other specific requirements for additional skills or experience.
+[USHPA](https://www.ushpa.org/) is the organization dedicated to making free flight (hang gliding and paragliding) possible and safe. They are responsible for certifying flying sites and standardizing the skills required to fly them safely, through the USHPA ratings (H1 to H5) system. Each flying site has a minimum required rating, so as you progress in your ratings, more and more sites will become accessible to you. USHPA also collects [incident reports](https://www.ushpa.org/page/safety) related to the sport. If you want to understand the risks of the sport, I'd recommend this great [article](https://chessintheair.com/the-risk-of-dying-doing-what-we-love/).
 
 ### Hang1 (Beginner) is just takeoffs and landings
 <iframe width="560" height="315" src="https://www.youtube.com/embed/I-RDq599aMo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -86,13 +86,13 @@ Before your H2, you'll be mostly renting gear from your instructor, because you'
     As soon as you start flying sites that are not your training site, you'll probably want a ham radio and a [license](http://www.arrl.org/ham-radio-licenses) to operate. Most sites have little to no cellphone reception and this will be your lifeline if there is an emergency. We recommend dedicating 1 week, memorizing as many questions as possible using [hamstudy.org](https://hamstudy.org/), and just taking the test. You'll want the license ASAP for use, and you can always go back and read a book later. We bought the cheapest [Baofeng radios](https://baofengtech.com/) we could find.
     - **Truck 4x4 with rack: (Expensive)**
     By the time you're an H2, you will definitely need *some* way to get to launch sites. Many sites are at the end of very rocky terrain, which can *only* be traversed with a 4x4. For a while you may be able to skate by, relying on the kindness of friends or strangers organizing trips. Consider pooling for a dedicated vehicle with friends when the time comes. At a minimum you should invest in a way to transport your glider from wherever you store it out to flying sites, even if it's some ladders strapped to your car's roof rack. It's far easier to get someone to help you from the LZ to the top than all the way from home.
-9. **Dedicate 2 weeks of flying every day at an H2-friendly soarable site (like [Andy Jackson](https://crestlinesoaring.org/)) to get your H3 rating**:
-Most sites that you fly as an H2 are going to be sled rides (~10 minutes). The key to quickly getting to your required 10 career hours is to score those lucky 1+ hour flights. In other words, you need to go to sites that are potentially soarable, of which only a small subset are H2-friendly ([Andy Jackson](https://crestlinesoaring.org/andy-jackson-airpark/) and [Hat Creek](https://hatcreekrim.com/)). In both cases you will need an instructor or senior observer to help you get started.
-    - **Why fly everyday?** Both these sites are >5 hours away from San Francisco. It takes a lot of mental energy to just drive there in the first place. You'll be planning far out in advance and you cannot control when the weather will be good. Flying every day is the best way to maximize the likelihood that you'll be there on a good day. For both of these flights, the best time to fly is the summer evening glass-off. If you have a remote-friendly job, it's perfect to work during the day and fly every evening.
-    - **Why Andy Jackson?** It's in San Bernardino. You'll have easy access to a big city, grocery stores, and fast Internet. Compared to Hat Creek, which is in the middle of nowhere, it is much easier to spend a prolonged period of time here. You can even drive your 2WD car to the launch sites. Even better, there are [daily shuttles](https://crestlinesoaring.org/rides/) to take you there. And you'll be around other experienced pilots every day (even weekdays), because it's so convenient for SoCal pilots. If you have friends that live in Los Angeles, it's a good reason to visit.
-    - Ultimately we got 7 hours of flight time over 2 weeks of flying every day. Some flights were 12 minutes. Most flights were 30 minutes. A handful of flights were over an hour. Plus we got to meet a lot of cool SoCal pilots and visit our friends in LA.
+9. **[Optional] Dedicate 2 weeks of flying every day at an H2-friendly soarable site (like [Andy Jackson](https://crestlinesoaring.org/)) to get your H3 rating**:
+Most sites that you fly as an H2 are going to be sled rides (~10 minutes). The key to quickly getting to your required 10 career hours is to score those lucky 1+ hour flights. In other words, you need to go to sites that are potentially soarable, of which only a small subset are H2-friendly ([Andy Jackson](https://crestlinesoaring.org/andy-jackson-airpark/), [Hat Creek](https://hatcreekrim.com/), and [McClure](https://mlsralakemcclure.wixsite.com/lakemcclurehg)). In both cases you will need an instructor or senior observer to help you get started.
+- **Why fly everyday?** These sites are >4-5 hours away from San Francisco. It takes a lot of mental energy to just drive there in the first place. You'll be planning far out in advance and you cannot control when the weather will be good. The variance on what constitutes a good day is really high: some days you'll get a 10 minute flight, other days you'll get a 1+ hour flight. Flying every day is the best way to maximize the likelihood that you'll be there on a good day. For most of these soarable sites, the best time to fly is the summer evening glass-off. If you have a remote-friendly job, it is a perfect setup to work during the day and fly every evening. Can you split this into multiple weekend trips? Yes of course, but remember that the weather may not always line up.
+    - **Why Andy Jackson?** It's in San Bernardino. You'll have easy access to a big city, grocery stores, and fast Internet. Compared to Hat Creek, which is in the middle of nowhere, it is much easier to spend a prolonged period of time here. You can even drive your 2WD car to the launch sites. Even better, there are [daily shuttles](https://crestlinesoaring.org/rides/) to take you there. And you'll be around other experienced pilots every day (even weekdays), because it's so convenient for SoCal pilots. Best of all you'll likely be flying after 5pm everyday, so you have plenty of time to get a full day of remote work in on weekdays. If you have friends that live in Los Angeles, it's a good reason to visit.
+    - Ultimately we got 7 hours of flight time over 2 weeks of flying every day, while working remotely. Some flights were 12 minutes. Most flights were 30 minutes. A handful of flights were over an hour. Plus we got to meet a lot of cool SoCal pilots and visit our friends in LA. Could we have gotten our required 10 hours in multiple weekend trips? Most definitely and many pilots have done exactly that. Just be prepared for some weekends where you barely fly.
 
-Hang gliding is a sport with **pretty high upfront cost, but very low operational expenses** once you are a H3. If you have all the gear and ratings, you usually fly at any site for the cost of gas to go there.
+At the end of the day, hang gliding is a sport with **pretty high upfront cost, but very low operational expenses** once you are a H3. If you have all the gear and ratings, you usually fly at any site for the cost of gas to go there.
 
 ## Continuing education
 
@@ -119,7 +119,7 @@ We've also compiled some fun videos of our friends in the area for you to get a 
 # Join us!
 
 Hang gliding can be an incredibly difficult and lonely journey for some, but it doesn't have to be. If you live in the SF Bay area, come join our community!
-[https://www.bayareafledglings.org](https://www.bayareafledglings.com)
+[https://www.bayareafledglings.org](https://www.bayareafledglings.org)
 
 It's filled with lovely pilots who are ready to answer questions, share trip plans, and educational resources. Like any other participatory culture, you will get out what you put into it. To start, we recommend:
 
@@ -128,3 +128,13 @@ It's filled with lovely pilots who are ready to answer questions, share trip pla
 - Plan trips: You'll make some cool friends
 
 *Thanks to Jess Koerner, Richard Sibley, and Bayley Adams for their feedback on the post. Thanks to Scarlet Passer for joining us on this journey. And a million thanks to Takeo Eda and Masayo Miyauchi for mentoring us through countless weekends at Ed Levin.*
+
+Agree? Disagree? Want to share your own personal experiences? Join the conversation on:
+- [Facebook](https://www.facebook.com/groups/bayareafledglings/permalink/1235079280292072/)
+- [Reddit](https://www.reddit.com/r/Hanggliding/comments/q8gvih/how_to_become_an_h3_hang_glider_pilot_in_the_bay/)
+- [Twitter](https://twitter.com/RaymondCheng00/status/1448871887094779908)
+
+### Related articles
+- [Norcal H3 Strategy Guide](https://www.hanggliding.org/wiki/Northern_California_H2/H3_Strategy_Guide)
+- [Socal H3 Strategy Guide](https://www.hanggliding.org/wiki/Southern_California_H2/H3_Strategy_Guide)
+
