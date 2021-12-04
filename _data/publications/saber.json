@@ -1,5 +1,5 @@
 {
-  "title": "Saber: Parallel and Asynchronous Smart Contract Execution",
+  "title": "Parallel and Asynchronous Smart Contract Execution",
   "authors": [
     "jian_liu",
     "peilun_li",
@@ -11,12 +11,12 @@
     "name": "IEEE Transactions on Parallel and Distributed Systems",
     "url": "https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=71"
   },
-  "year": 2021,
+  "year": 2022,
   "paper": [
     {
       "name": "IEEE Xplore",
       "url": "https://ieeexplore.ieee.org/abstract/document/9477197"
     }
   ],
-  "bibtex": ""
+  "bibtex": "https://dblp.org/rec/journals/tpds/LiuLCAS22.html?view=bibtex"
 }
