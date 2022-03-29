@@ -4,6 +4,7 @@ title:  "Docker-based Personal Server"
 date:   2016-11-19 12:47:18 -0700
 categories: projects
 tags: popular
+canonical_url: "https://ryscheng.substack.com/p/personal-server-overview.html"
 ---
 
 In this blog post, I'll show you how to configure a Docker-based personal server, running each service in a separate Docker container. Modern devops tools have made it easier than ever to run your own server and for anyone with basic familiarity with Linux, it's worth a try. In this tutorial, we'll use [Gitlab](https://about.gitlab.com/) as a running example.
@@ -153,7 +154,7 @@ Create a service named `gitlab`, using the Docker image `gitlab/gitlab-ce`. The 
       - ~/docker/gitlab/logs:/var/log/gitlab
       - ~/docker/gitlab/data:/var/opt/gitlab
 ```
-These are parameters you'll need to set for every service you enable. Ports define port forwarding rules from your host computer to the container. Gitlab by default has internal ports 80 and 22 for the web service and SSH, respectively. These rules expose the ports to 8765 and 2345 on the host computer respectively. As such, you should be able to access the service at [http://localhost:8765](http://localhost:8765). Eventually, we will block access to 8765 in [Step 5: Firewall](#step-5-firewall). Similarly, the Gitlab SSH service is accessible at ssh://localhost:2345.
+These are parameters you'll need to set for every service you enable. Ports define port forwarding rules from your host computer to the container. Gitlab by default has internal ports 80 and 22 for the web service and SSH, respectively. These rules expose the ports to 8765 and 2345 on the host computer respectively. As such, you should be able to access the service at `http://localhost:8765`. Eventually, we will block access to 8765 in [Step 5: Firewall](#step-5-firewall). Similarly, the Gitlab SSH service is accessible at ssh://localhost:2345.
 
 We also configure Docker volumes to store all Gitlab related state to a folder on the host computer. In the example, the **configurations** can be found in `~/docker/gitlab/config`, the **logs** in `~/docker/gitlab/logs`, and the **data** in `~/docker/gitlab/data`. These folders are mapped into the container at the specified paths.
 
@@ -181,7 +182,7 @@ First, you'll need to get an SSL certificate for your wildcard domain (e.g. *.ra
 
 You can also use a free certificate authority, like Let's Encrypt. Here are 2 guides that I recommmend:
 - [Install, configure and automatically renew Let's Encrypt SSL certificate](https://vincent.composieux.fr/article/install-configure-and-automatically-renew-let-s-encrypt-ssl-certificate)
-- [Let's Encrypt & Nginx](https://letsecure.me/secure-web-deployment-with-lets-encrypt-and-nginx/)
+- [Let's Encrypt & Nginx](https://www.nginx.com/blog/using-free-ssltls-certificates-from-lets-encrypt-with-nginx/)
 
 Once you've completed one of these guides, you should have 2 files:
 1. an SSL Certificate (e.g. `server.crt`)
@@ -292,7 +293,7 @@ $ sudo ufw allow 2345/tcp
 
 #### Setup
 
-Once the Gitlab service is running, you can access it through your service-specific domain (e.g. [https://gitlab.raymondcheng.net](https://gitlab.raymondcheng.net)). Gitlab will walk you through the initial configuration. There, you'll create users, groups, and repositories.
+Once the Gitlab service is running, you can access it through your service-specific domain (e.g. `https://gitlab.raymondcheng.net`). Gitlab will walk you through the initial configuration. There, you'll create users, groups, and repositories.
 
 Gitlab's configuration file is found at `~/docker/gitlab/config/gitlab.rb`.
 

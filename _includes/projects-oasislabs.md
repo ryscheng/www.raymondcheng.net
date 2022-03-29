@@ -5,9 +5,9 @@ Oasis Labs is building a new platform to use data without liability, easily comp
 
 The foundation also supports the Oasis Network, a layer-1, proof of stake, blockchain that leverages secure computing techniques like secure enclaves to keep data private, and a cutting-edge architecture designed for scalability.
 
-[![](/img/ico/website.png)Company Website](https://www.oasislabs.com),
-[![](/img/ico/website.png)Foundation Website](https://www.oasis-protocol.org),
-[![](/img/ico/code.png)GitHub](https://github.com/oasislabs)    
+[![www](/img/ico/website.png)Company Website](https://www.oasislabs.com),
+[![www](/img/ico/website.png)Foundation Website](https://www.oasis-protocol.org),
+[![code](/img/ico/code.png)GitHub](https://github.com/oasislabs)    
 
 Selected Press: 
 

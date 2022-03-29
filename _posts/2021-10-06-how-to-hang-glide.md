@@ -3,6 +3,7 @@ layout: post
 title:  "How to Become an H3 Hang Glider Pilot in the Bay Area"
 date:   2021-10-06 06:47:18 -0700
 categories: [thoughts]
+canonical_url: "https://ryscheng.substack.com/p/how-to-become-an-h3-hang-glider-pilot"
 ---
 
 After a long 2.5 years of training to get to our H3 rating, we thought it would help to share our journey and what we wished we knew when we first started; advice that could have helped us finish in <1 year. Of course this is our limited opinion, so take it all with a grain of salt and get advice from other pilots you trust.
@@ -68,7 +69,7 @@ Before your H2, you'll be mostly renting gear from your instructor, because you'
     - **Glider: [Falcon](https://www.willswing.com/hang-gliders/) ($2-3K used, $4-5K new)**
     It's pretty likely your first glider will be a Falcon. It's popular, easy to get parts, and best for beginners. Work with your instructor to procure one that is the right size for you. We started with used ones, with the expectation that we'll trade up after more experience.
     - **Logbook: (Cheap)**
-    You'll need a physical logbook for your instructor or mentor/observer to sign you off. However, you'll most likely want to keep a digital logbook for your personal records. Feel free to use our [template](https://www.notion.so/Logbooks-9cf5feb85113432b8b41269fdeb0488a).
+    You'll need a physical logbook for your instructor or mentor/observer to sign you off. However, you'll most likely want to keep a digital logbook for your personal records. Feel free to use our [template](https://bafl.notion.site/Logbooks-3cb0e6cdad3c4fc8b0dc261330df7348).
     - **Books:** Your instructor will help you with ground school. Most pilots keep a copy of [Dennis Pagen's book](http://www.dennispagen.com/products/hang_gliding/hang_gliding.htm), which serves as a great reference.
     - **Harness and parachute: (<$2K)**
     This is probably a more important choice than your glider. The first thing you'll want to discuss with your instructor is whether you want to go with a [cocoon](https://www.willswing.com/harnesses/flylite-3/) or [pod](https://www.willswing.com/harnesses/z5/) harness. They have very different trade-offs in comfort, storage, and positioning (which might affect your flying). It may also depend on your body type. We were recommended to buy a brand new harness and parachute. It's not the type of thing to cheap out on and you will most likely use your harness for the rest of your life (unlike your glider). It should go without saying that you should get a quality certified parachute, and get it repacked before using if not buying new.

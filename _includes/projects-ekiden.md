@@ -8,6 +8,6 @@ We present Ekiden, a system that addresses these critical gaps by combining bloc
 
 Published in [{{ site.data.publications.ekiden.venue.name }}]({{ site.data.publications.ekiden.venue.url }}) {{ site.data.publications.ekiden.year }}   
 Commercialized at [{{ site.data.links.oasislabs.name }}]({{ site.data.links.oasislabs.url }})  
-{% for pdf in site.data.publications.ekiden.paper %} [![](/img/ico/pdf.gif){{ pdf.name }}]({{ pdf.url }}), {% endfor %}
-[![](/img/ico/tex.png)BibTeX]({{ site.data.publications.ekiden.bibtex }})
+{% for pdf in site.data.publications.ekiden.paper %} [![pdf](/img/ico/pdf.gif){{ pdf.name }}]({{ pdf.url }}), {% endfor %}
+[![tex](/img/ico/tex.png)BibTeX]({{ site.data.publications.ekiden.bibtex }})
 

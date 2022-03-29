@@ -3,8 +3,8 @@
 [{{ site.data.links.uwnetlab.name }}]({{ site.data.links.uwnetlab.url }}) and
 [{{ site.data.links.jigsaw.name }}]({{ site.data.links.jigsaw.url }})  
 uProxy is a browser extension that lets users share alternative more secure routes to the Internet. It's like a personalized VPN service that you set up for yourself and your friends. uProxy helps users protect each other from third parties who may try to watch, block, or redirect users’ Internet connections.   
-[![](/img/ico/website.png)Website](https://www.uproxy.org)
-[![](/img/ico/code.png)GitHub](https://github.com/uproxy)    
+[![www](/img/ico/website.png)Website](https://www.uproxy.org)
+[![code](/img/ico/code.png)GitHub](https://github.com/uproxy)    
 [Google E2E](https://github.com/google/end-to-end)     
 
 For more up-to-date product information, check out the   

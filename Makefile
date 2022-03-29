@@ -9,3 +9,7 @@ run:
 # Build and run web server as production
 prod:
 	JEKYLL_ENV=production bundle exec jekyll serve --port 8000 --host 0.0.0.0
+
+build:
+	JEKYLL_ENV=production bundle exec jekyll build
+	bundle exec htmlproofer --allow-hash-href --ignore_empty_mailto ./_site

@@ -4,6 +4,7 @@ title:  "Signing Git Commits and SSH Authentication with Yubikey"
 date:   2018-11-25 12:47:18 -0700
 categories: projects
 tags: popular
+canonical_url: "https://ryscheng.substack.com/p/git-yubikey.html"
 ---
 
 In this blog post, I'll show you how to setup a Yubikey with both signing and authentication keys.
@@ -102,7 +103,7 @@ The default PIN and Admin PIN values for Yubikeys are 123456 and 12345678 respec
 
 Note: If you incorrectly enter your Admin PIN three times,
 you will be locked out of your Yubikey and it will be useless.
-If that happens, check out the [factory reset instructions](https://support.yubico.com/support/solutions/articles/15000008845-resetting-your-yubikey-4-or-yubikey-neo-to-factory-defaults).
+If that happens, check out the [factory reset instructions](https://support.yubico.com/hc/en-us/articles/360013707640-Resetting-Your-YubiKey-4-or-YubiKey-NEO-to-Factory-Defaults).
 
 ```bash
 $ gpg --card-edit
@@ -173,7 +174,7 @@ You'll notice that pushing the Yubikey button no longer leads to keyboard stroke
 
 ***Optional***: It is also recommended to enable a touch requirement for all authentication requests,
 which means you have the physically touch the device to approve any encryption/signing/authentication requests.
-For details, see [here](https://support.yubico.com/support/solutions/articles/15000012643-yubikey-manager-cli-ykman-user-manual#ykman_openpgp_touche3jqno).
+For details, see [here](https://support.yubico.com/hc/en-us/articles/360016614940-YubiKey-Manager-CLI-ykman-User-Manual).
 
 ```bash
 $ ykman openpgp touch aut on

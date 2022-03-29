@@ -3,6 +3,7 @@ layout: post
 title:  "A Path to Opening Up Twitter"
 date:   2019-12-30 12:47:18 -0700
 categories: [thoughts, decentralization]
+canonical_url: "https://ryscheng.substack.com/p/decentralizing-twitter.html"
 ---
 
 #### Key Takeaways
@@ -98,7 +99,7 @@ Because pure blockchain solutions like Steemit face many challenges with storage
 
 Where previous projects have faced a lack of adoption due to many of the challenges stated above, in order to realistically bring a solution to the Twitter masses, we must properly address at least these three primary goals:
 
-1. **Scalable performance**: Any proposed system must provide a path to supporting at least as many users as Twitter has today. The changes should also not negatively affect user experience (e.g. via worse latency), which has been shown to directly negatively affect [engagement](https://www.thinkwithgoogle.com/marketing-resources/data-measurement/mobile-page-speed-new-industry-benchmarks/) and ultimately [revenues](https://www.akamai.com/uk/en/about/news/press/2017-press/akamai-releases-spring-2017-state-of-online-retail-performance-report.jsp).
+1. **Scalable performance**: Any proposed system must provide a path to supporting at least as many users as Twitter has today. The changes should also not negatively affect user experience (e.g. via worse latency), which has been shown to directly negatively affect [engagement](https://www.thinkwithgoogle.com/marketing-resources/data-measurement/mobile-page-speed-new-industry-benchmarks/) and ultimately [revenues](https://www.akamai.com/newsroom/press-release/akamai-releases-spring-2017-state-of-online-retail-performance-report).
 2. **Compatibility with existing business models**: Twitter currently earns [billions](https://www.wsj.com/market-data/quotes/TWTR/financials/annual/income-statement) in revenue each year, employing [thousands](https://www.glassdoor.com/Overview/Working-at-Twitter-EI_IE100569.11,18.htm) of people in [dozens](https://about.twitter.com/en_us/company.html) of offices across the world. Any solution that Twitter deploys will likely need to supplement or reinforce this, rather than replace it.
 3. **Incentives to cooperate**: Proposing a system where parties outside of Twitter cooperate with Twitter to build a better service is a logistical challenge. Any architecture needs to sufficiently address the incentives that would get outsiders to spend valuable time, effort and resources on it. This is perhaps the best reason to start incrementally --- we need to test in the market whether any particular incentive actually works.
 
@@ -149,7 +150,7 @@ Trusted hardware is a large umbrella term for a set of hardware techniques to pr
 
 This functionality is nearly ubiquitous on most computers via [TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/), though other forms also exist such as [Intel SGX](https://software.intel.com/en-us/sgx) and [Samsung Knox](https://www.samsung.com/us/business/solutions/samsung-knox/). For a survey of mechanisms, see [here](https://oaklandsok.github.io/papers/parno2010.pdf).
 
-TPM chips have gained a negative reputation as a tool to help cloud companies enforce DRM on users’ machines, ensuring only authorized software can play copyrighted materials. However, TPM can also be applied in the other direction: allowing clients to verify that servers are running certain software. Researchers have proposed using remote attestation to verify a computer’s [bootstrap process](https://www.cs.umd.edu/~waa/pubs/oakland97.pdf), provide [cloud services](https://www.cs.rutgers.edu/~vinodg/papers/ccs2012a/ccs2012a.pdf) and interoperate with [the Web](https://jbeekman.nl/publications/attestation-transparency.pdf).
+TPM chips have gained a negative reputation as a tool to help cloud companies enforce DRM on users’ machines, ensuring only authorized software can play copyrighted materials. However, TPM can also be applied in the other direction: allowing clients to verify that servers are running certain software. Researchers have proposed using remote attestation to verify a computer’s [bootstrap process](https://www.cs.umd.edu/~waa/pubs/oakland97.pdf), provide [cloud services](https://dl.acm.org/doi/abs/10.1145/2382196.2382226) and interoperate with [the Web](https://jbeekman.nl/publications/attestation-transparency.pdf).
 
 Trusted hardware techniques rely on a core assumption that the hardware is capable of generating and storing cryptographic keys securely. However, this assumption has been broken numerous times, most recently in [timing side channels](https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi), [reading clear-text keys off a bus](https://pulsesecurity.co.nz/articles/TPM-sniffing), and [ion beam attacks](https://www.technologyreview.com/s/417363/high-security-chip-cracked/).
 Not to mention the real risk of a compromised hardware supply chain. However, if we can accept the risks and this cat-and-mouse game, trusted hardware allows developers to run nearly any program with nearly zero performance penalties compared to bare metal.
@@ -224,7 +225,7 @@ Because application execution can be remotely verified, this opens up the possib
 
 ### Decentralized databases
 
-Databases can similarly be remotely verified using verifiable computation. Using authenticated data structures, researchers have created optimized versions for [SQL databases](http://users.umiacs.umd.edu/~zhangyp/papers/IntegriDB.pdf) and [blockchains](https://sigmod2020.org/). If we can remotely prove the correctness of query results, then anyone should be able to run a database of tweets. We can similarly provide cryptocurrency incentives for fast and reliable retrieval of data. If these databases represent disjoint sets, application servers can join results from multiple databases to compile a newsfeed view for a user.
+Databases can similarly be remotely verified using verifiable computation. Using authenticated data structures, researchers have created optimized versions for [SQL databases](http://integridb.github.io/) and [blockchains](https://sigmod2020.org/). If we can remotely prove the correctness of query results, then anyone should be able to run a database of tweets. We can similarly provide cryptocurrency incentives for fast and reliable retrieval of data. If these databases represent disjoint sets, application servers can join results from multiple databases to compile a newsfeed view for a user.
 
 ### Decentralized governance and cash management
 

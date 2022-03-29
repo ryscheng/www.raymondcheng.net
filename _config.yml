@@ -41,3 +41,6 @@ scholar:
   sort_by: year
   order: descending
   query: "@*"
+
+plugins:
+  - jekyll-seo-tag
