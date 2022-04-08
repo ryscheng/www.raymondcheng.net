@@ -7,5 +7,5 @@ COPY Gemfile /setup/
 WORKDIR /setup
 #	sudo apt-get install ruby-dev
 RUN gem install bundler
-RUN bundle install
+#RUN bundle install
 #RUN bundle update --bundler
