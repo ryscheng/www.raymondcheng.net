@@ -135,7 +135,7 @@ These routes are hidden to the user, who just visits `/marketing/`. The middlewa
 
 ### Leveraging Plasmic variants [optional]
 
-Plasmic is a visual editor that works with Next.js, where you can easily create full pages in a WYSIWYG studio. If you have not yet set up Plasmic in your Next.js project yet, you can follow this [quickstart guide](https://docs.plasmic.app/learn/nextjs-quickstart).
+[Plasmic](https://www.plasmic.app/) is a visual editor that works with Next.js, where you can easily create full pages in a WYSIWYG studio. If you have not yet set up Plasmic in your Next.js project yet, you can follow this [quickstart guide](https://docs.plasmic.app/learn/nextjs-quickstart).
 
 Let’s assume that you already have a Marketing page in Plasmic. You can create page [variants](https://docs.plasmic.app/learn/plasmic-studio-guide/#variants) in the rightside pane. In this example, I’ll “add a single-select group of variants”, where I name the group `experiment` with 2 variants, `a` and `b`. These variants are expressed as overrides over the base variant. [Click here to read more about Plasmic variants](https://docs.plasmic.app/learn/plasmic-studio-guide/#variants).
 

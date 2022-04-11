@@ -6,7 +6,7 @@ categories: projects
 canonical_url: "https://supabase.com/docs/guides/integrations/plasmic"
 ---
 
-In this guide, we will show you how to build a crowd-sourced Pokemon Pokedex, by connecting **Supabase**, an open source Firebase backend alternative, with **Plasmic**, a visual builder for the web. While many users leverage Plasmic to quickly launch and iterate on landing pages, in this tutorial we’ll show just how powerful Plasmic can be as a general-purpose visual builder for React, which can be used to design and implement fully featured read-write applications.
+In this guide, we will show you how to build a crowd-sourced Pokemon Pokedex, by connecting [**Supabase**](https://supabase.com/), an open source Firebase backend alternative, with [**Plasmic**](https://www.plasmic.app/), a visual builder for the web. While many users leverage Plasmic to quickly launch and iterate on landing pages, in this tutorial we’ll show just how powerful Plasmic can be as a general-purpose visual builder for React, which can be used to design and implement fully featured read-write applications.
 
 You can play with the live demo here:  
 [https://plasmic-supabase-demo-git-master-plasmic.vercel.app/](https://plasmic-supabase-demo-git-master-plasmic.vercel.app/login-page)

@@ -7,9 +7,9 @@ canonical_url: "https://www.plasmic.app/blog/plasmicflix"
 ---
 
 
-In this guide, we will show you how to build a video player web application with Plasmic, a visual builder for React. While many Plasmic users use it to build landing and content pages, Plasmic is actually a powerful UI builder for apps of any complexity, allowing you or your design team to rapidly iterate on rich web applications.
+In this guide, we will show you how to build a video player web application with [Plasmic](https://www.plasmic.app/), a visual builder for React. While many Plasmic users use it to build landing and content pages, Plasmic is actually a powerful UI builder for apps of any complexity, allowing you or your design team to rapidly iterate on rich web applications.
 
-Plasmic is a new type of low-code tool that can drag and drop React components from your codebase, and render back into your codebase, which you own. This deep integration with code is powerful, letting you introduce arbitrary functionality—but most importantly, it ensures you are always in control. The app builder is never a walled garden that limits what you can do.
+[Plasmic](https://www.plasmic.app/) is a new type of low-code tool that can drag and drop React components from your codebase, and render back into your codebase, which you own. This deep integration with code is powerful, letting you introduce arbitrary functionality—but most importantly, it ensures you are always in control. The app builder is never a walled garden that limits what you can do.
 
 You can play with the live demo here:  
 [https://plasmicflix.vercel.app/](https://plasmicflix.vercel.app/)
