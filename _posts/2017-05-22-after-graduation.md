@@ -3,7 +3,6 @@ layout: post
 title:  "How much longer until you graduate?"
 date:   2017-05-22 12:47:18 -0700
 categories: thoughts
-canonical_url: "https://ryscheng.substack.com/p/after-graduation.html"
 ---
 
 Have you ever had that awkward moment with a PhD student, where someone asks:

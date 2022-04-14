@@ -4,7 +4,6 @@ title:  "Docker-based Personal Server"
 date:   2016-11-19 12:47:18 -0700
 categories: projects
 tags: popular
-canonical_url: "https://ryscheng.substack.com/p/personal-server-overview.html"
 ---
 
 In this blog post, I'll show you how to configure a Docker-based personal server, running each service in a separate Docker container. Modern devops tools have made it easier than ever to run your own server and for anyone with basic familiarity with Linux, it's worth a try. In this tutorial, we'll use [Gitlab](https://about.gitlab.com/) as a running example.

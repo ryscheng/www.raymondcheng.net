@@ -3,7 +3,6 @@ layout: post
 title:  "How to Become an H3 Hang Glider Pilot in the Bay Area"
 date:   2021-10-06 06:47:18 -0700
 categories: [thoughts]
-canonical_url: "https://ryscheng.substack.com/p/how-to-become-an-h3-hang-glider-pilot"
 ---
 
 After a long 2.5 years of training to get to our H3 rating, we thought it would help to share our journey and what we wished we knew when we first started; advice that could have helped us finish in <1 year. Of course this is our limited opinion, so take it all with a grain of salt and get advice from other pilots you trust.

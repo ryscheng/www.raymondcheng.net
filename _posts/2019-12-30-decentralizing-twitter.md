@@ -3,7 +3,6 @@ layout: post
 title:  "A Path to Opening Up Twitter"
 date:   2019-12-30 12:47:18 -0700
 categories: [thoughts, decentralization]
-canonical_url: "https://ryscheng.substack.com/p/decentralizing-twitter.html"
 ---
 
 #### Key Takeaways

@@ -3,7 +3,6 @@ layout: post
 title:  "Retrospective: Solar Printer"
 date:   2015-11-14 14:23:18 -0700
 categories: projects
-canonical_url: "https://ryscheng.substack.com/p/retrospective-solar-printer.html"
 ---
 
 One of my first projects at MIT was at the Media Lab, where we were exploring self-sufficient technologies. My advisor, Richard Fletcher, and I wanted to build a completely self-sufficient printer for use in developing countries.
