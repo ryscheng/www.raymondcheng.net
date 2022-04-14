@@ -11,35 +11,35 @@ categories: [thoughts, decentralization]
 - Instead of jumping straight into a fully decentralized protocol, which is risky and takes a lot of work, let’s test the underlying assumptions on production Twitter first.
 - If decentralization is the ultimate goal, any work we do here will be useful on the path.
 
-*Blog post by [Raymond Cheng](https://raymondcheng.net) and [Jeffrey Dash Hsu](https://thectozone.com/)*
+*Blog post by [Raymond Cheng](https://www.raymondcheng.net) and [Jeffrey Dash Hsu](https://thectozone.com/)*
 
 Earlier this month, [Jack Dorsey](https://twitter.com/jack) issued a [tweetstorm](https://twitter.com/jack/status/1204766078468911106), declaring the formation of a new team to explore an “open and decentralized standard for social media”. The response from the community has been incredible, with tens of thousands of retweets and likes in just a couple of weeks. I’d like to suggest a potential iterative path forward. I have seen too many good projects under smart leadership slowly fade because they were building something so radically different all at once that no one ultimately wanted. I worry that an “independent” team of 5 open source developers designing a completely new architecture may suffer the same fate if Twitter finds it too costly to switch later on. An iterative path tightly looped with Twitter’s production would allow the effort to both, experiment with smaller scoped experiments in the market quickly, as well as test whether the architecture is compatible with Twitter. A sequence of upgrades that is compatible with Twitter’s technical architecture is far more likely to succeed in the end. One that is compatible, or even better, reinforces Twitter’s business model will accelerate our path towards decentralization.
 
 As someone that has been doing research and building software in the decentralization space for over a decade, this feels like a significant step forward by a top executive at a social media company. For the first time in my recollection, one of the biggest tech companies has signaled the willingness to open up their core platform in order to work with the public community on solving some of the biggest problems facing our society today. I’m incredibly excited to see this opportunity and I hope we all make the most of it.
 
-# The Problem
+## The Problem
 
 Before we prescribe a particular solution, like blockchain or a standardized federation protocol or decentralized storage, let’s first explicitly define the problem that we’re actually trying to solve. Jack lays out 3 in his post:
 
-## 1. Centralized enforcement of global policy
+### 1. Centralized enforcement of global policy
 
 > “First, we’re facing entirely new challenges centralized solutions are struggling to meet. For instance, centralized enforcement of global policy to address abuse and misleading information is unlikely to scale over the long-term without placing far too much burden on people.”
 
 Imagine all the world goes to your computer for their tweets and you were solely responsible for figuring out what people see in their feed, often influencing a user’s sense of truth. That is the challenge major social media companies are faced with and it is a difficult job. Wolfram attributes the root issue to [“ethical incompleteness”](https://writings.stephenwolfram.com/2019/06/testifying-at-the-senate-about-a-i-selected-content-on-the-internet/): “There’s no finite set of principles that can completely define any reasonable, practical system of ethics.” A centralized arbiter of truth doesn't work on a global scale across large populations because what is considered ethical and right to one group may not be to another, putting social media companies in a lose-lose situation. Take down one thing to placate one group, alienate another.
 
-## 2. Proprietary recommendation algorithms
+### 2. Proprietary recommendation algorithms
 
 > “Second, the value of social media is shifting away from content hosting and removal, and towards recommendation algorithms directing one’s attention. Unfortunately, these algorithms are typically proprietary, and one can’t choose or build alternatives. Yet.”
 
 The user experience of a social media platform is largely driven by its recommendation algorithm, which analyzes user behavior to recommend things that may shape a certain information narrative. However, these algorithms and models are typically proprietary, so it is difficult for the public to assess what agenda the algorithms advance. As in the case of election interference, the algorithms may even be gamed by outside parties. Centralized proprietary systems make it difficult for outside researchers to study existing algorithms and suggest alternatives.
 
-## 3. Steering towards outrage
+### 3. Steering towards outrage
 
 > “Third, existing social media incentives frequently lead to attention being focused on content and conversation that sparks controversy and outrage, rather than conversation which informs and promotes health.”
 
 Twitter’s own [letter](https://s22.q4cdn.com/826641620/files/doc_financials/2019/q3/Q3-2019-Shareholder-Letter.pdf) to its shareholders highlights the issue. Their key performance metric involves “monetizable daily active users”, or the number of users on any given day who can be shown ads. Thus, the platform will be incentivized to steer users towards content that will keep them engaged on a daily basis, which in practice results in conversations that spark outrage. This may de-emphasize other values such as, “Is the user well-informed?” or “Are we having healthy conversations”? One way to keep the social media platform neutral is to separate out the influence over surfaced content from the content itself.
 
-# An Actionable Step Towards Decentralization: A Marketplace for Recommendation Algorithms
+## An Actionable Step Towards Decentralization: A Marketplace for Recommendation Algorithms
 
 If relying on a sole centralized arbiter of information is a poor and unscalable choice, then naturally the only alternative is to open up the platform to allow others to innovate on recommendation algorithms. Rather than jump straight into a decentralized protocol, let’s first take a small step that allows us to test some of our assumptions about these problems on the market.
 
@@ -52,11 +52,11 @@ By opening up Twitter to support external lens publishers, Twitter will enable a
 *Note: This idea has also been proposed in other articles, including by [Wolfram](https://writings.stephenwolfram.com/2019/06/testifying-at-the-senate-about-a-i-selected-content-on-the-internet/) and
 [Masnick](https://knightcolumbia.org/content/protocols-not-platforms-a-technological-approach-to-free-speech)*
 
-# Prior Art in Decentralized Social Media
+## Prior Art in Decentralized Social Media
 
 With the rapid rise of popularity of social networks like Facebook in 2004 and Twitter in 2006, researchers were concerned that the future of the social web would stay closed and proprietary, like its walled-garden incumbents. In 2007, a group of prominent internet entrepreneurs penned [the Bill of Rights for Users of the Social Web](https://web.archive.org/web/20071229235231/http://opensocialweb.org/2007/09/05/bill-of-rights/), listing data ownership, control, and freedom as fundamental rights of users. This motivated the start of an era of social network software striving to achieve decentralization. There were two main flavors of decentralized social networks: federation and peer to peer.
 
-## Decentralizing social media through federation
+### Decentralizing social media through federation
 
 The main philosophy behind decentralization through federation is to enable data portability, interoperability, and communication between different network providers through agreed-upon protocols. Imagine if you could connect all your content between Facebook, Twitter, and Tumblr with one account, interact with users of any of those platforms, and leave any one of them arbitrarily.
 
@@ -68,15 +68,15 @@ With the advent of protocols to make the social web open, federated social netwo
 
 Almost a decade in, adoption of the “Fediverse” has not taken off. Why?
 
-### 1. Interoperability between federated services is poorly implemented.
+#### 1. Interoperability between federated services is poorly implemented.
 
 According to this [research](https://ieeexplore.ieee.org/document/8560907), interoperability between federated services is “flawed and error prone”, especially since each system’s API endpoints have sparse documentation. This results in a failure of bootstrapping adoption via network effect.
 
-### 2. No interoperability with incumbents.
+#### 2. No interoperability with incumbents.
 
 These systems are not interoperable with closed and proprietary incumbents like Twitter and Facebook, who may not have a financial incentive to implement any of these open standards and risk losing users. Even companies that have a history of deploying federated protocols may [move away](https://xmpp.org/2015/03/no-its-not-the-end-of-xmpp-for-google-talk/) from it if there is insufficient usage of federation features or [slows down product innovation](https://signal.org/blog/the-ecosystem-is-moving/).
 
-### 3. Lack of capital and resources to iterate.
+#### 3. Lack of capital and resources to iterate.
 
 These open social networks don’t have recurring ad revenue remotely near the order of magnitude of their titan counterparts, and thus can’t compete with their armies of software engineers and product managers employed to improve user experience every single day.
 
@@ -86,7 +86,7 @@ Even if adoption was high, the “Fediverse” has not yet been battle tested to
 
 Federated systems do provide a physical separation of services, which can be used to implement the lens abstraction. For example, different servers could tailor their recommendation algorithms towards different communities. However, each server is also responsible for maintaining fault-tolerant service; if your local service goes down you may lose access. In our proposal, we suggest to enable this abstraction while still outsourcing service reliability to Twitter’s existing scalable infrastructure.
 
-## Decentralizing social media through peer-to-peer applications
+### Decentralizing social media through peer-to-peer applications
 
 Peer-to-peer applications (P2P) provide another alternative. In P2P systems, the content is distributed across a peer-to-peer network rather than relying on any central point of failure. P2P systems are designed to tolerate a certain number of failures, typically by automatically routing to one of many data replicas. Lookup metadata is stored in a routing table, such as a distributed hash table (DHT), which tells users which machines store the data they’re looking for. Popular content is usually replicated on more nodes to share the load, and will be faster to access on average. However, P2P-based systems are generally slow for querying data. For example, most DHT systems require a recursive search that is [logarithmic](https://pdos.csail.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf) in complexity (requires log(n) hops). [PeerSoN](http://www.peerson.net/), [Safebook](https://ieeexplore.ieee.org/document/5350374), [Cuckoo](https://user.informatik.uni-goettingen.de/~xfu/cuckoo/), and [Megaphone](https://ieeexplore.ieee.org/document/5476495) have all been attempts at a P2P social network solution. P2P systems often suffer from longer latencies, affecting the user experience. Early P2P systems relied on volunteers to participate in the system, without strong incentives to stay reliably in the system. Furthermore, many early P2P systems were designed relying on semi-honest parties, and become vulnerable to severe security threats in the face of malicious parties.
 
@@ -94,7 +94,7 @@ Recent systems, including many in the blockchain community, started exploring P2
 
 Because pure blockchain solutions like Steemit face many challenges with storage and querying, other blockchain projects try to use a hybrid solution by offloading data off-chain to a DHT-based system like IPFS. [Voice](https://voice.com/) and [Akasha](https://akasha.world/) are attempts at accomplishing this. Not much is publicly known about the production performance capabilities of these projects, Voice is built on the EOS blockchain, while using IPFS for data storage. While it is likely to face the same challenges as other DHT-based systems, it remains to be seen if these systems will offer a comparable user experience at Twitter scale.
 
-# Goals
+## Goals
 
 Where previous projects have faced a lack of adoption due to many of the challenges stated above, in order to realistically bring a solution to the Twitter masses, we must properly address at least these three primary goals:
 
@@ -102,7 +102,7 @@ Where previous projects have faced a lack of adoption due to many of the challen
 2. **Compatibility with existing business models**: Twitter currently earns [billions](https://www.wsj.com/market-data/quotes/TWTR/financials/annual/income-statement) in revenue each year, employing [thousands](https://www.glassdoor.com/Overview/Working-at-Twitter-EI_IE100569.11,18.htm) of people in [dozens](https://about.twitter.com/en_us/company.html) of offices across the world. Any solution that Twitter deploys will likely need to supplement or reinforce this, rather than replace it.
 3. **Incentives to cooperate**: Proposing a system where parties outside of Twitter cooperate with Twitter to build a better service is a logistical challenge. Any architecture needs to sufficiently address the incentives that would get outsiders to spend valuable time, effort and resources on it. This is perhaps the best reason to start incrementally --- we need to test in the market whether any particular incentive actually works.
 
-# A First Draft Design
+## A First Draft Design
 
 In this section, we start by proposing an initial centralized technical design that can be used to quickly test some ideas on the market. Later sections will show how we can expand on this foundation to build a decentralized system.
 
@@ -110,25 +110,25 @@ Let’s consider 2 different types of users. *Consumers* engage with Twitter thr
 
 ![Lens Store](/img/diagrams/decentralizing-twitter/twitter-lens-store.png)
 
-## User experience
+### User experience
 
 ![Twitter UX](/img/diagrams/decentralizing-twitter/twitter-lens-ux.png)
 
 Users continue to interact with the Twitter app the way they normally do. Twitter already exposes a toggle, which allows you to choose between “Latest Tweets”, which shows tweets in chronological order, and “Top Tweets”, a proprietary recommendation algorithm. We propose to augment this interface with new choices, where users can select from a range of different *“lenses”* from different 3rd-party developers. The native experience does not change, beyond a different prioritization of how content shows up in the app.
 
-## Lens SDK
+### Lens SDK
 
 3rd-party developers use the Lens SDK to create new models and algorithms for content prioritization. This SDK should minimally include anonymous training data and a suite of machine learning and data science tools for generating new models. Unlike other failed attempts to [anonymize private data](https://arxiv.org/abs/cs/0610105), much of Twitter's high-signal data is already intentionally public. The platform should also expose tools and APIs for monitoring the performance of a deployed lens, including but not limited to metrics around engagement, retention, NPS, and time spent.
 
-## Lens Store and Endorsements
+### Lens Store and Endorsements
 
 Similar to app stores, Twitter can expose new lenses in a hosted store, allowing 3rd-party developers to publish and market their lenses. The store facilitates discovery, search, and reviews. In addition to these standard features, the unique political sensitivity of recommendation algorithms might suggest the need for endorsements. The store could provide a mechanism for outside auditors, such as the ACLU or EFF to audit the code and certifying certain lenses. We leave it as an open question what types of characteristics of lenses might be desirable to certify.
 
-## Life cycle of a tweet
+### Life cycle of a tweet
 
 Lenses strictly affect the view that users are presented when reading tweets. Posting tweets works the same as the current app. Once a tweet has been posted, Twitter already has sophisticated [real-time stream processing infrastructure](https://dl.acm.org/doi/10.1145/2588555.2595641) to compute search indices, calculate statistics (e.g. counts), and run machine learning algorithms. The platform would need to add a sandboxed runtime environment that allows 3rd-party developers to plug in and run their models in this streaming pipeline. This adds complexity in loading and routing to additional sandboxed models. However, we expect these marginal costs to be relatively low compared to a decentralized technical architecture (as we elaborate below).
 
-## Remote Verification
+### Remote Verification
 
 Informally, verifiable computing is a set of techniques that enable clients to verify that a remote computation was executed correctly on a server. When clients issue a request to the server, the remote server would return a proof along with the result. Crucially, the proof of correctness can be efficiently verified with low computational effort and works even if the server is potentially dishonest. For example when applied to Twitter, any user would be able to request tweets from Twitter and verify a proof that the tweets were the result of a specific recommendation algorithm they chose.
 
@@ -139,7 +139,7 @@ In a world where Twitter is a globally trusted platform, this component may not 
 - **Decentralized systems are typically designed for a stronger threat model**: Modern decentralized systems, like blockchains, are typically designed for this threat model, where some fraction of the infrastructure can be actively malicious. In today’s security setting, it is difficult to rely on assumptions that everyone on the Internet will behave honestly.
 - **Interfaces are hard to change**: The biggest interface surface we are introducing is at the Lens SDK. Verifiable computing techniques typically require a specialized toolchain. The sooner we can at least get developers building lenses in this way, the more work we can reuse as we continue towards a path of decentralization.
 
-### Background Technology: Verifiable Computing
+#### Background Technology: Verifiable Computing
 
 Verifiable computing as a concept was [formalized in a 2009 paper](https://eprint.iacr.org/2009/547.pdf) and there exists many different mechanisms for achieving its properties. These mechanisms come with various trade-offs in performance, threat model, and types of applications easily supported. Verifiable computing is a rich research topic with decades of papers; below, I’ll briefly summarize trusted hardware and zero knowledge proofs.
 
@@ -165,13 +165,13 @@ Because I won’t be able to summarize how these systems work in a short period 
 
 **Note:** This summary does not do justice the decades of incredible research in this space, including [interactive proof systems](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/2008-DelegatingComputation.pdf), [CS proofs](https://dl.acm.org/doi/10.1109/SFCS.1994.365746), [quadratic arithmetic programs](https://eprint.iacr.org/2013/279.pdf), [probabilistically checkable proofs](https://cs.nyu.edu/~mwalfish/papers/pepper-ndss12.pdf) (PCP), [server auditing](https://cs.nyu.edu/~mwalfish/papers/ssco-sosp17.pdf), and many more. I highly recommend working backwards from the related work sections of papers listed to learn more.
 
-# This design facilitates and encourages collaboration with the public
+## This design facilitates and encourages collaboration with the public
 
 Exposing the ability for 3rd parties to deploy their own recommendation algorithms to Twitter and remotely verify it is being run correctly is an incredibly powerful primitive. The power to shape public discourse and steer what users see is too important to leave to centralized proprietary algorithms. This proposal enables anyone to experiment with new recommendation algorithms without putting blind trust in the platform. Potentially, this takes the form of a government-organized effort. Potentially, non-profit efforts like the EFF or academic researchers will come up with a better solution, while other for-profit companies will come up with better ways to tailor to certain market segments with a revenue-sharing agreement. While it is easy to criticize social media platforms, as a society we just don’t yet know what is the best way to shape public discourse on these platforms. One of the most exciting possibilities is the ability to conduct this data science in the open. Anyone would be able to fork an open source lens and publish an improvement with repeatable experiments and results.
 
 Twitter can and probably should continue to publish its own lens over tweets, but it will be one of many that users can select from. On the backend, this is a relatively small addition to their technical infrastructure, and can be deployed much faster than designing and deploying an entire decentralized system. Furthermore by starting with Twitter’s own official client, they can continue to serve ads to users of any lens.
 
-# Risks and Challenges
+## Risks and Challenges
 
 Even with such a limited scoped project, there are a number of risks to this proposal. Here are a few high level ones:
 
@@ -185,7 +185,7 @@ Even with such a limited scoped project, there are a number of risks to this pro
 
 Taking an agile approach to designing interfaces is valuable, it allows us to test whether people even want to interface at this level of abstraction in the first place. Taking a waterfall approach to interface design suffers from similar downfalls to waterfall development in software.
 
-# Limitations of this proposal
+## Limitations of this proposal
 
 The proposal laid out above is purposefully limited to focus the market experiments on a narrow problem. However, there are a number of limitations that may draw concern of this proposal.
 
@@ -199,7 +199,7 @@ While we can remotely verify the correct execution of a lens, Twitter can also c
 
 While we presented proper incentive design as a goal, this proposal does not provide a solution to this question. Rather, the proposal is intentionally narrowly scoped so that we can test different incentive designs quickly with the market. Would an open platform and SDK be sufficient to incentivize developers to come? Certainly this enables researchers far more power to conduct data science on real users in production systems than before. Would government agencies value this problem enough to dedicate research grants to solving it? For companies, publishing a high-value lens provides an opportunity to promote content valuable to the company. For example, a Food Network lens could surface high-quality recipes as well as bias towards its own properties and media. Would that be enough incentive to build a lens, or would Twitter accept a revenue-share agreement to grow a food-Twitter network?
 
-# Future Decentralization
+## Future Decentralization
 
 The proposal sketch above addresses many of the problems initially laid out in @jack’s tweets, with the caveat that it assumes Twitter will faithfully store and serve any data as required by the lens developer from its centralized infrastructure. This provides a path to enable fast experimentation of recommendation algorithms, but it does not fundamentally address the issue of data censorship by the platform. Fully decentralizing to combat censorship is a monumental engineering challenge that I would not recommend tackling as a first step. However, the proposal above lays the groundwork for evolving into a more decentralized platform if Twitter decides to in the future.
 
@@ -230,7 +230,7 @@ Databases can similarly be remotely verified using verifiable computation. Using
 
 We could apply a similar effort to run real-time advertising auctions trustlessly in application servers. Advertisers would pay into a wallet controlled by a smart contract or [DAO](https://en.wikipedia.org/wiki/Decentralized_autonomous_organization), which will in turn pay network participants for work. The DAO, much like a corporation, can also continue to pay employees in employment smart contracts. We should be able to replicate Twitter Inc.’s (the company) entire self-sustaining business into a decentralized blockchain with real cash flows. It is not necessary to move Twitter to a token economic model that relies on a new token appreciating in value. Rather all of this can be built on top of an existing cryptocurrency, such as Bitcoin.
 
-# Thanks @jack!
+## Thanks @jack!
 
 I want to thank [@jack](https://twitter.com/jack) for opening up this exciting possibility to engage with the open source and research communities to further improve Twitter. It’s a unique opportunity to solve one of society’s biggest challenges in a way that Twitter may find difficult to do alone. My hope is to simply bring to light an alternative way of thinking about the challenge that may yield a more incremental path for Twitter to follow. [@jack](https://twitter.com/jack) and whoever you [hire](https://twitter.com/bluesky) to lead this project, please don’t let this good intention die in vain.
 

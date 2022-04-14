@@ -44,3 +44,4 @@ scholar:
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap

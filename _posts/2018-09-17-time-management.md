@@ -154,7 +154,7 @@ It takes repetition to build it into a habit.
 And if you slip, don't fret; just recenter, readjust, and try again.
 Hopefully, these tips will help you focus on the things that matter to you.
 
-# Update (2020-12)
+## Update (2020-12)
 
 Re-reading this blog post 2 years later has been fascinating to me. A couple of things clearly stand out.
 

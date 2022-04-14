@@ -4,14 +4,14 @@ title: Projects
 permalink: /about/projects/
 ---
 
-# Ongoing Work
+## Ongoing Work
 
 {% include projects-ongoing.html %}
 
-# Mature Projects
+## Mature Projects
 
 {% include projects-mature.html %}
 
-# Hacks
+## Hacks
 
 {% include projects-hacks.html %}

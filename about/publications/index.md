@@ -4,7 +4,7 @@ title: Publications
 permalink: /about/publications/
 ---
 
-# Publications
+## Publications
 
 {% for pKey in site.data.publications.order.list %}
 
@@ -16,7 +16,7 @@ permalink: /about/publications/
 
 {% endfor %}
 
-# Talks
+## Talks
 
 {% for pKey in site.data.talks.order.list %}
 
@@ -28,6 +28,6 @@ permalink: /about/publications/
 
 {% endfor %}
 
-# Press
+## Press
 
 {% markdown "projects-press.md" %}

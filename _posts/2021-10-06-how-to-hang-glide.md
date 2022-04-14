@@ -7,7 +7,7 @@ categories: [thoughts]
 
 After a long 2.5 years of training to get to our H3 rating, we thought it would help to share our journey and what we wished we knew when we first started; advice that could have helped us finish in <1 year. Of course this is our limited opinion, so take it all with a grain of salt and get advice from other pilots you trust.
 
-*Blog post by [Raymond Cheng](https://raymondcheng.net/) and [Brandon Holt](http://bholt.org/)*
+*Blog post by [Raymond Cheng](https://www.raymondcheng.net/) and [Brandon Holt](http://bholt.org/)*
 
 ![Scarlett and Takeo](/img/diagrams/hanggliding/scarlett-takeo.jpg)
 Scarlett and Takeo discussing launch at Ed Levin County Park, adjacent to San Jose, CA.
@@ -43,7 +43,7 @@ In our opinion, H3 and above is pretty much the whole point of learning to hang 
 
 Just to give a little more taste of what we are so excited about here. Once we finally were flying for over an hour at mountain sites, we finally understood the real "sport" of hang gliding. There's an intense challenge to seeking out lift, judging where thermals are likely to form, figuring out how to climb within a thermal. Coastal flying with strong steady winds and ridge lift provide a whole new experience, with the challenge of high wind ground handling and the freedom to be able to dive and swoop at will without worrying about having to recover altitude.
 
-# Steps
+## Steps
 
 So now to the specifics: how would we do it if we had to do it all over again?
 
@@ -94,7 +94,7 @@ Most sites that you fly as an H2 are going to be sled rides (~10 minutes). The k
 
 At the end of the day, hang gliding is a sport with **pretty high upfront cost, but very low operational expenses** once you are a H3. If you have all the gear and ratings, you usually fly at any site for the cost of gas to go there.
 
-## Continuing education
+### Continuing education
 
 It's important to note that learning is never done. There's obviously the H4 rating to work towards, but more importantly, all throughout you should be seeking out opportunities to learn new skills and practice safety procedures. Some of our top suggestions include:
 
@@ -102,7 +102,7 @@ It's important to note that learning is never done. There's obviously the H4 rat
 - **Towing:** surface towing (being pulled aloft by a winch) and aerotow (being pulled by a plane) offer opportunities to fly in locations and conditions when you otherwise couldn't. In the Bay Area, flying at [Tres Pinos](https://hang-gliding.com/lesson/training-site) can be a great way to keep up your skills during the winter. Towing requires learning some new skills but can make you a better more versatile pilot overall.
 - **Launch and landing practice:** go back to your favorite training sites and practice launches and landings. Advanced pilots may soar for hours and get only one chance to practice launching and landing per flying day. That can lead to atrophying skills, you may be able to get by with sloppy launches and landings for some time, but it will come back to hurt you — don't take the most dangerous parts of hang gliding for granted.
 
-# Our Journey
+## Our Journey
 
 So if the above is how we'd prefer to do it, it goes without saying that we learned the hard way by doing the opposite, motivating this article.
 
@@ -116,7 +116,7 @@ We've also compiled some fun videos of our friends in the area for you to get a 
 - Masayo: [Year 1 Montage](https://www.youtube.com/watch?v=20H1lUtGBok&list=PLueOTgihoaCh3iyO5-5YsMHDWC4L2YwiO&index=13), [Soaring Crestline](https://www.youtube.com/watch?v=jCBcQ4NURHc&list=PLueOTgihoaCh3iyO5-5YsMHDWC4L2YwiO&index=4), [Flare Training](https://www.youtube.com/watch?v=-fm1Lq5ZeeM&list=PLueOTgihoaCh3iyO5-5YsMHDWC4L2YwiO&index=30)
 - Richard: [Yosemite](https://www.youtube.com/watch?v=PJczVEx4W3c), [Rubik's Cube](https://www.youtube.com/watch?v=ubqbXrUAUiw), [Tandem Flight](https://www.youtube.com/watch?v=kdM15OFoWtQ)
 
-# Join us!
+## Join us!
 
 Hang gliding can be an incredibly difficult and lonely journey for some, but it doesn't have to be. If you live in the SF Bay area, come join our community!
 [https://www.bayareafledglings.org](https://www.bayareafledglings.org)

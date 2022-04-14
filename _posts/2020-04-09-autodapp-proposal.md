@@ -10,7 +10,7 @@ The [AutoDapp](https://autodapp.io) project aims to automatically convert any ex
 
 ![banner](/img/diagrams/autodapp-proposal/banner.png)
 
-# Why aren’t there more Dapp users?
+## Why aren’t there more Dapp users?
 
 Efforts towards decentralizing the Web have now been a decades-long journey. Companies and smart people join the cause for various reasons, whether [ideological](https://www.eff.org/cyberspace-independence), to shift the [balance of power](https://medium.com/openbazaarproject/why-is-decentralization-important-354499db6fb8), to make their applications [resilient to censorship](https://unchainedpodcast.com/why-decentralization-isnt-as-important-as-you-think/), to protect [free speech](https://knightcolumbia.org/content/protocols-not-platforms-a-technological-approach-to-free-speech), or to encourage greater [innovation](https://onezero.medium.com/why-decentralization-matters-5e3f79f7638e).
 
@@ -26,7 +26,7 @@ Why is adoption so low? There are a number of factors, which may not apply equal
 
 For the purposes of this blog, we will narrowly define blockchains as a [Byzantine-fault tolerant](https://en.wikipedia.org/wiki/Byzantine_fault) consensus protocol. At its core, all a blockchain does is help all nodes/miners/validators replicate data and achieve agreement on the global ordering of all items on a log or ledger. This can be either a permissionless or permissioned blockchain. While compatible with governance and incentivisation schemes, we will save those topics for a later post.
 
-# High-level Design
+## High-level Design
 
 ![architecture](/img/diagrams/autodapp-proposal/architecture.png)
 
@@ -71,7 +71,7 @@ This architecture ensures that all clients, regardless of which validator they a
 - **Higher costs**: Because we are running multiple copies of the application and storing multiple copies of data, we should expect higher total operational expenses.
 - **Harder to test and debug**, though the blockchain community is evolving quickly in this space.
 
-# Why is this good for the decentralization community?
+## Why is this good for the decentralization community?
 
 First of all, we can just test en-masse a whole universe of decentralized applications. Instead of dedicating venture money and whole teams to build a copy of XYZ app (but decentralized), we can just AutoDapp the existing application and try it out immediately. We can instantly test product/market fit for our XYZ Dapp. No usage? No skin off my back. Who knows, one of them might stick.
 
@@ -79,22 +79,22 @@ More importantly, [progressive decentralization](https://a16z.com/2020/01/09/pro
 
 Some applications benefit from decentralization, [but not all do](https://unchainedpodcast.com/why-decentralization-isnt-as-important-as-you-think/). By easily being able to switch between a decentralized deployment and cloud deployment, developers can easily test whether decentralization actually addresses any real risks, such as censorship or malicious threat models.
 
-# This sounds familiar…
+## This sounds familiar…
 
-## How is this different from federation?
+### How is this different from federation?
 
 Federation requires the application developer standardize a server-to-server protocol for sharing data between servers. This requires substantial coordination and developer effort, and often ends up [poorly implemented](https://ieeexplore.ieee.org/document/8560907). AutoDapp can be used to automate the data replication between servers, similarly allowing anyone to spin up a new server instance for an application. Imagine if the Gmail application were replicated across Google and Microsoft, vs Gmail and Outlook communicating over a shared email protocol (SMTP).
 
-## How is this different from using a blockchain database?
+### How is this different from using a blockchain database?
 
 Some projects, such as [CovenantSQL](https://covenantsql.io/) and [BigchainDB](https://www.bigchaindb.com/), try to lower friction for new Dapp developers by exposing well known APIs (e.g. SQL and MongoDB respectively) over a database replicated on top of a blockchain. While AutoDapp shares many similar technical components to these projects, the focus will be different. Instead of offering a publicly accessible SQL interface to a shared service running on a particular blockchain, we plan to focus our efforts on porting and optimizing existing applications to run end-to-end. This approach may yield different design decisions when it comes to authentication, data privacy, deployment, and performance scaling.
 
-# Proof of Concept
+## Proof of Concept
 
 We are currently in the early stages of working on AutoDapp’ed versions of [Discourse](https://www.discourse.org/) and [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki). We hope these tools can be useful for existing decentralized companies, many of which are still relying on centralized cloud services for their internal operations (dogfood much?).
 One promising application for AutoDapp is censorship-resistant content. Any centralized application that facilitates public discourse or provides invaluable information to the public is at risk of attacks from outside malicious actors or censorship from its central authority. Enabling the AutoDapp-ization of these applications can help safeguard against these scenarios.
 
-# Open Challenges
+## Open Challenges
 
 We are only in the early stages of this journey, and expect many open challenges, including but not limited to:
 - **Performance**: It’s hard. Can we make the user experience for AutoDapps just as good as their centralized counterparts?
@@ -105,7 +105,7 @@ We are only in the early stages of this journey, and expect many open challenges
 - **Supporting other storage systems**: Networked filesystems, key-value stores, graph databases, storage systems galore!
 - **Enabling flexible incentives**: Developers may want to support both in-app incentives to drive user behavior, as well as validator incentives. AutoDapp needs a clear answer for how these applications can support tokens and how they fit into the broader crypto ecosystem.
 
-# We need your help!
+## We need your help!
 
 Do you think this is cool? Do you want to AutoDapp-ify the Web with us? Join us! We want to keep this an open source community effort. Here’s how to start:
 
@@ -137,7 +137,7 @@ Maybe we’ll host the project on an AutoDapp’ed git hosting application in th
 
 This is just the beginning, look out for more blog posts on progress and updates soon.
 
-*Blog post by [Raymond Cheng](https://raymondcheng.net) and [Jeffrey Dash Hsu](https://thectozone.com/)*
+*Blog post by [Raymond Cheng](https://www.raymondcheng.net) and [Jeffrey Dash Hsu](https://thectozone.com/)*
 
 Acknowledgements: Huge thank you to Armani Ferrante, Nick Hynes, Will Scott, Reuven Gonzales, and Christopher Heymann for their helpful feedback and comments.
 
