@@ -11,7 +11,7 @@ email: me@raymondcheng.net
 description: > # this means to ignore newlines until "baseurl:"
   Homepage for Raymond Cheng
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://raymondcheng.net" # the base hostname & protocol for your site
+url: "https://www.raymondcheng.net" # the base hostname & protocol for your site
 twitter_username: RaymondCheng00
 github_username:  ryscheng
 
