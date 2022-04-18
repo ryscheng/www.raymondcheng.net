@@ -20,6 +20,7 @@ port: 8000
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
 
 # Permalinks
 permalink: none
@@ -27,6 +28,7 @@ permalink: none
 # Markdown Processors
 kramdown:
   input: GFM #Github-Flavored Markdown
+  syntax_highlighter: rouge
 
 # Ignore
 exclude: [ "*.sh", "Gemfile*", "Makefile", "Dockerfile", "README.md" ]

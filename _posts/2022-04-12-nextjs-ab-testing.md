@@ -17,8 +17,8 @@ export default function middleware (req, ev) {
   console.log('Edit and run this at the edge!')
   return new Response({
     ip: req.ip,
-		cookies: req.cookies,
-		...
+    cookies: req.cookies,
+    ...
   })
 }
 ```
@@ -170,9 +170,9 @@ export const getStaticProps = async () => {
 export default function Page(props: { plasmicData: ComponentRenderData }) {
   return (
     <PlasmicRootProvider loader={PLASMIC} prefetchedData={props.plasmicData}>
-      <PlasmicComponent component="/marketing" componentProps={{ experiment: null }} />
+      <PlasmicComponent component="/marketing" componentProps={ { experiment: null } } />
     </PlasmicRootProvider>
-  )
+  );
 }
 ```
 
@@ -181,8 +181,8 @@ For the `a` variant, pass this in as a `componentProp`.
 ```tsx
 // pages/marketing/a.tsx
 ...
-    <PlasmicRootProvider loader={PLASMIC} prefetchedData={props.plasmicData}>
-			<PlasmicComponent component="/marketing" componentProps={{ experiment: "a" }} />
+    <PlasmicRootProvider loader={PLASMIC} prefetchedData={ props.plasmicData }>
+      <PlasmicComponent component="/marketing" componentProps={ { experiment: "a" } } />
     </PlasmicRootProvider>
 ...
 ```
@@ -192,8 +192,8 @@ For the `b` variant, pass this in as a `componentProp`.
 ```tsx
 // pages/marketing/b.tsx
 ...
-    <PlasmicRootProvider loader={PLASMIC} prefetchedData={props.plasmicData}>
-			<PlasmicComponent component="/marketing" componentProps={{ experiment: "b" }} />
+    <PlasmicRootProvider loader={PLASMIC} prefetchedData={ props.plasmicData }>
+      <PlasmicComponent component="/marketing" componentProps={ { experiment: "b" } } />
     </PlasmicRootProvider>
 ...
 ```
