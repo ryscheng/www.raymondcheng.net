@@ -3,7 +3,7 @@ layout: post
 title:  "A/B Testing with Next.js middleware"
 date:   2022-04-12 12:40:05
 categories: projects
-canonical_url: "https://www.plasmic.app/blog/nextjs-ab-test"
+canonical_url: "https://www.plasmic.app/blog/nextjs-ab-testing"
 ---
 
 In this blog post we will show you how to implement A/B testing using **Next.js middleware**, first introduced in Next.js 12. When compared to other A/B testing frameworks, this method more easily fits into your existing developer workflows and inherits all of the performance benefits of Next.js, including static site generation (SSG). You’ll see that A/B tests don’t have to be onerous for either your users or your developers — every Next.js site can easily make measurable progress this way!

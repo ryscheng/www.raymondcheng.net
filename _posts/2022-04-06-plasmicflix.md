@@ -3,7 +3,7 @@ layout: post
 title:  "Build a Netflix clone in Next.js with a visual app builder"
 date:   2022-04-06 12:40:05
 categories: projects
-canonical_url: "https://www.plasmic.app/blog/plasmicflix"
+canonical_url: "https://www.plasmic.app/blog/building-netflix-clone"
 ---
 
 
