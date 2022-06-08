@@ -75,7 +75,11 @@ pre {
 /* Blog
 * ------------------------- */
 div.post-content img {
-  width: 100%;
+  width: 85%;
+}
+
+article.post {
+  max-width: 1024px;
 }
 
 /* Share buttons
