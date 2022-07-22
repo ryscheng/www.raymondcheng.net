@@ -269,3 +269,7 @@ In client-side frameworks, the baseline variant is initially loaded. Then client
 ## What does all this mean?
 
 With Next.js middleware, A/B testing easily fits into your developer’s workflow. Instead of using an out-of-band visual editor like [Google Optimize](https://marketingplatform.google.com/about/optimize/) or [VWO](https://vwo.com/testing/ab-testing/), you can just create new routes in your Next.js project for each variant you want to test. By leveraging the edge to serve your tests, you can easily test full pages and web apps without sacrificing performance. These 2 factors significantly lower the development and operational costs, such that there is no good reason _not to_ use A/B tests. For each iteration of your web page, deploy it to a new route and add it to your middleware and analytics to make measurable improvements time and time again.
+
+## Try integrated A/B testing in Plasmic!
+
+The tutorial above shows how to manually implement A/B testing in code, optionally leveraging Plasmic as the page builder. You can also specify your A/B tests entirely within Plasmic in a no-code setting. This opens up the ability for anyone in your organization to rapidly create new experiences and deploy A/B tests in production. Check out our [documentation on A/B testing](https://docs.plasmic.app/learn/ab-testing-personalization/) to get started and create a free account at [https://studio.plasmic.app/](https://studio.plasmic.app/).
