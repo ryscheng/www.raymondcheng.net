@@ -2,7 +2,8 @@
 layout: post
 title:  "High Performance Personalization with Next.js Middleware"
 date:   2022-05-19 08:40:05
-categories: projects
+categories: posts 
+tags: [guides, web]
 canonical_url: "https://www.plasmic.app/blog/nextjs-personalization"
 ---
 

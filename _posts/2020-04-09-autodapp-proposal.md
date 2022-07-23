@@ -2,8 +2,8 @@
 layout: post
 title:  "AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps"
 date:   2020-04-07 12:47:18 -0700
-categories: [projects, decentralization]
-tags: popular
+categories: posts 
+tags: [projects, decentralization, popular]
 ---
 
 The [AutoDapp](https://autodapp.io) project aims to automatically convert any existing web or mobile application into a decentralized application (DApp) by changing just a single line of code, starting with [Discourse](https://www.discourse.org/) and [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki). This blog post outlines a high-level approach to instantly decentralize popular applications by interposing on the SQL connection between its web server and database. With the unified effort of the open source community, we can accelerate the advent of the decentralized future for millions of users -- this is what we’re calling our “One Million” mission.

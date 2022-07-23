@@ -2,10 +2,10 @@
 layout: post
 title:  "Build a Netflix clone in Next.js with a visual app builder"
 date:   2022-04-06 12:40:05
-categories: projects
+categories: posts 
+tags: [guides, web]
 canonical_url: "https://www.plasmic.app/blog/building-netflix-clone"
 ---
-
 
 In this guide, we will show you how to build a video player web application with [Plasmic](https://www.plasmic.app/), a visual builder for React. While many Plasmic users use it to build landing and content pages, Plasmic is actually a powerful UI builder for apps of any complexity, allowing you or your design team to rapidly iterate on rich web applications.
 

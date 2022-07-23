@@ -2,7 +2,8 @@
 layout: post
 title:  "A/B Testing with Next.js middleware"
 date:   2022-04-12 12:40:05
-categories: projects
+categories: posts 
+tags: [guides, web]
 canonical_url: "https://www.plasmic.app/blog/nextjs-ab-testing"
 ---
 

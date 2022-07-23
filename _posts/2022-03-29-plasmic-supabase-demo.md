@@ -2,7 +2,8 @@
 layout: post
 title:  "Building a Pokedex with Plasmic + Supabase"
 date:   2022-03-29 12:40:05
-categories: projects
+categories: posts 
+tags: [guides, web]
 canonical_url: "https://supabase.com/docs/guides/integrations/plasmic"
 ---
 

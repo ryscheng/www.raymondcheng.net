@@ -2,7 +2,8 @@
 layout: post
 title:  "A Path to Opening Up Twitter"
 date:   2019-12-30 12:47:18 -0700
-categories: [thoughts, decentralization]
+categories: posts 
+tags: [thoughts, decentralization]
 ---
 
 #### Key Takeaways

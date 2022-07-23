@@ -2,7 +2,8 @@
 layout: post
 title:  "Iron Blogger SF"
 date:   2021-02-21 12:47:18 -0700
-categories: [thoughts]
+categories: posts 
+tags: [thoughts, life]
 ---
 
 I love writing. I miss that aspect of working in research.
