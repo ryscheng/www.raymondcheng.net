@@ -20,13 +20,15 @@
         "PADI Open Water Diver (2015/09) <br> Advanced Open Water (2016/02) <br><br>",
         "Specialties:<br> - Dry Suit (2016/02) <br>"
       ],
-      "includes": []
+      "includes": [],
+      "includemd": []
     }, {
 
       "title": "Dives",
       "ref": "dives",
       "text": ["Alki Beach (2015/09) <br> Oahu (2016/06)"],
-      "includes": []
+      "includes": [],
+      "includemd": []
 
     }
   ]

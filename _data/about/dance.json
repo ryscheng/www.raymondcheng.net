@@ -19,7 +19,8 @@
       "text": [],
       "includes": [
         "dance-groups.html"
-      ]
+      ],
+      "includemd": []
     },
     {
       "title": "Choreography",
@@ -27,7 +28,8 @@
       "text": [],
       "includes": [
         "dance-choreography.html"
-      ]
+      ],
+      "includemd": []
     },
     {
       "title": "Events",
@@ -35,7 +37,8 @@
       "text": [],
       "includes": [
         "dance-events.html"
-      ]
+      ],
+      "includemd": []
     }
   ]
 }
