@@ -1,0 +1,24 @@
+{
+  "title": "Philanthropist",
+  "subtitles": [],
+  "descriptions": [],
+  "images": [
+    {
+      "src": "/img/pic/talks.jpg",
+      "alt": "speaker"
+    }
+  ],
+  "quotes": [{
+    "text": "All the suffering there is in this world arises from wishing our self to be happy. All the happiness there is in this world arises from wishing others to be happy.",
+    "source": "Shantideva"
+  }],
+  "accordians": [
+    {
+      "title": "Non-profits",
+      "ref": "nonprofits",
+      "text": [],
+      "includemd": [],
+      "includes": []
+    }
+  ]
+}
