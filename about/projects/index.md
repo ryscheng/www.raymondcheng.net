@@ -6,12 +6,26 @@ permalink: /about/projects/
 
 ## Ongoing Work
 
-{% include projects-ongoing.html %}
+{% for i in site.data.about.order.projects_ongoing %}
+  {% markdown {{i}} %}
+  <hr>
+{% endfor %}
+
 
 ## Mature Projects
 
-{% include projects-mature.html %}
+{% for i in site.data.about.order.projects_mature %}
+  {% markdown {{i}} %}
+  <hr>
+{% endfor %}
+
+{% include projects-previous.html %}
 
 ## Hacks
+
+{% for i in site.data.about.order.projects_hacks %}
+  {% markdown {{i}} %}
+  <hr>
+{% endfor %}
 
 {% include projects-hacks.html %}

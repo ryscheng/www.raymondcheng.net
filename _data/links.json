@@ -1,4 +1,24 @@
 {
+  "masq": {
+    "name": "MASQ Foundation",
+    "url": "https://www.masq.foundation/"
+  },
+  "rysc_capital": {
+    "name": "rysc.capital",
+    "url": "https://www.rysc.capital/"
+  },
+  "hypercerts": {
+    "name": "Hypercerts Foundation",
+    "url": "https://hypercerts.org/"
+  },
+  "protocol_labs": {
+    "name": "Protocol Labs",
+    "url": "https://protocol.ai/"
+  },
+  "plasmic": {
+    "name": "Plasmic",
+    "url": "https://plasmic.app?ref=ryscheng"
+  },
   "oasislabs": {
     "name": "Oasis Labs",
     "url": "https://www.oasislabs.com/"

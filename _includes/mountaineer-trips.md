@@ -1,5 +1,7 @@
 
-
+- [Black Mountain](https://www.openspace.org/where-to-go/permits/camping) - Monte Bello Open Space Preserve (2023)
+- [Pinnacles National Park](https://www.nps.gov/pinn/index.htm) - (2023)
+- [Floresta Nacional do Tapajos](https://www.icmbio.gov.br/flonatapajos/) - Amazon, Brazil (2021)
 - [Moro Rock](https://www.nps.gov/seki/planyourvisit/moro.htm) - Sequoia & Kings Canyon National Park (2020)
 - [Yellowstone Grand Canyon South Rim](https://www.nps.gov/yell/index.htm) - Yellowstone National Park (2020)
 - [Big Basin Redwoods State Park](http://www.parks.ca.gov/?page_id=540) - Santa Cruz Mountain Range (2020)

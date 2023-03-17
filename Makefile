@@ -12,5 +12,7 @@ prod:
 
 build:
 	JEKYLL_ENV=production bundle exec jekyll build
-	bundle exec htmlproofer --allow-hash-href --ignore_empty_mailto ./_site
 	cp _redirects _site/_redirects
+
+lint:
+	bundle exec htmlproofer --allow-hash-href --ignore_empty_mailto ./_site

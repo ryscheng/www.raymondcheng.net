@@ -1,18 +1,17 @@
 {
   "shortlist":[
-    "nimble",
     "talek",
     "falcondb",
     "ekiden"
   ],
   "list": [
-    "nimble",
-    "ekiden-oasis",
-    "ekiden-ieeemagazine",
-    "talek",
     "saber",
+    "talek",
     "falcondb",
+    "ekiden-ieeemagazine",
     "ekiden",
+    "ekiden-oasis",
+    "nimble",
     "myelin",
     "sterling",
     "thesis",

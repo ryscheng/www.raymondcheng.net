@@ -1,6 +1,7 @@
 
-#### MASQ Foundation
-Co-Founder and President
+![Hypercerts](/img/projects/masq.png){: .projectlogo}
+**MASQ Foundation**       
+*Co-Founder and President*
 
 The MASQ Foundation exists to build and support security and privacy for the public good. We research, engineer, and promote widely-accessible technologies that protect individual users' security and privacy in both the digital and physical worlds.
 

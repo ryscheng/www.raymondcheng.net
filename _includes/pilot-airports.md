@@ -1,5 +1,6 @@
 Home Airports: 
 
+- [Fort Funston](https://flyfunston.org/), San Francisco, CA
 - [Ed R. Levin County Park](https://www.sccgov.org/sites/parks/parkfinder/Pages/Ed-Levin.aspx), Milpitas, CA
 - [88NV](http://airport.burningman.org/) - Black Rock City Airport, Black Rock City, NV
 - [BFI](http://www.kingcounty.gov/transportation/kcdot/Airport.aspx) Boeing Field, Seattle, WA
@@ -7,7 +8,10 @@ Home Airports:
 
 Destination: Everywhere
 
+- [Mt Tamalpais](http://mchga.org/site.shtml) - CA (2022)
+- [Mission Peak](https://wingsofrogallo.org/mission-ridge/) - Fremont, CA (2022)
 - [AJX](https://crestlinesoaring.org/andy-jackson-airpark/) - Andy Jackson Airpark, San Bernardino, CA (2021)
+- [Mission Soaring](https://hang-gliding.com/) - Hollister, CA (2021)
 - [McClure](https://mlsralakemcclure.wixsite.com/lakemcclurehg) - Lake McClure, CA (2020)
 - [HHR](http://www.cityofhawthorne.org/airport/) - Hawthorne Municipal Airport, Los Angeles, CA (2018)
 - [LAS](https://www.mccarran.com/) - McCarran International Airport, Las Vegas, NV (2018)

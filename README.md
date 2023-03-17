@@ -34,12 +34,6 @@ make run
 make build
 ```
 
-### To push to prod
-
-```bash
-bash publish.sh
-```
-
 ### To generate new syntax colors
 
 ```bash

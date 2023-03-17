@@ -1,6 +1,6 @@
 
 **University of San Francisco**  
-CS272: Software Development. Instructor, Fall 2022. [URL](https://usf-cs272-fall2022.github.io/)  
+CS272: Software Development. Instructor, Fall 2022. [URL](https://usf-cs272-03-fall2022.github.io/)  
 CS212: Software Development. Instructor, Spring 2020. [URL](https://usf-cs212-spring2020.github.io/)  
 
 **UC Berkeley**  

@@ -16,10 +16,11 @@
     "dance"
   ],
   "projects_ongoing": [
-    "projects-plasmic.md",
+    "projects-hypercerts.md",
     "projects-masq.md"
   ],
   "projects_mature": [
+    "projects-plasmic.md",
     "projects-oasislabs.md",
     "projects-ekiden.md",
     "projects-talek.md",
@@ -27,5 +28,10 @@
     "projects-diamond.md",
     "projects-radiatus.md",
     "projects-freedomjs.md"
+  ],
+  "projects_hacks": [
+    "projects-pm-tools.md",
+    "projects-autodapp.md",
+    "projects-sql-proxy-rs.md"
   ]
 }
