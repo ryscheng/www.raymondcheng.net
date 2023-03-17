@@ -6,13 +6,33 @@ ryscheng.github.io
 - RubyGems 
 - Bundler (`gem install bundler`)
 
+## Shell
+
 To open a bash shell in a Docker container with all the necessary system dependencies:
 ```bash
 $ bash docker-enter.sh
 ```
 
+## Install dev dependencies
+
+```bash
+bundle install
+```
+
 ## Commands
 See `Makefile` for list of commands
+
+### To run a dev server
+
+```bash
+make run
+```
+
+### To do a production build
+
+```bash
+make build
+```
 
 ### To push to prod
 
