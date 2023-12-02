@@ -1,0 +1,18 @@
+{
+  "title": "Human Being",
+  "subtitles": [],
+  "descriptions": [],
+  "descriptioninclude": [
+    "social-short.html",
+    "summary.html"
+  ],
+  "descriptionmd": [],
+  "images": [
+    {
+      "src": "/img/pic/me.jpg",
+      "alt": "profile"
+    }
+  ],
+  "quotes": [],
+  "accordians": []
+}

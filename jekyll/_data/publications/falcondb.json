@@ -1,0 +1,26 @@
+{
+  "title": "FalconDB: Blockchain-based Collaborative Database",
+  "authors": [
+    "yanqing_peng",
+    "min_du",
+    "feifei_li",
+    "raymond_cheng",
+    "dawn_song"
+  ],
+  "venue": {
+    "name": "ACM International Conference on Management of Data (SIGMOD)",
+    "url": "https://sigmod2020.org/"
+  },
+  "year": 2020,
+  "paper": [
+    {
+      "name": "ACM",
+      "url": "https://dl.acm.org/doi/pdf/10.1145/3318464.3380594"
+    },
+    {
+      "name": "PDF",
+      "url": "http://www.cs.utah.edu/~lifeifei/papers/falcondb.pdf"
+    }
+  ],
+  "bibtex": "https://dblp.uni-trier.de/rec/bibtex/conf/sigmod/PengDL0S20"
+}

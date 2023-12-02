@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Raymond Cheng">
+  <!--meta name="description" content="In this blog post we will show you how to implement A/B testing using Next.js middleware, first introduced in Next.js 12. When compared to other A/B testing ..."-->
+  <!--title>Raymond Cheng</title-->
+
+  <link rel="icon" type="images/jpg" href="/img/ico/favicon.jpg">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css">
+  <!--link rel="stylesheet" href="/css/main2.css"-->
+  <!--link rel="canonical" href="https://www.raymondcheng.net/posts/nextjs-ab-testing.html"-->
+  <link rel="alternate" type="application/rss+xml" title="Raymond Cheng" href="https://www.raymondcheng.net/feed.xml">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>A/B Testing with Next.js middleware | Raymond Cheng</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="A/B Testing with Next.js middleware" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this blog post we will show you how to implement A/B testing using Next.js middleware, first introduced in Next.js 12. When compared to other A/B testing frameworks, this method more easily fits into your existing developer workflows and inherits all of the performance benefits of Next.js, including static site generation (SSG). You’ll see that A/B tests don’t have to be onerous for either your users or your developers — every Next.js site can easily make measurable progress this way!" />
+<meta property="og:description" content="In this blog post we will show you how to implement A/B testing using Next.js middleware, first introduced in Next.js 12. When compared to other A/B testing frameworks, this method more easily fits into your existing developer workflows and inherits all of the performance benefits of Next.js, including static site generation (SSG). You’ll see that A/B tests don’t have to be onerous for either your users or your developers — every Next.js site can easily make measurable progress this way!" />
+<link rel="canonical" href="https://www.plasmic.app/blog/nextjs-ab-testing" />
+<meta property="og:url" content="https://www.plasmic.app/blog/nextjs-ab-testing" />
+<meta property="og:site_name" content="Raymond Cheng" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-12T12:40:05+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="A/B Testing with Next.js middleware" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-12T12:40:05+00:00","datePublished":"2022-04-12T12:40:05+00:00","description":"In this blog post we will show you how to implement A/B testing using Next.js middleware, first introduced in Next.js 12. When compared to other A/B testing frameworks, this method more easily fits into your existing developer workflows and inherits all of the performance benefits of Next.js, including static site generation (SSG). You’ll see that A/B tests don’t have to be onerous for either your users or your developers — every Next.js site can easily make measurable progress this way!","headline":"A/B Testing with Next.js middleware","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.plasmic.app/blog/nextjs-ab-testing"},"url":"https://www.plasmic.app/blog/nextjs-ab-testing"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">Raymond Cheng</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/projects/">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/publications/">Publications</a>
+        </li>
+      </ul>
+
+      <!--
+      <a href="http://www.google.com/recaptcha/mailhide/d?k=01acpirUAdGm8kXTEX3VqxAQ==&amp;c=hQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01acpirUAdGm8kXTEX3VqxAQ\x3d\x3d\x26c\x3dhQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">
+        <button class="btn btn-outline-success my-2 my-sm-0">Email Me</button>
+      </a>
+      -->
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+
+      <div class="page-content">
+        <div class="wrapper">
+          <div class="row featurette">
+  <!-- LEFT -->
+  <div class="col-md-3 d-none d-sm-none d-md-block d-lg-block d-xl-block">
+    <h2 class="featurette-heading"><a href="/blog">Blog</a></h2>
+
+    <ul>
+      
+        <li>
+          <span class="post-meta">Aug 9, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/react-localization.html">How to choose a localization approach for your React application</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">May 19, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/nextjs-personalization.html">High Performance Personalization with Next.js Middleware</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 12, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/nextjs-ab-testing.html">A/B Testing with Next.js middleware</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 6, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/plasmicflix.html">Build a Netflix clone in Next.js with a visual app builder</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Mar 29, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/plasmic-supabase-demo.html">Building a Pokedex with Plasmic + Supabase</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Oct 6, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/how-to-hang-glide.html">How to Become an H3 Hang Glider Pilot in the Bay Area</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 21, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/why-phd.html">Strong/Weak Reasons to do a PhD in Computer Science</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 4, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/nian-gao.html">Chinese New Year Cake (Nian Gao)</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Feb 21, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/iron-blogger.html">Iron Blogger SF</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 7, 2020</span>
+          <p>
+            <a class="post-link" href="/posts/autodapp-proposal.html">AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Dec 30, 2019</span>
+          <p>
+            <a class="post-link" href="/posts/decentralizing-twitter.html">A Path to Opening Up Twitter</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 25, 2018</span>
+          <p>
+            <a class="post-link" href="/posts/git-yubikey.html">Signing Git Commits and SSH Authentication with Yubikey</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Sep 17, 2018</span>
+          <p>
+            <a class="post-link" href="/posts/time-management.html">Time Management</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">May 22, 2017</span>
+          <p>
+            <a class="post-link" href="/posts/after-graduation.html">How much longer until you graduate?</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 19, 2016</span>
+          <p>
+            <a class="post-link" href="/posts/personal-server-overview.html">Docker-based Personal Server</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 14, 2015</span>
+          <p>
+            <a class="post-link" href="/posts/retrospective-solar-printer.html">Retrospective: Solar Printer</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 13, 2015</span>
+          <p>
+            <a class="post-link" href="/posts/welcome.html">Welcome!</a>
+          </p>
+        </li>
+      
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="col-md-9">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">A/B Testing with Next.js middleware</h1>
+        <p class="post-meta"><time datetime="2022-04-12T12:40:05+00:00" itemprop="datePublished">Apr 12, 2022</time></p>
+
+        <ul class="share-buttons">
+  <!--Hacker News-->
+  <li><a href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-ab-testing.html&t=A%2FB+Testing+with+Next.js+middleware" title="Share on Hacker News" target="_blank"><img alt="Share on Hacker News" src="/img/ico/share/HackerNews.png"></a></li>
+  <!--Reddit-->
+  <li><a href="http://www.reddit.com/submit?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-ab-testing.html&title=A%2FB+Testing+with+Next.js+middleware" target="_blank" title="Submit to Reddit"><img alt="Submit to Reddit" src="/img/ico/share/Reddit.svg"></a></li>
+  <!--Twitter-->
+  <li><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-ab-testing.html&text=A%2FB+Testing+with+Next.js+middleware&via=RaymondCheng00" target="_blank" title="Tweet"><img alt="Tweet" src="/img/ico/share/Twitter.svg"></a></li>
+  <!--Facebook-->
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-ab-testing.html&p[title]=A%2FB+Testing+with+Next.js+middleware&t=A%2FB+Testing+with+Next.js+middleware" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="/img/ico/share/Facebook.svg"></a></li>
+  <!--LinkedIn-->
+  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-ab-testing.html&title=A%2FB+Testing+with+Next.js+middleware&summary=&source=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-ab-testing.html" target="_blank" title="Share on LinkedIn"><img alt="Share on LinkedIn" src="/img/ico/share/LinkedIn.svg"></a></li>
+  <!--Pinterest-->
+  <li><a href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-ab-testing.html&description=A%2FB+Testing+with+Next.js+middleware&media=https://www.raymondcheng.net/img/pic/me.jpg" target="_blank" title="Pin it"><img alt="Pin it" src="/img/ico/share/Pinterest.svg"></a></li>
+  <!--Tumblr-->
+  <li><a href="http://www.tumblr.com/share?v=3&u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-ab-testing.html&t=A%2FB+Testing+with+Next.js+middleware&s=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-ab-testing.html" target="_blank" title="Post to Tumblr"><img alt="Post to Tumblr" src="/img/ico/share/Tumblr.svg"></a></li>
+  <!--Wordpress-->
+  <li><a href="http://wordpress.com/press-this.php?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-ab-testing.html&t=A%2FB+Testing+with+Next.js+middleware&s=" target="_blank" title="Publish on WordPress"><img alt="Publish on WordPress" src="/img/ico/share/Wordpress.svg"></a></li>
+  <!--Pocket-->
+  <li><a href="https://getpocket.com/save?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-ab-testing.html&title=A%2FB+Testing+with+Next.js+middleware" target="_blank" title="Add to Pocket"><img alt="Add to Pocket" src="/img/ico/share/Pocket.svg"></a></li>
+  <!--Pinboard-->
+  <li><a href="https://pinboard.in/popup_login/?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-ab-testing.html&title=A%2FB+Testing+with+Next.js+middleware&description=A%2FB+Testing+with+Next.js+middleware" target="_blank" title="Save to Pinboard"><img alt="Save to Pinboard" src="/img/ico/share/Pinboard.svg"></a></li>
+  <!--Email-->
+  <li><a href="mailto:?subject=A%2FB+Testing+with+Next.js+middleware&body=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-ab-testing.html" target="_blank" title="Send email"><img alt="Send email" src="/img/ico/share/Email.svg"></a></li>
+</ul>
+
+  <!--Google+-->
+<!--
+  <li><a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-ab-testing.html" target="_blank" title="Share on Google+"><img alt="Share on Google+" src="/img/ico/share/Google+.svg"></a></li>
+-->
+
+      </header>
+
+      <div class="post-content" itemprop="articleBody">
+        <p>In this blog post we will show you how to implement A/B testing using <strong>Next.js middleware</strong>, first introduced in Next.js 12. When compared to other A/B testing frameworks, this method more easily fits into your existing developer workflows and inherits all of the performance benefits of Next.js, including static site generation (SSG). You’ll see that A/B tests don’t have to be onerous for either your users or your developers — every Next.js site can easily make measurable progress this way!</p>
+
+<h2 id="what-is-nextjs-middleware">What is Next.js middleware?</h2>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// pages/_middleware.js</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">middleware</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Edit and run this at the edge!</span><span class="dl">'</span><span class="p">)</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">({</span>
+    <span class="na">ip</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">ip</span><span class="p">,</span>
+    <span class="na">cookies</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">,</span>
+    <span class="p">...</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Middleware is a new powerful addition to the architecture of Next.js applications. Middleware are arbitrary functions that you can write, which are executed on user HTTP requests before they hit the Next.js server. In practice, middleware functions are deployed to the cloud edge (i.e. CDN), on a platform like <a href="https://vercel.com/">Vercel</a>. By running on the edge, middleware can quickly rewrite and reroute requests to the server, or respond directly to short-circuit the server. The fast performance comes with the trade-off of a <a href="https://nextjs.org/docs/api-reference/edge-runtime">limited runtime environment</a>. Middleware have been used to perform fast bot detection, feature flags, analytics, routing, and A/B tests.</p>
+
+<h3 id="ab-testing-using-nextjs-middleware">A/B testing using Next.js middleware</h3>
+
+<p><img src="/img/diagrams/nextjs-ab-test/00-architecture.png" alt="architecture" /></p>
+
+<figcaption align="center">
+  <i>
+    Middleware functions run at the edge (i.e. CDN), providing a way to quickly re-route requests.
+    When paired with SSG, the entire A/B test can be served from the edge.
+  </i>
+</figcaption>
+
+<p>Middleware is the perfect tool for implementing A/B tests (also known as split tests). The middleware transparently redirects different users to different versions of your application, which you can use to assess how each version impacts your business metrics. The diagram above shows how Next.js A/B testing works at a high level when paired with SSG.</p>
+
+<ol>
+  <li>When a user first requests a page, such as your homepage, the middleware will flip a coin to choose which version to serve.</li>
+  <li>The middleware transparently proxies the request to the appropriate variant and sets a cookie, so that subsequent requests from the same user see the same variant and the user is oblivious to the A/B test.</li>
+  <li>Routes can either be served at the edge if built via SSG, or served at the server via server-side rendering. When routes are also served from the edge, users benefit from lower latencies to content.</li>
+</ol>
+
+<p>In practice, the developer can implement each variant that they want to test as a separate route, and the middleware glues it all together.</p>
+
+<h2 id="comparison-to-other-ab-testing-approaches">Comparison to other A/B testing approaches</h2>
+
+<h3 id="client-side-ab-testing">Client-side A/B Testing</h3>
+
+<p>Many A/B testing products (like <a href="https://support.google.com/optimize/answer/7513085">Google Optimize</a>, <a href="https://experienceleague.adobe.com/docs/target/using/implement-target/client-side/at-js-implementation/at-js/how-atjs-works.html?lang=en">Adobe Target</a>, and <a href="https://developers.vwo.com/docs/core-concepts">VWO</a>) default to a client-side approach for serving A/B tests. This is often the easiest way to integrate into an existing tech stack, where a developer adds a script tag to the page they want to test. Many of these products offer a visual editor to modify existing pages in production. When the test is run, the client-side script will contact a server to determine the user’s bucket, then dynamically modify the DOM before showing the test to the user. This results in either noticeable delays if using synchronous JavaScript, or a flash of baseline content if using asynchronous JavaScript (as you’ll see in the results below). These side effects often have a negative impact on your web vitals score and consequently SEO rankings.</p>
+
+<p><img src="/img/diagrams/nextjs-ab-test/01-adobe-flowchart.png" alt="at.js flowchart" /></p>
+
+<figcaption align="center">
+  <i>
+    Source: Adobe Target documentation
+    <a href="https://experienceleague.adobe.com/docs/target/using/implement-target/client-side/at-js-implementation/at-js/how-atjs-works.html?lang=en">
+      link
+    </a>
+  </i>
+</figcaption>
+
+<h3 id="server-side-ab-testing">Server-side A/B Testing</h3>
+
+<p>Many A/B testing products also allow you to do the split testing on the server-side. In this configuration, the developer has the freedom to implement their split tests how they want, contacting the A/B testing service to determine a user’s bucket and report events. While this method gives the developer the most control, it may incur higher latencies because every request must hit the origin server. Worse, because 2 users may see different responses from the same URL, CDN caching becomes much less effective.</p>
+
+<h3 id="ab-testing-via-middleware">A/B testing via middleware</h3>
+
+<p>In summary, running A/B tests via middleware has a number of advantages:</p>
+
+<ul>
+  <li><strong>Bucketing at the edge</strong>: User bucketing is on the critical path and can severely impact load times. By doing this at the edge, we can leverage its short latency to users.</li>
+  <li><strong>Bucketing on the initial request</strong>: Middleware will determine the user’s bucket off the initial HTTP request, obviating the need for additional requests. This leads to faster load times compared to client-side A/B testing.</li>
+  <li><strong>Leverage static site generation (SSG)</strong>: If your page variants are built with SSG and served at the edge, then your A/B tests can run entirely from the edge, leveraging the performance benefits of your CDN. This configuration leads to faster responses compared to server-side A/B testing frameworks, which require you to hit the server on every request.</li>
+</ul>
+
+<h2 id="implementing-ab-tests">Implementing A/B tests</h2>
+
+<p>First, make sure you are running at least version 12 of Next.js. An easy way to ensure this is to install the latest version:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install </span>next@latest
+</code></pre></div></div>
+
+<p>If this is your first Next.js project, follow this <a href="https://nextjs.org/docs/getting-started">quickstart guide</a> to get your Next.js project up and running.</p>
+
+<h3 id="add-the-middleware">Add the middleware</h3>
+
+<p>Suppose you have a marketing page that you want to test in <code class="language-plaintext highlighter-rouge">pages/marketing.jsx</code>. First, create a <code class="language-plaintext highlighter-rouge">pages/marketing/</code> directory and move your original page into this directory.</p>
+
+<p>Middleware is defined by adding a <code class="language-plaintext highlighter-rouge">_middleware.js</code> file in that directory:</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// pages/marketing/_middleware.js</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NextRequest</span><span class="p">,</span> <span class="nx">NextResponse</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">next/server</span><span class="dl">'</span>
+
+<span class="kd">const</span> <span class="nx">COOKIE_NAME</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">bucket-marketing</span><span class="dl">'</span>
+
+<span class="c1">// Choose a random bucket</span>
+<span class="c1">// Optional: contact a 3rd party service to get the user's bucket</span>
+<span class="kd">const</span> <span class="nx">MARKETING_BUCKETS</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">original</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">]</span> <span class="k">as</span> <span class="kd">const</span>
+<span class="kd">const</span> <span class="nx">getBucket</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">MARKETING_BUCKETS</span><span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">MARKETING_BUCKETS</span><span class="p">.</span><span class="nx">length</span><span class="p">)]</span>
+
+<span class="k">export</span> <span class="kd">function</span> <span class="nx">middleware</span><span class="p">(</span><span class="nx">req</span><span class="p">:</span> <span class="nx">NextRequest</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Get the bucket cookie</span>
+  <span class="kd">const</span> <span class="nx">bucket</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">[</span><span class="nx">COOKIE_NAME</span><span class="p">]</span> <span class="o">||</span> <span class="nx">getBucket</span><span class="p">()</span>
+  <span class="c1">// Proxy to the appropriate variant</span>
+  <span class="kd">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">NextResponse</span><span class="p">.</span><span class="nx">rewrite</span><span class="p">(</span><span class="s2">`/marketing/</span><span class="p">${</span><span class="nx">bucket</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+
+  <span class="c1">// Add the bucket to cookies if it's not there</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">[</span><span class="nx">COOKIE_NAME</span><span class="p">])</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">cookie</span><span class="p">(</span><span class="nx">COOKIE_NAME</span><span class="p">,</span> <span class="nx">bucket</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">res</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In the example above, we flip a coin in the middleware to set which variant the user sees, which allows us to avoid a round trip to the origin server. However, you might want integrate with a 3rd party service for managing how users are bucketed in the A/B test. This might be an A/B testing service like <a href="https://marketingplatform.google.com/about/optimize/">Google Optimize</a> or a feature flag management service like <a href="https://launchdarkly.com/">LaunchDarkly</a>. In this case, simply modify the middleware make a <a href="https://nextjs.org/docs/api-reference/edge-runtime#fetch">Fetch request</a> to your 3rd party service to set the cookie, instead of randomly assigning.</p>
+
+<h3 id="deploy-your-page-variants">Deploy your page variants</h3>
+
+<p>Notice that this middleware will transparently route users visiting <code class="language-plaintext highlighter-rouge">/marketing/</code> to 1 of 3 possible paths:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">pages/marketing/original.jsx</code> ⇒ <code class="language-plaintext highlighter-rouge">/marketing/original</code></li>
+  <li><code class="language-plaintext highlighter-rouge">pages/marketing/a.jsx</code> ⇒ <code class="language-plaintext highlighter-rouge">/marketing/a</code></li>
+  <li><code class="language-plaintext highlighter-rouge">pages/marketing/b.jsx</code> ⇒ <code class="language-plaintext highlighter-rouge">/marketing/b</code></li>
+</ul>
+
+<p>You can copy the original page to these 3 routes and make your various edits to the respective variants. If you leverage SSG via <code class="language-plaintext highlighter-rouge">getStaticProps</code>, then each of these variants will continue to be served from a CDN for best performance.</p>
+
+<p>These routes are hidden to the user, who just visits <code class="language-plaintext highlighter-rouge">/marketing/</code>. The middleware will select the correct bucket and transparently route users to the right variant.</p>
+
+<h3 id="leveraging-plasmic-variants-optional">Leveraging Plasmic variants [optional]</h3>
+
+<p><a href="https://www.plasmic.app/">Plasmic</a> is a visual editor that works with Next.js, where you can easily create full pages in a WYSIWYG studio. If you have not yet set up Plasmic in your Next.js project yet, you can follow this <a href="https://docs.plasmic.app/learn/nextjs-quickstart">quickstart guide</a>.</p>
+
+<p>Let’s assume that you already have a Marketing page in Plasmic. You can create page <a href="https://docs.plasmic.app/learn/plasmic-studio-guide/#variants">variants</a> in the rightside pane. In this example, I’ll “add a single-select group of variants”, where I name the group <code class="language-plaintext highlighter-rouge">experiment</code> with 2 variants, <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">b</code>. These variants are expressed as overrides over the base variant. <a href="https://docs.plasmic.app/learn/plasmic-studio-guide/#variants">Click here to read more about Plasmic variants</a>.</p>
+
+<p><img src="/img/diagrams/nextjs-ab-test/02-plasmic-variants.png" alt="plasmic-variants" /></p>
+
+<p>Once you’ve created your page variants, you can render individual pages by using the following code in your Next.js page routes <code class="language-plaintext highlighter-rouge">pages/marketing/{original,a,b}.tsx</code>. Just change the <code class="language-plaintext highlighter-rouge">experiment</code> key in <code class="language-plaintext highlighter-rouge">componentProps</code> of <code class="language-plaintext highlighter-rouge">PlasmicComponent</code> to choose which variant to show. For the base variant, just pass in <code class="language-plaintext highlighter-rouge">null</code>.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// pages/marketing/original.tsx</span>
+
+<span class="k">import</span> <span class="p">{</span>
+  <span class="nx">initPlasmicLoader</span><span class="p">,</span>
+  <span class="nx">PlasmicRootProvider</span><span class="p">,</span>
+  <span class="nx">PlasmicComponent</span><span class="p">,</span>
+  <span class="nx">ComponentRenderData</span><span class="p">,</span>
+<span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@plasmicapp/loader-nextjs</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">PLASMIC</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../../plasmic-init</span><span class="dl">'</span>
+
+<span class="c1">// Statically fetch the data needed to render Plasmic pages or components.</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">getStaticProps</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Make sure you call `fetchComponentData` with the right path or component name defined in Plasmic.</span>
+  <span class="kd">const</span> <span class="nx">plasmicData</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">PLASMIC</span><span class="p">.</span><span class="nx">fetchComponentData</span><span class="p">(</span><span class="dl">'</span><span class="s1">/marketing</span><span class="dl">'</span><span class="p">)</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">props</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nx">plasmicData</span><span class="p">,</span>
+      <span class="c1">// ...</span>
+    <span class="p">},</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Render the page or component from Plasmic.</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Page</span><span class="p">(</span><span class="nx">props</span><span class="p">:</span> <span class="p">{</span> <span class="nl">plasmicData</span><span class="p">:</span> <span class="nx">ComponentRenderData</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nc">PlasmicRootProvider</span> <span class="na">loader</span><span class="p">=</span><span class="si">{</span><span class="nx">PLASMIC</span><span class="si">}</span> <span class="na">prefetchedData</span><span class="p">=</span><span class="si">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">plasmicData</span><span class="si">}</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nc">PlasmicComponent</span> <span class="na">component</span><span class="p">=</span><span class="s">"/marketing"</span> <span class="na">componentProps</span><span class="p">=</span><span class="si">{</span> <span class="p">{</span> <span class="na">experiment</span><span class="p">:</span> <span class="kc">null</span> <span class="p">}</span> <span class="si">}</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nc">PlasmicRootProvider</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>For the <code class="language-plaintext highlighter-rouge">a</code> variant, pass this in as a <code class="language-plaintext highlighter-rouge">componentProp</code>.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// pages/marketing/a.tsx</span>
+<span class="p">...</span>
+    <span class="o">&lt;</span><span class="nx">PlasmicRootProvider</span> <span class="nx">loader</span><span class="o">=</span><span class="p">{</span><span class="nx">PLASMIC</span><span class="p">}</span> <span class="nx">prefetchedData</span><span class="o">=</span><span class="p">{</span> <span class="nx">props</span><span class="p">.</span><span class="nx">plasmicData</span> <span class="p">}</span><span class="o">&gt;</span>
+      <span class="p">&lt;</span><span class="nc">PlasmicComponent</span> <span class="na">component</span><span class="p">=</span><span class="s">"/marketing"</span> <span class="na">componentProps</span><span class="p">=</span><span class="si">{</span> <span class="p">{</span> <span class="na">experiment</span><span class="p">:</span> <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span> <span class="p">}</span> <span class="si">}</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="err">/</span><span class="na">PlasmicRootProvider</span><span class="p">&gt;</span>
+...
+</code></pre></div></div>
+
+<p>For the <code class="language-plaintext highlighter-rouge">b</code> variant, pass this in as a <code class="language-plaintext highlighter-rouge">componentProp</code>.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// pages/marketing/b.tsx</span>
+<span class="p">...</span>
+    <span class="o">&lt;</span><span class="nx">PlasmicRootProvider</span> <span class="nx">loader</span><span class="o">=</span><span class="p">{</span><span class="nx">PLASMIC</span><span class="p">}</span> <span class="nx">prefetchedData</span><span class="o">=</span><span class="p">{</span> <span class="nx">props</span><span class="p">.</span><span class="nx">plasmicData</span> <span class="p">}</span><span class="o">&gt;</span>
+      <span class="p">&lt;</span><span class="nc">PlasmicComponent</span> <span class="na">component</span><span class="p">=</span><span class="s">"/marketing"</span> <span class="na">componentProps</span><span class="p">=</span><span class="si">{</span> <span class="p">{</span> <span class="na">experiment</span><span class="p">:</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span> <span class="p">}</span> <span class="si">}</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="err">/</span><span class="na">PlasmicRootProvider</span><span class="p">&gt;</span>
+...
+</code></pre></div></div>
+
+<p>Because we are using <code class="language-plaintext highlighter-rouge">getStaticProps</code> in this example, Plasmic generates code at build time so that static pages can be served from your CDN. If you are using <code class="language-plaintext highlighter-rouge">next dev</code>, the Plasmic Next.js plugin will also automatically rebuild on any detected changes from Plasmic Studio, allowing you to easily continuously edit your pages.</p>
+
+<h3 id="connect-to-your-analytics">Connect to your analytics</h3>
+
+<p>Depending on which analytics provider you use, you’ll want to instrument your A/B test. The following code snippet assumes that you have already <a href="https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/quickstart/">set up your project with Segment</a>, but most analytics libraries will look quite similar:</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">analytics</span><span class="p">.</span><span class="nx">track</span><span class="p">(</span><span class="dl">'</span><span class="s1">pageview</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="c1">// Use a unique key for your experiment and tag which variant you're showing</span>
+  <span class="dl">'</span><span class="s1">Experiment 1</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>You will want to make sure that you add a property for the experiment, and then wire in which variant the user is seeing so that you can segment on the variant when analyzing your retention and conversion funnel.</p>
+
+<p>For quick access to some analytics-specific reference articles, see:</p>
+
+<ul>
+  <li><a href="https://help.mixpanel.com/hc/en-us/articles/115004565766-A-B-Test-Analysis">Mixpanel</a></li>
+  <li><a href="https://help.amplitude.com/hc/en-us/articles/115001580108-Analyze-A-B-test-results-in-Amplitude">Amplitude</a></li>
+  <li><a href="https://help.heap.io/define-analyze/analysis-features/a-b-testing/">Heap</a></li>
+</ul>
+
+<h3 id="current-state-of-deployments">Current state of deployments</h3>
+
+<ul>
+  <li><strong>Vercel</strong>: You can easily deploy your Next.js application via Vercel (see their <a href="https://vercel.com/docs/concepts/deployments/overview">deployments guide</a>), which will deploy your middleware to Vercel <a href="https://vercel.com/docs/concepts/functions/edge-functions">Edge Functions</a>. Under the hood, Vercel API routes are run on <a href="https://aws.amazon.com/lambda/">AWS Lamba</a> and middleware are run on <a href="https://workers.cloudflare.com/">Cloudflare Workers</a>.</li>
+  <li><strong>Netlify</strong> is <a href="https://www.netlify.com/blog/2021/10/27/use-next.js-12-on-netlify/">compatible with Next.js 12</a> as well. However as the time of writing, Next.js 12 middleware is still <a href="https://github.com/netlify/netlify-plugin-nextjs/blob/main/docs/middleware.md">deployed to origin servers</a>, as opposed to the edge. Netlify is still actively working on their <a href="https://www.netlify.com/products/edge/edge-handlers/">Edge Handlers</a> offering. Netlify also has their own built-in <a href="https://docs.netlify.com/site-deploys/split-testing/">split testing</a> feature, which may have similar performance characteristics, albeit with less ability to customize and integrate with third-party tools.</li>
+  <li>In any other server-side deployment of Next.js, middleware will automatically run at the server.</li>
+</ul>
+
+<h2 id="results">Results</h2>
+
+<p>For a quick benchmark, we implemented a quick marketing page and deployed to Vercel at <a href="https://next-ab-test.vercel.app/">https://next-ab-test.vercel.app/</a>.</p>
+
+<p>See here for project assets:</p>
+
+<ul>
+  <li><a href="https://studio.plasmic.app/projects/e4zz2VXMkxdmVUi2KdGouZ">Plasmic Project</a></li>
+  <li><a href="https://github.com/plasmicapp/next-ab-test">GitHub Repo</a></li>
+</ul>
+
+<h3 id="baseline">Baseline</h3>
+
+<p><a href="https://next-ab-test.vercel.app/marketing-original">https://next-ab-test.vercel.app/marketing-original</a></p>
+
+<p>When analyzing baseline page speed performance using Google’s <a href="https://pagespeed.web.dev/">PageSpeed Insights</a> tool, we show a score of 88. The slower times to contentful paint are likely caused by the heavy use of images on the marketing page.</p>
+
+<p><img src="/img/diagrams/nextjs-ab-test/03-result-baseline.png" alt="result-baseline" /></p>
+
+<p><a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fnext-ab-test.vercel.app%2Fmarketing-original">Source</a></p>
+
+<h3 id="nextjs--middleware">Next.js + Middleware</h3>
+
+<p><a href="https://next-ab-test.vercel.app/marketing">https://next-ab-test.vercel.app/marketing</a></p>
+
+<p>When using Next.js middleware, we see performance minimally affected. The middleware function is run on the initial HTTP request, yielding a slight additional delay to the initial page load.</p>
+
+<p><img src="/img/diagrams/nextjs-ab-test/04-result-middleware.png" alt="result-middleware" /></p>
+
+<p><a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fnext-ab-test.vercel.app%2Fmarketing">Source</a></p>
+
+<h3 id="using-google-optimize">Using Google Optimize</h3>
+
+<p><a href="https://next-ab-test.vercel.app/marketing-optimize">https://next-ab-test.vercel.app/marketing-optimize</a></p>
+
+<p>We then implemented the same A/B test using Google Optimize to showcase the performance when using a client-side A/B testing framework. We expect most client-side frameworks (like <a href="https://support.google.com/optimize/answer/7513085">Google Optimize</a>, <a href="https://support.optimizely.com/hc/en-us/articles/4411731640973">Optimizely</a>, <a href="https://experienceleague.adobe.com/docs/target/using/implement-target/client-side/at-js-implementation/at-js/how-atjs-works.html?lang=en">Adobe Target</a>, and <a href="https://developers.vwo.com/docs/core-concepts">VWO</a>) to have similar performance due to similar architecture.</p>
+
+<p>In client-side frameworks, the baseline variant is initially loaded. Then client-side Javascript will make a subsequent request to Google Optimize, determine the bucket, and modify the DOM to implement the change. This results in a flash of baseline content when using asynchronous JavaScript.</p>
+
+<p><img src="/img/diagrams/nextjs-ab-test/05-result-google-optimize.png" alt="result-google-optimize" /></p>
+
+<p><a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fnext-ab-test.vercel.app%2Fmarketing-optimize">Source</a></p>
+
+<h2 id="what-does-all-this-mean">What does all this mean?</h2>
+
+<p>With Next.js middleware, A/B testing easily fits into your developer’s workflow. Instead of using an out-of-band visual editor like <a href="https://marketingplatform.google.com/about/optimize/">Google Optimize</a> or <a href="https://vwo.com/testing/ab-testing/">VWO</a>, you can just create new routes in your Next.js project for each variant you want to test. By leveraging the edge to serve your tests, you can easily test full pages and web apps without sacrificing performance. These 2 factors significantly lower the development and operational costs, such that there is no good reason <em>not to</em> use A/B tests. For each iteration of your web page, deploy it to a new route and add it to your middleware and analytics to make measurable improvements time and time again.</p>
+
+<h2 id="try-integrated-ab-testing-in-plasmic">Try integrated A/B testing in Plasmic!</h2>
+
+<p>The tutorial above shows how to manually implement A/B testing in code, optionally leveraging Plasmic as the page builder. You can also specify your A/B tests entirely within Plasmic in a no-code setting. This opens up the ability for anyone in your organization to rapidly create new experiences and deploy A/B tests in production. Check out our <a href="https://docs.plasmic.app/learn/ab-testing-personalization/">documentation on A/B testing</a> to get started and create a free account at <a href="https://studio.plasmic.app/">https://studio.plasmic.app/</a>.</p>
+
+      </div>
+
+    </article>
+
+    <hr />
+    <div style="text-align:center;"> 
+      <p>
+        Liked this post?
+        Follow <a href="https://twitter.com/RaymondCheng00"><img class='contactico' src='/img/ico/twitter.ico' alt='twitter' />@RaymondCheng00 on Twitter</a><br>
+        or subscribe to my blog mailing list for some fresh thoughts
+      </p>
+      <iframe src="https://ryscheng.substack.com/embed" width="480" height="80" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+
+    </div>
+
+    <div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+  this.page.url = "https://www.raymondcheng.net/posts/nextjs-ab-testing.html";
+  //this.page.url = window.location.href;
+  this.page.identifier = "/posts/nextjs-ab-testing";
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://raymondcheng.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<script id="dsq-count-scr" src="//raymondcheng.disqus.com/count.js" async></script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+
+  </div> <!-- column -->
+</div> <!-- featurette -->
+<hr class="featurette-divider">
+
+        </div>
+      </div>
+
+      <footer>
+  <p class="pull-right"><a href="#">Back to top</a></p>
+  <p>&copy; raymondcheng.net &middot; Last Updated 2022 </p>
+</footer>
+
+
+
+    </div>
+  </body>
+
+<script src='/js/jquery.min.js' type='text/javascript'></script>
+<script src='/js/bootstrap.min.js' type='text/javascript'></script>
+<script src='/js/main.js' type='text/javascript'></script>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-11930420-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

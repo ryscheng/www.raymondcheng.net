@@ -1,0 +1,23 @@
+{
+  "title": "Privacy as a Service",
+  "venues": [
+    {
+      "name": "Various Universities",
+      "date": "Jan-Mar 2017",
+      "location": "USA, Canada, Europe",
+      "url": ""
+    }
+  ],
+  "slides": [
+    {
+      "name": "PDF",
+      "url": "/download/slides/2017-privacy-as-a-service.pdf"
+    }
+  ],
+  "videos": [
+    {
+      "name": "YouTube",
+      "url": "https://www.youtube.com/watch?v=EUw5c54IUL0"
+    }
+  ]
+}

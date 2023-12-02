@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Raymond Cheng">
+  <!--meta name="description" content="Choosing how to add localization to your application can be a complicated decision, because there are so many options out there. From code-based frameworks t..."-->
+  <!--title>Raymond Cheng</title-->
+
+  <link rel="icon" type="images/jpg" href="/img/ico/favicon.jpg">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css">
+  <!--link rel="stylesheet" href="/css/main2.css"-->
+  <!--link rel="canonical" href="https://www.raymondcheng.net/posts/react-localization.html"-->
+  <link rel="alternate" type="application/rss+xml" title="Raymond Cheng" href="https://www.raymondcheng.net/feed.xml">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to choose a localization approach for your React application | Raymond Cheng</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="How to choose a localization approach for your React application" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Choosing how to add localization to your application can be a complicated decision, because there are so many options out there. From code-based frameworks to third-party services that automatically rewrite your HTML, there is no silver bullet for localization. At Plasmic, we have been exploring the many options to better inform how we can support localization for our own application. Many tutorials assume you want to already want to use a code framework, like react-i18next, but that has implications for your team’s workflow. In this blog post we will survey different localization techniques you may be considering for your React application and discuss some of the trade-offs." />
+<meta property="og:description" content="Choosing how to add localization to your application can be a complicated decision, because there are so many options out there. From code-based frameworks to third-party services that automatically rewrite your HTML, there is no silver bullet for localization. At Plasmic, we have been exploring the many options to better inform how we can support localization for our own application. Many tutorials assume you want to already want to use a code framework, like react-i18next, but that has implications for your team’s workflow. In this blog post we will survey different localization techniques you may be considering for your React application and discuss some of the trade-offs." />
+<link rel="canonical" href="https://www.plasmic.app/blog/react-localization" />
+<meta property="og:url" content="https://www.plasmic.app/blog/react-localization" />
+<meta property="og:site_name" content="Raymond Cheng" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-09T08:40:05+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to choose a localization approach for your React application" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-08-09T08:40:05+00:00","datePublished":"2022-08-09T08:40:05+00:00","description":"Choosing how to add localization to your application can be a complicated decision, because there are so many options out there. From code-based frameworks to third-party services that automatically rewrite your HTML, there is no silver bullet for localization. At Plasmic, we have been exploring the many options to better inform how we can support localization for our own application. Many tutorials assume you want to already want to use a code framework, like react-i18next, but that has implications for your team’s workflow. In this blog post we will survey different localization techniques you may be considering for your React application and discuss some of the trade-offs.","headline":"How to choose a localization approach for your React application","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.plasmic.app/blog/react-localization"},"url":"https://www.plasmic.app/blog/react-localization"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">Raymond Cheng</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/projects/">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/publications/">Publications</a>
+        </li>
+      </ul>
+
+      <!--
+      <a href="http://www.google.com/recaptcha/mailhide/d?k=01acpirUAdGm8kXTEX3VqxAQ==&amp;c=hQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01acpirUAdGm8kXTEX3VqxAQ\x3d\x3d\x26c\x3dhQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">
+        <button class="btn btn-outline-success my-2 my-sm-0">Email Me</button>
+      </a>
+      -->
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+
+      <div class="page-content">
+        <div class="wrapper">
+          <div class="row featurette">
+  <!-- LEFT -->
+  <div class="col-md-3 d-none d-sm-none d-md-block d-lg-block d-xl-block">
+    <h2 class="featurette-heading"><a href="/blog">Blog</a></h2>
+
+    <ul>
+      
+        <li>
+          <span class="post-meta">Aug 9, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/react-localization.html">How to choose a localization approach for your React application</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">May 19, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/nextjs-personalization.html">High Performance Personalization with Next.js Middleware</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 12, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/nextjs-ab-testing.html">A/B Testing with Next.js middleware</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 6, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/plasmicflix.html">Build a Netflix clone in Next.js with a visual app builder</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Mar 29, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/plasmic-supabase-demo.html">Building a Pokedex with Plasmic + Supabase</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Oct 6, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/how-to-hang-glide.html">How to Become an H3 Hang Glider Pilot in the Bay Area</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 21, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/why-phd.html">Strong/Weak Reasons to do a PhD in Computer Science</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 4, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/nian-gao.html">Chinese New Year Cake (Nian Gao)</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Feb 21, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/iron-blogger.html">Iron Blogger SF</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 7, 2020</span>
+          <p>
+            <a class="post-link" href="/posts/autodapp-proposal.html">AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Dec 30, 2019</span>
+          <p>
+            <a class="post-link" href="/posts/decentralizing-twitter.html">A Path to Opening Up Twitter</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 25, 2018</span>
+          <p>
+            <a class="post-link" href="/posts/git-yubikey.html">Signing Git Commits and SSH Authentication with Yubikey</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Sep 17, 2018</span>
+          <p>
+            <a class="post-link" href="/posts/time-management.html">Time Management</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">May 22, 2017</span>
+          <p>
+            <a class="post-link" href="/posts/after-graduation.html">How much longer until you graduate?</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 19, 2016</span>
+          <p>
+            <a class="post-link" href="/posts/personal-server-overview.html">Docker-based Personal Server</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 14, 2015</span>
+          <p>
+            <a class="post-link" href="/posts/retrospective-solar-printer.html">Retrospective: Solar Printer</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 13, 2015</span>
+          <p>
+            <a class="post-link" href="/posts/welcome.html">Welcome!</a>
+          </p>
+        </li>
+      
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="col-md-9">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">How to choose a localization approach for your React application</h1>
+        <p class="post-meta"><time datetime="2022-08-09T08:40:05+00:00" itemprop="datePublished">Aug 9, 2022</time></p>
+
+        <ul class="share-buttons">
+  <!--Hacker News-->
+  <li><a href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Freact-localization.html&t=How+to+choose+a+localization+approach+for+your+React+application" title="Share on Hacker News" target="_blank"><img alt="Share on Hacker News" src="/img/ico/share/HackerNews.png"></a></li>
+  <!--Reddit-->
+  <li><a href="http://www.reddit.com/submit?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Freact-localization.html&title=How+to+choose+a+localization+approach+for+your+React+application" target="_blank" title="Submit to Reddit"><img alt="Submit to Reddit" src="/img/ico/share/Reddit.svg"></a></li>
+  <!--Twitter-->
+  <li><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Freact-localization.html&text=How+to+choose+a+localization+approach+for+your+React+application&via=RaymondCheng00" target="_blank" title="Tweet"><img alt="Tweet" src="/img/ico/share/Twitter.svg"></a></li>
+  <!--Facebook-->
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Freact-localization.html&p[title]=How+to+choose+a+localization+approach+for+your+React+application&t=How+to+choose+a+localization+approach+for+your+React+application" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="/img/ico/share/Facebook.svg"></a></li>
+  <!--LinkedIn-->
+  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Freact-localization.html&title=How+to+choose+a+localization+approach+for+your+React+application&summary=&source=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Freact-localization.html" target="_blank" title="Share on LinkedIn"><img alt="Share on LinkedIn" src="/img/ico/share/LinkedIn.svg"></a></li>
+  <!--Pinterest-->
+  <li><a href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Freact-localization.html&description=How+to+choose+a+localization+approach+for+your+React+application&media=https://www.raymondcheng.net/img/pic/me.jpg" target="_blank" title="Pin it"><img alt="Pin it" src="/img/ico/share/Pinterest.svg"></a></li>
+  <!--Tumblr-->
+  <li><a href="http://www.tumblr.com/share?v=3&u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Freact-localization.html&t=How+to+choose+a+localization+approach+for+your+React+application&s=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Freact-localization.html" target="_blank" title="Post to Tumblr"><img alt="Post to Tumblr" src="/img/ico/share/Tumblr.svg"></a></li>
+  <!--Wordpress-->
+  <li><a href="http://wordpress.com/press-this.php?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Freact-localization.html&t=How+to+choose+a+localization+approach+for+your+React+application&s=" target="_blank" title="Publish on WordPress"><img alt="Publish on WordPress" src="/img/ico/share/Wordpress.svg"></a></li>
+  <!--Pocket-->
+  <li><a href="https://getpocket.com/save?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Freact-localization.html&title=How+to+choose+a+localization+approach+for+your+React+application" target="_blank" title="Add to Pocket"><img alt="Add to Pocket" src="/img/ico/share/Pocket.svg"></a></li>
+  <!--Pinboard-->
+  <li><a href="https://pinboard.in/popup_login/?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Freact-localization.html&title=How+to+choose+a+localization+approach+for+your+React+application&description=How+to+choose+a+localization+approach+for+your+React+application" target="_blank" title="Save to Pinboard"><img alt="Save to Pinboard" src="/img/ico/share/Pinboard.svg"></a></li>
+  <!--Email-->
+  <li><a href="mailto:?subject=How+to+choose+a+localization+approach+for+your+React+application&body=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Freact-localization.html" target="_blank" title="Send email"><img alt="Send email" src="/img/ico/share/Email.svg"></a></li>
+</ul>
+
+  <!--Google+-->
+<!--
+  <li><a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Freact-localization.html" target="_blank" title="Share on Google+"><img alt="Share on Google+" src="/img/ico/share/Google+.svg"></a></li>
+-->
+
+      </header>
+
+      <div class="post-content" itemprop="articleBody">
+        <p>Choosing how to add localization to your application can be a complicated decision, because there are so many options out there. From code-based frameworks to third-party services that automatically rewrite your HTML, there is no silver bullet for localization. At <a href="https://www.plasmic.app/">Plasmic</a>, we have been exploring the many options to better inform how we can support localization for our own <a href="https://studio.plasmic.app/">application</a>. Many tutorials assume you want to already want to use a code framework, like react-i18next, but that has implications for your team’s workflow. In this blog post we will survey different localization techniques you may be considering for your React application and discuss some of the trade-offs.</p>
+
+<h2 id="why-localize">Why localize?</h2>
+
+<p>There are a number of considerations as you look to deploy your application to a global audience. First and foremost, translating the text on your app is critical to support the many non-English speaking users around the world, opening up new markets. Furthermore, displaying prices, dates, times, keyboard shortcuts, and graphics can greatly improve the user experience.</p>
+
+<h2 id="comparing-approaches-to-localization-in-react">Comparing approaches to localization in React</h2>
+
+<p>When choosing an approach, there are a number of factors that you may want to consider:</p>
+
+<ul>
+  <li><strong>Who writes the text on your app?</strong>
+Do engineers drive the process of choosing what text gets displayed or is there significant marketing copy that is owned by non-developers?</li>
+  <li><strong>How often does the copy change?</strong>
+Does most of the text consist of short strings that are reused throughout the application (e.g. button labels)? Or are there frequent changes to marketing copy?</li>
+  <li><strong>Who does the translation?</strong>
+Do you plan on hiring an outside agency or vendor to translate the strings? Or do you want to coordinate a crowd-sourcing effort to translate your strings?</li>
+  <li><strong>How much engineering capacity do you have?</strong>
+Is there ongoing engineering capacity in the future, or will there only be engineering support at setup time?</li>
+  <li><strong>How important is website performance?</strong>
+Optimizing your website performance may incur additional implementation costs compared to automated solutions.</li>
+  <li><strong>Are there other systems that you need to integrate with?</strong>
+Such as content management systems (CMS), databases, or web hosting platforms</li>
+  <li><strong>Do you need to integrate localization below the hood?</strong>
+HTML attributes, component props, or dynamically generated strings may also need translation in customized configurations.</li>
+</ul>
+
+<p>In the following sections, we’ll compare the high-level categories of approaches: code-based frameworks, headless content management systems (CMS), and automated services.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Code-based</th>
+      <th>Headless CMS</th>
+      <th>Automated Services</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Setup difficulty</td>
+      <td>High</td>
+      <td>High</td>
+      <td>Low</td>
+    </tr>
+    <tr>
+      <td>Requires developers to deploy new translations</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Performance</td>
+      <td>Good</td>
+      <td>Good</td>
+      <td>Varies</td>
+    </tr>
+    <tr>
+      <td>Customizability (e.g. for HTML attributes)</td>
+      <td>High</td>
+      <td>High</td>
+      <td>Low</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="code-based-localization-frameworks">Code-based localization frameworks</h2>
+
+<p>The natural choice for a React code base is to reach for a i18n library, such as <a href="https://react.i18next.com/">react-i18next</a>, <a href="https://formatjs.io/docs/react-intl/">react-intl</a>, or <a href="https://www.notion.so/How-to-choose-a-localization-approach-for-your-React-application-ed1d630b18484117a1d6817ba658a687">lingui</a>. There also framework-specific libraries, such as <a href="https://www.npmjs.com/package/gatsby-plugin-i18n">gatsby-plugin-i18n</a> for <a href="https://www.notion.so/How-to-choose-a-localization-approach-for-your-React-application-ed1d630b18484117a1d6817ba658a687">Gatsby</a>, and <a href="https://www.notion.so/How-to-choose-a-localization-approach-for-your-React-application-ed1d630b18484117a1d6817ba658a687">next-intl</a> for <a href="https://www.notion.so/How-to-choose-a-localization-approach-for-your-React-application-ed1d630b18484117a1d6817ba658a687">Next.js</a>. At a high-level, the architecture for most of these operate similarly, so I’ll use react-i18next code samples to illustrate the main concepts.</p>
+
+<h3 id="code-how-it-works">Code: How it works</h3>
+
+<p><strong>Translation files</strong></p>
+
+<p>At the core of your localization workflow are <strong>translation files</strong>. These can be served as static files, or imported directly into code. While each library has different specifications for this file, at a high level translation files simply consist of strings used in the application, keyed by some unique identifier.</p>
+
+<p>For example in react-i18next, you might serve 1 file at <code class="language-plaintext highlighter-rouge">public/locales/en/translation.json</code> for English:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome to react using react-i18next"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"part1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"To get started, edit &lt;1&gt;src/App.js&lt;/1&gt; and save to reload."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"part2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Switch language between english and german using buttons above."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>and another file at <code class="language-plaintext highlighter-rouge">public/locales/de/translation.json</code> for German:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Willkommen zu react und react-i18next"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"part1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Um loszulegen, ändere &lt;1&gt;src/App(DE).js&lt;/1&gt; und speichere um neuzuladen."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"part2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wechsle die Sprache zwischen deutsch und englisch mit Hilfe der beiden Schalter."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Library API</strong></p>
+
+<p>Developers then initialize the library with your configuration. In the following example, we choose to load the translation files over HTTP and leverage a language detector that automatically sets the locale based on the <code class="language-plaintext highlighter-rouge">Accept-Language</code> HTTP header.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">i18n</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">i18next</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">initReactI18next</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-i18next</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">Backend</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">i18next-http-backend</span><span class="dl">'</span>
+
+<span class="k">import</span> <span class="nx">LanguageDetector</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">i18next-browser-languagedetector</span><span class="dl">'</span>
+
+<span class="nx">i18n</span>
+  <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">Backend</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">LanguageDetector</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">initReactI18next</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+    <span class="na">fallbackLng</span><span class="p">:</span> <span class="dl">'</span><span class="s1">en</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">debug</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">interpolation</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">escapeValue</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// not needed for react as it escapes by default</span>
+    <span class="p">},</span>
+  <span class="p">})</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nx">i18n</span>
+</code></pre></div></div>
+
+<p>In the codebase, developers can use a translation function to look up strings for the user’s locale.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useTranslation</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-i18next</span><span class="dl">'</span>
+
+<span class="kd">function</span> <span class="nx">MyComponent</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">t</span><span class="p">,</span> <span class="nx">i18n</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useTranslation</span><span class="p">()</span>
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">Welcome to React</span><span class="dl">'</span><span class="p">)</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Many libraries also include a React component that you can directly use in the JSX tree:</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Trans</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-i18next</span><span class="dl">'</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">MyComponent</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nc">Trans</span><span class="p">&gt;</span>
+      Welcome to <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>React<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nc">Trans</span><span class="p">&gt;</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Build-time static analysis</strong></p>
+
+<p>For developer convenience, most libraries also include tools to perform static analysis of the source code to extract translation keys/values into translation files.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>i18next <span class="s1">'app/**/*.{js,hbs}'</span> <span class="s1">'lib/**/*.{js,hbs}'</span> <span class="o">[</span><span class="nt">-oc</span><span class="o">]</span>
+</code></pre></div></div>
+
+<p>While this can automate the aggregation of translation keys, developers will still need to populate translation files for each language they want to support.</p>
+
+<p><strong>Sourcing translations</strong></p>
+
+<p>Some teams manage translation themselves on a platform like <a href="https://www.notion.so/How-to-choose-a-localization-approach-for-your-React-application-ed1d630b18484117a1d6817ba658a687">Crowdin</a>. Many teams will outsource their translation to an outside service. Some services leverage automated machine translations, such as <a href="https://cloud.google.com/translate/">Google Cloud Translation API</a>. Other services, like <a href="https://www.notion.so/How-to-choose-a-localization-approach-for-your-React-application-ed1d630b18484117a1d6817ba658a687">Locize</a>, <a href="https://www.notion.so/How-to-choose-a-localization-approach-for-your-React-application-ed1d630b18484117a1d6817ba658a687">Lokalise</a> or <a href="https://www.notion.so/How-to-choose-a-localization-approach-for-your-React-application-ed1d630b18484117a1d6817ba658a687">Localazy</a> will help you work with translation agencies to manually translate your files. In any of these cases, a teammate simply sends their translation files to an outside service. The developer can then commit the translated files back into code for testing.</p>
+
+<p>Some translation platforms provide more seamless integration into code, removing the need to manually send translation files. For example, Locize can be loaded as a “backend” plugin into i18next so that translation files are fetched directly from their CDN. This way, users can directly modify strings, source translations, and publish results all from a single web application.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import i18next from <span class="s1">'i18next'</span><span class="p">;</span>
+import Backend from <span class="s1">'i18next-locize-backend'</span><span class="p">;</span>
+
+i18next
+  .use<span class="o">(</span>Backend<span class="o">)</span>
+  .init<span class="o">({</span>
+    // ...other options
+    backend: <span class="o">{</span>
+      projectId: <span class="s1">'[PROJECT_ID]'</span>,
+      apiKey: <span class="s1">'[API_KEY]'</span>,
+      referenceLng: <span class="s1">'[LNG]'</span>
+    <span class="o">}</span>
+  <span class="o">})</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="code-pros">Code: Pros</h3>
+
+<p>Implementing internationalization in code (i.e. via a library) has a number of benefits</p>
+
+<ul>
+  <li><strong>Customizability</strong>: Developers have full control over how internationalization is implemented. At its core, i18n libraries simply provide a lookup table for strings, which developers can use anywhere in the codebase (e.g. HTML attributes, component props, dynamically-generated strings), anywhere in the application architecture (e.g. client-side or server-side), and at any time (e.g. at request time, at build-time, or on client load).</li>
+  <li><strong>Optimized performance</strong>: Developers can tailor the i18n setup to the performance needs of their application. When paired with static site generation (SSG), developers can implement internationalization in a way that incurs virtually no performance impact to the user.</li>
+</ul>
+
+<h3 id="code-cons">Code: Cons</h3>
+
+<ul>
+  <li><strong>Implementation cost</strong>: Developers are required to at least initially set up internationalization for their application, which includes a number of factors to consider, such as language detection, routing, performance, and instrumentation.</li>
+  <li><strong>High friction</strong>: Because translation files are often checked into code, developers are also required to make any changes and test the results. When developers are not the primary authors of text copy, this can lead to higher friction to production.</li>
+</ul>
+
+<h2 id="headless-cms-based-approaches">Headless CMS-based approaches</h2>
+
+<p>Headless content management systems (CMS), such as <a href="https://www.notion.so/How-to-choose-a-localization-approach-for-your-React-application-ed1d630b18484117a1d6817ba658a687">Contentful</a> or <a href="https://www.notion.so/How-to-choose-a-localization-approach-for-your-React-application-ed1d630b18484117a1d6817ba658a687">Sanity</a>, often support writing content in multiple languages. By storing your translated content in a CMS, this simplifies content editing for non-developers and translators, who can manage content through a web application.</p>
+
+<h3 id="cms-how-it-works">CMS: How it works</h3>
+
+<p>Headless CMS systems, like Contentful or Sanity, require a developer to integrate their system into an existing codebase. However once set up, non-developers can make new content or edit existing content entirely from the CMS web application.</p>
+
+<p>For example, in Contentful, you can manage which languages and locales your application supports.</p>
+
+<p><img src="/img/diagrams/react-localization/01-contentful-add-locale.png" alt="add-locale" /></p>
+
+<p>After you specify which languages your site supports, the content editor allows you to add translations to your content.</p>
+
+<p><img src="/img/diagrams/react-localization/02-contentful-edit-content.png" alt="edit-content" /></p>
+
+<p>Developers then retrieve localized content via the REST API, by specifying a <code class="language-plaintext highlighter-rouge">locale</code>parameter:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://cdn.contentful.com/spaces/&lt;SPACE_ID&gt;/entries/&lt;ENTRY_ID&gt;?access_token=&lt;CONTENT_DELIVERY_KEY&gt;&amp;locale=de-AT"</span>
+</code></pre></div></div>
+
+<p>Structured CMS data can then be used to populate the page. For example in Gatsby it might look like this (<a href="https://github.com/mccrodp/gatsby-starter-contentful-i18n/blob/master/src/pages/index.de.js">source</a>):</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// src/pages/index.de.js</span>
+
+<span class="kd">class</span> <span class="nx">IndexPage</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">deProductEdges</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">german</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">deProductEdges</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">german</span><span class="p">.</span><span class="nx">edges</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nc">Layout</span> <span class="na">data</span><span class="p">=</span><span class="si">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">data</span><span class="si">}</span> <span class="na">location</span><span class="p">=</span><span class="si">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">location</span><span class="si">}</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="p">=</span><span class="si">{</span> <span class="nx">marginBottom</span><span class="p">:</span> <span class="nx">rhythm</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="si">}</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>de<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+          <span class="si">{</span><span class="nx">deProductEdges</span><span class="p">.</span><span class="nx">map</span><span class="p">(({</span> <span class="nx">node</span> <span class="p">},</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+            <span class="p">&lt;</span><span class="nc">Product</span> <span class="na">node</span><span class="p">=</span><span class="si">{</span><span class="nx">node</span><span class="si">}</span> <span class="na">key</span><span class="p">=</span><span class="si">{</span><span class="nx">node</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span> <span class="p">/&gt;</span>
+          <span class="p">))</span><span class="si">}</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nc">Layout</span><span class="p">&gt;</span>
+    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">pageQuery</span> <span class="o">=</span> <span class="nx">graphql</span><span class="s2">`
+  query PageDeQuery {
+    site {
+      siteMetadata {
+        languages {
+          defaultLangKey
+          langs
+        }
+      }
+    }
+    german: allContentfulProduct(filter: { node_locale: { eq: "de" } }) {
+      edges {
+        node {
+          id
+          contentful_id
+          node_locale
+          productName {
+            productName
+          }
+          image {
+            resolutions(width: 75) {
+              ...GatsbyContentfulResolutions
+            }
+          }
+        }
+      }
+    }
+  }
+`</span>
+</code></pre></div></div>
+
+<h3 id="how-are-cms-and-code-based-approaches-different"><strong>How are CMS and code-based approaches different?</strong></h3>
+
+<p>CMS-based approaches and code-based approaches share a number of similarities. Both store translated content as structured data, which developers can retrieve by locale. There also exist easy-to-use web applications to manage translated data.</p>
+
+<p>However they differ predominantly in the developer interface, leading to drastically different code architectures. For code-based approaches, developers operate at the granularity of strings. Every string needs to be wrapped with a call to a i18n lookup function to find the proper translation.</p>
+
+<p>In contrast, CMS systems allow you to define content types that embody a group of data, such as a blog post or product entry. When you retrieve data from a CMS, you get the result as a translated object, which you can use directly. While these APIs are different today, I anticipate future libraries to take from the best of both worlds.</p>
+
+<h3 id="cms-pros">CMS: Pros</h3>
+
+<ul>
+  <li><strong>Customizability</strong>: Developers have full control over how internationalization is implemented and how localized content is displayed.</li>
+  <li><strong>Optimized performance</strong>: Developers can optimize the i18n setup to suit the performance needs of their application, similar to code-based frameworks.</li>
+  <li><strong>Easy editing</strong>: Because data is stored in the CMS, non-developers can easily make changes to content. When paired with webhooks, the CMS can also trigger builds and deployments, all without getting a developer involved.</li>
+</ul>
+
+<h3 id="code-cons-1">Code: Cons</h3>
+
+<ul>
+  <li><strong>Initial setup costs</strong>: Developers are needed to integrate localized content into the application, which will vary depending on application.</li>
+</ul>
+
+<h2 id="automated-services">Automated services</h2>
+
+<p>There are a number of services that take it another step further, automating the collection of all strings from a live website in production, as well as dynamically rewriting the page with translations, such as <a href="https://weglot.com/">Weglot</a>, <a href="https://localizejs.com/">Localize</a>, and <a href="https://gtranslate.io/">Gtranslate</a>.</p>
+
+<h3 id="automated-how-it-works">Automated: How it works</h3>
+
+<p>These automated services typically include a library that users can add to their website. For example, the Weglot integration involves adding the following script to your document <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code>(<a href="https://support.weglot.com/article/333-javascript-integration-setup">Source</a>).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script <span class="nb">type</span><span class="o">=</span><span class="s2">"text/javascript"</span> <span class="nv">src</span><span class="o">=</span><span class="s2">"https://cdn.weglot.com/weglot.min.js"</span><span class="o">&gt;</span>&lt;/script&gt;
+&lt;script&gt;Weglot.initialize<span class="o">({</span> api_key: <span class="s1">'YOUR_API_KEY'</span> <span class="o">})</span><span class="p">;</span> &lt;/script&gt;
+</code></pre></div></div>
+
+<p>On page load, this script will detect all of the visible strings in your web pages and load them into a dashboard. The service will facilitate translations (either by machine or humans), which can all be managed from the web app. Once strings have been translated, future loads of the web page will also detect the user’s locale and automatically rewrite strings in the DOM to reflect the translations.</p>
+
+<p><img src="/img/diagrams/react-localization/03-weglot-translate.jpg" alt="weglot-translate" /></p>
+
+<p>Some services provide a server-side option. Instead of rewriting strings via client-side scripts, you configure your DNS to point to a translation proxy. This proxy server will similarly detect strings, rewrite the page, and cache content, which may lead to better website performance.</p>
+
+<p><img src="/img/diagrams/react-localization/04-weglot-dns.png" alt="weglot-dns" /></p>
+
+<p>Note: Many of these services can also be used from a developer API without the integration script. In this case, you can treat the service similarly to a CMS like above.</p>
+
+<h3 id="automated-pros">Automated: Pros</h3>
+
+<ul>
+  <li><strong>Simple setup</strong>: Setup simply involves adding a script tag into your document header.</li>
+  <li><strong>Easy to use</strong>: Because strings are automatically detected, users can manage translations without changing their existing workflow.</li>
+</ul>
+
+<h3 id="automated-cons">Automated: Cons</h3>
+
+<ul>
+  <li><strong>Performance</strong>: If using client-side scripts, pages are dynamically rewritten at runtime on the client, which may result in noticeable delays to the user.</li>
+  <li><strong>Limited customization</strong>: Because the integration scripts embody hard-coded functionality, there is often less ability to adapt the library for customized functionality.</li>
+</ul>
+
+<h2 id="leveraging-plasmic-for-localization">Leveraging Plasmic for localization</h2>
+
+<p><a href="https://www.plasmic.app/">Plasmic</a> is a visual builder for the web, which makes it easy for content editors and designers to build and iterate on pages in a WYSIWYG editor, rendered within your existing website. Similar to other headless CMS systems, Plasmic enables you to support multiple locales for each webpage by <a href="https://www.notion.so/High-Performance-Personalization-with-Next-js-Middleware-ce9f008bc11f4ec392fa2ee1fe580e7a">creating new variants</a>. This way, non-developers can visually design and edit the entire webpage in a collaborative environment.</p>
+
+<p>However, Plasmic’s support for localization goes much deeper. We can also import your translation function from your code-based localization framework directly into Plasmic as a prop.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useTranslation</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-i18next</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="kd">const</span> <span class="p">{</span> <span class="nx">t</span><span class="p">,</span> <span class="nx">i18n</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useTranslation</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">translator</span><span class="p">:</span> <span class="nx">PlasmicTranslator</span> <span class="o">=</span> <span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">opts</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">t</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="p">{</span> <span class="na">defaultValue</span><span class="p">:</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">message</span> <span class="p">});</span>
+<span class="p">...</span>
+<span class="k">return</span> <span class="p">&lt;</span><span class="nc">PlasmicRootProvider</span> <span class="na">translator</span><span class="p">=</span><span class="si">{</span><span class="nx">translator</span><span class="si">}</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nc">PlasmicRootProvider</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>Once registered, you can leverage these localized strings from your Plasmic project! Plasmic opens up the ability to leverage the best of both worlds from code-based approaches to headless CMS’s. For more details, see our <a href="https://www.notion.so/High-Performance-Personalization-with-Next-js-Middleware-ce9f008bc11f4ec392fa2ee1fe580e7a">Plasmic localization guide</a>.</p>
+
+<h2 id="choosing-an-approach">Choosing an approach</h2>
+
+<p>No single solution will be best approach in all use cases. Often times, the decision relates to where you want a developer to sit in the workflow, if at all. Automated solutions provide the simplest user experience, but may not work well for all use cases. Code frameworks and headless CMS solutions provide more customizability, but require developers to at least perform the setup. Regardless of which approach you choose, localization is one of the best ways to quickly open up new markets to your application.</p>
+
+      </div>
+
+    </article>
+
+    <hr />
+    <div style="text-align:center;"> 
+      <p>
+        Liked this post?
+        Follow <a href="https://twitter.com/RaymondCheng00"><img class='contactico' src='/img/ico/twitter.ico' alt='twitter' />@RaymondCheng00 on Twitter</a><br>
+        or subscribe to my blog mailing list for some fresh thoughts
+      </p>
+      <iframe src="https://ryscheng.substack.com/embed" width="480" height="80" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+
+    </div>
+
+    <div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+  this.page.url = "https://www.raymondcheng.net/posts/react-localization.html";
+  //this.page.url = window.location.href;
+  this.page.identifier = "/posts/react-localization";
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://raymondcheng.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<script id="dsq-count-scr" src="//raymondcheng.disqus.com/count.js" async></script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+
+  </div> <!-- column -->
+</div> <!-- featurette -->
+<hr class="featurette-divider">
+
+        </div>
+      </div>
+
+      <footer>
+  <p class="pull-right"><a href="#">Back to top</a></p>
+  <p>&copy; raymondcheng.net &middot; Last Updated 2022 </p>
+</footer>
+
+
+
+    </div>
+  </body>
+
+<script src='/js/jquery.min.js' type='text/javascript'></script>
+<script src='/js/bootstrap.min.js' type='text/javascript'></script>
+<script src='/js/main.js' type='text/javascript'></script>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-11930420-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Raymond Cheng">
+  <!--meta name="description" content="In this blog post, we will show you how to implement personalization using Next.js middleware. Traditionally, personalization was implemented on the server, ..."-->
+  <!--title>Raymond Cheng</title-->
+
+  <link rel="icon" type="images/jpg" href="/img/ico/favicon.jpg">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css">
+  <!--link rel="stylesheet" href="/css/main2.css"-->
+  <!--link rel="canonical" href="https://www.raymondcheng.net/posts/nextjs-personalization.html"-->
+  <link rel="alternate" type="application/rss+xml" title="Raymond Cheng" href="https://www.raymondcheng.net/feed.xml">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>High Performance Personalization with Next.js Middleware | Raymond Cheng</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="High Performance Personalization with Next.js Middleware" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this blog post, we will show you how to implement personalization using Next.js middleware. Traditionally, personalization was implemented on the server, which may incur many hundreds of milliseconds of latency before the user receives the content. With Next.js middleware and static site generation (SSG), we can serve rich personalized experiences entirely from the edge (i.e. CDN), resulting in significant performance improvements for your website and improved experiences for your users." />
+<meta property="og:description" content="In this blog post, we will show you how to implement personalization using Next.js middleware. Traditionally, personalization was implemented on the server, which may incur many hundreds of milliseconds of latency before the user receives the content. With Next.js middleware and static site generation (SSG), we can serve rich personalized experiences entirely from the edge (i.e. CDN), resulting in significant performance improvements for your website and improved experiences for your users." />
+<link rel="canonical" href="https://www.plasmic.app/blog/nextjs-personalization" />
+<meta property="og:url" content="https://www.plasmic.app/blog/nextjs-personalization" />
+<meta property="og:site_name" content="Raymond Cheng" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-05-19T08:40:05+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="High Performance Personalization with Next.js Middleware" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-05-19T08:40:05+00:00","datePublished":"2022-05-19T08:40:05+00:00","description":"In this blog post, we will show you how to implement personalization using Next.js middleware. Traditionally, personalization was implemented on the server, which may incur many hundreds of milliseconds of latency before the user receives the content. With Next.js middleware and static site generation (SSG), we can serve rich personalized experiences entirely from the edge (i.e. CDN), resulting in significant performance improvements for your website and improved experiences for your users.","headline":"High Performance Personalization with Next.js Middleware","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.plasmic.app/blog/nextjs-personalization"},"url":"https://www.plasmic.app/blog/nextjs-personalization"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">Raymond Cheng</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/projects/">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/publications/">Publications</a>
+        </li>
+      </ul>
+
+      <!--
+      <a href="http://www.google.com/recaptcha/mailhide/d?k=01acpirUAdGm8kXTEX3VqxAQ==&amp;c=hQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01acpirUAdGm8kXTEX3VqxAQ\x3d\x3d\x26c\x3dhQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">
+        <button class="btn btn-outline-success my-2 my-sm-0">Email Me</button>
+      </a>
+      -->
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+
+      <div class="page-content">
+        <div class="wrapper">
+          <div class="row featurette">
+  <!-- LEFT -->
+  <div class="col-md-3 d-none d-sm-none d-md-block d-lg-block d-xl-block">
+    <h2 class="featurette-heading"><a href="/blog">Blog</a></h2>
+
+    <ul>
+      
+        <li>
+          <span class="post-meta">Aug 9, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/react-localization.html">How to choose a localization approach for your React application</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">May 19, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/nextjs-personalization.html">High Performance Personalization with Next.js Middleware</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 12, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/nextjs-ab-testing.html">A/B Testing with Next.js middleware</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 6, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/plasmicflix.html">Build a Netflix clone in Next.js with a visual app builder</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Mar 29, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/plasmic-supabase-demo.html">Building a Pokedex with Plasmic + Supabase</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Oct 6, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/how-to-hang-glide.html">How to Become an H3 Hang Glider Pilot in the Bay Area</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 21, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/why-phd.html">Strong/Weak Reasons to do a PhD in Computer Science</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 4, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/nian-gao.html">Chinese New Year Cake (Nian Gao)</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Feb 21, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/iron-blogger.html">Iron Blogger SF</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 7, 2020</span>
+          <p>
+            <a class="post-link" href="/posts/autodapp-proposal.html">AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Dec 30, 2019</span>
+          <p>
+            <a class="post-link" href="/posts/decentralizing-twitter.html">A Path to Opening Up Twitter</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 25, 2018</span>
+          <p>
+            <a class="post-link" href="/posts/git-yubikey.html">Signing Git Commits and SSH Authentication with Yubikey</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Sep 17, 2018</span>
+          <p>
+            <a class="post-link" href="/posts/time-management.html">Time Management</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">May 22, 2017</span>
+          <p>
+            <a class="post-link" href="/posts/after-graduation.html">How much longer until you graduate?</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 19, 2016</span>
+          <p>
+            <a class="post-link" href="/posts/personal-server-overview.html">Docker-based Personal Server</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 14, 2015</span>
+          <p>
+            <a class="post-link" href="/posts/retrospective-solar-printer.html">Retrospective: Solar Printer</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 13, 2015</span>
+          <p>
+            <a class="post-link" href="/posts/welcome.html">Welcome!</a>
+          </p>
+        </li>
+      
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="col-md-9">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">High Performance Personalization with Next.js Middleware</h1>
+        <p class="post-meta"><time datetime="2022-05-19T08:40:05+00:00" itemprop="datePublished">May 19, 2022</time></p>
+
+        <ul class="share-buttons">
+  <!--Hacker News-->
+  <li><a href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-personalization.html&t=High+Performance+Personalization+with+Next.js+Middleware" title="Share on Hacker News" target="_blank"><img alt="Share on Hacker News" src="/img/ico/share/HackerNews.png"></a></li>
+  <!--Reddit-->
+  <li><a href="http://www.reddit.com/submit?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-personalization.html&title=High+Performance+Personalization+with+Next.js+Middleware" target="_blank" title="Submit to Reddit"><img alt="Submit to Reddit" src="/img/ico/share/Reddit.svg"></a></li>
+  <!--Twitter-->
+  <li><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-personalization.html&text=High+Performance+Personalization+with+Next.js+Middleware&via=RaymondCheng00" target="_blank" title="Tweet"><img alt="Tweet" src="/img/ico/share/Twitter.svg"></a></li>
+  <!--Facebook-->
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-personalization.html&p[title]=High+Performance+Personalization+with+Next.js+Middleware&t=High+Performance+Personalization+with+Next.js+Middleware" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="/img/ico/share/Facebook.svg"></a></li>
+  <!--LinkedIn-->
+  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-personalization.html&title=High+Performance+Personalization+with+Next.js+Middleware&summary=&source=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-personalization.html" target="_blank" title="Share on LinkedIn"><img alt="Share on LinkedIn" src="/img/ico/share/LinkedIn.svg"></a></li>
+  <!--Pinterest-->
+  <li><a href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-personalization.html&description=High+Performance+Personalization+with+Next.js+Middleware&media=https://www.raymondcheng.net/img/pic/me.jpg" target="_blank" title="Pin it"><img alt="Pin it" src="/img/ico/share/Pinterest.svg"></a></li>
+  <!--Tumblr-->
+  <li><a href="http://www.tumblr.com/share?v=3&u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-personalization.html&t=High+Performance+Personalization+with+Next.js+Middleware&s=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-personalization.html" target="_blank" title="Post to Tumblr"><img alt="Post to Tumblr" src="/img/ico/share/Tumblr.svg"></a></li>
+  <!--Wordpress-->
+  <li><a href="http://wordpress.com/press-this.php?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-personalization.html&t=High+Performance+Personalization+with+Next.js+Middleware&s=" target="_blank" title="Publish on WordPress"><img alt="Publish on WordPress" src="/img/ico/share/Wordpress.svg"></a></li>
+  <!--Pocket-->
+  <li><a href="https://getpocket.com/save?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-personalization.html&title=High+Performance+Personalization+with+Next.js+Middleware" target="_blank" title="Add to Pocket"><img alt="Add to Pocket" src="/img/ico/share/Pocket.svg"></a></li>
+  <!--Pinboard-->
+  <li><a href="https://pinboard.in/popup_login/?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-personalization.html&title=High+Performance+Personalization+with+Next.js+Middleware&description=High+Performance+Personalization+with+Next.js+Middleware" target="_blank" title="Save to Pinboard"><img alt="Save to Pinboard" src="/img/ico/share/Pinboard.svg"></a></li>
+  <!--Email-->
+  <li><a href="mailto:?subject=High+Performance+Personalization+with+Next.js+Middleware&body=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-personalization.html" target="_blank" title="Send email"><img alt="Send email" src="/img/ico/share/Email.svg"></a></li>
+</ul>
+
+  <!--Google+-->
+<!--
+  <li><a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fnextjs-personalization.html" target="_blank" title="Share on Google+"><img alt="Share on Google+" src="/img/ico/share/Google+.svg"></a></li>
+-->
+
+      </header>
+
+      <div class="post-content" itemprop="articleBody">
+        <p>In this blog post, we will show you how to implement personalization using <a href="https://nextjs.org/docs/advanced-features/middleware">Next.js middleware</a>. Traditionally, personalization was implemented on the server, which may incur many hundreds of milliseconds of latency before the user receives the content. With Next.js middleware and static site generation (SSG), we can serve rich personalized experiences entirely from the edge (i.e. CDN), resulting in significant performance improvements for your website and improved experiences for your users.</p>
+
+<p>The techniques in the tutorial should be generally applicable to any Next.js application. For simplicity, we will use <a href="https://www.plasmic.app/">Plasmic</a>, a visual builder for the web, to quickly spin up different women’s and men’s versions of an e-commerce landing page. Plasmic makes it easy for content editors and designers to build and iterate on pages in a WYSIWYG editor, rendered within your existing website.</p>
+
+<h3 id="why-personalize-your-website">Why personalize your website?</h3>
+
+<p>Tailoring content to a user’s tastes, can vastly improve the user’s experiences on your website, which can ultimately improve your conversion rates. By parsing HTTP request headers, you can respond with different versions of the site to your users. For example:</p>
+
+<ul>
+  <li><strong>Return user</strong>: By setting a cookie on the first visit, subsequent visits can show special content for return users, such as an enticing promotion.</li>
+  <li><strong>Geographical</strong>: Depending on a user’s locale or geographic location (i.e. as determined by IP address), you can translate the text, show locally relevant content, and show customized pricing in local currencies.</li>
+  <li><strong>Tech stack</strong>: From the user agent of the browser, you can present different content to iPhone or Android users, such as download links.</li>
+  <li><strong>User info</strong>: Once a user has logged in, then you can set cookies that contain information about the user, such as their gender or how often they shop on your website.</li>
+</ul>
+
+<h2 id="how-it-works-under-the-hood">How it works under the hood</h2>
+
+<h3 id="what-is-nextjs-middleware">What is Next.js middleware?</h3>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// pages/_middleware.js</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">middleware</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Edit and run this at the edge!</span><span class="dl">'</span><span class="p">)</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">({</span>
+    <span class="na">ip</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">ip</span><span class="p">,</span>
+		<span class="na">cookies</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">,</span>
+		<span class="p">...</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Middleware is a new powerful addition to the architecture of Next.js applications, first introduced in Next.js 12. Middleware are arbitrary functions that you can write, which are executed on user HTTP requests before they hit the Next.js server. In practice, middleware functions are deployed to the cloud edge (i.e. CDN), on a platform like <a href="https://vercel.com/">Vercel</a>. By running on the edge, middleware can quickly rewrite and reroute requests to the server, or respond directly to short-circuit the server. The fast performance comes with the trade-off of a <a href="https://nextjs.org/docs/api-reference/edge-runtime">limited runtime environment</a>. Middleware have been used to perform fast bot detection, feature flags, analytics, routing, and A/B tests.</p>
+
+<h3 id="fast-personalization-with-nextjs-static-generation">Fast Personalization with Next.js Static Generation</h3>
+
+<p><img src="/img/diagrams/nextjs-personalization/comparison-diagram.png" alt="comparison" /></p>
+
+<p>Middleware allows us to implement personalization entirely on the edge. The middleware transparently redirects different users to different versions of your application, such as men’s and women’s versions of an e-commerce store, based on data from the HTTP request headers. The diagram above shows how Next.js personalization works at a high level when paired with static site generation (SSG).</p>
+
+<ol>
+  <li>The developer creates different versions of the page for different targeting parameters (e.g. men/women). With SSG, developers can push static pages to the content delivery network.</li>
+  <li>When a user first requests a page, the middleware will parse HTTP headers to determine which version of the page to serve.</li>
+  <li>The middleware transparently proxies the request to the route that serves the appropriate page.</li>
+  <li>Routes can either be served from the edge if built via SSG, or served from the server via server-side rendering (SSR). When routes are also served from the edge, users benefit from lower latencies to content.</li>
+</ol>
+
+<p>In practice, the developer can implement each version as a separate route, and the middleware glues it all together.</p>
+
+<h3 id="compared-to-traditional-approaches-server-side">Compared to traditional approaches (server-side)</h3>
+
+<p>By leveraging <strong>static site generation (SSG)</strong> and serving from the edge<strong>,</strong> your personalized pages will be pre-generated and served close to your users, with all the performance benefits of your CDN. This configuration leads to significantly faster responses compared to server-side approaches, which require you to hit the origin server on every request.</p>
+
+<h2 id="implementing-personalization-on-nextjs">Implementing personalization on Next.js</h2>
+
+<p>For quick reference, see here for project assets of a working example:</p>
+
+<ul>
+  <li><strong><a href="https://studio.plasmic.app/projects/nmaGnTcLgTRnTSEV33RJjp">Plasmic Project</a></strong></li>
+  <li><strong><a href="https://github.com/plasmicapp/nextjs-personalization-example">GitHub Repo</a></strong></li>
+</ul>
+
+<h3 id="step-1-install-nextjs">Step 1: Install Next.js</h3>
+
+<p>First, make sure you are running at least version 12 of Next.js. An easy way to ensure this is to install the latest version:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install </span>next@latest
+</code></pre></div></div>
+
+<p>If this is your first Next.js project, follow this <a href="https://nextjs.org/docs/getting-started">quickstart guide</a> to get your Next.js project up and running.</p>
+
+<h3 id="step-2-build-your-customized-pages">Step 2: Build your customized pages</h3>
+
+<p>Suppose you want the middleware to transparently route users visiting <code class="language-plaintext highlighter-rouge">/marketing/</code> to 1 of 3 possible paths:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">pages/marketing/original.jsx</code> ⇒ <code class="language-plaintext highlighter-rouge">/marketing/original</code></li>
+  <li><code class="language-plaintext highlighter-rouge">pages/marketing/women.jsx</code> ⇒ <code class="language-plaintext highlighter-rouge">/marketing/women</code></li>
+  <li><code class="language-plaintext highlighter-rouge">pages/marketing/men.jsx</code> ⇒ <code class="language-plaintext highlighter-rouge">/marketing/men</code></li>
+</ul>
+
+<p>You can copy the original page to these 3 routes and make your various edits to the respective pages. If you leverage SSG via <code class="language-plaintext highlighter-rouge">getStaticProps</code>, then each of these pages will continue to be served from a CDN for best performance.</p>
+
+<p>With middleware, these routes are hidden to the user, who just visits <code class="language-plaintext highlighter-rouge">/marketing/</code>. The middleware will select the correct route and transparently proxy users.</p>
+
+<p><img src="/img/diagrams/nextjs-personalization/womens.png" alt="womens-page" /></p>
+
+<p><em>Women’s marketing page</em></p>
+
+<p><img src="/img/diagrams/nextjs-personalization/mens.png" alt="mens-page" /></p>
+
+<p><em>Men’s marketing page</em></p>
+
+<h3 id="leveraging-plasmic">Leveraging Plasmic</h3>
+
+<p>While you can use any JSX, for this example we’ll use Plasmic to quickly generate the men’s, women’s and generic versions of the page. In the <a href="https://studio.plasmic.app/projects/nmaGnTcLgTRnTSEV33RJjp">Plasmic project</a>, We have duplicated the marketing page and set custom routes for each targeting combination. You should see 3 versions of the page: <code class="language-plaintext highlighter-rouge">/marketing/original</code>, <code class="language-plaintext highlighter-rouge">/marketing/women</code>, and <code class="language-plaintext highlighter-rouge">/marketing/men</code>.</p>
+
+<p><img src="/img/diagrams/nextjs-personalization/studio.png" alt="plasmic-studio" /></p>
+
+<p>Because we are using static site generation, Plasmic generates code at build time so that static pages can be served from your CDN. If you are using <code class="language-plaintext highlighter-rouge">next dev</code>, the Plasmic Next.js plugin will also automatically rebuild on any detected changes from Plasmic Studio, allowing you to easily continuously edit your pages.</p>
+
+<p>You can then include these routes in your Next.js project, by configuring the Plasmic Next.js plugin. First install the plugin.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install</span> @plasmicapp/loader-nextjs
+<span class="c"># or yarn add @plasmicapp/loader-nextjs</span>
+</code></pre></div></div>
+
+<p>Then add a catch-all page, which will pull the pages from Plasmic and render them via <code class="language-plaintext highlighter-rouge">getStaticProps</code>. Note that we use the example project’s project ID and API token below. In order to use your own project, replace these 2 fields.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// pages/[...catchall].tsx</span>
+
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span>
+  <span class="nx">initPlasmicLoader</span><span class="p">,</span>
+  <span class="nx">PlasmicComponent</span><span class="p">,</span>
+  <span class="nx">ComponentRenderData</span><span class="p">,</span>
+  <span class="nx">PlasmicRootProvider</span><span class="p">,</span>
+<span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@plasmicapp/loader-nextjs</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">GetStaticPaths</span><span class="p">,</span> <span class="nx">GetStaticProps</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">next</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nb">Error</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">next/error</span><span class="dl">'</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">PLASMIC</span> <span class="o">=</span> <span class="nx">initPlasmicLoader</span><span class="p">({</span>
+  <span class="na">projects</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">nmaGnTcLgTRnTSEV33RJjp</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// ID of a project you are using</span>
+      <span class="na">token</span><span class="p">:</span> <span class="dl">'</span><span class="s1">LaVkw3uGWUc47q7svO6bpTkApdpaDvR6hBMuewhmmvukHpuHQanR8wEtYvwWbhMugEX7Z1aS21bLvfe5S4wA</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// API token for that project</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+  <span class="c1">// Fetches the latest revisions, whether or not they were unpublished!</span>
+  <span class="c1">// Disable for production to ensure you render only published changes.</span>
+  <span class="na">preview</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="cm">/**
+ * Use fetchPages() to fetch list of pages that have been created in Plasmic
+ */</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">getStaticPaths</span><span class="p">:</span> <span class="nx">GetStaticPaths</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">pages</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">PLASMIC</span><span class="p">.</span><span class="nx">fetchPages</span><span class="p">()</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">paths</span><span class="p">:</span> <span class="nx">pages</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">page</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+      <span class="na">params</span><span class="p">:</span> <span class="p">{</span> <span class="na">catchall</span><span class="p">:</span> <span class="nx">page</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">})),</span>
+    <span class="na">fallback</span><span class="p">:</span> <span class="dl">'</span><span class="s1">blocking</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * For each page, pre-fetch the data we need to render it
+ */</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">getStaticProps</span><span class="p">:</span> <span class="nx">GetStaticProps</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">catchall</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">params</span> <span class="p">??</span> <span class="p">{}</span>
+
+  <span class="c1">// Convert the catchall param into a path string</span>
+  <span class="kd">const</span> <span class="nx">plasmicPath</span> <span class="o">=</span>
+    <span class="k">typeof</span> <span class="nx">catchall</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span>
+      <span class="p">?</span> <span class="nx">catchall</span>
+      <span class="p">:</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">catchall</span><span class="p">)</span>
+      <span class="p">?</span> <span class="s2">`/</span><span class="p">${</span><span class="nx">catchall</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">)}</span><span class="s2">`</span>
+      <span class="p">:</span> <span class="dl">'</span><span class="s1">/</span><span class="dl">'</span>
+  <span class="kd">const</span> <span class="nx">plasmicData</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">PLASMIC</span><span class="p">.</span><span class="nx">maybeFetchComponentData</span><span class="p">(</span><span class="nx">plasmicPath</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">plasmicData</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// This is a path that Plasmic knows about; pass the data</span>
+    <span class="c1">// in as props</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">props</span><span class="p">:</span> <span class="p">{</span> <span class="nx">plasmicData</span> <span class="p">},</span>
+
+      <span class="c1">// Using incremental static regeneration, will re-generate this page</span>
+      <span class="c1">// after 300s</span>
+      <span class="na">revalidate</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// This is some non-Plasmic catch-all page</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">props</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Actually render the page!
+ */</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">CatchallPage</span><span class="p">(</span><span class="nx">props</span><span class="p">:</span> <span class="p">{</span> <span class="nx">plasmicData</span><span class="p">?:</span> <span class="nx">ComponentRenderData</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">plasmicData</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">props</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">plasmicData</span> <span class="o">||</span> <span class="nx">plasmicData</span><span class="p">.</span><span class="nx">entryCompMetas</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">&lt;</span><span class="nc">Error</span> <span class="na">statusCode</span><span class="p">=</span><span class="si">{</span><span class="mi">404</span><span class="si">}</span> <span class="p">/&gt;</span>
+  <span class="p">}</span>
+  <span class="kd">const</span> <span class="nx">pageMeta</span> <span class="o">=</span> <span class="nx">plasmicData</span><span class="p">.</span><span class="nx">entryCompMetas</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="c1">// Pass in the data fetched in getStaticProps as prefetchedData</span>
+    <span class="p">&lt;</span><span class="nc">PlasmicRootProvider</span> <span class="na">loader</span><span class="p">=</span><span class="si">{</span><span class="nx">PLASMIC</span><span class="si">}</span> <span class="na">prefetchedData</span><span class="p">=</span><span class="si">{</span><span class="nx">plasmicData</span><span class="si">}</span><span class="p">&gt;</span>
+      <span class="si">{</span>
+        <span class="c1">// plasmicData.entryCompMetas[0].name contains the name</span>
+        <span class="c1">// of the component you fetched.</span>
+      <span class="si">}</span>
+      <span class="p">&lt;</span><span class="nc">PlasmicComponent</span> <span class="na">component</span><span class="p">=</span><span class="si">{</span><span class="nx">pageMeta</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nc">PlasmicRootProvider</span><span class="p">&gt;</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="step-3-add-the-middleware">Step 3: Add the middleware</h3>
+
+<p>Now we want to create middleware that will run against the <code class="language-plaintext highlighter-rouge">/marketing</code> route. To do so, create the following file <code class="language-plaintext highlighter-rouge">/pages/marketing/_middleware.js</code>:</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// pages/marketing/_middleware.js</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NextRequest</span><span class="p">,</span> <span class="nx">NextResponse</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">next/server</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">getPersonalizedRoute</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">../../util</span><span class="dl">'</span>
+
+<span class="k">export</span> <span class="kd">function</span> <span class="nx">middleware</span><span class="p">(</span><span class="nx">req</span><span class="p">:</span> <span class="nx">NextRequest</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Get the personalized route</span>
+  <span class="kd">const</span> <span class="nx">newRoute</span> <span class="o">=</span> <span class="nx">getPersonalizedRoute</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">geo</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">ua</span><span class="p">)</span>
+
+  <span class="c1">// Bypass if not found</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">newRoute</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Proxy to the appropriate route</span>
+  <span class="k">return</span> <span class="nx">NextResponse</span><span class="p">.</span><span class="nx">rewrite</span><span class="p">(</span><span class="nx">newRoute</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In the example above, we determine a personalized route based on the URL, cookies, geographical location, and user agent via <code class="language-plaintext highlighter-rouge">getPersonalizedRoute</code> , which you’ll need to implement yourself. The middleware will transparently proxy to the appropriate page routes. If these pages are served from the edge, we can avoid a round trip to the origin server.</p>
+
+<h3 id="step-4-deploy">Step 4: Deploy</h3>
+
+<p>Now deploy your application to production. You can see the demo <a href="https://github.com/plasmicapp/nextjs-personalization-example">GitHub repository</a> deployed here:</p>
+
+<p><a href="https://nextjs-personalization-example.vercel.app/marketing">https://nextjs-personalization-example.vercel.app/marketing</a></p>
+
+<p><em>Note: Because we don’t have a way to determine gender in this example, <code class="language-plaintext highlighter-rouge">getPersonalizedRoute</code> will just choose a random version and set a cookie.</em></p>
+
+<h2 id="try-plasmic">Try Plasmic!</h2>
+
+<p>With Next.js middleware, we can we can now implement personalization in a way that is both easy for developers as well as highly performant for users. With these lower costs, the bottleneck becomes your organization’s ability to create new personalized content. Plasmic makes it easy for anyone in your organization to rapidly create new experiences or fork your existing pages in a rich visual editor. You can create a free account to get started at
+<a href="https://studio.plasmic.app/">https://studio.plasmic.app/</a></p>
+
+      </div>
+
+    </article>
+
+    <hr />
+    <div style="text-align:center;"> 
+      <p>
+        Liked this post?
+        Follow <a href="https://twitter.com/RaymondCheng00"><img class='contactico' src='/img/ico/twitter.ico' alt='twitter' />@RaymondCheng00 on Twitter</a><br>
+        or subscribe to my blog mailing list for some fresh thoughts
+      </p>
+      <iframe src="https://ryscheng.substack.com/embed" width="480" height="80" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+
+    </div>
+
+    <div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+  this.page.url = "https://www.raymondcheng.net/posts/nextjs-personalization.html";
+  //this.page.url = window.location.href;
+  this.page.identifier = "/posts/nextjs-personalization";
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://raymondcheng.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<script id="dsq-count-scr" src="//raymondcheng.disqus.com/count.js" async></script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+
+  </div> <!-- column -->
+</div> <!-- featurette -->
+<hr class="featurette-divider">
+
+        </div>
+      </div>
+
+      <footer>
+  <p class="pull-right"><a href="#">Back to top</a></p>
+  <p>&copy; raymondcheng.net &middot; Last Updated 2022 </p>
+</footer>
+
+
+
+    </div>
+  </body>
+
+<script src='/js/jquery.min.js' type='text/javascript'></script>
+<script src='/js/bootstrap.min.js' type='text/javascript'></script>
+<script src='/js/main.js' type='text/javascript'></script>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-11930420-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

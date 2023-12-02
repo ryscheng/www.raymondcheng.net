@@ -1,0 +1,134 @@
+1.) File Flight Plan (SFRA)
+	1-800-WX-BRIEF
+	Standard Weather Brief
+	VFR, Aircraft (788FM), Type (152/U), Speed, Time, Init. Alt., dest., pilot, fuel
+2.) Dispatch Aircraft
+3.) Preflight Inspection
+4.) Delivery Clearance
+	1-866-429-5882
+	SQUAK Code and freq.
+
+TAKEOFF
+Lights - Radio, Lights
+Camera - Transponder
+Action - Fuel Selector, Throttle
+
+SHUTOFF
+Radio
+Electrical
+Mixture
+Magnetos
+Master
+
+RADIO
+123.92 = Weather
+123.05 = FME radio
+123.07 = GAI radio
+121.50 = Emergency (Universal)
+121.60 = Potomac
+
+SQUAK
+1200 = VFR
+7700 = Emergency
+7600 = Radio Fail
+7500 = Hijack
+7777 = Military Intercept
+
+Back to Tipton from Deale
+	Follow the powerlines
+	Stay between oval tracks and drag strip
+	330 deg heading to Tipton
+	Don't pass substation or water tower
+
+Pitch <==> Speed
+Power <==> Altitude
+	If high, reduce power and pitch down
+	If low, add power and maintain alt.
+
+LANDINGS
+	1.) Abeam numbers - RPM to 1500-1700, carb heat on
+	2.) Bleed airspeed until in white speed arc, then 10 deg flaps, 75 kts
+	3.) Turn Base @45 deg from runway, then 20 deg flags, 65 kts
+	4.) Turn Final, then 30 deg flaps, 60 kts, 1300RPM
+	Crosswind -> bank into wind, opposite rudder
+  If misaligned -> ailerons to bring back, kick rudder to align
+	Slip (fast descend) -> nose into wind, bank towards runway, opposite rudder
+		Note: rudder ALL the way in
+	5.) Focus on extended centerline - eyes on the numbers
+		Keep numbers on same part of windshield
+    Shift body weight to center of cockpit to center self
+	6.) Power to idle when runway is made
+		When 40 ft off ground (about wingspan), round out (DONT ROUND OUT EARLY!!!)
+    Level flight first - eyes on the end of the runway (sight picture)
+    When the plane starts to drop, pull back 1 inch on yoke (flare)
+		Only gentle additions to back pressure
+    If back up - level flight, when drop, 2 inches of back pressure
+Emergency Landings
+  ABC
+    Airspeed 60kts
+    Best landing site
+    Cockpit - radio/transponder/restart engine
+  Key position - aim such that you are 1000AGL abeam the numbers of runway
+	Pitch for best glide (60kts)
+    Aggressively use trim to relieve back pressure
+	Don't use flaps until runway is made
+	Aim for midway first
+	If after takeoff, land in field out front
+	If during beginning of downwind/crosswind, take opposite runway, declare emergency
+  Make sure you still have a square traffic pattern
+
+Short-field takeoff - elevator back pressure all the way
+Climb out at Vx, then Vy, then flaps up
+
+Maneuvers
+	Always make sure to focus forward
+	Pick a point and fly to it
+	Scan for traffic
+	Don't drift in slow flight (right rudder) -> +/- 10 degrees
+	Turns around a point +/- 100 ft altitude
+
+Steep Turn
+  Maintain altitude!!!
+  Lower speed to 90kts
+  Count 10deg, 20deg, 
+  at 30deg, push in another 150RPM
+  pull back on the yoke
+  Maintain - altitude, 45deg bank, go around 360 degrees
+Turns around a point
+  Pick landmark - prominent, not crowded
+  600-1000 AGL
+  Enter on the 45deg downwind
+  GROUNDSPEED - Wind correction to account for tail/headwind
+  Balance - Check front: traffic
+    Side: Distance from landmark
+    Instruments: altitude
+Power-off stall - Landing configuration
+  MAINTAIN HEADING
+  Lower airspeed - 1700RPM
+  Carb heat on, 10deg flaps
+  75kts
+  30deg flaps - release yoke and descend
+  at 65kts, pull throttle to idle
+  Pull back to stall
+  Recovery - carb heat on, throttle in
+  raise flaps slowly 10deg at a time
+  Minimize altitude lost
+Power-on stall
+  NO FLAPS, MAINTAIN HEADING
+  Lower RPM to 2200
+  Pitch up, maintain altitude to bleed airspeed to 65kts
+  Full throttle and pitch up until stall
+  BE CAREFUL WITH RUDDER - STEP ON BALL
+  Recovery - pitch down and level
+    If start to spin DO NOT use ailerons, use rudder
+Slow Flight
+  MAINTAIN ALTITUDE AND HEADING
+  Lower airspeed 1700RPM
+  Carb heat on, 10 deg flaps
+  20deg flaps - maintain altitude
+  30deg flaps - maintain altitude
+  Slow slow slow turns
+  Use right rudder - step on the ball
+  Recovery - do procedure backwards - maintain heading and altitude
+
+Practice Radio, navigational maps

@@ -1,0 +1,22 @@
+{
+  "title": "Biker",
+  "subtitles": [],
+  "descriptions": [ ],
+  "images": [
+    {
+      "src": "/img/pic/bike.jpg",
+      "alt": "motorcycle"
+    }
+  ],
+  "quotes": [{
+    "text": "For the first year, the only way I learned how to ride was with a motorcycle and about.com. Apparently there's only seven steps.",
+    "source": "Raymond Cheng"
+  }],
+  "accordians": [{
+    "title": "Trips",
+    "ref": "trips",
+    "text": [],
+    "includes": [],
+    "includemd": [ "motorcycle-trips.md" ]
+  }]
+}

@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Raymond Cheng">
+  <!--meta name="description" content="Homepage for Raymond Cheng
+"-->
+  <!--title>Raymond Cheng</title-->
+
+  <link rel="icon" type="images/jpg" href="/img/ico/favicon.jpg">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css">
+  <!--link rel="stylesheet" href="/css/main2.css"-->
+  <!--link rel="canonical" href="https://www.raymondcheng.net/"-->
+  <link rel="alternate" type="application/rss+xml" title="Raymond Cheng" href="https://www.raymondcheng.net/feed.xml">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Blog | Raymond Cheng</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Blog" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Homepage for Raymond Cheng" />
+<meta property="og:description" content="Homepage for Raymond Cheng" />
+<link rel="canonical" href="https://www.raymondcheng.net/" />
+<meta property="og:url" content="https://www.raymondcheng.net/" />
+<meta property="og:site_name" content="Raymond Cheng" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Homepage for Raymond Cheng","headline":"Blog","name":"Raymond Cheng","url":"https://www.raymondcheng.net/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">Raymond Cheng</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/projects/">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/publications/">Publications</a>
+        </li>
+      </ul>
+
+      <!--
+      <a href="http://www.google.com/recaptcha/mailhide/d?k=01acpirUAdGm8kXTEX3VqxAQ==&amp;c=hQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01acpirUAdGm8kXTEX3VqxAQ\x3d\x3d\x26c\x3dhQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">
+        <button class="btn btn-outline-success my-2 my-sm-0">Email Me</button>
+      </a>
+      -->
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+
+      <div class="page-content">
+        <div class="wrapper">
+          <div class="row featurette">
+  <!-- LEFT -->
+  <div class="col-md-7">
+    <div style="text-align:center;">
+      <iframe src="https://ryscheng.substack.com/embed" width="480" height="80" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+
+    </div>
+
+    <h1>Blog</h1>
+
+    <!-- TABS NAV -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <!-- Newest -->
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="newest-tab" data-bs-toggle="tab" data-bs-target="#newest" type="button" role="tab" aria-controls="newest" aria-selected="true">newest</button>
+      </li>
+
+      <!-- PER TAG -->
+      
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="popular-tab" data-bs-toggle="tab" data-bs-target="#popular" type="button" role="tab" aria-controls="popular" aria-selected="false">popular</button>
+        </li>
+      
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="guides-tab" data-bs-toggle="tab" data-bs-target="#guides" type="button" role="tab" aria-controls="guides" aria-selected="false">guides</button>
+        </li>
+      
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="projects-tab" data-bs-toggle="tab" data-bs-target="#projects" type="button" role="tab" aria-controls="projects" aria-selected="false">projects</button>
+        </li>
+      
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="thoughts-tab" data-bs-toggle="tab" data-bs-target="#thoughts" type="button" role="tab" aria-controls="thoughts" aria-selected="false">thoughts</button>
+        </li>
+      
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="life-tab" data-bs-toggle="tab" data-bs-target="#life" type="button" role="tab" aria-controls="life" aria-selected="false">life</button>
+        </li>
+      
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="hardware-tab" data-bs-toggle="tab" data-bs-target="#hardware" type="button" role="tab" aria-controls="hardware" aria-selected="false">hardware</button>
+        </li>
+      
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="security-tab" data-bs-toggle="tab" data-bs-target="#security" type="button" role="tab" aria-controls="security" aria-selected="false">security</button>
+        </li>
+      
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="decentralization-tab" data-bs-toggle="tab" data-bs-target="#decentralization" type="button" role="tab" aria-controls="decentralization" aria-selected="false">decentralization</button>
+        </li>
+      
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="food-tab" data-bs-toggle="tab" data-bs-target="#food" type="button" role="tab" aria-controls="food" aria-selected="false">food</button>
+        </li>
+      
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="recreation-tab" data-bs-toggle="tab" data-bs-target="#recreation" type="button" role="tab" aria-controls="recreation" aria-selected="false">recreation</button>
+        </li>
+      
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="web-tab" data-bs-toggle="tab" data-bs-target="#web" type="button" role="tab" aria-controls="web" aria-selected="false">web</button>
+        </li>
+      
+
+
+      <!-- PER CATEGORY -->
+      
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="posts-tab" data-bs-toggle="tab" data-bs-target="#posts" type="button" role="tab" aria-controls="posts" aria-selected="false">posts</button>
+        </li>
+      
+      
+    </ul>
+
+    <br />
+
+    <!-- TABS CONTENT -->
+    <div class="tab-content" id="myTabContent">
+
+      <!-- Newest -->
+      <div class="tab-pane fade show active" id="newest" role="tabpanel" aria-labelledby="newest-tab">
+        <ul class="post-list">
+          
+            <li>
+              <span class="post-meta">Aug 9, 2022</span>
+              <h4><a class="post-link" href="/posts/react-localization.html">How to choose a localization approach for your React application</a></h4>
+              <p> <p>Choosing how to add localization to your application can be a complicated decision, because there are so many options out there. From code-based frameworks to third-party services that automatically rewrite your HTML, there is no silver bullet for localization. At <a href="https://www.plasmic.app/">Plasmic</a>, we have been exploring the many options to better inform how we can support localization for our own <a href="https://studio.plasmic.app/">application</a>. Many tutorials assume you want to already want to use a code framework, like react-i18next, but that has implications for your team’s workflow. In this blog post we will survey different localization techniques you may be considering for your React application and discuss some of the trade-offs.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">May 19, 2022</span>
+              <h4><a class="post-link" href="/posts/nextjs-personalization.html">High Performance Personalization with Next.js Middleware</a></h4>
+              <p> <p>In this blog post, we will show you how to implement personalization using <a href="https://nextjs.org/docs/advanced-features/middleware">Next.js middleware</a>. Traditionally, personalization was implemented on the server, which may incur many hundreds of milliseconds of latency before the user receives the content. With Next.js middleware and static site generation (SSG), we can serve rich personalized experiences entirely from the edge (i.e. CDN), resulting in significant performance improvements for your website and improved experiences for your users.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 12, 2022</span>
+              <h4><a class="post-link" href="/posts/nextjs-ab-testing.html">A/B Testing with Next.js middleware</a></h4>
+              <p> <p>In this blog post we will show you how to implement A/B testing using <strong>Next.js middleware</strong>, first introduced in Next.js 12. When compared to other A/B testing frameworks, this method more easily fits into your existing developer workflows and inherits all of the performance benefits of Next.js, including static site generation (SSG). You’ll see that A/B tests don’t have to be onerous for either your users or your developers — every Next.js site can easily make measurable progress this way!</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 6, 2022</span>
+              <h4><a class="post-link" href="/posts/plasmicflix.html">Build a Netflix clone in Next.js with a visual app builder</a></h4>
+              <p> <p>In this guide, we will show you how to build a video player web application with <a href="https://www.plasmic.app/">Plasmic</a>, a visual builder for React. While many Plasmic users use it to build landing and content pages, Plasmic is actually a powerful UI builder for apps of any complexity, allowing you or your design team to rapidly iterate on rich web applications.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Mar 29, 2022</span>
+              <h4><a class="post-link" href="/posts/plasmic-supabase-demo.html">Building a Pokedex with Plasmic + Supabase</a></h4>
+              <p> <p>In this guide, we will show you how to build a crowd-sourced Pokemon Pokedex, by connecting <a href="https://supabase.com/"><strong>Supabase</strong></a>, an open source Firebase backend alternative, with <a href="https://www.plasmic.app/"><strong>Plasmic</strong></a>, a visual builder for the web. While many users leverage Plasmic to quickly launch and iterate on landing pages, in this tutorial we’ll show just how powerful Plasmic can be as a general-purpose visual builder for React, which can be used to design and implement fully featured read-write applications.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Oct 6, 2021</span>
+              <h4><a class="post-link" href="/posts/how-to-hang-glide.html">How to Become an H3 Hang Glider Pilot in the Bay Area</a></h4>
+              <p> <p>After a long 2.5 years of training to get to our H3 rating, we thought it would help to share our journey and what we wished we knew when we first started; advice that could have helped us finish in &lt;1 year. Of course this is our limited opinion, so take it all with a grain of salt and get advice from other pilots you trust.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 21, 2021</span>
+              <h4><a class="post-link" href="/posts/why-phd.html">Strong/Weak Reasons to do a PhD in Computer Science</a></h4>
+              <p> <p>These are the things I wish I had known before deciding to go to grad school. Obviously take these with a grain of salt, as they just represent one man’s opinion.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 4, 2021</span>
+              <h4><a class="post-link" href="/posts/nian-gao.html">Chinese New Year Cake (Nian Gao)</a></h4>
+              <p> <blockquote class="instagram-media" data-instgrm-captioned="" data-instgrm-permalink="https://www.instagram.com/p/CNQS2kFHkhq/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="13" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/CNQS2kFHkhq/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/CNQS2kFHkhq/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Fuzhou Food (@fuzhoufood)</a></p></div></blockquote>
+<script async="" src="//www.instagram.com/embed.js"></script>
+
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Feb 21, 2021</span>
+              <h4><a class="post-link" href="/posts/iron-blogger.html">Iron Blogger SF</a></h4>
+              <p> <p>I love writing. I miss that aspect of working in research.
+You see the slightest thread of an insight, and then just keep pulling on it
+through reading related work, writing, and iterating, until you’ve formed a coherent thought to share with the world.
+Not everything I write is equally insightful (or coherent) to others, but I always enjoy the writing process nonetheless.
+In academia, writing took the form of technical papers that might only see the light of day on <a href="https://arxiv.org/">Arxiv</a>.
+Nowadays, my preferred medium is blogging, but without dedicating time to writing, it just doesn’t happen.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 7, 2020</span>
+              <h4><a class="post-link" href="/posts/autodapp-proposal.html">AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps</a></h4>
+              <p> <p>The <a href="https://autodapp.io">AutoDapp</a> project aims to automatically convert any existing web or mobile application into a decentralized application (DApp) by changing just a single line of code, starting with <a href="https://www.discourse.org/">Discourse</a> and <a href="https://www.mediawiki.org/wiki/MediaWiki">MediaWiki</a>. This blog post outlines a high-level approach to instantly decentralize popular applications by interposing on the SQL connection between its web server and database. With the unified effort of the open source community, we can accelerate the advent of the decentralized future for millions of users – this is what we’re calling our “One Million” mission.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Dec 30, 2019</span>
+              <h4><a class="post-link" href="/posts/decentralizing-twitter.html">A Path to Opening Up Twitter</a></h4>
+              <p> <h4 id="key-takeaways">Key Takeaways</h4>
+<ul>
+  <li>Centralized proprietary recommendation algorithms are hard to get right. Social media platforms are failing us as sole arbiters of truth on their platforms.</li>
+  <li>Let’s open up the ability for 3rd party developers to create recommendation algorithms on Twitter services.</li>
+  <li>Instead of jumping straight into a fully decentralized protocol, which is risky and takes a lot of work, let’s test the underlying assumptions on production Twitter first.</li>
+  <li>If decentralization is the ultimate goal, any work we do here will be useful on the path.</li>
+</ul>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 25, 2018</span>
+              <h4><a class="post-link" href="/posts/git-yubikey.html">Signing Git Commits and SSH Authentication with Yubikey</a></h4>
+              <p> <p>In this blog post, I’ll show you how to setup a Yubikey with both signing and authentication keys.
+As a driving example, I’ll describe how to use a Yubikey to sign your git commits and
+authenticate via SSH with <a href="https://github.com">GitHub</a>.
+Of course you can reuse this guide to authenticate with any other SSH server as well.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Sep 17, 2018</span>
+              <h4><a class="post-link" href="/posts/time-management.html">Time Management</a></h4>
+              <p> <blockquote>
+  <p>“Time is the most valuable thing a man can spend.” Theophrastus</p>
+</blockquote>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">May 22, 2017</span>
+              <h4><a class="post-link" href="/posts/after-graduation.html">How much longer until you graduate?</a></h4>
+              <p> <p>Have you ever had that awkward moment with a PhD student, where someone asks:</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 19, 2016</span>
+              <h4><a class="post-link" href="/posts/personal-server-overview.html">Docker-based Personal Server</a></h4>
+              <p> <p>In this blog post, I’ll show you how to configure a Docker-based personal server, running each service in a separate Docker container. Modern devops tools have made it easier than ever to run your own server and for anyone with basic familiarity with Linux, it’s worth a try. In this tutorial, we’ll use <a href="https://about.gitlab.com/">Gitlab</a> as a running example.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 14, 2015</span>
+              <h4><a class="post-link" href="/posts/retrospective-solar-printer.html">Retrospective: Solar Printer</a></h4>
+              <p> <p>One of my first projects at MIT was at the Media Lab, where we were exploring self-sufficient technologies. My advisor, Richard Fletcher, and I wanted to build a completely self-sufficient printer for use in developing countries.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 13, 2015</span>
+              <h4><a class="post-link" href="/posts/welcome.html">Welcome!</a></h4>
+              <p> <p>For years, my website was a single gigantic HTML file. Adding content and making edits felt a lot like stacking Jenga blocks a mile high. While that was fun in many ways, it is 2015 and it is time to move to some form of automated system like Jekyll.</p>
+ </p>
+            </li>
+          
+        </ul>
+      </div>
+      
+      <!-- PER TAG -->
+      
+        <div class="tab-pane fade" id="popular" role="tabpanel" aria-labelledby="popular-tab">
+        
+            <li>
+              <span class="post-meta">Oct 6, 2021</span>
+              <h4><a class="post-link" href="/posts/how-to-hang-glide.html">How to Become an H3 Hang Glider Pilot in the Bay Area</a></h4>
+              <p> <p>After a long 2.5 years of training to get to our H3 rating, we thought it would help to share our journey and what we wished we knew when we first started; advice that could have helped us finish in &lt;1 year. Of course this is our limited opinion, so take it all with a grain of salt and get advice from other pilots you trust.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 21, 2021</span>
+              <h4><a class="post-link" href="/posts/why-phd.html">Strong/Weak Reasons to do a PhD in Computer Science</a></h4>
+              <p> <p>These are the things I wish I had known before deciding to go to grad school. Obviously take these with a grain of salt, as they just represent one man’s opinion.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 7, 2020</span>
+              <h4><a class="post-link" href="/posts/autodapp-proposal.html">AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps</a></h4>
+              <p> <p>The <a href="https://autodapp.io">AutoDapp</a> project aims to automatically convert any existing web or mobile application into a decentralized application (DApp) by changing just a single line of code, starting with <a href="https://www.discourse.org/">Discourse</a> and <a href="https://www.mediawiki.org/wiki/MediaWiki">MediaWiki</a>. This blog post outlines a high-level approach to instantly decentralize popular applications by interposing on the SQL connection between its web server and database. With the unified effort of the open source community, we can accelerate the advent of the decentralized future for millions of users – this is what we’re calling our “One Million” mission.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 25, 2018</span>
+              <h4><a class="post-link" href="/posts/git-yubikey.html">Signing Git Commits and SSH Authentication with Yubikey</a></h4>
+              <p> <p>In this blog post, I’ll show you how to setup a Yubikey with both signing and authentication keys.
+As a driving example, I’ll describe how to use a Yubikey to sign your git commits and
+authenticate via SSH with <a href="https://github.com">GitHub</a>.
+Of course you can reuse this guide to authenticate with any other SSH server as well.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Sep 17, 2018</span>
+              <h4><a class="post-link" href="/posts/time-management.html">Time Management</a></h4>
+              <p> <blockquote>
+  <p>“Time is the most valuable thing a man can spend.” Theophrastus</p>
+</blockquote>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 19, 2016</span>
+              <h4><a class="post-link" href="/posts/personal-server-overview.html">Docker-based Personal Server</a></h4>
+              <p> <p>In this blog post, I’ll show you how to configure a Docker-based personal server, running each service in a separate Docker container. Modern devops tools have made it easier than ever to run your own server and for anyone with basic familiarity with Linux, it’s worth a try. In this tutorial, we’ll use <a href="https://about.gitlab.com/">Gitlab</a> as a running example.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 13, 2015</span>
+              <h4><a class="post-link" href="/posts/welcome.html">Welcome!</a></h4>
+              <p> <p>For years, my website was a single gigantic HTML file. Adding content and making edits felt a lot like stacking Jenga blocks a mile high. While that was fun in many ways, it is 2015 and it is time to move to some form of automated system like Jekyll.</p>
+ </p>
+            </li>
+          
+        </div>
+      
+        <div class="tab-pane fade" id="guides" role="tabpanel" aria-labelledby="guides-tab">
+        
+            <li>
+              <span class="post-meta">Aug 9, 2022</span>
+              <h4><a class="post-link" href="/posts/react-localization.html">How to choose a localization approach for your React application</a></h4>
+              <p> <p>Choosing how to add localization to your application can be a complicated decision, because there are so many options out there. From code-based frameworks to third-party services that automatically rewrite your HTML, there is no silver bullet for localization. At <a href="https://www.plasmic.app/">Plasmic</a>, we have been exploring the many options to better inform how we can support localization for our own <a href="https://studio.plasmic.app/">application</a>. Many tutorials assume you want to already want to use a code framework, like react-i18next, but that has implications for your team’s workflow. In this blog post we will survey different localization techniques you may be considering for your React application and discuss some of the trade-offs.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">May 19, 2022</span>
+              <h4><a class="post-link" href="/posts/nextjs-personalization.html">High Performance Personalization with Next.js Middleware</a></h4>
+              <p> <p>In this blog post, we will show you how to implement personalization using <a href="https://nextjs.org/docs/advanced-features/middleware">Next.js middleware</a>. Traditionally, personalization was implemented on the server, which may incur many hundreds of milliseconds of latency before the user receives the content. With Next.js middleware and static site generation (SSG), we can serve rich personalized experiences entirely from the edge (i.e. CDN), resulting in significant performance improvements for your website and improved experiences for your users.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 12, 2022</span>
+              <h4><a class="post-link" href="/posts/nextjs-ab-testing.html">A/B Testing with Next.js middleware</a></h4>
+              <p> <p>In this blog post we will show you how to implement A/B testing using <strong>Next.js middleware</strong>, first introduced in Next.js 12. When compared to other A/B testing frameworks, this method more easily fits into your existing developer workflows and inherits all of the performance benefits of Next.js, including static site generation (SSG). You’ll see that A/B tests don’t have to be onerous for either your users or your developers — every Next.js site can easily make measurable progress this way!</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 6, 2022</span>
+              <h4><a class="post-link" href="/posts/plasmicflix.html">Build a Netflix clone in Next.js with a visual app builder</a></h4>
+              <p> <p>In this guide, we will show you how to build a video player web application with <a href="https://www.plasmic.app/">Plasmic</a>, a visual builder for React. While many Plasmic users use it to build landing and content pages, Plasmic is actually a powerful UI builder for apps of any complexity, allowing you or your design team to rapidly iterate on rich web applications.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Mar 29, 2022</span>
+              <h4><a class="post-link" href="/posts/plasmic-supabase-demo.html">Building a Pokedex with Plasmic + Supabase</a></h4>
+              <p> <p>In this guide, we will show you how to build a crowd-sourced Pokemon Pokedex, by connecting <a href="https://supabase.com/"><strong>Supabase</strong></a>, an open source Firebase backend alternative, with <a href="https://www.plasmic.app/"><strong>Plasmic</strong></a>, a visual builder for the web. While many users leverage Plasmic to quickly launch and iterate on landing pages, in this tutorial we’ll show just how powerful Plasmic can be as a general-purpose visual builder for React, which can be used to design and implement fully featured read-write applications.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Oct 6, 2021</span>
+              <h4><a class="post-link" href="/posts/how-to-hang-glide.html">How to Become an H3 Hang Glider Pilot in the Bay Area</a></h4>
+              <p> <p>After a long 2.5 years of training to get to our H3 rating, we thought it would help to share our journey and what we wished we knew when we first started; advice that could have helped us finish in &lt;1 year. Of course this is our limited opinion, so take it all with a grain of salt and get advice from other pilots you trust.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 25, 2018</span>
+              <h4><a class="post-link" href="/posts/git-yubikey.html">Signing Git Commits and SSH Authentication with Yubikey</a></h4>
+              <p> <p>In this blog post, I’ll show you how to setup a Yubikey with both signing and authentication keys.
+As a driving example, I’ll describe how to use a Yubikey to sign your git commits and
+authenticate via SSH with <a href="https://github.com">GitHub</a>.
+Of course you can reuse this guide to authenticate with any other SSH server as well.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Sep 17, 2018</span>
+              <h4><a class="post-link" href="/posts/time-management.html">Time Management</a></h4>
+              <p> <blockquote>
+  <p>“Time is the most valuable thing a man can spend.” Theophrastus</p>
+</blockquote>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 13, 2015</span>
+              <h4><a class="post-link" href="/posts/welcome.html">Welcome!</a></h4>
+              <p> <p>For years, my website was a single gigantic HTML file. Adding content and making edits felt a lot like stacking Jenga blocks a mile high. While that was fun in many ways, it is 2015 and it is time to move to some form of automated system like Jekyll.</p>
+ </p>
+            </li>
+          
+        </div>
+      
+        <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+        
+            <li>
+              <span class="post-meta">Apr 4, 2021</span>
+              <h4><a class="post-link" href="/posts/nian-gao.html">Chinese New Year Cake (Nian Gao)</a></h4>
+              <p> <blockquote class="instagram-media" data-instgrm-captioned="" data-instgrm-permalink="https://www.instagram.com/p/CNQS2kFHkhq/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="13" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/CNQS2kFHkhq/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/CNQS2kFHkhq/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Fuzhou Food (@fuzhoufood)</a></p></div></blockquote>
+<script async="" src="//www.instagram.com/embed.js"></script>
+
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 7, 2020</span>
+              <h4><a class="post-link" href="/posts/autodapp-proposal.html">AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps</a></h4>
+              <p> <p>The <a href="https://autodapp.io">AutoDapp</a> project aims to automatically convert any existing web or mobile application into a decentralized application (DApp) by changing just a single line of code, starting with <a href="https://www.discourse.org/">Discourse</a> and <a href="https://www.mediawiki.org/wiki/MediaWiki">MediaWiki</a>. This blog post outlines a high-level approach to instantly decentralize popular applications by interposing on the SQL connection between its web server and database. With the unified effort of the open source community, we can accelerate the advent of the decentralized future for millions of users – this is what we’re calling our “One Million” mission.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 19, 2016</span>
+              <h4><a class="post-link" href="/posts/personal-server-overview.html">Docker-based Personal Server</a></h4>
+              <p> <p>In this blog post, I’ll show you how to configure a Docker-based personal server, running each service in a separate Docker container. Modern devops tools have made it easier than ever to run your own server and for anyone with basic familiarity with Linux, it’s worth a try. In this tutorial, we’ll use <a href="https://about.gitlab.com/">Gitlab</a> as a running example.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 14, 2015</span>
+              <h4><a class="post-link" href="/posts/retrospective-solar-printer.html">Retrospective: Solar Printer</a></h4>
+              <p> <p>One of my first projects at MIT was at the Media Lab, where we were exploring self-sufficient technologies. My advisor, Richard Fletcher, and I wanted to build a completely self-sufficient printer for use in developing countries.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 13, 2015</span>
+              <h4><a class="post-link" href="/posts/welcome.html">Welcome!</a></h4>
+              <p> <p>For years, my website was a single gigantic HTML file. Adding content and making edits felt a lot like stacking Jenga blocks a mile high. While that was fun in many ways, it is 2015 and it is time to move to some form of automated system like Jekyll.</p>
+ </p>
+            </li>
+          
+        </div>
+      
+        <div class="tab-pane fade" id="thoughts" role="tabpanel" aria-labelledby="thoughts-tab">
+        
+            <li>
+              <span class="post-meta">Apr 21, 2021</span>
+              <h4><a class="post-link" href="/posts/why-phd.html">Strong/Weak Reasons to do a PhD in Computer Science</a></h4>
+              <p> <p>These are the things I wish I had known before deciding to go to grad school. Obviously take these with a grain of salt, as they just represent one man’s opinion.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Feb 21, 2021</span>
+              <h4><a class="post-link" href="/posts/iron-blogger.html">Iron Blogger SF</a></h4>
+              <p> <p>I love writing. I miss that aspect of working in research.
+You see the slightest thread of an insight, and then just keep pulling on it
+through reading related work, writing, and iterating, until you’ve formed a coherent thought to share with the world.
+Not everything I write is equally insightful (or coherent) to others, but I always enjoy the writing process nonetheless.
+In academia, writing took the form of technical papers that might only see the light of day on <a href="https://arxiv.org/">Arxiv</a>.
+Nowadays, my preferred medium is blogging, but without dedicating time to writing, it just doesn’t happen.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Dec 30, 2019</span>
+              <h4><a class="post-link" href="/posts/decentralizing-twitter.html">A Path to Opening Up Twitter</a></h4>
+              <p> <h4 id="key-takeaways">Key Takeaways</h4>
+<ul>
+  <li>Centralized proprietary recommendation algorithms are hard to get right. Social media platforms are failing us as sole arbiters of truth on their platforms.</li>
+  <li>Let’s open up the ability for 3rd party developers to create recommendation algorithms on Twitter services.</li>
+  <li>Instead of jumping straight into a fully decentralized protocol, which is risky and takes a lot of work, let’s test the underlying assumptions on production Twitter first.</li>
+  <li>If decentralization is the ultimate goal, any work we do here will be useful on the path.</li>
+</ul>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">May 22, 2017</span>
+              <h4><a class="post-link" href="/posts/after-graduation.html">How much longer until you graduate?</a></h4>
+              <p> <p>Have you ever had that awkward moment with a PhD student, where someone asks:</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 13, 2015</span>
+              <h4><a class="post-link" href="/posts/welcome.html">Welcome!</a></h4>
+              <p> <p>For years, my website was a single gigantic HTML file. Adding content and making edits felt a lot like stacking Jenga blocks a mile high. While that was fun in many ways, it is 2015 and it is time to move to some form of automated system like Jekyll.</p>
+ </p>
+            </li>
+          
+        </div>
+      
+        <div class="tab-pane fade" id="life" role="tabpanel" aria-labelledby="life-tab">
+        
+            <li>
+              <span class="post-meta">Apr 21, 2021</span>
+              <h4><a class="post-link" href="/posts/why-phd.html">Strong/Weak Reasons to do a PhD in Computer Science</a></h4>
+              <p> <p>These are the things I wish I had known before deciding to go to grad school. Obviously take these with a grain of salt, as they just represent one man’s opinion.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Feb 21, 2021</span>
+              <h4><a class="post-link" href="/posts/iron-blogger.html">Iron Blogger SF</a></h4>
+              <p> <p>I love writing. I miss that aspect of working in research.
+You see the slightest thread of an insight, and then just keep pulling on it
+through reading related work, writing, and iterating, until you’ve formed a coherent thought to share with the world.
+Not everything I write is equally insightful (or coherent) to others, but I always enjoy the writing process nonetheless.
+In academia, writing took the form of technical papers that might only see the light of day on <a href="https://arxiv.org/">Arxiv</a>.
+Nowadays, my preferred medium is blogging, but without dedicating time to writing, it just doesn’t happen.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Sep 17, 2018</span>
+              <h4><a class="post-link" href="/posts/time-management.html">Time Management</a></h4>
+              <p> <blockquote>
+  <p>“Time is the most valuable thing a man can spend.” Theophrastus</p>
+</blockquote>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">May 22, 2017</span>
+              <h4><a class="post-link" href="/posts/after-graduation.html">How much longer until you graduate?</a></h4>
+              <p> <p>Have you ever had that awkward moment with a PhD student, where someone asks:</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 13, 2015</span>
+              <h4><a class="post-link" href="/posts/welcome.html">Welcome!</a></h4>
+              <p> <p>For years, my website was a single gigantic HTML file. Adding content and making edits felt a lot like stacking Jenga blocks a mile high. While that was fun in many ways, it is 2015 and it is time to move to some form of automated system like Jekyll.</p>
+ </p>
+            </li>
+          
+        </div>
+      
+        <div class="tab-pane fade" id="hardware" role="tabpanel" aria-labelledby="hardware-tab">
+        
+            <li>
+              <span class="post-meta">Nov 14, 2015</span>
+              <h4><a class="post-link" href="/posts/retrospective-solar-printer.html">Retrospective: Solar Printer</a></h4>
+              <p> <p>One of my first projects at MIT was at the Media Lab, where we were exploring self-sufficient technologies. My advisor, Richard Fletcher, and I wanted to build a completely self-sufficient printer for use in developing countries.</p>
+ </p>
+            </li>
+          
+        </div>
+      
+        <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+        
+            <li>
+              <span class="post-meta">Nov 25, 2018</span>
+              <h4><a class="post-link" href="/posts/git-yubikey.html">Signing Git Commits and SSH Authentication with Yubikey</a></h4>
+              <p> <p>In this blog post, I’ll show you how to setup a Yubikey with both signing and authentication keys.
+As a driving example, I’ll describe how to use a Yubikey to sign your git commits and
+authenticate via SSH with <a href="https://github.com">GitHub</a>.
+Of course you can reuse this guide to authenticate with any other SSH server as well.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 19, 2016</span>
+              <h4><a class="post-link" href="/posts/personal-server-overview.html">Docker-based Personal Server</a></h4>
+              <p> <p>In this blog post, I’ll show you how to configure a Docker-based personal server, running each service in a separate Docker container. Modern devops tools have made it easier than ever to run your own server and for anyone with basic familiarity with Linux, it’s worth a try. In this tutorial, we’ll use <a href="https://about.gitlab.com/">Gitlab</a> as a running example.</p>
+ </p>
+            </li>
+          
+        </div>
+      
+        <div class="tab-pane fade" id="decentralization" role="tabpanel" aria-labelledby="decentralization-tab">
+        
+            <li>
+              <span class="post-meta">Apr 7, 2020</span>
+              <h4><a class="post-link" href="/posts/autodapp-proposal.html">AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps</a></h4>
+              <p> <p>The <a href="https://autodapp.io">AutoDapp</a> project aims to automatically convert any existing web or mobile application into a decentralized application (DApp) by changing just a single line of code, starting with <a href="https://www.discourse.org/">Discourse</a> and <a href="https://www.mediawiki.org/wiki/MediaWiki">MediaWiki</a>. This blog post outlines a high-level approach to instantly decentralize popular applications by interposing on the SQL connection between its web server and database. With the unified effort of the open source community, we can accelerate the advent of the decentralized future for millions of users – this is what we’re calling our “One Million” mission.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Dec 30, 2019</span>
+              <h4><a class="post-link" href="/posts/decentralizing-twitter.html">A Path to Opening Up Twitter</a></h4>
+              <p> <h4 id="key-takeaways">Key Takeaways</h4>
+<ul>
+  <li>Centralized proprietary recommendation algorithms are hard to get right. Social media platforms are failing us as sole arbiters of truth on their platforms.</li>
+  <li>Let’s open up the ability for 3rd party developers to create recommendation algorithms on Twitter services.</li>
+  <li>Instead of jumping straight into a fully decentralized protocol, which is risky and takes a lot of work, let’s test the underlying assumptions on production Twitter first.</li>
+  <li>If decentralization is the ultimate goal, any work we do here will be useful on the path.</li>
+</ul>
+ </p>
+            </li>
+          
+        </div>
+      
+        <div class="tab-pane fade" id="food" role="tabpanel" aria-labelledby="food-tab">
+        
+            <li>
+              <span class="post-meta">Apr 4, 2021</span>
+              <h4><a class="post-link" href="/posts/nian-gao.html">Chinese New Year Cake (Nian Gao)</a></h4>
+              <p> <blockquote class="instagram-media" data-instgrm-captioned="" data-instgrm-permalink="https://www.instagram.com/p/CNQS2kFHkhq/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="13" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/CNQS2kFHkhq/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/CNQS2kFHkhq/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Fuzhou Food (@fuzhoufood)</a></p></div></blockquote>
+<script async="" src="//www.instagram.com/embed.js"></script>
+
+ </p>
+            </li>
+          
+        </div>
+      
+        <div class="tab-pane fade" id="recreation" role="tabpanel" aria-labelledby="recreation-tab">
+        
+            <li>
+              <span class="post-meta">Oct 6, 2021</span>
+              <h4><a class="post-link" href="/posts/how-to-hang-glide.html">How to Become an H3 Hang Glider Pilot in the Bay Area</a></h4>
+              <p> <p>After a long 2.5 years of training to get to our H3 rating, we thought it would help to share our journey and what we wished we knew when we first started; advice that could have helped us finish in &lt;1 year. Of course this is our limited opinion, so take it all with a grain of salt and get advice from other pilots you trust.</p>
+ </p>
+            </li>
+          
+        </div>
+      
+        <div class="tab-pane fade" id="web" role="tabpanel" aria-labelledby="web-tab">
+        
+            <li>
+              <span class="post-meta">Aug 9, 2022</span>
+              <h4><a class="post-link" href="/posts/react-localization.html">How to choose a localization approach for your React application</a></h4>
+              <p> <p>Choosing how to add localization to your application can be a complicated decision, because there are so many options out there. From code-based frameworks to third-party services that automatically rewrite your HTML, there is no silver bullet for localization. At <a href="https://www.plasmic.app/">Plasmic</a>, we have been exploring the many options to better inform how we can support localization for our own <a href="https://studio.plasmic.app/">application</a>. Many tutorials assume you want to already want to use a code framework, like react-i18next, but that has implications for your team’s workflow. In this blog post we will survey different localization techniques you may be considering for your React application and discuss some of the trade-offs.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">May 19, 2022</span>
+              <h4><a class="post-link" href="/posts/nextjs-personalization.html">High Performance Personalization with Next.js Middleware</a></h4>
+              <p> <p>In this blog post, we will show you how to implement personalization using <a href="https://nextjs.org/docs/advanced-features/middleware">Next.js middleware</a>. Traditionally, personalization was implemented on the server, which may incur many hundreds of milliseconds of latency before the user receives the content. With Next.js middleware and static site generation (SSG), we can serve rich personalized experiences entirely from the edge (i.e. CDN), resulting in significant performance improvements for your website and improved experiences for your users.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 12, 2022</span>
+              <h4><a class="post-link" href="/posts/nextjs-ab-testing.html">A/B Testing with Next.js middleware</a></h4>
+              <p> <p>In this blog post we will show you how to implement A/B testing using <strong>Next.js middleware</strong>, first introduced in Next.js 12. When compared to other A/B testing frameworks, this method more easily fits into your existing developer workflows and inherits all of the performance benefits of Next.js, including static site generation (SSG). You’ll see that A/B tests don’t have to be onerous for either your users or your developers — every Next.js site can easily make measurable progress this way!</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 6, 2022</span>
+              <h4><a class="post-link" href="/posts/plasmicflix.html">Build a Netflix clone in Next.js with a visual app builder</a></h4>
+              <p> <p>In this guide, we will show you how to build a video player web application with <a href="https://www.plasmic.app/">Plasmic</a>, a visual builder for React. While many Plasmic users use it to build landing and content pages, Plasmic is actually a powerful UI builder for apps of any complexity, allowing you or your design team to rapidly iterate on rich web applications.</p>
+ </p>
+            </li>
+          
+            <li>
+              <span class="post-meta">Mar 29, 2022</span>
+              <h4><a class="post-link" href="/posts/plasmic-supabase-demo.html">Building a Pokedex with Plasmic + Supabase</a></h4>
+              <p> <p>In this guide, we will show you how to build a crowd-sourced Pokemon Pokedex, by connecting <a href="https://supabase.com/"><strong>Supabase</strong></a>, an open source Firebase backend alternative, with <a href="https://www.plasmic.app/"><strong>Plasmic</strong></a>, a visual builder for the web. While many users leverage Plasmic to quickly launch and iterate on landing pages, in this tutorial we’ll show just how powerful Plasmic can be as a general-purpose visual builder for React, which can be used to design and implement fully featured read-write applications.</p>
+ </p>
+            </li>
+          
+        </div>
+      
+
+      <!-- PER CATEGORY -->
+      
+        <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+        
+            <li>
+              <span class="post-meta">Aug 9, 2022</span>
+              <h5><a class="post-link" href="/posts/react-localization.html">How to choose a localization approach for your React application</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">May 19, 2022</span>
+              <h5><a class="post-link" href="/posts/nextjs-personalization.html">High Performance Personalization with Next.js Middleware</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 12, 2022</span>
+              <h5><a class="post-link" href="/posts/nextjs-ab-testing.html">A/B Testing with Next.js middleware</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 6, 2022</span>
+              <h5><a class="post-link" href="/posts/plasmicflix.html">Build a Netflix clone in Next.js with a visual app builder</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">Mar 29, 2022</span>
+              <h5><a class="post-link" href="/posts/plasmic-supabase-demo.html">Building a Pokedex with Plasmic + Supabase</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">Oct 6, 2021</span>
+              <h5><a class="post-link" href="/posts/how-to-hang-glide.html">How to Become an H3 Hang Glider Pilot in the Bay Area</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 21, 2021</span>
+              <h5><a class="post-link" href="/posts/why-phd.html">Strong/Weak Reasons to do a PhD in Computer Science</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 4, 2021</span>
+              <h5><a class="post-link" href="/posts/nian-gao.html">Chinese New Year Cake (Nian Gao)</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">Feb 21, 2021</span>
+              <h5><a class="post-link" href="/posts/iron-blogger.html">Iron Blogger SF</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">Apr 7, 2020</span>
+              <h5><a class="post-link" href="/posts/autodapp-proposal.html">AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">Dec 30, 2019</span>
+              <h5><a class="post-link" href="/posts/decentralizing-twitter.html">A Path to Opening Up Twitter</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 25, 2018</span>
+              <h5><a class="post-link" href="/posts/git-yubikey.html">Signing Git Commits and SSH Authentication with Yubikey</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">Sep 17, 2018</span>
+              <h5><a class="post-link" href="/posts/time-management.html">Time Management</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">May 22, 2017</span>
+              <h5><a class="post-link" href="/posts/after-graduation.html">How much longer until you graduate?</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 19, 2016</span>
+              <h5><a class="post-link" href="/posts/personal-server-overview.html">Docker-based Personal Server</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 14, 2015</span>
+              <h5><a class="post-link" href="/posts/retrospective-solar-printer.html">Retrospective: Solar Printer</a></h5>
+            </li>
+          
+            <li>
+              <span class="post-meta">Nov 13, 2015</span>
+              <h5><a class="post-link" href="/posts/welcome.html">Welcome!</a></h5>
+            </li>
+          
+        </div>
+      
+    </div>
+
+    <br />
+
+    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  </div> <!-- column -->
+
+  <!-- RIGHT -->
+  <div class="col-md-5">
+    
+      <a href="/about">
+        <img class="featurette-image img-responsive" src="/img/pic/me.jpg" alt="profile">
+      </a>
+    
+    <div>
+      <img height='50px' src='/img/emailaddr.jpg' alt='email' />
+      <br />
+      <p class="lead">
+        Follow me on: <br />
+      </p>
+      <p>
+        <ul>
+  <li><a href='https://ryscheng.substack.com/'><img class='contactico' src='/img/ico/substack.ico' alt='substack' /> Substack</a></li>
+  <li><a href='https://twitter.com/RaymondCheng00'><img class='contactico' src='/img/ico/twitter.svg' alt='twitter' /> Twitter</a></li>
+  <li><a href='https://instagram.com/ryscheng/'><img class='contactico' src='/img/ico/instagram.ico' alt='instagram' /> Instagram</a></li>
+  <li><a href='https://github.com/ryscheng'><img class='contactico' src='/img/ico/github.ico' alt='github' /> GitHub</a></li>
+  <li><a href='https://angel.co/u/ryscheng'><img class='contactico' src='/img/ico/angellist.ico' alt='angellist' /> AngelList</a></li>
+  <li><a href='https://www.producthunt.com/@raymondcheng00'><img class='contactico' src='/img/ico/producthunt.ico' alt='producthunt' /> Product Hunt</a></li>
+  <li><a href='https://www.linkedin.com/in/ryscheng'><img class='contactico' src='/img/ico/linkedin.ico' alt='linkedin' /> LinkedIn</a></li>
+  <li><a href='https://www.facebook.com/ryscheng'><img class='contactico' src='/img/ico/facebook.ico' alt='facebook' /> Facebook</a></li>
+  <li><a href='https://keybase.io/ryscheng'><img class='contactico' src='/img/ico/keybase.ico' alt='keybase' /> Keybase</a></li>
+  <li><a href='https://www.snapchat.com/add/ryscheng'><img class='contactico' src='/img/ico/snapchat.png' alt='snapchat' /> Snapchat</a></li>
+  <li><a href='https://scholar.google.com/citations?user=q0XfvU0AAAAJ&hl=en&oi=ao'><img class='contactico' src='/img/ico/googlescholar.ico' alt='scholar' /> Google Scholar</a></li>
+  <li><a href='http://dblp.uni-trier.de/pers/hd/c/Cheng_0001:Raymond'><img class='contactico' src='/img/ico/dblp.ico' alt='dblp' /> DBLP</a></li>
+  <li><a href='https://www.youtube.com/c/RaymondCheng00'><img class='contactico' src='/img/ico/youtube.svg' alt='youtube' /> YouTube</a></li>
+  <li><a href='http://hypem.com/djmontagged'><img class='contactico' src='/img/ico/hypem.png' alt='hypem' /> Hype Machine</a></li>
+  <li><a href='https://soundcloud.com/djmontaggedyourmommy'><img class='contactico' src='/img/ico/soundcloud.png' alt='soundcloud' /> Soundcloud</a></li>
+  <li><a href='https://linktr.ee/raymondcheng_realty'><img class='contactico' src='/img/ico/linktree.png' alt='linktree' /> Realtor</a></li>
+  <!-- <li><a href='https://plus.google.com/+RaymondCheng00'><img class='contactico' src='/img/ico/google.ico' alt='google'></a></li> -->
+  <!-- <li><a href='http://blog.raymondcheng.net'><img class='contactico' src='/img/ico/blogger.ico' alt='blogger'></a></li> -->
+</ul>
+
+      </p>
+    </div>
+    <div>
+      <p class="lead">
+        Jump to an About Me section:
+      </p>
+      <ul>
+      
+        <li>
+        <a href="/about#summary">
+          Human Being
+        </a>
+        </li>
+      
+        <li>
+        <a href="/about#projects">
+          Hacker &amp; Entrepreneur
+        </a>
+        </li>
+      
+        <li>
+        <a href="/about#education">
+          Student &amp; Teacher
+        </a>
+        </li>
+      
+        <li>
+        <a href="/about#scientist">
+          Scientist &amp; Writer
+        </a>
+        </li>
+      
+        <li>
+        <a href="/about#realtor">
+          Realtor
+        </a>
+        </li>
+      
+        <li>
+        <a href="/about#builder">
+          Builder
+        </a>
+        </li>
+      
+        <li>
+        <a href="/about#travel">
+          Traveler
+        </a>
+        </li>
+      
+        <li>
+        <a href="/about#mountaineer">
+          Mountaineer
+        </a>
+        </li>
+      
+        <li>
+        <a href="/about#fooddrink">
+          Chef &amp; Bartender
+        </a>
+        </li>
+      
+        <li>
+        <a href="/about#pilot">
+          Pilot
+        </a>
+        </li>
+      
+        <li>
+        <a href="/about#boat">
+          Seaman
+        </a>
+        </li>
+      
+        <li>
+        <a href="/about#diving">
+          Diver
+        </a>
+        </li>
+      
+        <li>
+        <a href="/about#motorcycle">
+          Biker
+        </a>
+        </li>
+      
+        <li>
+        <a href="/about#dance">
+          Dancer
+        </a>
+        </li>
+      
+      </ul>
+    </div>
+
+  </div> <!-- column -->
+</div> <!-- row -->
+<hr class="featurette-divider">
+
+        </div>
+      </div>
+
+      <footer>
+  <p class="pull-right"><a href="#">Back to top</a></p>
+  <p>&copy; raymondcheng.net &middot; Last Updated 2022 </p>
+</footer>
+
+
+
+    </div>
+  </body>
+
+<script src='/js/jquery.min.js' type='text/javascript'></script>
+<script src='/js/bootstrap.min.js' type='text/javascript'></script>
+<script src='/js/main.js' type='text/javascript'></script>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-11930420-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

@@ -1,0 +1,26 @@
+{
+  "title": "Ekiden: A Platform for Confidentiality-Preserving, Trustworthy, and Performant Smart Contracts",
+  "authors": [
+    "raymond_cheng",
+    "fan_zhang",
+    "jernej_kos",
+    "warren_he",
+    "nick_hynes",
+    "noah_johnson",
+    "ari_juels",
+    "andrew_miller",
+    "dawn_song"
+  ],
+  "venue": {
+    "name": "IEEE Security and Privacy Magazine",
+    "url": "https://www.ieee.org/membership-catalog/productdetail/showProductDetailPage.html?product=PER338-ELE"
+  },
+  "year": 2020,
+  "paper": [
+    {
+      "name": "Arxiv",
+      "url": "https://arxiv.org/abs/1804.05141"
+    }
+  ],
+  "bibtex": "https://dblp.uni-trier.de/rec/bibtex/conf/eurosp/ChengZKHHJJ0S19"
+}

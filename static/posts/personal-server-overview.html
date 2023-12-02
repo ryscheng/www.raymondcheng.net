@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Raymond Cheng">
+  <!--meta name="description" content="In this blog post, I’ll show you how to configure a Docker-based personal server, running each service in a separate Docker container. Modern devops tools ha..."-->
+  <!--title>Raymond Cheng</title-->
+
+  <link rel="icon" type="images/jpg" href="/img/ico/favicon.jpg">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css">
+  <!--link rel="stylesheet" href="/css/main2.css"-->
+  <!--link rel="canonical" href="https://www.raymondcheng.net/posts/personal-server-overview.html"-->
+  <link rel="alternate" type="application/rss+xml" title="Raymond Cheng" href="https://www.raymondcheng.net/feed.xml">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Docker-based Personal Server | Raymond Cheng</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Docker-based Personal Server" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this blog post, I’ll show you how to configure a Docker-based personal server, running each service in a separate Docker container. Modern devops tools have made it easier than ever to run your own server and for anyone with basic familiarity with Linux, it’s worth a try. In this tutorial, we’ll use Gitlab as a running example." />
+<meta property="og:description" content="In this blog post, I’ll show you how to configure a Docker-based personal server, running each service in a separate Docker container. Modern devops tools have made it easier than ever to run your own server and for anyone with basic familiarity with Linux, it’s worth a try. In this tutorial, we’ll use Gitlab as a running example." />
+<link rel="canonical" href="https://www.raymondcheng.net/posts/personal-server-overview.html" />
+<meta property="og:url" content="https://www.raymondcheng.net/posts/personal-server-overview.html" />
+<meta property="og:site_name" content="Raymond Cheng" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-11-19T19:47:18+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Docker-based Personal Server" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2016-11-19T19:47:18+00:00","datePublished":"2016-11-19T19:47:18+00:00","description":"In this blog post, I’ll show you how to configure a Docker-based personal server, running each service in a separate Docker container. Modern devops tools have made it easier than ever to run your own server and for anyone with basic familiarity with Linux, it’s worth a try. In this tutorial, we’ll use Gitlab as a running example.","headline":"Docker-based Personal Server","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.raymondcheng.net/posts/personal-server-overview.html"},"url":"https://www.raymondcheng.net/posts/personal-server-overview.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">Raymond Cheng</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/projects/">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/publications/">Publications</a>
+        </li>
+      </ul>
+
+      <!--
+      <a href="http://www.google.com/recaptcha/mailhide/d?k=01acpirUAdGm8kXTEX3VqxAQ==&amp;c=hQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01acpirUAdGm8kXTEX3VqxAQ\x3d\x3d\x26c\x3dhQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">
+        <button class="btn btn-outline-success my-2 my-sm-0">Email Me</button>
+      </a>
+      -->
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+
+      <div class="page-content">
+        <div class="wrapper">
+          <div class="row featurette">
+  <!-- LEFT -->
+  <div class="col-md-3 d-none d-sm-none d-md-block d-lg-block d-xl-block">
+    <h2 class="featurette-heading"><a href="/blog">Blog</a></h2>
+
+    <ul>
+      
+        <li>
+          <span class="post-meta">Aug 9, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/react-localization.html">How to choose a localization approach for your React application</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">May 19, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/nextjs-personalization.html">High Performance Personalization with Next.js Middleware</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 12, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/nextjs-ab-testing.html">A/B Testing with Next.js middleware</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 6, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/plasmicflix.html">Build a Netflix clone in Next.js with a visual app builder</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Mar 29, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/plasmic-supabase-demo.html">Building a Pokedex with Plasmic + Supabase</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Oct 6, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/how-to-hang-glide.html">How to Become an H3 Hang Glider Pilot in the Bay Area</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 21, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/why-phd.html">Strong/Weak Reasons to do a PhD in Computer Science</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 4, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/nian-gao.html">Chinese New Year Cake (Nian Gao)</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Feb 21, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/iron-blogger.html">Iron Blogger SF</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 7, 2020</span>
+          <p>
+            <a class="post-link" href="/posts/autodapp-proposal.html">AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Dec 30, 2019</span>
+          <p>
+            <a class="post-link" href="/posts/decentralizing-twitter.html">A Path to Opening Up Twitter</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 25, 2018</span>
+          <p>
+            <a class="post-link" href="/posts/git-yubikey.html">Signing Git Commits and SSH Authentication with Yubikey</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Sep 17, 2018</span>
+          <p>
+            <a class="post-link" href="/posts/time-management.html">Time Management</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">May 22, 2017</span>
+          <p>
+            <a class="post-link" href="/posts/after-graduation.html">How much longer until you graduate?</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 19, 2016</span>
+          <p>
+            <a class="post-link" href="/posts/personal-server-overview.html">Docker-based Personal Server</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 14, 2015</span>
+          <p>
+            <a class="post-link" href="/posts/retrospective-solar-printer.html">Retrospective: Solar Printer</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 13, 2015</span>
+          <p>
+            <a class="post-link" href="/posts/welcome.html">Welcome!</a>
+          </p>
+        </li>
+      
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="col-md-9">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Docker-based Personal Server</h1>
+        <p class="post-meta"><time datetime="2016-11-19T19:47:18+00:00" itemprop="datePublished">Nov 19, 2016</time></p>
+
+        <ul class="share-buttons">
+  <!--Hacker News-->
+  <li><a href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fpersonal-server-overview.html&t=Docker-based+Personal+Server" title="Share on Hacker News" target="_blank"><img alt="Share on Hacker News" src="/img/ico/share/HackerNews.png"></a></li>
+  <!--Reddit-->
+  <li><a href="http://www.reddit.com/submit?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fpersonal-server-overview.html&title=Docker-based+Personal+Server" target="_blank" title="Submit to Reddit"><img alt="Submit to Reddit" src="/img/ico/share/Reddit.svg"></a></li>
+  <!--Twitter-->
+  <li><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fpersonal-server-overview.html&text=Docker-based+Personal+Server&via=RaymondCheng00" target="_blank" title="Tweet"><img alt="Tweet" src="/img/ico/share/Twitter.svg"></a></li>
+  <!--Facebook-->
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fpersonal-server-overview.html&p[title]=Docker-based+Personal+Server&t=Docker-based+Personal+Server" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="/img/ico/share/Facebook.svg"></a></li>
+  <!--LinkedIn-->
+  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fpersonal-server-overview.html&title=Docker-based+Personal+Server&summary=&source=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fpersonal-server-overview.html" target="_blank" title="Share on LinkedIn"><img alt="Share on LinkedIn" src="/img/ico/share/LinkedIn.svg"></a></li>
+  <!--Pinterest-->
+  <li><a href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fpersonal-server-overview.html&description=Docker-based+Personal+Server&media=https://www.raymondcheng.net/img/pic/me.jpg" target="_blank" title="Pin it"><img alt="Pin it" src="/img/ico/share/Pinterest.svg"></a></li>
+  <!--Tumblr-->
+  <li><a href="http://www.tumblr.com/share?v=3&u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fpersonal-server-overview.html&t=Docker-based+Personal+Server&s=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fpersonal-server-overview.html" target="_blank" title="Post to Tumblr"><img alt="Post to Tumblr" src="/img/ico/share/Tumblr.svg"></a></li>
+  <!--Wordpress-->
+  <li><a href="http://wordpress.com/press-this.php?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fpersonal-server-overview.html&t=Docker-based+Personal+Server&s=" target="_blank" title="Publish on WordPress"><img alt="Publish on WordPress" src="/img/ico/share/Wordpress.svg"></a></li>
+  <!--Pocket-->
+  <li><a href="https://getpocket.com/save?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fpersonal-server-overview.html&title=Docker-based+Personal+Server" target="_blank" title="Add to Pocket"><img alt="Add to Pocket" src="/img/ico/share/Pocket.svg"></a></li>
+  <!--Pinboard-->
+  <li><a href="https://pinboard.in/popup_login/?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fpersonal-server-overview.html&title=Docker-based+Personal+Server&description=Docker-based+Personal+Server" target="_blank" title="Save to Pinboard"><img alt="Save to Pinboard" src="/img/ico/share/Pinboard.svg"></a></li>
+  <!--Email-->
+  <li><a href="mailto:?subject=Docker-based+Personal+Server&body=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fpersonal-server-overview.html" target="_blank" title="Send email"><img alt="Send email" src="/img/ico/share/Email.svg"></a></li>
+</ul>
+
+  <!--Google+-->
+<!--
+  <li><a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fpersonal-server-overview.html" target="_blank" title="Share on Google+"><img alt="Share on Google+" src="/img/ico/share/Google+.svg"></a></li>
+-->
+
+      </header>
+
+      <div class="post-content" itemprop="articleBody">
+        <p>In this blog post, I’ll show you how to configure a Docker-based personal server, running each service in a separate Docker container. Modern devops tools have made it easier than ever to run your own server and for anyone with basic familiarity with Linux, it’s worth a try. In this tutorial, we’ll use <a href="https://about.gitlab.com/">Gitlab</a> as a running example.</p>
+
+<h4 id="goals">Goals</h4>
+<ul>
+  <li><strong>Replicable</strong>: If you want to move to a new server, you should be up and running with little effort.</li>
+  <li><strong>Simple backups</strong>: It should be as easy as a single <code class="language-plaintext highlighter-rouge">rsync</code> to back up all important state.</li>
+  <li><strong>Secure</strong>: All connections to your server should be over secure channels (e.g. TLS or SSH).</li>
+  <li><strong>Low maintenance</strong>: Aside from making sure the machine stays on and periodic software updates, there should be little to no maintenance.</li>
+</ul>
+
+<hr />
+
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+  <li><a href="#why-run-your-own-server">Why Run Your Own Server?</a></li>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#step-1-prerequisites">Prerequisites</a></li>
+  <li><a href="#step-2-domain-name">Domain Name</a></li>
+  <li><a href="#step-3-docker-compose">Docker Compose</a></li>
+  <li><a href="#step-4-nginx-and-ssl-certificates">Nginx and SSL Certificates</a></li>
+  <li><a href="#step-5-firewall">Firewall</a></li>
+  <li><a href="#step-6-gitlab-specific-configuration">Gitlab-specific Configuration</a></li>
+  <li><a href="#data-backup">Data Backup</a></li>
+  <li><a href="#updating-docker-images">Updating Docker Images</a></li>
+  <li><a href="#more-services">More Services</a></li>
+</ul>
+
+<hr />
+
+<h2 id="why-run-your-own-server">Why Run Your Own Server?</h2>
+
+<p><strong>Cost</strong>: Most web apps will charge you an arm and a leg if you go past the free tier of their service. When you want to manage terabytes of data on a Dropbox-like interface across all your devices, Nextcloud is the best way to go.</p>
+
+<p><strong>Visibility</strong>: By running free and open source software on your own hardware, you can read the code, monitor its behavior, and see what is going on inside and out the application.</p>
+
+<p><strong>Customizable</strong>: You can run whatever you want on your server. Leverage this freedom to automate common tasks, integrate with other applications, and extend application functionality.</p>
+
+<p><strong>Control</strong>: Keep your data on your own hardware and directly control who has access to see it.</p>
+
+<p>Docker images are now available for a wide-variety of server applications. 
+Check out <a href="#more-services">More Services</a> for setting up specific applications.</p>
+
+<hr />
+
+<h2 id="overview">Overview</h2>
+<p><img src="/img/diagrams/personal-server/personal-server-architecture.png" alt="Architecture" /></p>
+
+<p><a href="https://www.docker.com/what-docker">Docker</a> makes it trivially easy to package an application with all of its dependencies in a standardized unit that runs in an isolated Linux container. For basic tutorials on how to use it, Docker maintains excellent documentation <a href="https://docs.docker.com/">here</a>.</p>
+
+<p>Our strategy is threefold:</p>
+
+<p><strong>Docker Compose to declare services</strong>
+<a href="https://docs.docker.com/compose/">Docker Compose</a> allows you to declaratively specify a set of services that you want to run on your Docker engine. Then, starting all of your services is as easy as <code class="language-plaintext highlighter-rouge">docker-compose up</code>, which will also download application images from <a href="https://hub.docker.com/">Docker Hub</a>.</p>
+
+<p><strong>Store persistent state in Docker volumes</strong>
+<a href="https://docs.docker.com/engine/userguide/dockervolumes/">Docker volumes</a> allow you to mount a local directory into the Docker container. For example, you may want to store the data from a MySQL database (<em>/var/lib/mysql</em>) locally. Docker volumes can then easily be backed up and restored on a new machine.</p>
+
+<p><strong>Routing with wildcard DNS and TLS</strong>
+In order to make our Docker-ized services securely accessible from subdomains (e.g. https://gitlab.example.com), we’ll set up wildcard DNS entries to point to the server and configure an Nginx reverse proxy to route requests to the proper container.</p>
+
+<hr />
+
+<h2 id="step-1-prerequisites">Step 1: Prerequisites</h2>
+<p>This guide will assume you know how to setup a Linux machine with a public IP address. You can rent a virtual machine from any cloud provider, use a desktop at home, or buy a dedicated device like the Raspberry Pi.</p>
+
+<p>The only prerequisites that need to be installed are:</p>
+<ul>
+  <li><a href="https://www.nginx.com/resources/wiki/start/topics/tutorials/install/">Nginx</a></li>
+  <li><a href="https://docs.docker.com/engine/installation/">Docker Engine</a></li>
+  <li><a href="https://docs.docker.com/compose/install/">Docker Compose</a></li>
+</ul>
+
+<p>On Ubuntu, you may type the following commands. If the versions are not high enough, follow the installation guides above</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>nginx docker.io docker-compose
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="step-2-domain-name">Step 2: Domain Name</h2>
+
+<p>You’ll need a domain name that points to your server. In this example, I’ll set <code class="language-plaintext highlighter-rouge">*.raymondcheng.net</code> to point to the same machine.</p>
+
+<p><img src="/img/diagrams/personal-server/personal-server-wildcard-dns.png" alt="DNS record for *.raymondcheng.net" /></p>
+
+<p>Verify that DNS queries are properly returning the address</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dig gitlab.raymondcheng.net
+<span class="p">;</span> &lt;&lt;<span class="o">&gt;&gt;</span> DiG 9.8 &lt;&lt;<span class="o">&gt;&gt;</span> gitlab.raymondcheng.net
+<span class="p">;;</span> global options: +cmd
+<span class="p">;;</span> Got answer:
+<span class="p">;;</span> -&gt;&gt;HEADER<span class="o">&lt;&lt;-</span> <span class="no">opcode</span><span class="sh">: QUERY, status: NOERROR, id: 14132
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;gitlab.raymondcheng.net IN A
+
+;; ANSWER SECTION:
+gitlab.raymondcheng.net 3600 IN A 10.11.12.13
+
+;; Query time: 60 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Fri Nov 18 17:02:20 2016
+;; MSG SIZE  rcvd: 91
+</span></code></pre></div></div>
+
+<hr />
+
+<h2 id="step-3-docker-compose">Step 3: Docker Compose</h2>
+
+<p>First create a <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> file, where we will configure all of the services we want to run. For example to run a Gitlab service, use the following:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2"</span>
+<span class="na">services</span><span class="pi">:</span>
+  <span class="na">gitlab</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">gitlab/gitlab-ce</span>
+    <span class="na">hostname</span><span class="pi">:</span> <span class="s">gitlab.raymondcheng.net</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">8765:80</span>
+      <span class="pi">-</span> <span class="s">2345:22</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">~/docker/gitlab/config:/etc/gitlab</span>
+      <span class="pi">-</span> <span class="s">~/docker/gitlab/logs:/var/log/gitlab</span>
+      <span class="pi">-</span> <span class="s">~/docker/gitlab/data:/var/opt/gitlab</span>
+</code></pre></div></div>
+
+<p>Additional services can be added to the bottom of the file, making sure to indent properly under <code class="language-plaintext highlighter-rouge">services:</code>. Let’s go over what each line is doing:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2"</span>
+<span class="na">services</span><span class="pi">:</span>
+</code></pre></div></div>
+<p>Initialize the file, using version 2 syntax. All services are listed under <code class="language-plaintext highlighter-rouge">services:</code>.</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">gitlab</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">gitlab/gitlab-ce</span>
+    <span class="na">hostname</span><span class="pi">:</span> <span class="s">gitlab.raymondcheng.net</span>
+</code></pre></div></div>
+<p>Create a service named <code class="language-plaintext highlighter-rouge">gitlab</code>, using the Docker image <code class="language-plaintext highlighter-rouge">gitlab/gitlab-ce</code>. The Gitlab image requires <code class="language-plaintext highlighter-rouge">hostname</code> be set for configuration.</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">8765:80</span>
+      <span class="pi">-</span> <span class="s">2345:22</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">~/docker/gitlab/config:/etc/gitlab</span>
+      <span class="pi">-</span> <span class="s">~/docker/gitlab/logs:/var/log/gitlab</span>
+      <span class="pi">-</span> <span class="s">~/docker/gitlab/data:/var/opt/gitlab</span>
+</code></pre></div></div>
+<p>These are parameters you’ll need to set for every service you enable. Ports define port forwarding rules from your host computer to the container. Gitlab by default has internal ports 80 and 22 for the web service and SSH, respectively. These rules expose the ports to 8765 and 2345 on the host computer respectively. As such, you should be able to access the service at <code class="language-plaintext highlighter-rouge">http://localhost:8765</code>. Eventually, we will block access to 8765 in <a href="#step-5-firewall">Step 5: Firewall</a>. Similarly, the Gitlab SSH service is accessible at ssh://localhost:2345.</p>
+
+<p>We also configure Docker volumes to store all Gitlab related state to a folder on the host computer. In the example, the <strong>configurations</strong> can be found in <code class="language-plaintext highlighter-rouge">~/docker/gitlab/config</code>, the <strong>logs</strong> in <code class="language-plaintext highlighter-rouge">~/docker/gitlab/logs</code>, and the <strong>data</strong> in <code class="language-plaintext highlighter-rouge">~/docker/gitlab/data</code>. These folders are mapped into the container at the specified paths.</p>
+
+<p>Finally, start the services:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose <span class="nt">-f</span> docker-compose.yml up
+</code></pre></div></div>
+<p>In order to access this over an SSH connection, it may be helpful to run <code class="language-plaintext highlighter-rouge">docker-compose</code> in a <a href="http://blog.hawkhost.com/2010/06/28/tmux-the-terminal-multiplexer/">tmux</a> session.</p>
+
+<p>The services can be stopped with the corresponding command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose down
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="step-4-nginx-and-ssl-certificates">Step 4: Nginx and SSL Certificates</h2>
+<p>We use Nginx as a reverse HTTP proxy, terminating SSL connections and routing HTTP requests to the proper container. 
+<em>Note: We run Nginx locally on the host computer, instead of in a Docker container as common in <a href="https://www.outcoldman.com/en/archive/2015/03/18/docker-for-home-server/">other guides</a>. It works either way, I just find this easier to debug when things go wrong.</em></p>
+
+<p>First, you’ll need to get an SSL certificate for your wildcard domain (e.g. *.raymondcheng.net). You can get these fairly cheap from a commercial certificate authority. I recommend using Namecheap, as best described in this guide:
+<a href="https://www.digitalocean.com/community/tutorials/how-to-install-an-ssl-certificate-from-a-commercial-certificate-authority">How To Install an SSL Certificate from a Commercial Certificate Authority</a></p>
+
+<p>You can also use a free certificate authority, like Let’s Encrypt. Here are 2 guides that I recommmend:</p>
+<ul>
+  <li><a href="https://vincent.composieux.fr/article/install-configure-and-automatically-renew-let-s-encrypt-ssl-certificate">Install, configure and automatically renew Let’s Encrypt SSL certificate</a></li>
+  <li><a href="https://www.nginx.com/blog/using-free-ssltls-certificates-from-lets-encrypt-with-nginx/">Let’s Encrypt &amp; Nginx</a></li>
+</ul>
+
+<p>Once you’ve completed one of these guides, you should have 2 files:</p>
+<ol>
+  <li>an SSL Certificate (e.g. <code class="language-plaintext highlighter-rouge">server.crt</code>)</li>
+  <li>a private key (e.g. <code class="language-plaintext highlighter-rouge">server.key</code>) - <em>Keep this safe!</em></li>
+</ol>
+
+<p>Now we’ll configure Nginx to use these certificates. You’ll need to generate an Nginx configuration <strong>for each</strong> Docker service that you are running. I recommend that you use the <a href="https://mozilla.github.io/server-side-tls/ssl-config-generator/">Mozilla SSL Configuration Generator</a> to generate yours.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">server</span> <span class="p">{</span>
+  <span class="nx">listen</span> <span class="mi">80</span> <span class="nx">default_server</span><span class="p">;</span>
+  <span class="nx">listen</span> <span class="p">[::]:</span><span class="mi">80</span> <span class="nx">default_server</span><span class="p">;</span>
+
+  <span class="err">#</span> <span class="nx">Redirect</span> <span class="nx">all</span> <span class="nx">HTTP</span> <span class="nx">requests</span> <span class="nx">to</span> <span class="nx">HTTPS</span> <span class="kd">with</span> <span class="nx">a</span> <span class="mi">301</span> <span class="nx">Moved</span> <span class="nx">Permanently</span> <span class="nx">response</span><span class="p">.</span>
+  <span class="k">return</span> <span class="mi">301</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//$host$request_uri;</span>
+<span class="p">}</span>
+
+<span class="nx">server</span> <span class="p">{</span>
+  <span class="nx">server_name</span> <span class="nx">gitlab</span><span class="p">.</span><span class="nx">raymondcheng</span><span class="p">.</span><span class="nx">net</span>
+  <span class="nx">listen</span> <span class="mi">443</span> <span class="nx">ssl</span> <span class="nx">http2</span><span class="p">;</span>
+  <span class="nx">listen</span> <span class="p">[::]:</span><span class="mi">443</span> <span class="nx">ssl</span> <span class="nx">http2</span><span class="p">;</span>
+
+  <span class="err">#</span> <span class="nx">certs</span> <span class="nx">sent</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">client</span> <span class="k">in</span> <span class="nx">SERVER</span> <span class="nx">HELLO</span> <span class="nx">are</span> <span class="nx">concatenated</span> <span class="k">in</span> <span class="nx">ssl_certificate</span>
+  <span class="err">#</span> <span class="nx">certs</span> <span class="nx">should</span> <span class="nx">be</span> <span class="nx">signed</span> <span class="nx">and</span> <span class="nx">include</span> <span class="nx">intermediates</span><span class="p">;</span>
+  <span class="nx">ssl_certificate</span> <span class="o">/</span><span class="nx">path</span><span class="o">/</span><span class="nx">to</span><span class="o">/</span><span class="nx">server</span><span class="p">.</span><span class="nx">crt</span>
+  <span class="nx">ssl_certificate_key</span> <span class="o">/</span><span class="nx">path</span><span class="o">/</span><span class="nx">to</span><span class="o">/</span><span class="nx">server</span><span class="p">.</span><span class="nx">key</span><span class="p">;</span>
+  <span class="nx">ssl_session_timeout</span> <span class="mi">1</span><span class="nx">d</span><span class="p">;</span>
+  <span class="nx">ssl_session_cache</span> <span class="nx">shared</span><span class="p">:</span><span class="nx">SSL</span><span class="p">:</span><span class="mi">50</span><span class="nx">m</span><span class="p">;</span>
+  <span class="nx">ssl_session_tickets</span> <span class="nx">off</span><span class="p">;</span>
+
+  <span class="err">#</span> <span class="nx">modern</span> <span class="nx">configuration</span><span class="p">.</span> <span class="nx">tweak</span> <span class="nx">to</span> <span class="nx">your</span> <span class="nx">needs</span><span class="p">.</span>
+  <span class="nx">ssl_protocols</span> <span class="nx">TLSv1</span><span class="p">.</span><span class="mi">2</span><span class="p">;</span>
+  <span class="nx">ssl_ciphers</span> <span class="dl">'</span><span class="s1">ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256</span><span class="dl">'</span><span class="p">;</span>
+  <span class="nx">ssl_prefer_server_ciphers</span> <span class="nx">on</span><span class="p">;</span>
+
+  <span class="err">#</span> <span class="nx">HSTS</span> <span class="p">(</span><span class="nx">ngx_http_headers_module</span> <span class="nx">is</span> <span class="nx">required</span><span class="p">)</span> <span class="p">(</span><span class="mi">15768000</span> <span class="nx">seconds</span> <span class="o">=</span> <span class="mi">6</span> <span class="nx">months</span><span class="p">)</span>
+  <span class="nx">add_header</span> <span class="nx">Strict</span><span class="o">-</span><span class="nx">Transport</span><span class="o">-</span><span class="nx">Security</span> <span class="nx">max</span><span class="o">-</span><span class="nx">age</span><span class="o">=</span><span class="mi">15768000</span><span class="p">;</span>
+
+  <span class="err">#</span> <span class="nx">OCSP</span> <span class="nx">Stapling</span> <span class="o">---</span>
+  <span class="err">#</span> <span class="nx">fetch</span> <span class="nx">OCSP</span> <span class="nx">records</span> <span class="k">from</span> <span class="nx">URL</span> <span class="k">in</span> <span class="nx">ssl_certificate</span> <span class="nx">and</span> <span class="nx">cache</span> <span class="nx">them</span>
+  <span class="nx">ssl_stapling</span> <span class="nx">on</span><span class="p">;</span>
+  <span class="nx">ssl_stapling_verify</span> <span class="nx">on</span><span class="p">;</span>
+
+  <span class="err">#</span> <span class="nb">Proxy</span>
+  <span class="nx">add_header</span> <span class="nx">X</span><span class="o">-</span><span class="nx">Frame</span><span class="o">-</span><span class="nx">Options</span> <span class="nx">DENY</span><span class="p">;</span>
+  <span class="nx">add_header</span> <span class="nx">X</span><span class="o">-</span><span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">-</span><span class="nx">Options</span> <span class="nx">nosniff</span><span class="p">;</span>
+  <span class="nx">client_max_body_size</span> <span class="mi">10</span><span class="nx">G</span><span class="p">;</span>
+  <span class="nx">location</span> <span class="o">/</span> <span class="p">{</span>
+    <span class="nx">proxy_pass</span> <span class="na">http</span><span class="p">:</span><span class="c1">//localhost:8765;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Most of these settings are good as is. I’ll explain the few changes that need to be made manually:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">server</span> <span class="p">{</span>
+  <span class="nx">server_name</span> <span class="nx">gitlab</span><span class="p">.</span><span class="nx">raymondcheng</span><span class="p">.</span><span class="nx">net</span>
+  <span class="p">...</span>
+</code></pre></div></div>
+<p>Configure Nginx to use this configuration only for requests to gitlab.raymondcheng.net</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">ssl_certificate</span> <span class="o">/</span><span class="nx">path</span><span class="o">/</span><span class="nx">to</span><span class="o">/</span><span class="nx">server</span><span class="p">.</span><span class="nx">crt</span>
+  <span class="nx">ssl_certificate_key</span> <span class="o">/</span><span class="nx">path</span><span class="o">/</span><span class="nx">to</span><span class="o">/</span><span class="nx">server</span><span class="p">.</span><span class="nx">key</span><span class="p">;</span>
+</code></pre></div></div>
+<p>Point these to the SSL certificate and key generated earlier.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="err">#</span> <span class="nb">Proxy</span>
+  <span class="nx">add_header</span> <span class="nx">X</span><span class="o">-</span><span class="nx">Frame</span><span class="o">-</span><span class="nx">Options</span> <span class="nx">DENY</span><span class="p">;</span>
+  <span class="nx">add_header</span> <span class="nx">X</span><span class="o">-</span><span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">-</span><span class="nx">Options</span> <span class="nx">nosniff</span><span class="p">;</span>
+  <span class="nx">client_max_body_size</span> <span class="mi">10</span><span class="nx">G</span><span class="p">;</span>
+  <span class="nx">location</span> <span class="o">/</span> <span class="p">{</span>
+    <span class="nx">proxy_pass</span> <span class="na">http</span><span class="p">:</span><span class="c1">//localhost:8765;</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+<p>Prevent our pages from being included in an iframe, prevent MIME-type sniffing, allow forwarding of data payloads up to 10GB, and forward all requests to our Docker container at <code class="language-plaintext highlighter-rouge">http://localhost:8765</code>.</p>
+
+<p>Last but not least, configure Nginx to use this file and restart Nginx. In Ubuntu, this is as easy as copying the file to <code class="language-plaintext highlighter-rouge">/etc/nginx/sites-enabled</code> and restarting the service</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo cp </span>gitlab.conf /etc/nginx/sites-enabled/
+<span class="nv">$ </span><span class="nb">sudo </span>service nginx restart
+</code></pre></div></div>
+
+<p>Verify that the service started properly: by running <code class="language-plaintext highlighter-rouge">sudo service nginx status</code>.</p>
+
+<hr />
+
+<h2 id="step-5-firewall">Step 5: Firewall</h2>
+
+<p>If the service only exposes a web interface, you usually want to block access to the HTTP port, and only access through SSL connections to Nginx. In our Gitlab example, I’d block access to port 8765 (the exposed port from our Docker container) and allow access to Nginx on port 443. On Ubuntu, this is configured using <code class="language-plaintext highlighter-rouge">ufw</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ufw <span class="nb">enable</span>         <span class="c"># Blocks all ports by default </span>
+<span class="nv">$ </span><span class="nb">sudo </span>ufw allow 443/tcp
+</code></pre></div></div>
+
+<p>Remember that Gitlab also has an SSH interface, which we exposed on port 2345. We’ll need to open access to that too</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ufw allow 2345/tcp
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="step-6-gitlab-specific-configuration">Step 6: Gitlab-specific Configuration</h2>
+
+<h4 id="setup">Setup</h4>
+
+<p>Once the Gitlab service is running, you can access it through your service-specific domain (e.g. <code class="language-plaintext highlighter-rouge">https://gitlab.raymondcheng.net</code>). Gitlab will walk you through the initial configuration. There, you’ll create users, groups, and repositories.</p>
+
+<p>Gitlab’s configuration file is found at <code class="language-plaintext highlighter-rouge">~/docker/gitlab/config/gitlab.rb</code>.</p>
+
+<p>The official Gitlab docker guide can be found <a href="https://docs.gitlab.com/omnibus/docker/">here</a>.</p>
+
+<h4 id="gitlab-backups">Gitlab backups</h4>
+
+<p>For some reason just for Gitlab, recovery hasn’t been as easy as copying all of the Docker volumes to a new machine. So just in case, I also do Gitlab-specific backups.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nb">exec</span> <span class="nt">-i</span> <span class="nt">-t</span> scripts_gitlab_1 gitlab-rake gitlab:backup:create
+</code></pre></div></div>
+<p>In this example, <code class="language-plaintext highlighter-rouge">scripts_gitlab_1</code> is the ID of the Docker container running Gitlab at the moment. You can find the ID of any running container by running <code class="language-plaintext highlighter-rouge">docker ps</code>. Backup files will be generated and stored in <code class="language-plaintext highlighter-rouge">~/docker/gitlab/data/backups/</code>. Since it’s part of the Docker volume, it’ll be backed up with the rest of the files, just in case you need it.</p>
+
+<h4 id="accessing-gitlab">Accessing Gitlab</h4>
+
+<p>Because we configure Gitlab SSH to be on a non-standard port, it is easiest to add it to your <code class="language-plaintext highlighter-rouge">~/.ssh/config</code>.</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">Host gitlab</span>
+<span class="s">Hostname gitlab.raymondcheng.net</span>
+  <span class="s">User git</span>
+  <span class="s">Port </span><span class="m">2345</span>
+</code></pre></div></div>
+
+<p>In this case, you can now just clone repositories using the shorthand:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone gitlab:user/repo.git
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="data-backup">Data Backup</h2>
+<p>Because all important files from the Docker containers are stored a local directory, you can easily back up this folder using any backup tool, such as <code class="language-plaintext highlighter-rouge">rsync</code>. For example, if you stored all your Docker volumes in <code class="language-plaintext highlighter-rouge">/docker</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rsync <span class="nt">--delete</span> <span class="nt">-avz</span> <span class="nt">-e</span> ssh /docker <span class="o">[</span>USER@]HOST:DEST
+</code></pre></div></div>
+
+<p>Also be sure to keep backups of your SSL certificates and Nginx configurations. You’ll need those</p>
+
+<p>If you ever replace your machine or hard drive, simply copy this directory back to your new hard drive, relaunch your <code class="language-plaintext highlighter-rouge">docker-compose</code> configuration, and re-setup Nginx/firewall.</p>
+
+<hr />
+
+<h2 id="updating-docker-images">Updating Docker Images</h2>
+<p>In order to update a single application, stop <code class="language-plaintext highlighter-rouge">docker-compose</code> and pull the latest image from Docker Hub:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose down
+<span class="nv">$ </span>docker pull NAME[:TAG]
+</code></pre></div></div>
+
+<p>If you want to delete all containers and images from your system, run the following. The next time you run <code class="language-plaintext highlighter-rouge">docker-compose up</code>, it will pull the latest from Docker Hub.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Delete all containers</span>
+<span class="nv">$ </span>docker <span class="nb">rm</span> <span class="si">$(</span>docker ps <span class="nt">-a</span> <span class="nt">-q</span><span class="si">)</span>
+<span class="c"># Delete all images</span>
+<span class="nv">$ </span>docker rmi <span class="si">$(</span>docker images <span class="nt">-q</span><span class="si">)</span>
+<span class="c"># Delete all dangling images</span>
+<span class="nv">$ </span>docker rmi <span class="si">$(</span>docker images <span class="nt">-q</span> <span class="nt">-f</span> <span class="nv">dangling</span><span class="o">=</span><span class="nb">true</span><span class="si">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="more-services">More Services</h2>
+<p>Check out the following application-specific guides for setting up</p>
+
+<ul>
+  <li><a href="https://hub.docker.com/_/nextcloud/">Nextcloud</a> instead of Dropbox/Google Drive/OneDrive
+    <ul>
+      <li>also supports syncing calendars, contacts, and tasks</li>
+    </ul>
+  </li>
+  <li><a href="https://hub.docker.com/r/gitlab/gitlab-ce/">Gitlab</a> instead of GitHub/Bitbucket</li>
+  <li><a href="https://hub.docker.com/r/kylemanna/openvpn/">OpenVPN</a> is a VPN server over SSL/TLS</li>
+  <li><a href="https://github.com/hwdsl2/docker-ipsec-vpn-server/blob/master/README.md">Libreswan</a> is a VPN server over IPSec</li>
+  <li><a href="https://hub.docker.com/r/ryscheng/docker-iodine/">Iodine</a> helps you tunnel out of restricted networks.</li>
+  <li><a href="https://www.mailpile.is/">Mailpile</a> is a searchable e-mail client.</li>
+  <li><a href="https://hub.docker.com/r/mattermost/platform/">Mattermost</a> is a chat server with functionality similar to Slack.</li>
+  <li><a href="https://hub.docker.com/r/sharelatex/sharelatex/">ShareLaTeX</a> for collaborative real-time LaTeX editing</li>
+  <li><a href="https://hub.docker.com/_/piwik/">Piwik</a> instead of Google Analytics</li>
+  <li><a href="https://hub.docker.com/r/homeassistant/home-assistant/">Home Assistant</a> for home automation</li>
+</ul>
+
+<hr />
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>In the 90’s and early 2000’s, I maintained a very opinionated server setup. But for anyone that has ever tried to maintain an email or chat server, you’ll know just how much of a pain of an ass it was back then. I’m really excited to see open source projects like Gitlab, Nextcloud, and Signal mature into usable products that compete with their centralized proprietary counterparts. For at least the data that is most prized to me (files, contacts, calendar, code, and messages), I’ve been using free and open source software on my own hardware and I haven’t looked back since.</p>
+
+<p>Here are some other guides that cover similar topics:</p>
+<ul>
+  <li><a href="https://outcoldman.com/en/archive/2015/03/18/docker-for-home-server/">Using docker at home</a></li>
+  <li><a href="http://www.linux-magazine.com/Issues/2014/168/Docker-with-OwnCloud/">Docker with Owncloud</a></li>
+</ul>
+
+<p>Feel free to email me with feedback if any of this gets outdated.</p>
+
+      </div>
+
+    </article>
+
+    <hr />
+    <div style="text-align:center;"> 
+      <p>
+        Liked this post?
+        Follow <a href="https://twitter.com/RaymondCheng00"><img class='contactico' src='/img/ico/twitter.ico' alt='twitter' />@RaymondCheng00 on Twitter</a><br>
+        or subscribe to my blog mailing list for some fresh thoughts
+      </p>
+      <iframe src="https://ryscheng.substack.com/embed" width="480" height="80" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+
+    </div>
+
+    <div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+  this.page.url = "https://www.raymondcheng.net/posts/personal-server-overview.html";
+  //this.page.url = window.location.href;
+  this.page.identifier = "/posts/personal-server-overview";
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://raymondcheng.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<script id="dsq-count-scr" src="//raymondcheng.disqus.com/count.js" async></script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+
+  </div> <!-- column -->
+</div> <!-- featurette -->
+<hr class="featurette-divider">
+
+        </div>
+      </div>
+
+      <footer>
+  <p class="pull-right"><a href="#">Back to top</a></p>
+  <p>&copy; raymondcheng.net &middot; Last Updated 2022 </p>
+</footer>
+
+
+
+    </div>
+  </body>
+
+<script src='/js/jquery.min.js' type='text/javascript'></script>
+<script src='/js/bootstrap.min.js' type='text/javascript'></script>
+<script src='/js/main.js' type='text/javascript'></script>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-11930420-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

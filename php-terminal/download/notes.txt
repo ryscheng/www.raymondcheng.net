@@ -1,0 +1,556 @@
+Aerodynamics
+	Forces=Lift, Weight, Thrust, Drag
+	Bernoulli Principle=Faster air, lower pressure
+	Airplane stalls only depend on angle of attack
+	Chord line & relative wind = angle of attack
+	Left-turning tendency
+		P-factor = right side of propellor takes a bigger chunk of air when pitched up
+		Slipstream = air spirals around fuselage and hits tail on right
+		Precession = gyroscopic
+		Torque Reaction = equal and opposite momentum change (propellor vs. body)
+	Flaps let a steeper descend without gaining airspeed
+	Speeds:
+		Vle = max landing gear extended speed
+		Vx = best angle
+		Vy = best climb over time
+		Va = maneuvering speed
+		Vfe = max speed flaps extended (white arc = flaps operating range)
+		Vs0 = stalling speed in landing config
+		Vs = stalling speed in takeoff config
+		Vno = max structural cruising speed
+		Vne = never exceed speed
+	Always stay above vortices of bigger aircraft
+Flight Instruments
+	GYRO
+	Attitude Indicator = little airplane on horizon (most important)
+	Heading Indicator = must be periodically aligned
+	Turn Coordinator = roll and yaw axes, step on the ball
+	PITOT/STATIC
+	Airspeed = compare pressure in pitot tube and static port
+	Altimeter / Rate of Climb = only use static port
+		Smallest hand = 10,000; middle hand = 1000; big hand = 100
+	Altitudes:
+		Absolute = above ground
+		True = above mean sea level
+		Pressure = indicated altitude when standard pressure put in altimeter
+		Density = adjusted for non-standard temperature
+		(Standard @29.92" pressure, 15 deg C)
+		1000 ft of indicated altitude for 1" Hg
+		"High to Low, Look out below"
+		"Low to High, Clear the sky"
+	MAGNETIC
+	East/West - ANDS = Accelerate North, Decelerate South
+	North - NO = North Opposite
+	North/South - COSUN = Compass Overshoots South, Undershoots North
+Sectional Charts
+	Zulu = Coordinated Universal Time (UTC)
+	Zulu = EST +5 or EDT +4
+	1 minute latitude = 1 nautical mile
+	60 min per degree
+	Rotating beacon - civilian = white/green, military = white/white/green, heliport = white/yellow/green
+Airspace
+	Mode C, Mode S, 4096 all acceptable transponder modes
+	14,500 ft to 18,000 ft is Class E
+	18,000 ft to 60,000 ft is Class A
+	Uncontrolled
+	G = Go for it - absence of markings
+	Controlled
+	E = Elsewere - fuzzy blue (1200ft),fuzzy magenta (700ft), dotted magenta (surface)
+		VFR - no equipment requirements
+		IFR - Separation service - COMM
+	D = Dialogue, control towers - dotted blue (surface) 
+		Separation service on runway, not air (only advisories)
+		Core = 4.4nm = 5sm
+		Extends 2500' above ground
+		[-15] means up to but not including 1500'
+		If control tower out of service ==> Class E
+	C = Crowded, Radar service - solid magenta
+		COMM/Transponder(Mode C) required
+		No clearance required, only 2-way communication
+		Inner circle = 5nm, Outer circle = 10nm, Outer area = 20nm prep area around outer circle
+	B = Big airport - blue solid
+		COMM/Transponder(Mode C) required
+		Must be cleared to enter, must be private pilot or endorsed student pilot (90 days)
+		IFR - Need VOR or TACAN receiver
+		Note: Transponder Mode C required within 30nm up to 10,000'MSL of Class B airport
+	A = Altitude - IFR only, tracked by ATC
+		IFR equipped, IFR Clearance
+		Transponder Mode C
+		Separation of all aircraft
+	Special Use
+		Restricted - invisible hazards (gunnery etc)
+			Must arrange passage with permission
+		Warning - same as restricted, except do not need permission - international
+		Military Operations Area (MOA)
+			Acrobatic flight maneuvers
+			Not prohibited area, use extreme caution
+		Alert Area - Use caution, typically training areas
+		Military Training Routes - Can use any speed they want > 250kts
+			VR = Visual, IR = instrument
+			4 digits number below 1,500', 3 digit number unknown altitude
+		Wildlife Refuge - maintain 2000' AGL above
+	Federal Airways - Route for IFR flights ~ 8 nm wide, 1200' - 18000' (Class E)
+VFR Weather Minimums
+	Rotating beacon is on = below basic VFR weather minimums
+	Class G Day
+		Sfc-1200' :  Clr, 1sm vis
+		1200'-10000' : 500' below, 1000' above, 2000' horizontal, 1sm vis
+		10000'- : 1000' below, 1000' above, 1sm horizontal, 5sm vis
+	Class E or Night
+		Sfc-1200' : 500' below, 1000' above, 2000' horizontal, 3sm vis
+		1200'-10000' : 500' below, 1000' above, 2000' horizontal, 3sm vis
+		10000'- : 1000' below, 1000' above, 1sm horizontal, 5sm vis
+	Class C or D
+		500' below, 1000' above, 2000' horizontal, 3sm vis
+	Class B
+		Clr, 3sm vis
+	Cloud Ceiling in B,C,D,E
+		1000' below ceiling, 3sm vis
+	Special VFR - request to fly to specific dest in controlled airspace in less than VFR cond. (IFR separation)
+		Must request by pilot to ATC or FSS as relay
+		Minimums - Clr, 1sm vis (at night must be IFR)
+Communications and Radar
+	AWOS = Automated Weather Observation System
+	ATIS = Automated Terminal Information Service
+		absence of sky cond. = Ceiling > 5000' and vis > 5sm
+	FSS = "Radio", EFAS = Enroute Flight Advisory Service = "Flight Watch"
+	Procedure: Alpha, Bravo, Charlie
+		Who are you talking to? (Tipton Traffic)
+		Who are you? (Cessna 788FM)
+		Altitude - 138,300 = one three eight thousand three hundred
+	CTAF = Common Traffic Advisory Frequency - always use it
+		landing announce at 10mi, downwind, base, final, clear runway
+		takeoff announce before taxi, before onto runway, then monitor until 10mi
+		with FSS, area within 10mi is Airport Advisory Area
+		If CTAF also UNICOM - can order fuel
+	Transponder Numbers = SQUAK codes
+		1200 = VFR
+		7700 = Emergency
+		7600 = Radio Failure
+		7500 = Hijack
+		7777 = Military Intercept
+	TRSA = Terminal Radar Service Area
+		Sequencing and Separation between IFR and participating VFR (not all)
+		500' separation
+		request from ground control
+	Class C Service - radar mandatory - separation and sequencing
+	Class B Service - same as Class C except greater separation distances
+Radio Navigation
+	ADF - Automatic Direction Finder
+		Generally decommissioned
+		On chart - dot with poka dots all around it
+		If ADF aligned North -> arrow = relative bearing = degrees to turn to get to station
+		Magnetic Bearing = Magnetic Heading + Relative Bearing
+		If ADF aligned with MH -> arrow = magnetic bearing = magnetic direction required to get to station
+		Beware of radials to/from the station
+	VOR = VHF Omni Range
+		VORTAC = collocated with military TACAN station (also has DME)
+		VOR-DME = distance measuring equipment
+		Always check Morse code to make sure you have correct VORTAC first
+		Aligned magnetic north
+		Set OBS = Omni bearing selector => set to magnetic course
+		CDI = Course Deviation Indicator = arrow on VOR points towards station
+		To/From Indicator tells you whether you're moving towards or away from station
+		VOT = VHF Omni Test
+			test signal to 360deg radial FROM or 180deg TO
+	GPS = Global Positioning System - uses 4 satellites to tell latitude, longitude and altitude
+Flight Operations
+	Flight Plans - initial cruising altitude, final destination, usable fuel
+		If stops for more than an hour, file separate flight plan
+		Must close flight plans upon landing with FSS (not control tower)
+	Airport Facility Directory - details on airports
+		Airport name, (Airport ID), Location rel. town
+	VHF/DF - FSS can determine direction from VHF radio signal
+	If not in hours of operation - use tower frequency as CTAF
+	Left traffic pattern is standard
+	Advisory Circular - Order 121 from FAA government printing office
+		Numbers start with
+		60 = airmen, 70 = airspace, air traffic control/general operation = 90
+	Preflight
+		PIC responsible safe for flight
+		Mechanic responsible safe after inspection
+		Owner responsible overall
+		Fill Fuel to full after flight - keep out water
+		Use only higher octane fuel
+	Operation
+		Make sure oil pressure is good after start
+		Make sure aux. fuel pump is off after start/takeoff/landing
+		Upon engine failure, immediately pitch for best glide and land
+		Throttle controls manifold pressure, propellor pitch controls RPM
+		Always enrich mixture before changing throttle or adjusting altitude, then lean when stable
+		Carburetor Icing - loss of engine RPM, apply Carb heat
+		Overheating causes - lower-octane fuel, too much power, mixture too lean
+			fix = enrich mixture, reduce rate of climb, increase airspeed
+		Oil temp too high - not enough oil
+		Detonation - explosions in cylinder - cause=lower-octane fuel, fix = increase airspeed
+		Pre-ignition - firing of cylinder before spark - get mechanic
+		Maneuvering - straight/level, turns, climbs, descents
+	Vision - scan for traffic - focus on small segments for short intervals
+		haze makes planes look farther away
+		night, use peripheral vision
+	Hypoxia - oxygen deficiency, stay below 8000'
+	Hyperventilation - breathing too hard - slow breaking / talking / breathe into bag
+	CO poison - from heaters - check detector
+	Spatial Orientation - temporary state of confusion - believe in instruments
+	Lights
+		VASI - Visual Altitude Slope Indicator
+			Red over red, you're dead,
+			white over white, too much height
+			red over white, you're alright
+		Tri-color VASI - Amber too high, green good, red too low
+		PAPI - Precision Approach Path Indicator
+			use red/white rules - 4 lights more detail
+		Turn on night lights by clicking microphone 7 times, then 5 when unattended
+		Night
+			Blue = taxi
+			white = runway
+			green = runway edge
+	Enter traffic pattern at 45deg midway downwind
+	Signs
+		Yellow back - taxiway direction or destination
+		Black back, yellow letters/border - location sign
+		red back - stop hold, mandatory instruction from ATC
+		red back, white circle dash - no entry
+		yellow back, 4 black lines - runway holding position
+		yellow/black diagonals - taxiway ending
+	Runway Markings
+		arrows - takeoffs ok, no landings (displaced threshold)
+		chevrons - emergency only
+		x - runway closed
+	Taxi Winds
+		Always turn ailerons to parallel wind
+		Tricycle gear - neutral elevator for headwind, elevator down for tailwind
+		tailheel - elevator up for headwind, elevator down for tailwind
+	LAHSO - Land and Hold Short Operations
+		Used to increase capacity at airport
+		Hold short of intersecting runway or taxiway
+		You can decline LAHSO
+		Students, recreational, or unfamiliar pilots cannot accept
+		Min weather - VFR - 1000' ceiling 3sm vis
+	Risk
+		Pilot, Aircraft, Environment, External Pressure
+		Human error affects most preventable accidents
+		Hazardous Attitudes - Antiauthority, Impulsivity, Invulnerability, Macho, Resignation
+		Scud running - get closer to ceiling
+Weather
+	Standard Temperature = 15deg C or 59deg F
+	Standard Atmosphere = 29.92" Hg = 1013.2 Millibars
+	Variations in Altimeter Settings canused by unequal heating of Earth's surface
+	Winds High pressure to low pressure
+	Winds aloft clockwise around H, counterclockwise around L
+		Differences caused by friction between wind and surface
+	Cold Fronts and Warm Fronts always cause wind shift and temp difference
+	Clouds
+		Nimbus = rain cloud
+	Dew Point = Temperature that air must be cooled to become water saturated
+	Temperature and dew point get closer together with altitude = 4.4deg per 1000 ft
+	Base of clouds Calculation
+		(Temperature -  Dew Point) / 4.4 * 1000'
+	Lapse Rate = temperate drop rate with altitude
+		If gets colder faster than standard = unstable
+		If gets colder slower or warmer than standard = stable
+	Moist stable air flows upslope = status type clouds
+	Desert - warm air below - decrease stability - rising hot air (convective thermals) - turbulence / good vis
+		Cumulus clouds - showery percipitation
+	Unstable air forced upwards = towering cumulus clouds = convective turbulence
+	Structural icing from visible moisture
+	Freezing rain - warm front on top of cold front
+		If freezing rain at higher altitude, see ice pellets
+	Frost - temperature of surface is below dewpoint and dewpoint below freezing
+	Temperature Inversion - air above is warmer than air below
+		with high humidity - smooth air, poor vis, fog, haze, low clouds
+		wind sheer if windspeed @2000-4000' AGL is > 25 knots
+	Radiation (Ground) Fog - warm moist air over low flatland areas on clear calm nights
+	Advective fog - coastal areas - warm air from ocean over cold land = fog
+	Upslope fog - air rises up mountain slope and cools off
+		Advection fog / upslope fog
+	Steam fog - Cold land air moves over warm ocean - low turbulence and icing
+	Cumulonimbus = Thunderstorm clouds (greatest turbulence) wind shear turb.
+		Squall line - non-frontal narrow band of active T-storms (highest hazard)
+		3 reqs - lifting force, unstable air, moist air
+		Stages
+			- Cumulous: upward lifting force
+			- Mature: some downward force, begin precipitation, greatest intensity
+			- Dissipating - predominately downward, fizziling out
+		Embedded T-storms - hidden by cloud layers, cannot be seen
+	Weather Advisories - In-flight
+		AIRMET - hazards to small single-engine aircraft - to all aircraft (moderate icing)
+		SIGMET - significant - hazards to all aircraft (severe icing)
+		Convective SIGMET - tornadoes, embedded thunderstorms, 3/4" hail
+	Wind shear - can occur at all altitudes and directions
+		Low-level temp. inversion
+		Frontal zones
+		Clear air turbulence
+		Thunderstorms
+	Standing Lenticular Clouds - almond shaped over ridge 
+		Indicates crest of a standing wave - 50 knots or more
+		Caused by mountain wave turbulence with winds of 40 knots or more / air stable
+		If it were unstable, would be a thunderstorm
+	Overcast OVC, Broken BKN, Scattered SCT
+		BKN and OVC are ceilings, rest are not
+	K Airport codes indicate USA
+	METAR
+		Airport Code i.e. KFME
+		Date/time i.e. 182217Z
+		Wind direction/speed i.e. 18004G12KT
+		Visibility i.e. 10SM
+		Significant Weather i.e. BR = mist
+		Cloud Cover i.e. OVC070 or SKC =sky clear
+		Temp/Dew i.e. 20/15
+		Altimeter settings i.e. A3001
+		Remark i.e. RMK RAB35 (Remark Rain began 35 min past hour)
+	VFR Minimums
+		1000' AGL ceiling
+		3 SM vis
+	Terminal Area Forecast (TAF)
+		Date/Time i.e. 121720Z (12th day of month, 1720Z)
+		Valid time i.e. 121818 (Valid on 12th from 1800Z to 1800Z next day)
+		Wind
+		Visibility i.e. PROB40 0205 1SM TSRA OVC (Prob of 40% between 0200Z and 0500Z ...)
+		Significant Weather i.e. TSRA (Thunderstorm rain)
+		Cloud Cover i.e. OVC008CB (Overcast at 800' Cumulonimbus)
+	Winds Aloft - wind true direction, speed in knots, temperature in C
+		Winds - ie. 2006+03 (200deg 06kts, +03deg C)
+		9900 = winds are light and variable (less than 5 kts)
+	Area Forecast - use only if no TAF, spans several states
+		Communications and product header
+		Precautionary Statements
+		Synopsis - fronts and pressure systems
+		VFR Clouds/WX - Clouds and weather for an area bigger than 3000 mi^2
+			12 hour specific forecast
+			then 6 hour category outlook
+			CIG = Ceiling above ground
+	Weather Depiction Charts
+		VFR = areas with no contours
+			ceiling >3000', >5sm vis
+		MVFR = contour with no shading
+			ceiling 1000-3000' 3s-5sm vis
+		IFR = contour with shading
+			ceiling <1000'<3sm vis
+		Amount of shading at station circle indicates percent cloud cover
+			i.e. 30 = 3000' ceiling
+		Vis listed to the left of station circle unless greater than 5sm
+			If "=" then fog
+			If "*" then snow
+			If two solid dark circles = rain
+				side by side = continuous
+				on top of each other = intermittent
+			If one dark circle with triangle = rain showers
+			Mountain peak symbol = moderate turbulence
+				V = severe turbulence
+				Numbers i.e. 180/ = 18000' to sfc
+		Cold front = line with triangles
+		Warm front = line with semicircles
+		Stationary front = line with triangles one side and semicircles on other
+	Low-level Prognostic Charts (Forecast)
+		Top 2 = significant weather - IFR, VFR, turb, freezing rain
+		Bottom 2 = Pressure system, fronts, and precipitation
+		Left 2 = 12 hour forecasts
+		Right 2 = 24 hour forecasts
+	Pilot Reports = PIREPS
+		UA/OV = PIREP over
+		Area i.e. KOKC-KTUL
+		Time i.e. TM 1800
+		Altitude i.e. FL120 (12000')
+		Type Aircraft i.e. TP BE90 (King Air 90)
+		Conditions i.e. SK BKN018-TOP055 (clouds between 1800-5500')
+			If unknown UNK
+			Clear above = CLR ABV
+		Temperature i.e. TA M7 (minus 7deg C)
+		Wind Velocity i.e. WV 08021 (80deg @21kts)
+		Turbulence i.e. TB LGT 055-072 (light between 5500-7200')
+		Icing i.e. IC LGT-MOD RIME 072-089 (light to moderate rime between 7200-8900')
+	Radar Reports (better to look at charts)
+		Radar only gets precipitation, not clouds
+		Format: 
+			Location of precipitation
+			Type
+			Intensity
+			Cell Movement
+		Intensity shown by embedded contour lines
+		Tops are numbers by contours
+		R = rain, RW = rain showers
+		Cell movement shown by arrow, number i.e. 17 = 17 knots
+		Heavy dashed lines show severe weather S=storms, T=tornadoes
+	Obtain Weather
+		Call FSS Give:
+			Pilot's name
+			Aircraft ID
+			VFR Only
+			Route
+			Destination
+			Type of Aircraft
+		Standard Briefing = complete
+		Abbreviated Briefing = supplement mass disseminated data or update
+		Outlook Briefing = 6 hours in advance of flight
+		Enroute Advisories
+			Below FL180 radio FSS on 122.0MHz (Flight Watch - no flight plans)
+		TWEB = Transcribed Weather Broadcasts = taped
+			Weather briefing, winds aloft
+			Tune VHF radio to VOR station (if T shown on chart in VORTAC box)
+			OR Tune ADF into NDB freq
+		Hazardous Inflight Weather Advisory Service (HIWAS)
+			H in VORTAC box on charts
+Federal Aviation Regulations
+	Pilot / Medical Certificate - Carry at all times
+		Can be requested by FAA administrator, National Transportation Board, Law Enforcement
+	Medical Certificates
+		First - valid until after 6th months (Defaults to second)
+		Second - valid until after 12 months (commercial pilot) then defaults to third
+		Third - valid until after 24 months (if over 40 yrs) or 36 months if younger
+	Airmen Category - Airplane, rotorcraft, glider, ligher-than-air
+	Airmen Class - Single-engine land/sea, multi-engine land/sea
+	Type = Make and model
+	Type rating required for aircraft where weight  >12,500 lbs or turbojet
+	Aircraft Category - normal, utility, acrobatic, restricted, experimental
+		Restricted - cannot fly over densely populated area (i.e. crop duster)
+		Experimental - homebuilt - cannot be in congested area without permission
+	Aircraft Class - Glider, airplane, helicopter, hot air balloon, powered lift
+	ARROW - required documents on aircraft
+		Airworthiness Certificate - no expiration
+		Registration - owner
+		Radio License
+		Operating Limitations
+		Weight and Balance
+	Towing Gliders
+		Logged at least 100 hours in same category, class and type (if required)
+		Within 12 months - at least 3 actual or simulated glider tows with qualified pilot
+	High Performance Airplanes - >200hp (requires rating)
+	Complex Airplane - retractable landing gears, flaps, controllable propeller (requires rating)
+		Not required if PIC before August 4, 1997
+	Private Pilot can share expenses, but must be equal sharing
+	Private pilot may carry passengers for charitable airlift
+	Biennial review - flight review within 24 months
+	Carrying passengers - 3 takeoffs and 3 landings in same category, class, [type] within 90 days
+		If tailwheel airplane, landings must be full stop
+		If at night, these must be done at night to full stop
+			Night = 1 hour after sunset to 1 hour before sunrise (for carrying passengers)
+			Night = end of evening civil twilight to beginning morning civil twilight (other cases)
+	Inflight Emergency - PIC can deviate from FAR's to meet emergency, no report required (unless asked)
+	Preflight - know all information concerning flights, runway lengths, alternate course of action
+	Fuel Requirements - at least enough to fly to first point of landing plus 30 min
+		At night - 45 minutes
+	Responsibilities
+		PIC - ready for flight
+		owner - mantaining airworthy condition, mechanic makes proper entries in logbook
+		mechanic - airworthy after inspection
+	Aircraft Inspections - good until end of 12 months
+		Into Logbook, date, return to service, and completion of inspection
+		100-hour inspections required for rental planes for flight instruction
+			Cannot be exceeded by more than 10 hours
+			Excess time is deducted from next 100 hours
+	Airworthiness Directives (AD) - FAA requirement updates
+		Must be shown in logbooks - mandatory
+		Pilot may be operate an aircraft not in compliance as stated in terms of AD
+	Aircrafts must be test flown by appropriately rated pilot and approved for return to service
+		at least private pilot
+	Preventative Maintenance - pilots can do it
+		Simple and preservation - service landing gear wheel bearings, replenishing hydraulic fluid
+		14 CFR Part 43.7
+		Logbook - signature, certificate number, kind of certificate, description of work
+	Transponder - 4096 with encoding altimeter
+		Required in Class A, B (and within 30 miles of airport), C
+		Must be tested and inspected lasts until end of 24 months
+	Right of Way - always give way to the right if head on
+		1.) Airplane in distress
+		2.) Unpowered aircraft
+		3.) Towing or refueling aircraft
+		4.) Other engine-driven aircraft
+		If 2 of same category converge, aircraft on left shall give way
+		If 2 of diff category, least maneuverable has right of way
+		Landing - lower airplane
+	Night Operations
+		Lights required from sunset to sunrise
+		Left Wingtip - red light
+		Right Wingtip - green light
+		Tail - white light
+		Belly or Tail Tip - flashing red light
+		Cannot see wingtip lights behind aircraft
+	Before Maneuvers - Do clearing turns
+	Clearance does not guarantee collision avoidance
+	If "proceed to taxi to __" you can cross any runways or taxiways to get to it
+	Do not switch frequencies (i.e. ground control) until ATC tells you to
+	Must request amended clearances unless emergency
+	If emergency and given priority - must file report within 48 hours to ATC facility if requested
+	Radio Failure
+		Observe traffic pattern
+		Enter pattern
+		Light gun from tower
+			Flashing white - return to starting point at airport (taxi)
+			Flashing Green - cleared to taxi
+			Steady Green - Clear to land
+			Steady red - give way to other aircraft and circle
+			Flashing Red - airport unsafe for landing
+			Alternating Red/green - exercise extreme caution
+			Alternating Red/Green then flashing red - abandon landing and do not land
+	Altitudes
+		180-359def - even thousands + 500 (4500, 6500, 8500)
+		0-179deg - odd thousands + 500 (3500, 5500, 7500)
+		Min altitude = 500' AGL if uncongested area
+		Min altitude = 500' AGL over any person, vessel (water) or vehicle
+		Min altittude = 1000' AGL over congested area
+	Altimeter - set to 29.92" when above 18,000' MSL
+	Speed Limits
+		>=10,000' MSL - no speed limit
+		< 1,0000' MSL - 250 KIAS
+		Class C or D [4nm radius, 2500' high] - 200 KIAS
+		Under Class B - 200 KIAS
+		VFR Corridor thru Class B - 200 KIAS
+	Seat Belts 
+		Passengers during takeoff and landings (must be shown how to use them)
+		Flight Crew - during takeoff, landings, and while enroute (not taxi)
+		Shoulder harnesses only necessary during takeoffs and landings
+	Oxygen 
+		crew must use after 30 min if altitude = 12500-14000' MSL
+		crew must use if altitude > 14000' MSL
+		passengers must be provided if altitude > 15000' MSL
+	Acrobatic flight 
+		prohibited in B, C, D, and E designated for airport, 
+			federal airways, below 1500', less than 3sm vis, 
+			over congested area, over open air assembly over persons	
+		must wear parachute if pitch nose at least above or below 30 deg.
+			chair type parachute packed within 120 days
+	Emergency Locator Transmitters (ELT) - on freq. 121.5 and 243.0 (military) MHz
+		Batteries must be replaced/recharged if <50% or used for more than 1 hour
+		Only tested during first 5 minutes after the hour
+	Accident - Notify National Transportation Safety Board (NTSB) within 10 days
+		Accident = Damage to aircraft
+		Incidents:
+			Overdue aircraft believed to be involved in accident
+			Inability of any crew member to perform normal flight duties
+			Flight control system malfunction
+			In-flight fire
+		Accidents - always rport
+		Incidents - only if requested
+		Wreckage can only be moved to prevent further damage
+	Alcohol cannot be consumed within 8 preceding hours
+		0.04 percent limit BAC
+		Can only carry drunk passengers if medical condition or emergency
+	Move address  -30 days to update FAA
+	Objects can be dropped from aircraft if precautions taken to avoid injury or damage to ppl/things below
+Cross Country Planning
+	Flight Computer - set up ratio
+		how fast goes first
+		miles / gallons on outer scale
+		minutes on the inner scale
+		sanity check at the end
+	Plotter Mistakes
+		check for shrunk/warped
+		zero not at end
+		nautical miles  vs statute miles
+		Sectional vs. WAC scales
+	Wind Correction Angle (WCA) = Difference between heading and course
+	True Airspeed = speed through air
+	Ground airspeed = speed over ground
+	True Course (TC) +/- Magnetic Variation (VAR) = Magnetic Course (MC)
+	Solving Problems:
+		1. TC +/- WCA = TH
+		2. TH +/- VAR = MH
+		3. MH +-/ DEV = CH
+Aircraft Performance
+
+Weight and Balance
+
+How to Ace Your Test
+
+

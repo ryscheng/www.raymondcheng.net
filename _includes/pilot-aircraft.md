@@ -1,5 +1,0 @@
-- [Cessna 152](https://en.wikipedia.org/wiki/Cessna_152)
-- [Cessna 172](https://en.wikipedia.org/wiki/Cessna_172)
-- [Condor 330 Hang Glider](https://www.willswing.com/hang-gliders/condor/)
-- [Condor 225 Hang Glider](https://www.willswing.com/hang-gliders/condor/)
-- [Falcon 195 Hang Glider](https://www.willswing.com/hang-gliders/falcon-3/)

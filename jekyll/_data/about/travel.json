@@ -1,0 +1,15 @@
+{
+  "title": "Traveler",
+  "subtitles": [],
+  "descriptions": [
+    "<iframe src='https://mapsengine.google.com/map/embed?mid=zC8EgLcJ1j8w.kxBaXw0vwZCs' width='480' height='400'></iframe>"
+  ],
+  "images": [
+    {
+      "src": "/img/pic/travel.jpg",
+      "alt": "travelmap"
+    }
+  ],
+  "quotes": [],
+  "accordians": []
+}

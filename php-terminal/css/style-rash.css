@@ -1,0 +1,40 @@
+body
+	{
+	background-color: black;
+	color: #FFFFFF;
+	}
+table.terminal
+	{
+	empty-cells: show;
+	border-collapse: collapse;
+	width: 800px;
+	height: 600px;
+	vertical-align: text-top;
+	text-align: left;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: courier;
+	font-size: 15px;
+	border: thin solid #FFFFFF;
+	}
+td.screen
+	{
+	height: 580px;
+	width: 800px;
+	line-height: 90%;
+	}
+input
+	{
+	width: 580px;
+	height: 15px;
+	color: #FFFFFF;
+	background-color: #000000;
+	font-family: courier;
+	font-size:15px;
+	border-style: none;
+	}
+a
+	{
+	color: #00FF00;
+	}

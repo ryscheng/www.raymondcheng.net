@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Raymond Cheng">
+  <!--meta name="description" content="In this guide, we will show you how to build a video player web application with Plasmic, a visual builder for React. While many Plasmic users use it to buil..."-->
+  <!--title>Raymond Cheng</title-->
+
+  <link rel="icon" type="images/jpg" href="/img/ico/favicon.jpg">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css">
+  <!--link rel="stylesheet" href="/css/main2.css"-->
+  <!--link rel="canonical" href="https://www.raymondcheng.net/posts/plasmicflix.html"-->
+  <link rel="alternate" type="application/rss+xml" title="Raymond Cheng" href="https://www.raymondcheng.net/feed.xml">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Build a Netflix clone in Next.js with a visual app builder | Raymond Cheng</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Build a Netflix clone in Next.js with a visual app builder" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this guide, we will show you how to build a video player web application with Plasmic, a visual builder for React. While many Plasmic users use it to build landing and content pages, Plasmic is actually a powerful UI builder for apps of any complexity, allowing you or your design team to rapidly iterate on rich web applications." />
+<meta property="og:description" content="In this guide, we will show you how to build a video player web application with Plasmic, a visual builder for React. While many Plasmic users use it to build landing and content pages, Plasmic is actually a powerful UI builder for apps of any complexity, allowing you or your design team to rapidly iterate on rich web applications." />
+<link rel="canonical" href="https://www.plasmic.app/blog/building-netflix-clone" />
+<meta property="og:url" content="https://www.plasmic.app/blog/building-netflix-clone" />
+<meta property="og:site_name" content="Raymond Cheng" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-06T12:40:05+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Build a Netflix clone in Next.js with a visual app builder" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-06T12:40:05+00:00","datePublished":"2022-04-06T12:40:05+00:00","description":"In this guide, we will show you how to build a video player web application with Plasmic, a visual builder for React. While many Plasmic users use it to build landing and content pages, Plasmic is actually a powerful UI builder for apps of any complexity, allowing you or your design team to rapidly iterate on rich web applications.","headline":"Build a Netflix clone in Next.js with a visual app builder","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.plasmic.app/blog/building-netflix-clone"},"url":"https://www.plasmic.app/blog/building-netflix-clone"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">Raymond Cheng</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/projects/">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/publications/">Publications</a>
+        </li>
+      </ul>
+
+      <!--
+      <a href="http://www.google.com/recaptcha/mailhide/d?k=01acpirUAdGm8kXTEX3VqxAQ==&amp;c=hQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01acpirUAdGm8kXTEX3VqxAQ\x3d\x3d\x26c\x3dhQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">
+        <button class="btn btn-outline-success my-2 my-sm-0">Email Me</button>
+      </a>
+      -->
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+
+      <div class="page-content">
+        <div class="wrapper">
+          <div class="row featurette">
+  <!-- LEFT -->
+  <div class="col-md-3 d-none d-sm-none d-md-block d-lg-block d-xl-block">
+    <h2 class="featurette-heading"><a href="/blog">Blog</a></h2>
+
+    <ul>
+      
+        <li>
+          <span class="post-meta">Aug 9, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/react-localization.html">How to choose a localization approach for your React application</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">May 19, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/nextjs-personalization.html">High Performance Personalization with Next.js Middleware</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 12, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/nextjs-ab-testing.html">A/B Testing with Next.js middleware</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 6, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/plasmicflix.html">Build a Netflix clone in Next.js with a visual app builder</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Mar 29, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/plasmic-supabase-demo.html">Building a Pokedex with Plasmic + Supabase</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Oct 6, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/how-to-hang-glide.html">How to Become an H3 Hang Glider Pilot in the Bay Area</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 21, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/why-phd.html">Strong/Weak Reasons to do a PhD in Computer Science</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 4, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/nian-gao.html">Chinese New Year Cake (Nian Gao)</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Feb 21, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/iron-blogger.html">Iron Blogger SF</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 7, 2020</span>
+          <p>
+            <a class="post-link" href="/posts/autodapp-proposal.html">AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Dec 30, 2019</span>
+          <p>
+            <a class="post-link" href="/posts/decentralizing-twitter.html">A Path to Opening Up Twitter</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 25, 2018</span>
+          <p>
+            <a class="post-link" href="/posts/git-yubikey.html">Signing Git Commits and SSH Authentication with Yubikey</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Sep 17, 2018</span>
+          <p>
+            <a class="post-link" href="/posts/time-management.html">Time Management</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">May 22, 2017</span>
+          <p>
+            <a class="post-link" href="/posts/after-graduation.html">How much longer until you graduate?</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 19, 2016</span>
+          <p>
+            <a class="post-link" href="/posts/personal-server-overview.html">Docker-based Personal Server</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 14, 2015</span>
+          <p>
+            <a class="post-link" href="/posts/retrospective-solar-printer.html">Retrospective: Solar Printer</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 13, 2015</span>
+          <p>
+            <a class="post-link" href="/posts/welcome.html">Welcome!</a>
+          </p>
+        </li>
+      
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="col-md-9">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Build a Netflix clone in Next.js with a visual app builder</h1>
+        <p class="post-meta"><time datetime="2022-04-06T12:40:05+00:00" itemprop="datePublished">Apr 6, 2022</time></p>
+
+        <ul class="share-buttons">
+  <!--Hacker News-->
+  <li><a href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fplasmicflix.html&t=Build+a+Netflix+clone+in+Next.js+with+a+visual+app+builder" title="Share on Hacker News" target="_blank"><img alt="Share on Hacker News" src="/img/ico/share/HackerNews.png"></a></li>
+  <!--Reddit-->
+  <li><a href="http://www.reddit.com/submit?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fplasmicflix.html&title=Build+a+Netflix+clone+in+Next.js+with+a+visual+app+builder" target="_blank" title="Submit to Reddit"><img alt="Submit to Reddit" src="/img/ico/share/Reddit.svg"></a></li>
+  <!--Twitter-->
+  <li><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fplasmicflix.html&text=Build+a+Netflix+clone+in+Next.js+with+a+visual+app+builder&via=RaymondCheng00" target="_blank" title="Tweet"><img alt="Tweet" src="/img/ico/share/Twitter.svg"></a></li>
+  <!--Facebook-->
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fplasmicflix.html&p[title]=Build+a+Netflix+clone+in+Next.js+with+a+visual+app+builder&t=Build+a+Netflix+clone+in+Next.js+with+a+visual+app+builder" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="/img/ico/share/Facebook.svg"></a></li>
+  <!--LinkedIn-->
+  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fplasmicflix.html&title=Build+a+Netflix+clone+in+Next.js+with+a+visual+app+builder&summary=&source=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fplasmicflix.html" target="_blank" title="Share on LinkedIn"><img alt="Share on LinkedIn" src="/img/ico/share/LinkedIn.svg"></a></li>
+  <!--Pinterest-->
+  <li><a href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fplasmicflix.html&description=Build+a+Netflix+clone+in+Next.js+with+a+visual+app+builder&media=https://www.raymondcheng.net/img/pic/me.jpg" target="_blank" title="Pin it"><img alt="Pin it" src="/img/ico/share/Pinterest.svg"></a></li>
+  <!--Tumblr-->
+  <li><a href="http://www.tumblr.com/share?v=3&u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fplasmicflix.html&t=Build+a+Netflix+clone+in+Next.js+with+a+visual+app+builder&s=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fplasmicflix.html" target="_blank" title="Post to Tumblr"><img alt="Post to Tumblr" src="/img/ico/share/Tumblr.svg"></a></li>
+  <!--Wordpress-->
+  <li><a href="http://wordpress.com/press-this.php?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fplasmicflix.html&t=Build+a+Netflix+clone+in+Next.js+with+a+visual+app+builder&s=" target="_blank" title="Publish on WordPress"><img alt="Publish on WordPress" src="/img/ico/share/Wordpress.svg"></a></li>
+  <!--Pocket-->
+  <li><a href="https://getpocket.com/save?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fplasmicflix.html&title=Build+a+Netflix+clone+in+Next.js+with+a+visual+app+builder" target="_blank" title="Add to Pocket"><img alt="Add to Pocket" src="/img/ico/share/Pocket.svg"></a></li>
+  <!--Pinboard-->
+  <li><a href="https://pinboard.in/popup_login/?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fplasmicflix.html&title=Build+a+Netflix+clone+in+Next.js+with+a+visual+app+builder&description=Build+a+Netflix+clone+in+Next.js+with+a+visual+app+builder" target="_blank" title="Save to Pinboard"><img alt="Save to Pinboard" src="/img/ico/share/Pinboard.svg"></a></li>
+  <!--Email-->
+  <li><a href="mailto:?subject=Build+a+Netflix+clone+in+Next.js+with+a+visual+app+builder&body=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fplasmicflix.html" target="_blank" title="Send email"><img alt="Send email" src="/img/ico/share/Email.svg"></a></li>
+</ul>
+
+  <!--Google+-->
+<!--
+  <li><a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fplasmicflix.html" target="_blank" title="Share on Google+"><img alt="Share on Google+" src="/img/ico/share/Google+.svg"></a></li>
+-->
+
+      </header>
+
+      <div class="post-content" itemprop="articleBody">
+        <p>In this guide, we will show you how to build a video player web application with <a href="https://www.plasmic.app/">Plasmic</a>, a visual builder for React. While many Plasmic users use it to build landing and content pages, Plasmic is actually a powerful UI builder for apps of any complexity, allowing you or your design team to rapidly iterate on rich web applications.</p>
+
+<p><a href="https://www.plasmic.app/">Plasmic</a> is a new type of low-code tool that can drag and drop React components from your codebase, and render back into your codebase, which you own. This deep integration with code is powerful, letting you introduce arbitrary functionality—but most importantly, it ensures you are always in control. The app builder is never a walled garden that limits what you can do.</p>
+
+<p>You can play with the live demo here:<br />
+<a href="https://plasmicflix.vercel.app/">https://plasmicflix.vercel.app/</a></p>
+
+<p>For an inside look at the Plasmic project,
+<a href="https://studio.plasmic.app/projects/eqrDNQBEf6ytvNJgLEmjN2">see here</a>.</p>
+
+<p><img src="/img/diagrams/plasmicflix/00-app-screenshot.png" alt="screenshot" /></p>
+
+<h2 id="overview">Overview</h2>
+
+<ul>
+  <li>Plasmic is used to create the pages and visual design of the application.</li>
+  <li>Plasmic can drag and drop React components from our Next.js codebase. In this app, we have components that query and display data from <a href="https://www.themoviedb.org/">The Movie Database</a>.</li>
+  <li>Plasmic designed pages are rendered back into the Next.js application.</li>
+</ul>
+
+<h2 id="step-1-clone-the-plasmic-project">Step 1: Clone the Plasmic project</h2>
+
+<p>Let’s first explore what it’s like to use Plasmic Studio to edit the app visually.</p>
+
+<p>Open the Plasmic project<br />
+<a href="https://studio.plasmic.app/projects/eqrDNQBEf6ytvNJgLEmjN2">here</a>.</p>
+
+<p><img src="/img/diagrams/plasmicflix/01-clone-project.png" alt="clone-project" /></p>
+
+<p>Make a copy of it that you can edit by clicking the <code class="language-plaintext highlighter-rouge">Copy Project</code> button in the blue bar. This will clone the project and take you to your project.</p>
+
+<h2 id="step-2-create-a-popular-movie-list">Step 2: Create a popular movie list</h2>
+
+<p>Let’s make a new page for top movie rankings by using the code components from the code base.</p>
+
+<p>Create a new page called <code class="language-plaintext highlighter-rouge">Popular Movies</code>, and set a path for this page (<code class="language-plaintext highlighter-rouge">/popular</code>).</p>
+
+<p><img src="/img/diagrams/plasmicflix/02-new-page.png" alt="new-page" /></p>
+
+<p>Set the background of the page to black</p>
+
+<p><img src="/img/diagrams/plasmicflix/03-set-background.png" alt="set-background" /></p>
+
+<p>Insert a <code class="language-plaintext highlighter-rouge">MovieGrid</code> by searching the AddDrawer (by clicking the blue + button)</p>
+
+<blockquote>
+  <p>MovieGrid is a React component defined in our application’s codebase. As we’ll see later, its source is in <code class="language-plaintext highlighter-rouge">code-components/Collection.tsx</code></p>
+</blockquote>
+
+<p><img src="/img/diagrams/plasmicflix/04-add-moviegrid.png" alt="add-moviegrid" /></p>
+
+<p>Then in the right-hand panel, configure the props on <code class="language-plaintext highlighter-rouge">MovieGrid</code>.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">category_id</code> should match a valid <a href="https://developers.themoviedb.org/3/movies">category from TMDB</a> (e.g. “popular”)</li>
+  <li><code class="language-plaintext highlighter-rouge">itemLimit</code> - set how many movies to show</li>
+</ul>
+
+<p><img src="/img/diagrams/plasmicflix/05-set-props.png" alt="set-props" /></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">MovieGrid</code> will loop over the results from TMDB.</p>
+
+<p>Now customize the repeated content by inserting instances of <code class="language-plaintext highlighter-rouge">MovieField</code> to retrieve the relevant data from the movie metadata.</p>
+
+<p><img src="/img/diagrams/plasmicflix/06-add-moviefield.png" alt="add-moviefield" /></p>
+
+<h3 id="putting-it-all-together">Putting it all together</h3>
+
+<p>The following video shows you how to create the page end-to-end.</p>
+
+<video width="99%" preload="metadata" controls=""><source src="/img/diagrams/plasmicflix/07-end-to-end.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" /></video>
+
+<h2 id="step-3-set-up-your-codebase">Step 3: Set up your codebase</h2>
+
+<p>So far, we’ve been editing the visual design of the app in Plasmic Studio. Now we’re going to turn our attention to the codebase that the design is connected to.</p>
+
+<p>The codebase is available for you <a href="https://github.com/plasmicapp/plasmic/tree/master/examples/plasmicflix">here</a>. This repository comes with all of the <strong>code components</strong> we were just designing with in Plasmic Studio.</p>
+
+<blockquote>
+  <p><strong>Code components</strong> are React components defined in your code base that we import into Plasmic Studio for use. Your project will be configured to look for these at <code class="language-plaintext highlighter-rouge">http://localhost:3000/plasmic-host</code> You can use these components in your design, as well as style them. Check out <code class="language-plaintext highlighter-rouge">plasmicflix/plasmic-init.ts</code> to see how they are registered with Plasmic.</p>
+</blockquote>
+
+<p>First, clone the repo to your development machine and install the dependencies.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:plasmicapp/plasmic.git
+<span class="nb">cd </span>plasmic/examples/plasmicflix/
+yarn <span class="nb">install</span>
+</code></pre></div></div>
+
+<p>Copy <code class="language-plaintext highlighter-rouge">.env.example</code> to <code class="language-plaintext highlighter-rouge">.env.local</code>, which will store the environment variables when running a local development server. Update the Plasmic project ID and token to your own Plasmic project’s values</p>
+
+<p><strong>Plasmic Project ID:</strong> You can find the project ID in the URL:
+<code class="language-plaintext highlighter-rouge">https://studio.plasmic.app/projects/PROJECTID</code>.</p>
+
+<p><strong>Plasmic API token:</strong> The API token can be found by clicking the <code class="language-plaintext highlighter-rouge">Code</code> button in the top bar.</p>
+
+<p><img src="/img/diagrams/plasmicflix/08-api-token.png" alt="api-token" /></p>
+
+<p>Now run the dev server, which listens at <code class="language-plaintext highlighter-rouge">[http://localhost:3000](http://localhost:3000)</code> . Visit this URL to see your changes live!</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn dev
+</code></pre></div></div>
+
+<h3 id="configure-your-plasmic-project-app-host">Configure your Plasmic project app host</h3>
+
+<p>Plasmic Studio loads React components from your live running app, using something called <strong>app hosting—</strong>your app serves as the “host” for Plasmic Studio.</p>
+
+<p>To tell Plasmic to load code components on your dev server, you’ll need to update your project’s <strong>app host</strong> to <code class="language-plaintext highlighter-rouge">http://localhost:3000/plasmic-host</code>.</p>
+
+<blockquote>
+  <p>Note: At this point, you’ll need to keep your dev server running at <code class="language-plaintext highlighter-rouge">http://localhost:3000</code> for the project to load.</p>
+</blockquote>
+
+<video width="99%" preload="metadata" controls=""><source src="/img/diagrams/plasmicflix/09-set-apphost.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" /></video>
+
+<p>After restarting the dev server and Plasmic Studio, you should now be able to make edits across Plasmic Studio and your codebase. Updates to the Plasmic project should automatically be detected and reflected in your dev server. Similarly, any edits you make to your code components should also show up in Plasmic Studio.</p>
+
+<h2 id="how-does-this-work-under-the-hood">How does this work under the hood?</h2>
+
+<p>Let’s dive into the React components defined in this codebase!</p>
+
+<h3 id="moviegrid">MovieGrid</h3>
+
+<p><code class="language-plaintext highlighter-rouge">MovieGrid</code> is the code component that will query an API service for a movie collection, then loop over the results. Code components are registered in <code class="language-plaintext highlighter-rouge">plasmic-init.ts</code>. The <code class="language-plaintext highlighter-rouge">props</code> field is used to tell the Plasmic Studio the component prop interface, which allows us to expose these props in the right pane as shown in the screenshots earlier. See the docs for details on <a href="https://docs.plasmic.app/learn/registering-code-components/">component registration</a>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PLASMIC.registerComponent<span class="o">(</span>MovieGrid, <span class="o">{</span>
+  name: <span class="s2">"MovieGrid"</span>,
+  props: <span class="o">{</span>
+    category_id: <span class="o">{</span>
+      <span class="nb">type</span>: <span class="s2">"string"</span>,
+      defaultValue: <span class="s2">"popular"</span>,
+    <span class="o">}</span>,
+    children: <span class="o">{</span>
+      <span class="nb">type</span>: <span class="s2">"slot"</span>,
+      defaultValue: <span class="o">{</span>
+        <span class="nb">type</span>: <span class="s2">"text"</span>,
+        value: <span class="s2">"Placeholder"</span>,
+      <span class="o">}</span>,
+    <span class="o">}</span>,
+    loading: <span class="o">{</span>
+      <span class="nb">type</span>: <span class="s2">"slot"</span>,
+      defaultValue: <span class="o">{</span>
+        <span class="nb">type</span>: <span class="s2">"text"</span>,
+        value: <span class="s2">"Loading..."</span>,
+      <span class="o">}</span>,
+    <span class="o">}</span>,
+    itemLimit: <span class="s2">"number"</span>,
+  <span class="o">}</span>,
+  importPath: <span class="s2">"./code-components/Collection"</span>,
+<span class="o">})</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Under the hood, <code class="language-plaintext highlighter-rouge">MovieGrid</code> will query <a href="https://www.themoviedb.org/">The Movie Database</a>, retrieving a list of movies based on the <code class="language-plaintext highlighter-rouge">category_id</code> . We then iterate over the results and populate a <code class="language-plaintext highlighter-rouge">MovieContext</code>. Note the use of <code class="language-plaintext highlighter-rouge">repeatedElement</code>, a special convenience function that enables the component’s children to be repeated. In this case, this represents a single movie to be shown in the list.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// code-components/Collection.tsx</span>
+
+<span class="k">export</span> <span class="kd">function</span> <span class="nx">MovieGrid</span><span class="p">(</span><span class="nx">props</span><span class="p">:</span> <span class="nx">MovieGridProps</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">children</span><span class="p">,</span> <span class="nx">className</span><span class="p">,</span> <span class="nx">loading</span><span class="p">,</span> <span class="nx">category_id</span><span class="p">,</span> <span class="nx">itemLimit</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">props</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">collection</span><span class="p">,</span> <span class="nx">setCollection</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="o">&lt;</span><span class="nx">Movie</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">([])</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">loaded</span><span class="p">,</span> <span class="nx">setLoaded</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="o">&lt;</span><span class="nx">boolean</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+  <span class="kd">const</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">collection</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">itemLimit</span><span class="p">)</span>
+
+  <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="p">;(</span><span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">collection</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getMovieCollection</span><span class="p">(</span><span class="nx">category_id</span><span class="p">)</span>
+      <span class="nx">setCollection</span><span class="p">(</span><span class="nx">collection</span><span class="p">)</span>
+      <span class="nx">setLoaded</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+    <span class="p">})()</span>
+  <span class="p">},</span> <span class="p">[</span><span class="nx">loaded</span><span class="p">])</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">loaded</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="si">{</span><span class="nx">className</span><span class="si">}</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">loading</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="p">=</span><span class="si">{</span><span class="nx">className</span><span class="si">}</span><span class="p">&gt;</span>
+      <span class="si">{</span><span class="nx">items</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">movie</span><span class="p">:</span> <span class="nx">Movie</span><span class="p">,</span> <span class="nx">i</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+        <span class="p">&lt;</span><span class="nc">MovieContext</span><span class="p">.</span><span class="nc">Provider</span> <span class="na">value</span><span class="p">=</span><span class="si">{</span><span class="nx">movie</span><span class="si">}</span> <span class="na">key</span><span class="p">=</span><span class="si">{</span><span class="nx">movie</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="p">&gt;</span>
+          <span class="si">{</span><span class="nx">repeatedElement</span><span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">children</span><span class="p">)</span><span class="si">}</span>
+        <span class="p">&lt;/</span><span class="nc">MovieContext</span><span class="p">.</span><span class="nc">Provider</span><span class="p">&gt;</span>
+      <span class="p">))</span><span class="si">}</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="moviefield">MovieField</h3>
+
+<p><code class="language-plaintext highlighter-rouge">MovieField</code> will either render a <code class="language-plaintext highlighter-rouge">MovieTextInfo</code> or <code class="language-plaintext highlighter-rouge">MoviePoster</code> depending on the type. These code components simply read a single value from the contexts and display the data.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// code-components/Movie.tsx</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">MoviePoster</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">:</span> <span class="nx">MoviePosterProps</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">customStyle</span><span class="p">,</span> <span class="nx">className</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">props</span>
+  <span class="kd">const</span> <span class="nx">movieContext</span> <span class="o">=</span> <span class="nx">useMovie</span><span class="p">()</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">img</span>
+      <span class="na">style</span><span class="p">=</span><span class="si">{</span><span class="nx">customStyle</span><span class="si">}</span>
+      <span class="na">src</span><span class="p">=</span><span class="si">{</span><span class="nx">imagePath</span><span class="p">(</span><span class="nx">movieContext</span><span class="p">?.</span><span class="nx">poster_path</span> <span class="o">??</span> <span class="dl">''</span><span class="p">)</span><span class="si">}</span>
+      <span class="na">className</span><span class="p">=</span><span class="si">{</span><span class="nx">className</span><span class="si">}</span>
+    <span class="p">/&gt;</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In summary, by populating state into React contexts, we can store and retrieve data for use in other code components, which can be used for arbitrarily powerful interactions in Plasmic Studio.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>To learn more about Plasmic, take a look at the following resources:</p>
+
+<ul>
+  <li><a href="https://docs.plasmic.app/learn/">Plasmic documentation</a> - learn about Plasmic features and API</li>
+  <li><a href="https://studio.plasmic.app/projects/wU2bHAY7hyxcrseYmbfi82">Plasmic Levels</a> - an interactive game to teach you how to use Plasmic Studio</li>
+  <li><a href="https://www.plasmic.app/blog">Plasmic Blog</a> - for more tutorials and guides</li>
+</ul>
+
+<p>You can also check out the <a href="https://www.github.com/plasmicapp/plasmic">Plasmic GitHub repository</a>. Your feedback and suggestions are most appreciated!</p>
+
+      </div>
+
+    </article>
+
+    <hr />
+    <div style="text-align:center;"> 
+      <p>
+        Liked this post?
+        Follow <a href="https://twitter.com/RaymondCheng00"><img class='contactico' src='/img/ico/twitter.ico' alt='twitter' />@RaymondCheng00 on Twitter</a><br>
+        or subscribe to my blog mailing list for some fresh thoughts
+      </p>
+      <iframe src="https://ryscheng.substack.com/embed" width="480" height="80" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+
+    </div>
+
+    <div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+  this.page.url = "https://www.raymondcheng.net/posts/plasmicflix.html";
+  //this.page.url = window.location.href;
+  this.page.identifier = "/posts/plasmicflix";
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://raymondcheng.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<script id="dsq-count-scr" src="//raymondcheng.disqus.com/count.js" async></script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+
+  </div> <!-- column -->
+</div> <!-- featurette -->
+<hr class="featurette-divider">
+
+        </div>
+      </div>
+
+      <footer>
+  <p class="pull-right"><a href="#">Back to top</a></p>
+  <p>&copy; raymondcheng.net &middot; Last Updated 2022 </p>
+</footer>
+
+
+
+    </div>
+  </body>
+
+<script src='/js/jquery.min.js' type='text/javascript'></script>
+<script src='/js/bootstrap.min.js' type='text/javascript'></script>
+<script src='/js/main.js' type='text/javascript'></script>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-11930420-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

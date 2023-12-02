@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Raymond Cheng">
+  <!--meta name="description" content="The AutoDapp project aims to automatically convert any existing web or mobile application into a decentralized application (DApp) by changing just a single l..."-->
+  <!--title>Raymond Cheng</title-->
+
+  <link rel="icon" type="images/jpg" href="/img/ico/favicon.jpg">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css">
+  <!--link rel="stylesheet" href="/css/main2.css"-->
+  <!--link rel="canonical" href="https://www.raymondcheng.net/posts/autodapp-proposal.html"-->
+  <link rel="alternate" type="application/rss+xml" title="Raymond Cheng" href="https://www.raymondcheng.net/feed.xml">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps | Raymond Cheng</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The AutoDapp project aims to automatically convert any existing web or mobile application into a decentralized application (DApp) by changing just a single line of code, starting with Discourse and MediaWiki. This blog post outlines a high-level approach to instantly decentralize popular applications by interposing on the SQL connection between its web server and database. With the unified effort of the open source community, we can accelerate the advent of the decentralized future for millions of users – this is what we’re calling our “One Million” mission." />
+<meta property="og:description" content="The AutoDapp project aims to automatically convert any existing web or mobile application into a decentralized application (DApp) by changing just a single line of code, starting with Discourse and MediaWiki. This blog post outlines a high-level approach to instantly decentralize popular applications by interposing on the SQL connection between its web server and database. With the unified effort of the open source community, we can accelerate the advent of the decentralized future for millions of users – this is what we’re calling our “One Million” mission." />
+<link rel="canonical" href="https://www.raymondcheng.net/posts/autodapp-proposal.html" />
+<meta property="og:url" content="https://www.raymondcheng.net/posts/autodapp-proposal.html" />
+<meta property="og:site_name" content="Raymond Cheng" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-07T19:47:18+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2020-04-07T19:47:18+00:00","datePublished":"2020-04-07T19:47:18+00:00","description":"The AutoDapp project aims to automatically convert any existing web or mobile application into a decentralized application (DApp) by changing just a single line of code, starting with Discourse and MediaWiki. This blog post outlines a high-level approach to instantly decentralize popular applications by interposing on the SQL connection between its web server and database. With the unified effort of the open source community, we can accelerate the advent of the decentralized future for millions of users – this is what we’re calling our “One Million” mission.","headline":"AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.raymondcheng.net/posts/autodapp-proposal.html"},"url":"https://www.raymondcheng.net/posts/autodapp-proposal.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">Raymond Cheng</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/projects/">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/publications/">Publications</a>
+        </li>
+      </ul>
+
+      <!--
+      <a href="http://www.google.com/recaptcha/mailhide/d?k=01acpirUAdGm8kXTEX3VqxAQ==&amp;c=hQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01acpirUAdGm8kXTEX3VqxAQ\x3d\x3d\x26c\x3dhQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">
+        <button class="btn btn-outline-success my-2 my-sm-0">Email Me</button>
+      </a>
+      -->
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+
+      <div class="page-content">
+        <div class="wrapper">
+          <div class="row featurette">
+  <!-- LEFT -->
+  <div class="col-md-3 d-none d-sm-none d-md-block d-lg-block d-xl-block">
+    <h2 class="featurette-heading"><a href="/blog">Blog</a></h2>
+
+    <ul>
+      
+        <li>
+          <span class="post-meta">Aug 9, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/react-localization.html">How to choose a localization approach for your React application</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">May 19, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/nextjs-personalization.html">High Performance Personalization with Next.js Middleware</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 12, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/nextjs-ab-testing.html">A/B Testing with Next.js middleware</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 6, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/plasmicflix.html">Build a Netflix clone in Next.js with a visual app builder</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Mar 29, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/plasmic-supabase-demo.html">Building a Pokedex with Plasmic + Supabase</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Oct 6, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/how-to-hang-glide.html">How to Become an H3 Hang Glider Pilot in the Bay Area</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 21, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/why-phd.html">Strong/Weak Reasons to do a PhD in Computer Science</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 4, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/nian-gao.html">Chinese New Year Cake (Nian Gao)</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Feb 21, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/iron-blogger.html">Iron Blogger SF</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 7, 2020</span>
+          <p>
+            <a class="post-link" href="/posts/autodapp-proposal.html">AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Dec 30, 2019</span>
+          <p>
+            <a class="post-link" href="/posts/decentralizing-twitter.html">A Path to Opening Up Twitter</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 25, 2018</span>
+          <p>
+            <a class="post-link" href="/posts/git-yubikey.html">Signing Git Commits and SSH Authentication with Yubikey</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Sep 17, 2018</span>
+          <p>
+            <a class="post-link" href="/posts/time-management.html">Time Management</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">May 22, 2017</span>
+          <p>
+            <a class="post-link" href="/posts/after-graduation.html">How much longer until you graduate?</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 19, 2016</span>
+          <p>
+            <a class="post-link" href="/posts/personal-server-overview.html">Docker-based Personal Server</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 14, 2015</span>
+          <p>
+            <a class="post-link" href="/posts/retrospective-solar-printer.html">Retrospective: Solar Printer</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 13, 2015</span>
+          <p>
+            <a class="post-link" href="/posts/welcome.html">Welcome!</a>
+          </p>
+        </li>
+      
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="col-md-9">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps</h1>
+        <p class="post-meta"><time datetime="2020-04-07T19:47:18+00:00" itemprop="datePublished">Apr 7, 2020</time></p>
+
+        <ul class="share-buttons">
+  <!--Hacker News-->
+  <li><a href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fautodapp-proposal.html&t=AutoDapp%3A+a+Proposal+to+Instantly+Decentralize+Your+Existing+Web+Apps" title="Share on Hacker News" target="_blank"><img alt="Share on Hacker News" src="/img/ico/share/HackerNews.png"></a></li>
+  <!--Reddit-->
+  <li><a href="http://www.reddit.com/submit?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fautodapp-proposal.html&title=AutoDapp%3A+a+Proposal+to+Instantly+Decentralize+Your+Existing+Web+Apps" target="_blank" title="Submit to Reddit"><img alt="Submit to Reddit" src="/img/ico/share/Reddit.svg"></a></li>
+  <!--Twitter-->
+  <li><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fautodapp-proposal.html&text=AutoDapp%3A+a+Proposal+to+Instantly+Decentralize+Your+Existing+Web+Apps&via=RaymondCheng00" target="_blank" title="Tweet"><img alt="Tweet" src="/img/ico/share/Twitter.svg"></a></li>
+  <!--Facebook-->
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fautodapp-proposal.html&p[title]=AutoDapp%3A+a+Proposal+to+Instantly+Decentralize+Your+Existing+Web+Apps&t=AutoDapp%3A+a+Proposal+to+Instantly+Decentralize+Your+Existing+Web+Apps" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="/img/ico/share/Facebook.svg"></a></li>
+  <!--LinkedIn-->
+  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fautodapp-proposal.html&title=AutoDapp%3A+a+Proposal+to+Instantly+Decentralize+Your+Existing+Web+Apps&summary=&source=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fautodapp-proposal.html" target="_blank" title="Share on LinkedIn"><img alt="Share on LinkedIn" src="/img/ico/share/LinkedIn.svg"></a></li>
+  <!--Pinterest-->
+  <li><a href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fautodapp-proposal.html&description=AutoDapp%3A+a+Proposal+to+Instantly+Decentralize+Your+Existing+Web+Apps&media=https://www.raymondcheng.net/img/pic/me.jpg" target="_blank" title="Pin it"><img alt="Pin it" src="/img/ico/share/Pinterest.svg"></a></li>
+  <!--Tumblr-->
+  <li><a href="http://www.tumblr.com/share?v=3&u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fautodapp-proposal.html&t=AutoDapp%3A+a+Proposal+to+Instantly+Decentralize+Your+Existing+Web+Apps&s=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fautodapp-proposal.html" target="_blank" title="Post to Tumblr"><img alt="Post to Tumblr" src="/img/ico/share/Tumblr.svg"></a></li>
+  <!--Wordpress-->
+  <li><a href="http://wordpress.com/press-this.php?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fautodapp-proposal.html&t=AutoDapp%3A+a+Proposal+to+Instantly+Decentralize+Your+Existing+Web+Apps&s=" target="_blank" title="Publish on WordPress"><img alt="Publish on WordPress" src="/img/ico/share/Wordpress.svg"></a></li>
+  <!--Pocket-->
+  <li><a href="https://getpocket.com/save?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fautodapp-proposal.html&title=AutoDapp%3A+a+Proposal+to+Instantly+Decentralize+Your+Existing+Web+Apps" target="_blank" title="Add to Pocket"><img alt="Add to Pocket" src="/img/ico/share/Pocket.svg"></a></li>
+  <!--Pinboard-->
+  <li><a href="https://pinboard.in/popup_login/?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fautodapp-proposal.html&title=AutoDapp%3A+a+Proposal+to+Instantly+Decentralize+Your+Existing+Web+Apps&description=AutoDapp%3A+a+Proposal+to+Instantly+Decentralize+Your+Existing+Web+Apps" target="_blank" title="Save to Pinboard"><img alt="Save to Pinboard" src="/img/ico/share/Pinboard.svg"></a></li>
+  <!--Email-->
+  <li><a href="mailto:?subject=AutoDapp%3A+a+Proposal+to+Instantly+Decentralize+Your+Existing+Web+Apps&body=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fautodapp-proposal.html" target="_blank" title="Send email"><img alt="Send email" src="/img/ico/share/Email.svg"></a></li>
+</ul>
+
+  <!--Google+-->
+<!--
+  <li><a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fautodapp-proposal.html" target="_blank" title="Share on Google+"><img alt="Share on Google+" src="/img/ico/share/Google+.svg"></a></li>
+-->
+
+      </header>
+
+      <div class="post-content" itemprop="articleBody">
+        <p>The <a href="https://autodapp.io">AutoDapp</a> project aims to automatically convert any existing web or mobile application into a decentralized application (DApp) by changing just a single line of code, starting with <a href="https://www.discourse.org/">Discourse</a> and <a href="https://www.mediawiki.org/wiki/MediaWiki">MediaWiki</a>. This blog post outlines a high-level approach to instantly decentralize popular applications by interposing on the SQL connection between its web server and database. With the unified effort of the open source community, we can accelerate the advent of the decentralized future for millions of users – this is what we’re calling our “One Million” mission.</p>
+
+<p><img src="/img/diagrams/autodapp-proposal/banner.png" alt="banner" /></p>
+
+<h2 id="why-arent-there-more-dapp-users">Why aren’t there more Dapp users?</h2>
+
+<p>Efforts towards decentralizing the Web have now been a decades-long journey. Companies and smart people join the cause for various reasons, whether <a href="https://www.eff.org/cyberspace-independence">ideological</a>, to shift the <a href="https://medium.com/openbazaarproject/why-is-decentralization-important-354499db6fb8">balance of power</a>, to make their applications <a href="https://unchainedpodcast.com/why-decentralization-isnt-as-important-as-you-think/">resilient to censorship</a>, to protect <a href="https://knightcolumbia.org/content/protocols-not-platforms-a-technological-approach-to-free-speech">free speech</a>, or to encourage greater <a href="https://onezero.medium.com/why-decentralization-matters-5e3f79f7638e">innovation</a>.</p>
+
+<p>Traditionally, the movement has been defined by technology-first efforts. First, design a decentralized or peer-to-peer subsystem (such as <a href="https://ipfs.io/">storage</a>, <a href="https://covenantsql.io/">SQL database</a>, <a href="https://www.bigchaindb.com/">document-oriented database</a>, <a href="https://gun.js.org/">graph database</a>, <a href="https://www.bittorrent.com/">content delivery</a>, or <a href="https://ethereum.org/">application logic</a>), and find ways to <a href="https://dweb.archive.org/details/home">plug it into an existing application’s tech stack</a>. If you have assembled enough subsystems to write full applications on top, you might try to package it as a platform (<a href="http://www.freedomjs.org/">1</a>, <a href="https://solid.inrupt.com/">2</a>, <a href="https://blockstack.org/">3</a>, <a href="https://www.textile.io/">4</a>). While efforts to decentralize applications existed well before cryptocurrency, even with the recent excitement behind crypto projects such as Ethereum still has not generated mass adoption of decentralization technologies. To date, decentralized application usage still pales in comparison to centralized equivalents. Across the entire blockchain ecosystem at the time of writing, we see less than <a href="https://www.stateofthedapps.com/stats">100k</a> daily active users.</p>
+
+<p>Why is adoption so low? There are a number of factors, which may not apply equally to all decentralization efforts:</p>
+<ul>
+  <li><strong>Platform risk</strong>: There is a chicken and egg problem with new infrastructure projects. Developers of popular applications are wary of depending on new technologies for critical components (like storage) that have not yet scaled reliably to their levels in production settings.</li>
+  <li><strong>Differentiating new apps</strong>: Many of the developers building on decentralized platforms are building new applications from scratch without an existing user base. If decentralization is their primary competitive differentiator from alternatives, this is usually an insufficient value proposition for many users to incur the switching costs.</li>
+  <li><strong>Difficult to debug</strong>: When things go wrong, you now have to coordinate across many disparate parties to be able to solve the problem.</li>
+  <li><strong>Worse performance</strong>: Reliable performance is already hard, even when you have full control over all of your serving infrastructure. Decentralization means you no longer have full control over the machines that your application depends on.</li>
+</ul>
+
+<blockquote>
+  <p>The goal of the AutoDapp effort is to push the boundaries of taking a low-friction developer-first approach. Can we allow developers to use the existing, mature web stacks that they are used to, enabling them to switch between a centralized cloud deployment and a decentralized deployment with only a single line of code change? If we can do that, we can instantly decentralize many existing popular applications.</p>
+</blockquote>
+
+<p>For the purposes of this blog, we will narrowly define blockchains as a <a href="https://en.wikipedia.org/wiki/Byzantine_fault">Byzantine-fault tolerant</a> consensus protocol. At its core, all a blockchain does is help all nodes/miners/validators replicate data and achieve agreement on the global ordering of all items on a log or ledger. This can be either a permissionless or permissioned blockchain. While compatible with governance and incentivisation schemes, we will save those topics for a later post.</p>
+
+<h2 id="high-level-design">High-level Design</h2>
+
+<p><img src="/img/diagrams/autodapp-proposal/architecture.png" alt="architecture" /></p>
+
+<p>Our AutoDapp architecture is designed to enable any web application, even with proprietary code, to run in a decentralized setting with the change of one line of configuration: its database connection string.</p>
+
+<p>For example, all a developer has to do to decentralize their app is change the hostname of their database connection of their web server from:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql://user@host:3306/db <span class="c"># original database connection string</span>
+</code></pre></div></div>
+
+<p>into this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql://user@autodapp:3306/db <span class="c"># AutoDapp-ed</span>
+</code></pre></div></div>
+
+<p>Instead of pointing your web application to a centralized database, such as a managed MySQL instance on AWS, the application points to an AutoDapp validator. That’s all it takes to make your application decentralized!</p>
+
+<p>AutoDapp validators are blockchain validators that also run a copy of the entire backend web stack – the web server and a local database replica. All application state is replicated over a network of AutoDapp validators. A front end client application (e.g. web or mobile) simply needs to be configured to connect to a validator that they trust. If the client doesn’t trust any existing validators, they can also run their own validator. For convenience, we can also use DNS routing to automatically connect users to a validator, requiring <strong>no</strong> changes to an average user’s user experience.</p>
+
+<p><img src="/img/diagrams/autodapp-proposal/stack.png" alt="techstack" /></p>
+
+<p>Within each validator, the web server is reconfigured to connect through an AutoDapp SQL proxy. Upon intercepting a SQL command from the application, the AutoDapp proxy will determine if it is a read-write command (will mutate state in the database e.g. CREATE, INSERT, UPDATE, DELETE) or a read-only command (will not mutate state). Read-only commands like SQL selects are forwarded directly to its local database replica, and query results are immediately returned.</p>
+
+<p>Read-write commands are broadcast to all validators on the network. Every validator checks if it contains valid SQL commands, appends the operation to the next block, and runs a consensus protocol across all validators to agree on the state of the blockchain log. Once committed to the log, each validator executes the agreed upon SQL commands to its local database replica. The application waits until the log and SQL transactions are finalized. As with any journaled file store, new validators replay the log of all SQL commands to construct its replica.</p>
+
+<p><img src="/img/diagrams/autodapp-proposal/flow.png" alt="requestflow" /></p>
+
+<p>This architecture ensures that all clients, regardless of which validator they are connected to, see a consistent view of the database and all writes are globally ordered by the consensus protocol. This simple architecture works because most web applications are already designed to be stateless at the web server and client. All we would need to do is make sure that the database is consistently replicated across all validators.</p>
+
+<p><strong>Pros</strong>:</p>
+<ul>
+  <li><strong>Develop quickly</strong> using the same exact tools that web/cloud developers use, and inherit all of the applications/libraries/tooling that has been already developed. Many Dapp developers start off by <a href="https://medium.com/fluence-network/dapp-survey-results-2019-a04373db6452">using cloud infrastructure</a> for this very reason.</li>
+  <li><strong>Censorship-resistance</strong>: In a permissionless setting, anyone can launch a new validator and start serving the application for their local community. The only way to prevent this is to censor the entire blockchain.</li>
+  <li><strong>Byzantine fault tolerance</strong>: Applications become instantly Byzantine fault tolerant, benefitting from the stronger threat model that most blockchains are designed for.</li>
+  <li><strong>Mature implementations</strong>: Blockchains are some of the most scrutinized decentralized systems because of their initial use case of cryptocurrency. Discovering flaws in these systems leads to direct monetary gain by the attacker.</li>
+  <li><strong>Mature operations</strong>: Similarly, the blockchain community has made significant advancements in building out devops practices for managing large communities of validators, as well as diagnosing issues.</li>
+</ul>
+
+<p><strong>Cons</strong>:</p>
+<ul>
+  <li><strong>Slower writes</strong>: Because all write operations must wait for commitment on the blockchain (seconds to minutes latency), these operations will be noticeably slower compared to centralized counterparts. In some applications, it may be possible to mask this with a <a href="https://web.dev/progressive-web-apps/">progressive web app stack</a>.</li>
+  <li><strong>Data sensitivity</strong>: Because all data will be replicated across all validators, applications will need to begin with a governance model of validators you trust. It may be possible to compile applications for secure computing environments (like trusted hardware) in the future.</li>
+  <li><strong>Higher costs</strong>: Because we are running multiple copies of the application and storing multiple copies of data, we should expect higher total operational expenses.</li>
+  <li><strong>Harder to test and debug</strong>, though the blockchain community is evolving quickly in this space.</li>
+</ul>
+
+<h2 id="why-is-this-good-for-the-decentralization-community">Why is this good for the decentralization community?</h2>
+
+<p>First of all, we can just test en-masse a whole universe of decentralized applications. Instead of dedicating venture money and whole teams to build a copy of XYZ app (but decentralized), we can just AutoDapp the existing application and try it out immediately. We can instantly test product/market fit for our XYZ Dapp. No usage? No skin off my back. Who knows, one of them might stick.</p>
+
+<p>More importantly, <a href="https://a16z.com/2020/01/09/progressive-decentralization-crypto-product-management/">progressive decentralization</a> is made trivial, enabling companies that truly care about decentralization to focus on building a unique value proposition in their application logic using best-in-class developer tools first, without spending countless man-hours fiddling with a less mature decentralized platform. Companies can focus on delivering 10x value in their search for product/market fit before they spend any resources on decentralizing their application.</p>
+
+<p>Some applications benefit from decentralization, <a href="https://unchainedpodcast.com/why-decentralization-isnt-as-important-as-you-think/">but not all do</a>. By easily being able to switch between a decentralized deployment and cloud deployment, developers can easily test whether decentralization actually addresses any real risks, such as censorship or malicious threat models.</p>
+
+<h2 id="this-sounds-familiar">This sounds familiar…</h2>
+
+<h3 id="how-is-this-different-from-federation">How is this different from federation?</h3>
+
+<p>Federation requires the application developer standardize a server-to-server protocol for sharing data between servers. This requires substantial coordination and developer effort, and often ends up <a href="https://ieeexplore.ieee.org/document/8560907">poorly implemented</a>. AutoDapp can be used to automate the data replication between servers, similarly allowing anyone to spin up a new server instance for an application. Imagine if the Gmail application were replicated across Google and Microsoft, vs Gmail and Outlook communicating over a shared email protocol (SMTP).</p>
+
+<h3 id="how-is-this-different-from-using-a-blockchain-database">How is this different from using a blockchain database?</h3>
+
+<p>Some projects, such as <a href="https://covenantsql.io/">CovenantSQL</a> and <a href="https://www.bigchaindb.com/">BigchainDB</a>, try to lower friction for new Dapp developers by exposing well known APIs (e.g. SQL and MongoDB respectively) over a database replicated on top of a blockchain. While AutoDapp shares many similar technical components to these projects, the focus will be different. Instead of offering a publicly accessible SQL interface to a shared service running on a particular blockchain, we plan to focus our efforts on porting and optimizing existing applications to run end-to-end. This approach may yield different design decisions when it comes to authentication, data privacy, deployment, and performance scaling.</p>
+
+<h2 id="proof-of-concept">Proof of Concept</h2>
+
+<p>We are currently in the early stages of working on AutoDapp’ed versions of <a href="https://www.discourse.org/">Discourse</a> and <a href="https://www.mediawiki.org/wiki/MediaWiki">MediaWiki</a>. We hope these tools can be useful for existing decentralized companies, many of which are still relying on centralized cloud services for their internal operations (dogfood much?).
+One promising application for AutoDapp is censorship-resistant content. Any centralized application that facilitates public discourse or provides invaluable information to the public is at risk of attacks from outside malicious actors or censorship from its central authority. Enabling the AutoDapp-ization of these applications can help safeguard against these scenarios.</p>
+
+<h2 id="open-challenges">Open Challenges</h2>
+
+<p>We are only in the early stages of this journey, and expect many open challenges, including but not limited to:</p>
+<ul>
+  <li><strong>Performance</strong>: It’s hard. Can we make the user experience for AutoDapps just as good as their centralized counterparts?</li>
+  <li><strong>Availability</strong>: How can the AutoDapp community make sure these services stay up and available with &gt;3 9’s of reliability?</li>
+  <li><strong>Debugging &amp; Developer Tools</strong>: How can we make it painless for application developers to build locally and deploy globally with predictable and inspectable outcomes.</li>
+  <li><strong>Authentication of database writes</strong>: Web apps are written assuming the web server has root access to the database. That means any (malicious) validator can arbitrarily modify the database. How can we properly authenticate writes?</li>
+  <li><strong>Support proprietary applications</strong>: It’s just a SQL proxy. Why not support proprietary apps? Looking at you <a href="https://twitter.com/jack/status/1204766078468911106">Twitter</a>.</li>
+  <li><strong>Supporting other storage systems</strong>: Networked filesystems, key-value stores, graph databases, storage systems galore!</li>
+  <li><strong>Enabling flexible incentives</strong>: Developers may want to support both in-app incentives to drive user behavior, as well as validator incentives. AutoDapp needs a clear answer for how these applications can support tokens and how they fit into the broader crypto ecosystem.</li>
+</ul>
+
+<h2 id="we-need-your-help">We need your help!</h2>
+
+<p>Do you think this is cool? Do you want to AutoDapp-ify the Web with us? Join us! We want to keep this an open source community effort. Here’s how to start:</p>
+
+<ol>
+  <li>Star us on GitHub: <a href="https://github.com/autodapp/autodapp">https://github.com/autodapp/autodapp</a>   <br />
+Maybe we’ll host the project on an AutoDapp’ed git hosting application in the future. The possibilities are endless!</li>
+  <li>File issues on GitHub. Tell us what applications you want to see supported and tested with AutoDapp!</li>
+  <li>Join the <a href="https://autodapp.io/">AutoDapp mailing list</a> for updates
+<!-- Begin Mailchimp Signup Form --></li>
+</ol>
+<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+
+<div id="mc_embed_signup">
+<form action="https://autodapp.us19.list-manage.com/subscribe/post?u=34af0118557807eb5268a76b3&amp;id=f2463eb726" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+    <div id="mc_embed_signup_scroll">
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="" />
+	<input type="hidden" value="blog-0001" name="SOURCE" class="" id="mce-SOURCE" placeholder="blog-0001" />
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_34af0118557807eb5268a76b3_f2463eb726" tabindex="-1" value="" /></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" /></div>
+    </div>
+</form>
+</div>
+<!--End mc_embed_signup-->
+
+<p><strong>Developers! If you want to help contribute to the cause, reach out to us via GitHub or email!</strong></p>
+
+<p>This is just the beginning, look out for more blog posts on progress and updates soon.</p>
+
+<p><em>Blog post by <a href="https://www.raymondcheng.net">Raymond Cheng</a> and <a href="https://thectozone.com/">Jeffrey Dash Hsu</a></em></p>
+
+<p>Acknowledgements: Huge thank you to Armani Ferrante, Nick Hynes, Will Scott, Reuven Gonzales, and Christopher Heymann for their helpful feedback and comments.</p>
+
+<p>To follow the conversation on Hacker News, check it out <a href="https://news.ycombinator.com/item?id=22814681">here</a></p>
+
+      </div>
+
+    </article>
+
+    <hr />
+    <div style="text-align:center;"> 
+      <p>
+        Liked this post?
+        Follow <a href="https://twitter.com/RaymondCheng00"><img class='contactico' src='/img/ico/twitter.ico' alt='twitter' />@RaymondCheng00 on Twitter</a><br>
+        or subscribe to my blog mailing list for some fresh thoughts
+      </p>
+      <iframe src="https://ryscheng.substack.com/embed" width="480" height="80" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+
+    </div>
+
+    <div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+  this.page.url = "https://www.raymondcheng.net/posts/autodapp-proposal.html";
+  //this.page.url = window.location.href;
+  this.page.identifier = "/posts/autodapp-proposal";
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://raymondcheng.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<script id="dsq-count-scr" src="//raymondcheng.disqus.com/count.js" async></script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+
+  </div> <!-- column -->
+</div> <!-- featurette -->
+<hr class="featurette-divider">
+
+        </div>
+      </div>
+
+      <footer>
+  <p class="pull-right"><a href="#">Back to top</a></p>
+  <p>&copy; raymondcheng.net &middot; Last Updated 2022 </p>
+</footer>
+
+
+
+    </div>
+  </body>
+
+<script src='/js/jquery.min.js' type='text/javascript'></script>
+<script src='/js/bootstrap.min.js' type='text/javascript'></script>
+<script src='/js/main.js' type='text/javascript'></script>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-11930420-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

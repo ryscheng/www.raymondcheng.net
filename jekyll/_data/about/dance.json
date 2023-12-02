@@ -1,0 +1,44 @@
+{
+  "title": "Dancer",
+  "subtitles": [],
+  "descriptions": [
+    "Always looking for new places/people to house with.<br>",
+    "The following are mostly archival from my college days."
+  ],
+  "images": [
+    {
+      "src": "/img/pic/pike.jpg",
+      "alt": "dance"
+    }
+  ],
+  "quotes": [],
+  "accordians": [
+    {
+      "title": "Groups",
+      "ref": "groups",
+      "text": [],
+      "includes": [
+        "dance-groups.html"
+      ],
+      "includemd": []
+    },
+    {
+      "title": "Choreography",
+      "ref": "choreography",
+      "text": [],
+      "includes": [
+        "dance-choreography.html"
+      ],
+      "includemd": []
+    },
+    {
+      "title": "Events",
+      "ref": "events",
+      "text": [],
+      "includes": [
+        "dance-events.html"
+      ],
+      "includemd": []
+    }
+  ]
+}

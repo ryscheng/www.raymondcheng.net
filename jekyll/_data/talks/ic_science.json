@@ -1,0 +1,29 @@
+
+{
+  "title": "Accelerating Science and Research with Impact Certificates",
+  "venues": [
+    {
+      "name": "Metascience Conference",
+      "date": "May 2023",
+      "location": "Washington, DC",
+      "url": "https://metascience.info/",
+      "videourl": ""
+    },
+    {
+      "name": "DeSci SF",
+      "date": "Nov 2022",
+      "location": "San Francisco, CA",
+      "url": "https://www.weavechain.com/desci-sf-22",
+      "videourl": ""
+    },
+    {
+      "name": "DWeb Camp",
+      "date": "Aug 2022",
+      "location": "Camp Navarro, CA",
+      "url": "https://dwebcamp.org/",
+      "videourl": "https://archive.org/details/25-17_45_accelerating_academic_research_with_impact_certificates.mp4"
+    }
+  ],
+  "slides": [],
+  "videos": []
+}

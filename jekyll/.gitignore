@@ -1,0 +1,12 @@
+### Scrap
+.*.swp
+.DS_Store
+
+### Ruby
+Gemfile.lock
+
+### Jekyll
+_site
+.sass-cache
+.jekyll-metadata
+.jekyll-cache/

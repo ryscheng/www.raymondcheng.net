@@ -1,0 +1,18 @@
+{  
+  "title": "Chef &amp; Bartender",
+  "subtitles": [],
+  "descriptions": [
+    "Family food blog: <a href='https://www.fuzhoufood.com'>https://www.fuzhoufood.com</a>"
+  ],
+  "images": [
+    {
+      "src": "/img/pic/cooking.jpg",
+      "alt": "cooking"
+    }
+  ],
+  "quotes": [{
+    "text": "Champagne! In victory, one deserves it; in defeat one needs it.",
+    "source": "Napoleon Bonaparte"
+  }],
+  "accordians": []
+}

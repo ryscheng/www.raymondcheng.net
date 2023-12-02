@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Raymond Cheng">
+  <!--meta name="description" content="In this blog post, I’ll show you how to setup a Yubikey with both signing and authentication keys.As a driving example, I’ll describe how to use a Yubikey to..."-->
+  <!--title>Raymond Cheng</title-->
+
+  <link rel="icon" type="images/jpg" href="/img/ico/favicon.jpg">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css">
+  <!--link rel="stylesheet" href="/css/main2.css"-->
+  <!--link rel="canonical" href="https://www.raymondcheng.net/posts/git-yubikey.html"-->
+  <link rel="alternate" type="application/rss+xml" title="Raymond Cheng" href="https://www.raymondcheng.net/feed.xml">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Signing Git Commits and SSH Authentication with Yubikey | Raymond Cheng</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Signing Git Commits and SSH Authentication with Yubikey" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this blog post, I’ll show you how to setup a Yubikey with both signing and authentication keys. As a driving example, I’ll describe how to use a Yubikey to sign your git commits and authenticate via SSH with GitHub. Of course you can reuse this guide to authenticate with any other SSH server as well." />
+<meta property="og:description" content="In this blog post, I’ll show you how to setup a Yubikey with both signing and authentication keys. As a driving example, I’ll describe how to use a Yubikey to sign your git commits and authenticate via SSH with GitHub. Of course you can reuse this guide to authenticate with any other SSH server as well." />
+<link rel="canonical" href="https://www.raymondcheng.net/posts/git-yubikey.html" />
+<meta property="og:url" content="https://www.raymondcheng.net/posts/git-yubikey.html" />
+<meta property="og:site_name" content="Raymond Cheng" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-11-25T19:47:18+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Signing Git Commits and SSH Authentication with Yubikey" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2018-11-25T19:47:18+00:00","datePublished":"2018-11-25T19:47:18+00:00","description":"In this blog post, I’ll show you how to setup a Yubikey with both signing and authentication keys. As a driving example, I’ll describe how to use a Yubikey to sign your git commits and authenticate via SSH with GitHub. Of course you can reuse this guide to authenticate with any other SSH server as well.","headline":"Signing Git Commits and SSH Authentication with Yubikey","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.raymondcheng.net/posts/git-yubikey.html"},"url":"https://www.raymondcheng.net/posts/git-yubikey.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">Raymond Cheng</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/projects/">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/publications/">Publications</a>
+        </li>
+      </ul>
+
+      <!--
+      <a href="http://www.google.com/recaptcha/mailhide/d?k=01acpirUAdGm8kXTEX3VqxAQ==&amp;c=hQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01acpirUAdGm8kXTEX3VqxAQ\x3d\x3d\x26c\x3dhQfcCFDPSDdUSWZPX-XdiaSflgRwvD0a9kphc50U0SE\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">
+        <button class="btn btn-outline-success my-2 my-sm-0">Email Me</button>
+      </a>
+      -->
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+
+      <div class="page-content">
+        <div class="wrapper">
+          <div class="row featurette">
+  <!-- LEFT -->
+  <div class="col-md-3 d-none d-sm-none d-md-block d-lg-block d-xl-block">
+    <h2 class="featurette-heading"><a href="/blog">Blog</a></h2>
+
+    <ul>
+      
+        <li>
+          <span class="post-meta">Aug 9, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/react-localization.html">How to choose a localization approach for your React application</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">May 19, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/nextjs-personalization.html">High Performance Personalization with Next.js Middleware</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 12, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/nextjs-ab-testing.html">A/B Testing with Next.js middleware</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 6, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/plasmicflix.html">Build a Netflix clone in Next.js with a visual app builder</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Mar 29, 2022</span>
+          <p>
+            <a class="post-link" href="/posts/plasmic-supabase-demo.html">Building a Pokedex with Plasmic + Supabase</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Oct 6, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/how-to-hang-glide.html">How to Become an H3 Hang Glider Pilot in the Bay Area</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 21, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/why-phd.html">Strong/Weak Reasons to do a PhD in Computer Science</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 4, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/nian-gao.html">Chinese New Year Cake (Nian Gao)</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Feb 21, 2021</span>
+          <p>
+            <a class="post-link" href="/posts/iron-blogger.html">Iron Blogger SF</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Apr 7, 2020</span>
+          <p>
+            <a class="post-link" href="/posts/autodapp-proposal.html">AutoDapp: a Proposal to Instantly Decentralize Your Existing Web Apps</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Dec 30, 2019</span>
+          <p>
+            <a class="post-link" href="/posts/decentralizing-twitter.html">A Path to Opening Up Twitter</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 25, 2018</span>
+          <p>
+            <a class="post-link" href="/posts/git-yubikey.html">Signing Git Commits and SSH Authentication with Yubikey</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Sep 17, 2018</span>
+          <p>
+            <a class="post-link" href="/posts/time-management.html">Time Management</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">May 22, 2017</span>
+          <p>
+            <a class="post-link" href="/posts/after-graduation.html">How much longer until you graduate?</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 19, 2016</span>
+          <p>
+            <a class="post-link" href="/posts/personal-server-overview.html">Docker-based Personal Server</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 14, 2015</span>
+          <p>
+            <a class="post-link" href="/posts/retrospective-solar-printer.html">Retrospective: Solar Printer</a>
+          </p>
+        </li>
+      
+        <li>
+          <span class="post-meta">Nov 13, 2015</span>
+          <p>
+            <a class="post-link" href="/posts/welcome.html">Welcome!</a>
+          </p>
+        </li>
+      
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="col-md-9">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Signing Git Commits and SSH Authentication with Yubikey</h1>
+        <p class="post-meta"><time datetime="2018-11-25T19:47:18+00:00" itemprop="datePublished">Nov 25, 2018</time></p>
+
+        <ul class="share-buttons">
+  <!--Hacker News-->
+  <li><a href="https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fgit-yubikey.html&t=Signing+Git+Commits+and+SSH+Authentication+with+Yubikey" title="Share on Hacker News" target="_blank"><img alt="Share on Hacker News" src="/img/ico/share/HackerNews.png"></a></li>
+  <!--Reddit-->
+  <li><a href="http://www.reddit.com/submit?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fgit-yubikey.html&title=Signing+Git+Commits+and+SSH+Authentication+with+Yubikey" target="_blank" title="Submit to Reddit"><img alt="Submit to Reddit" src="/img/ico/share/Reddit.svg"></a></li>
+  <!--Twitter-->
+  <li><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fgit-yubikey.html&text=Signing+Git+Commits+and+SSH+Authentication+with+Yubikey&via=RaymondCheng00" target="_blank" title="Tweet"><img alt="Tweet" src="/img/ico/share/Twitter.svg"></a></li>
+  <!--Facebook-->
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fgit-yubikey.html&p[title]=Signing+Git+Commits+and+SSH+Authentication+with+Yubikey&t=Signing+Git+Commits+and+SSH+Authentication+with+Yubikey" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="/img/ico/share/Facebook.svg"></a></li>
+  <!--LinkedIn-->
+  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fgit-yubikey.html&title=Signing+Git+Commits+and+SSH+Authentication+with+Yubikey&summary=&source=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fgit-yubikey.html" target="_blank" title="Share on LinkedIn"><img alt="Share on LinkedIn" src="/img/ico/share/LinkedIn.svg"></a></li>
+  <!--Pinterest-->
+  <li><a href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fgit-yubikey.html&description=Signing+Git+Commits+and+SSH+Authentication+with+Yubikey&media=https://www.raymondcheng.net/img/pic/me.jpg" target="_blank" title="Pin it"><img alt="Pin it" src="/img/ico/share/Pinterest.svg"></a></li>
+  <!--Tumblr-->
+  <li><a href="http://www.tumblr.com/share?v=3&u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fgit-yubikey.html&t=Signing+Git+Commits+and+SSH+Authentication+with+Yubikey&s=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fgit-yubikey.html" target="_blank" title="Post to Tumblr"><img alt="Post to Tumblr" src="/img/ico/share/Tumblr.svg"></a></li>
+  <!--Wordpress-->
+  <li><a href="http://wordpress.com/press-this.php?u=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fgit-yubikey.html&t=Signing+Git+Commits+and+SSH+Authentication+with+Yubikey&s=" target="_blank" title="Publish on WordPress"><img alt="Publish on WordPress" src="/img/ico/share/Wordpress.svg"></a></li>
+  <!--Pocket-->
+  <li><a href="https://getpocket.com/save?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fgit-yubikey.html&title=Signing+Git+Commits+and+SSH+Authentication+with+Yubikey" target="_blank" title="Add to Pocket"><img alt="Add to Pocket" src="/img/ico/share/Pocket.svg"></a></li>
+  <!--Pinboard-->
+  <li><a href="https://pinboard.in/popup_login/?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fgit-yubikey.html&title=Signing+Git+Commits+and+SSH+Authentication+with+Yubikey&description=Signing+Git+Commits+and+SSH+Authentication+with+Yubikey" target="_blank" title="Save to Pinboard"><img alt="Save to Pinboard" src="/img/ico/share/Pinboard.svg"></a></li>
+  <!--Email-->
+  <li><a href="mailto:?subject=Signing+Git+Commits+and+SSH+Authentication+with+Yubikey&body=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fgit-yubikey.html" target="_blank" title="Send email"><img alt="Send email" src="/img/ico/share/Email.svg"></a></li>
+</ul>
+
+  <!--Google+-->
+<!--
+  <li><a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.raymondcheng.net%2Fposts%2Fgit-yubikey.html" target="_blank" title="Share on Google+"><img alt="Share on Google+" src="/img/ico/share/Google+.svg"></a></li>
+-->
+
+      </header>
+
+      <div class="post-content" itemprop="articleBody">
+        <p>In this blog post, I’ll show you how to setup a Yubikey with both signing and authentication keys.
+As a driving example, I’ll describe how to use a Yubikey to sign your git commits and
+authenticate via SSH with <a href="https://github.com">GitHub</a>.
+Of course you can reuse this guide to authenticate with any other SSH server as well.</p>
+
+<p><strong>Why use Yubikeys?</strong><br />
+These devices store private key material in a way that cannot be copied from the device.
+An attacker would need to steal the physical device to use your keys.
+This setup is in contrast to keys stored on your local hard drive,
+which can be easily copied by any program running on your computer.</p>
+
+<p><strong>Overview</strong><br />
+Yubikeys store GPG keys. We will first generate keys on the device.
+Then your computer needs to be configured with <code class="language-plaintext highlighter-rouge">gpg-agent</code>,
+which will manage access to the keys. <code class="language-plaintext highlighter-rouge">git</code> and <code class="language-plaintext highlighter-rouge">ssh</code> can then be configured to consult
+the <code class="language-plaintext highlighter-rouge">gpg-agent</code> for signing commits and SSH authentication by default (instead of <code class="language-plaintext highlighter-rouge">ssh-agent</code>).</p>
+
+<p><strong>New machines</strong><br />
+If you have already generated the keys on your Yubikey and just want to setup 
+your computer to use it, skip to the <a href="#gpg-agent-configuration">gpg-agent configuration section</a></p>
+
+<p><em>Credits: This guide was adapted from this great <a href="https://www.isi.edu/~calvin/yubikeyssh.htm">post</a> by <a href="https://www.isi.edu/~calvin/">Calvin Ardi</a></em></p>
+
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+  <li><a href="#install-tools">Install tools</a></li>
+  <li><a href="#yubikey-configuration">Yubikey configuration</a></li>
+  <li><a href="#generate-your-keys">Generate your keys</a></li>
+  <li><a href="#gpg-agent-configuration">gpg-agent configuration</a></li>
+  <li><a href="#signed-git-commits">Signed git commits</a></li>
+  <li><a href="#ssh-authentication">SSH Authentication</a></li>
+</ul>
+
+<hr />
+
+<h2 id="install-tools">Install Tools</h2>
+
+<p>You will need the following tools on your system:</p>
+<ul>
+  <li><a href="https://gnupg.org/">gpg 2.x</a> and gpg-agent</li>
+  <li><a href="https://www.yubico.com/products/services-software/download/yubikey-personalization-tools/">Yubikey personalization tool</a></li>
+</ul>
+
+<p>To install these on Ubuntu 18.04:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>add-apt-repository ppa:yubico/stable
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get update
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>pcscd scdaemon pcsc-tools gnupg2 gnupg-agent
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>yubikey-manager yubikey-personalization-gui yubikey-personalization
+</code></pre></div></div>
+
+<p>To install these on MacOS with <a href="https://brew.sh/">Homebrew</a></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>brew <span class="nb">install </span>gnupg2
+<span class="nv">$ </span>brew <span class="nb">install </span>pinentry-mac
+<span class="nv">$ </span>brew <span class="nb">install </span>ykman
+<span class="nv">$ </span>brew <span class="nb">install </span>yubikey-personalization
+</code></pre></div></div>
+
+<p>To install these on MacOS with <a href="https://www.macports.org/">MacPorts</a></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>port <span class="nb">install </span>gnupg2 pinentry-mac yubikey-manager ykpers
+</code></pre></div></div>
+
+<h2 id="yubikey-configuration">Yubikey Configuration</h2>
+
+<p>First make sure that the Yubikey is plugged in and check that <code class="language-plaintext highlighter-rouge">gpg</code> can see it.
+If you can’t see the card, you’re probably missing some smart card driver for your system.
+You probably don’t need to restart your computer, but that could also be worth a shot.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--card-status</span>
+Reader ...........: Yubico Yubikey XXX
+Application ID ...: XXXXX
+Version ..........: X.X
+Manufacturer .....: Yubico
+Serial number ....: XXXXX
+Name of cardholder: <span class="o">[</span>not <span class="nb">set</span><span class="o">]</span>
+Language prefs ...: <span class="o">[</span>not <span class="nb">set</span><span class="o">]</span>
+Sex ..............: unspecified
+URL of public key : <span class="o">[</span>not <span class="nb">set</span><span class="o">]</span>
+Login data .......: <span class="o">[</span>not <span class="nb">set</span><span class="o">]</span>
+Signature PIN ....: forced
+Key attributes ...: rsa4096 rsa4096 rsa4096
+Max. PIN lengths .: 127 127 127
+PIN retry counter : 3 3 3
+Signature counter : 0
+Signature key ....: <span class="o">[</span>none]
+Encryption key....: <span class="o">[</span>none]
+Authentication key: <span class="o">[</span>none]
+General key info..: <span class="o">[</span>none]
+</code></pre></div></div>
+
+<p>Now we will change the key size, PIN, and Admin PIN on the device from its defaults.
+In this guide we will use RSA4096, but you should choose the configuration that works best for you.
+The default PIN and Admin PIN values for Yubikeys are 123456 and 12345678 respectively.</p>
+
+<p>Note: If you incorrectly enter your Admin PIN three times,
+you will be locked out of your Yubikey and it will be useless.
+If that happens, check out the <a href="https://support.yubico.com/hc/en-us/articles/360013707640-Resetting-Your-YubiKey-4-or-YubiKey-NEO-to-Factory-Defaults">factory reset instructions</a>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--card-edit</span>
+
+gpg/card&gt; admin
+Admin commands are allowed
+
+gpg/card&gt; key-attr
+Changing card key attribute <span class="k">for</span>: Signature key
+Please <span class="k">select </span>what kind of key you want:
+  <span class="o">(</span>1<span class="o">)</span> RSA
+  <span class="o">(</span>2<span class="o">)</span> ECC
+Your selection? 1
+What keysize <span class="k">do </span>you want? <span class="o">(</span>4096<span class="o">)</span> 4096
+Changing card key attribute <span class="k">for</span>: Encryption key
+Please <span class="k">select </span>what kind of key you want:
+  <span class="o">(</span>1<span class="o">)</span> RSA
+  <span class="o">(</span>2<span class="o">)</span> ECC
+Your selection? 1
+What keysize <span class="k">do </span>you want? <span class="o">(</span>4096<span class="o">)</span> 4096
+Changing card key attribute <span class="k">for</span>: Authentication key
+Please <span class="k">select </span>what kind of key you want:
+  <span class="o">(</span>1<span class="o">)</span> RSA
+  <span class="o">(</span>2<span class="o">)</span> ECC
+Your selection? 1
+What keysize <span class="k">do </span>you want? <span class="o">(</span>4096<span class="o">)</span> 4096
+
+gpg/card&gt; passwd
+gpg: OpenPGP card no. XXXXXX detected
+
+1 - change PIN
+2 - unblock PIN
+3 - change Admin PIN
+4 - <span class="nb">set </span>the Reset Code
+Q - quit
+
+Your selection? 3
+PIN changed.
+...
+Your selection? 1
+PIN changed.
+...
+Your selection? q
+
+gpg/card&gt; quit
+</code></pre></div></div>
+
+<p>Now let’s set the Yubikey mode to U2F/CCID composite mode.
+U2F mode is used for 2-factor authentication for web services like Google/GitHub.
+CCID mode is used for <code class="language-plaintext highlighter-rouge">gpg</code> operations.
+We will disable OTP mode to avoid the annoying keyboard behavior when the button is accidentally pressed.
+Note that mode 5 is specific to Yubikey 3.0 and above
+(<a href="https://developers.yubico.com/yubikey-personalization/Manuals/ykpersonalize.1.html">details</a>).
+Make sure you’re setting the correct mode for your Yubikey.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ykpersonalize <span class="nt">-m</span> 5
+Firmware version X.X.X Touch level XXX Program sequence X
+
+The USB mode will be <span class="nb">set </span>to: 0x5
+
+Commit? <span class="o">(</span>y/n<span class="o">)</span> <span class="o">[</span>n]: y
+WARNING: Changing mode will require you to use another tool <span class="o">(</span>ykneomgr or u2f-host<span class="o">)</span> to switch back <span class="k">if </span>OTP mode is disabled, really commit? <span class="o">(</span>y/n<span class="o">)</span> <span class="o">[</span>n]: y
+</code></pre></div></div>
+
+<p>Now disconnect and reconnect your Yubikey to apply the new settings.
+You’ll notice that pushing the Yubikey button no longer leads to keyboard strokes.</p>
+
+<p><strong><em>Optional</em></strong>: It is also recommended to enable a touch requirement for all authentication requests,
+which means you have the physically touch the device to approve any encryption/signing/authentication requests.
+For details, see <a href="https://support.yubico.com/hc/en-us/articles/360016614940-YubiKey-Manager-CLI-ykman-User-Manual">here</a>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ykman openpgp <span class="nb">touch </span>aut on
+<span class="nv">$ </span>ykman openpgp <span class="nb">touch </span>enc on
+<span class="nv">$ </span>ykman openpgp <span class="nb">touch </span>sig on
+</code></pre></div></div>
+
+<h2 id="generate-your-keys">Generate Your Keys</h2>
+
+<p>Now let’s have the Yubikey generate its own keys.
+This way, we can be sure the keys never existed outside the device.</p>
+
+<p><strong>Note: The email address that you enter here MUST match the one verified on your GitHub account!</strong>
+Otherwise, the GitHub UI will show your commits as “unverified”.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--card-edit</span>
+
+gpg/card&gt; admin
+Admin commands are allowed
+
+gpg/card&gt; generate
+Make off-card backup of encryption key? <span class="o">(</span>Y/n<span class="o">)</span> n
+
+Please specify how long the key should be valid.
+  0 <span class="o">=</span> key does not expire
+  &lt;n&gt;  <span class="o">=</span> key expires <span class="k">in </span>n days
+  &lt;n&gt;w <span class="o">=</span> key expires <span class="k">in </span>n weeks
+  &lt;n&gt;m <span class="o">=</span> key expires <span class="k">in </span>n months
+  &lt;n&gt;y <span class="o">=</span> key expires <span class="k">in </span>n years
+Key is valid <span class="k">for</span>? <span class="o">(</span>0<span class="o">)</span> 0
+Key does not expire at all
+Is this correct? <span class="o">(</span>y/N<span class="o">)</span> y
+
+GnuPG needs to construct a user ID to identify your key.
+
+Real name: &lt;Enter your name&gt;
+Email address: &lt;Enter your email address&gt;
+Comment:
+You selected this USER-ID:
+<span class="s2">"XXX XXX &lt;XXXXX&gt;"</span>
+
+Change <span class="o">(</span>N<span class="o">)</span>ame, <span class="o">(</span>C<span class="o">)</span>omment, <span class="o">(</span>E<span class="o">)</span>mail or <span class="o">(</span>O<span class="o">)</span>kay/<span class="o">(</span>Q<span class="o">)</span>uit? o
+gpg: key XXX marked as ultimately trusted
+</code></pre></div></div>
+
+<p>This step may take several minutes as the device generates keys with sufficient entropy.
+It will generate unique subkeys for signatures, encryption, and authentication.</p>
+
+<p>Now verify that you have keys on the card. Look for a <code class="language-plaintext highlighter-rouge">Signature key</code>, <code class="language-plaintext highlighter-rouge">Encryption key</code>, and <code class="language-plaintext highlighter-rouge">Authentication key</code>.
+In particular make note of your signature key fingerprint:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--card-status</span>
+Reader ...........: Yubico Yubikey XXX
+Application ID ...: XXXXX
+Version ..........: X.X
+Manufacturer .....: Yubico
+Serial number ....: XXXXX
+Name of cardholder: <span class="o">[</span>not <span class="nb">set</span><span class="o">]</span>
+Language prefs ...: <span class="o">[</span>not <span class="nb">set</span><span class="o">]</span>
+Sex ..............: unspecified
+URL of public key : <span class="o">[</span>not <span class="nb">set</span><span class="o">]</span>
+Login data .......: <span class="o">[</span>not <span class="nb">set</span><span class="o">]</span>
+Signature PIN ....: forced
+Key attributes ...: rsa4096 rsa4096 rsa4096
+Max. PIN lengths .: 127 127 127
+PIN retry counter : 3 3 3
+Signature counter : 0
+Signature key ....: XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX
+  created ....: 2018-01-01 00:00:00
+Encryption key....: XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX
+  created ....: 2018-01-01 00:00:00
+Authentication key: XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX
+  created ....: 2018-01-01 00:00:00
+General key info..: pub  rsa4096/XXXXXXXXXXXXXXXX 2018-01-01 NAME &lt;EMAIL&gt;
+sec&gt;  rsa4096/XXXXXXXXXXXXXXXX  created: 2018-01-01  expires: never  &lt;<span class="o">===</span> THIS ONE
+                                card-no: 0000 00000000
+ssb&gt;  rsa4096/XXXXXXXXXXXXXXXX  created: 2018-01-01  expires: never
+                                card-no: 0000 00000000
+ssb&gt;  rsa4096/XXXXXXXXXXXXXXXX  created: 2018-01-01  expires: never
+                                card-no: 0000 00000000
+</code></pre></div></div>
+
+<p>Make a note of your <code class="language-plaintext highlighter-rouge">SIGNATURE_KEY_FINGERPRINT</code>.
+Then export your signature public key.
+For example, if your fingerprint is AED9256FF8CEC558:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--armor</span> <span class="nt">--export</span> AED9256FF8CEC558 <span class="o">&gt;</span> AED9256FF8CEC558.asc
+</code></pre></div></div>
+
+<p>You will need to manually copy this signature public key to any computer that you want
+to use for git commit signing.</p>
+
+<h2 id="gpg-agent-configuration">gpg-agent Configuration</h2>
+
+<p>First, you need to import your signature public key onto the machine.
+You can skip this if you generated the key on this computer.
+For example, if your signature public key is in <code class="language-plaintext highlighter-rouge">AED9256FF8CEC558.asc</code>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--import</span> &lt; AED9256FF8CEC558.asc
+</code></pre></div></div>
+
+<p>Then, <code class="language-plaintext highlighter-rouge">gpg-agent</code> needs to be configured with SSH support.
+Put the following in your <code class="language-plaintext highlighter-rouge">~/.gnupg/gpg-agent.conf</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># if on MacOS, we recommend you use pinentry-mac
+# otherwise, look for `pinentry' on your system (e.g. pinentry-gnome3 or pinentry-tty).
+# If you don't set this, the default pinentry will be used
+pinentry-program /usr/local/bin/pinentry-mac
+
+# enables SSH support (ssh-agent)
+enable-ssh-support
+</code></pre></div></div>
+
+<p>To setup your terminal to use <code class="language-plaintext highlighter-rouge">gpg-agent</code> as your SSH agent,
+put the following in your <code class="language-plaintext highlighter-rouge">~/.bashrc</code> or <code class="language-plaintext highlighter-rouge">~/.bash_profile</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export SSH_AUTH_SOCK=`gpgconf --list-dirs agent-ssh-socket`
+export GPG_TTY=$(tty)
+</code></pre></div></div>
+
+<p>Remember to restart your gpg-agent and terminal for these settings to take effect.
+If you don’t have gpg-agent setup to run automatically, you can start it manually:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg-agent <span class="nt">--daemon</span> <span class="nt">--enable-ssh-support</span>
+</code></pre></div></div>
+
+<h2 id="signed-git-commits">Signed git Commits</h2>
+<p>You can manually ask git to sign at commit time.
+To do so, you need to remember to add the <code class="language-plaintext highlighter-rouge">-S</code> flag every time you commit.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git commit <span class="nt">-S</span> <span class="nt">-m</span> <span class="s1">'commit message'</span>
+</code></pre></div></div>
+
+<p><em>Note: Whenever the Yubikey is asked to sign or authenticate,
+you’ll need to enter your PIN into the <code class="language-plaintext highlighter-rouge">pinentry</code> program.
+If you configured a touch requirement, you’ll also need to touch the Yubikey.</em></p>
+
+<h4 id="automatically-signing-commits-by-default">Automatically Signing Commits by Default</h4>
+<p>In order to have git automatically sign all commits for you (without the <code class="language-plaintext highlighter-rouge">-S</code> flag),
+add this to your <code class="language-plaintext highlighter-rouge">~/.gitconfig</code>.
+Your signing key fingerprint is from the last step of the <a href="#generate-your-keys">generate your keys section</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[user]
+  signingkey = &lt;fingerprint&gt;
+[commit]
+  gpgsign = true
+</code></pre></div></div>
+
+<h4 id="upload-gpg-keys-to-github">Upload GPG Keys to GitHub</h4>
+<p>Now add your GPG signature public key to GitHub.<br />
+<a href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
+
+<p>We previously exported it to a file at the end of the <a href="#generate-your-keys">generate your keys section</a>.
+From any computer where the public key is already loaded,
+you can get it again by running:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--armor</span> <span class="nt">--export</span> SIGNATURE_KEY_FINGERPRINT
+</code></pre></div></div>
+
+<p>After you do this,
+GitHub will <a href="https://help.github.com/articles/adding-a-new-gpg-key-to-your-github-account/">verify your commits</a>
+and show a verified status in commit history.</p>
+
+<h4 id="checking-signatures">Checking Signatures</h4>
+<p>After you’ve signed your first commit, you will see verified commits
+in the commit log both locally and on GitHub.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log <span class="nt">--show-signature</span>
+Author: NAME &lt;EMAIL&gt;
+Date:  Mon Jan 01 00:00:00 2018 <span class="nt">-0000</span>
+
+  commit message
+
+commit xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+gpg: Signature made Mon Jan 01 00:00:00 2018 PST
+gpg:                using RSA key XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+gpg: Good signature from <span class="s2">"NAME &lt;EMAIL&gt;"</span> <span class="o">[</span>unknown]
+Primary key fingerprint: XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX
+</code></pre></div></div>
+
+<h2 id="ssh-authentication">SSH Authentication</h2>
+
+<h4 id="get-your-ssh-public-key">Get Your SSH Public Key</h4>
+
+<p>When the Yubikey is plugged in, <code class="language-plaintext highlighter-rouge">gpg-agent</code> is properly running, 
+and your terminal is setup with the correct <code class="language-plaintext highlighter-rouge">SSH_AUTH_SOCK</code>,
+you can get your SSH public key by running:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh-add <span class="nt">-L</span>
+</code></pre></div></div>
+
+<p>If you want to get it directly from GPG, you can run the following with
+the authentication key fingerprint:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--export-ssh-key</span> AUTHENTICATION_KEY_FINGERPRINT
+</code></pre></div></div>
+
+<h4 id="add-your-key-to-a-remote-server">Add Your Key to a Remote Server</h4>
+<p>With that SSH key, you can now add it as an authorized key to any SSH server.</p>
+
+<p>To tell GitHub about this key, add the SSH key here: <br />
+<a href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
+
+<p>You can also add it to any SSH server by adding it to <code class="language-plaintext highlighter-rouge">~/.ssh/authorized_keys</code>.</p>
+
+<h4 id="test-out-ssh">Test Out SSH</h4>
+<p>You should now be able to SSH to servers.
+Whenever the Yubikey is asked to sign or authenticate,
+you’ll need to enter your PIN into the <code class="language-plaintext highlighter-rouge">pinentry</code> program.
+If you configured a touch requirement, you’ll also need to touch the Yubikey.</p>
+
+<p>Try it out with the <code class="language-plaintext highlighter-rouge">-v</code> flag on <code class="language-plaintext highlighter-rouge">ssh</code> to see if the right key is being used:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ssh <span class="nt">-v</span> example.com
+OpenSSH_6.7p1, OpenSSL 1.0.2 22 Jan 2015
+debug1: Connecting to example.com <span class="o">[</span>127.0.0.1] port 22.
+debug1: Connection established.
+debug1: Enabling compatibility mode <span class="k">for </span>protocol 2.0
+debug1: Local version string SSH-2.0-OpenSSH_6.7
+debug1: Remote protocol version 2.0, remote software version OpenSSH_6.4
+debug1: match: OpenSSH_6.4 pat OpenSSH<span class="k">*</span> compat 0x04000000
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: server-&gt;client aes128-ctr umac-64-etm@openssh.com none
+debug1: kex: client-&gt;server aes128-ctr umac-64-etm@openssh.com none
+debug1: sending SSH2_MSG_KEX_ECDH_INIT
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: Server host key: RSA xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx
+debug1: Host <span class="s1">'example.com'</span> is known and matches the RSA host key.
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: Roaming not allowed by server
+debug1: SSH2_MSG_SERVICE_REQUEST sent
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can <span class="k">continue</span>: publickey,gssapi-keyex,gssapi-with-mic
+debug1: Next authentication method: publickey
+<span class="c"># this is where we see our YubiKey is being used</span>
+debug1: Offering RSA public key: cardno:XXXXXXXXXXXX
+debug1: Server accepts key: pkalg ssh-rsa blen 279
+debug1: Authentication succeeded <span class="o">(</span>publickey<span class="o">)</span><span class="nb">.</span>
+Authenticated to localhost <span class="o">([</span>127.0.0.1]:22<span class="o">)</span><span class="nb">.</span>
+debug1: channel 0: new <span class="o">[</span>client-session]
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+<span class="o">[</span>user@localhost]~<span class="err">$</span>
+</code></pre></div></div>
+
+<h4 id="using-your-yubikey-on-a-chromebook">Using Your Yubikey on a Chromebook</h4>
+<p>If you’ve provisioned your Yubikey on another machine, it is possible to use it for SSH authentication on a Chromebook.
+First, make sure you’ve installed the following Chrome Apps:</p>
+<ul>
+  <li><a href="https://chrome.google.com/webstore/detail/secure-shell-app/pnhechapfaindjhompbnflcldabbghjo">SSH</a></li>
+  <li><a href="https://chrome.google.com/webstore/detail/smart-card-connector/khpfeaanjngmcnplbdlpegiifgpfgdco">Smart Card Connector</a></li>
+</ul>
+
+<p>Because Crostini (the project that brings a Debian VM to Chromebooks) does not currently support natively accessing the Yubikey through USB, you have to SSH into your Linux VM with agent-forwarding. That way, the SSH agent running in the Smart Card Connector will be accessible to the VM, which you use to authenticate from within the VM.
+Crostini is <a href="https://chromium.googlesource.com/chromiumos/docs/+/master/containers_and_vms.md#supported">not available on all Chromebooks</a>.
+Follow this <a href="https://blog.merzlabs.com/posts/yubikey-crostini/">guide</a> to set up SSH and agent forwarding.
+If you have any issues, here’s a <a href="https://chromium.googlesource.com/apps/libapps/+/HEAD/nassh/doc/hardware-keys.md">reference doc</a>.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+<p>That’s pretty much it!</p>
+
+<p>While not technically part of this guide, it’s usually a good idea to set
+up your Yubikey as a security key for two-factor authentication.</p>
+
+<p><strong>Setup your GitHub two-factor authentication here:</strong> <br />
+<a href="https://github.com/settings/two_factor_authentication/configure">https://github.com/settings/two_factor_authentication/configure</a></p>
+
+<p>If you have any trouble, check out the troubleshooting section in this
+<a href="https://www.isi.edu/~calvin/yubikeyssh.htm">guide</a>.</p>
+
+<p>If you ever lose your Yubikey, remember to remove it as an authorized key on
+GitHub and any SSH servers you may be using.</p>
+
+
+      </div>
+
+    </article>
+
+    <hr />
+    <div style="text-align:center;"> 
+      <p>
+        Liked this post?
+        Follow <a href="https://twitter.com/RaymondCheng00"><img class='contactico' src='/img/ico/twitter.ico' alt='twitter' />@RaymondCheng00 on Twitter</a><br>
+        or subscribe to my blog mailing list for some fresh thoughts
+      </p>
+      <iframe src="https://ryscheng.substack.com/embed" width="480" height="80" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+
+    </div>
+
+    <div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+  this.page.url = "https://www.raymondcheng.net/posts/git-yubikey.html";
+  //this.page.url = window.location.href;
+  this.page.identifier = "/posts/git-yubikey";
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://raymondcheng.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<script id="dsq-count-scr" src="//raymondcheng.disqus.com/count.js" async></script>
+<noscript>
+  Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+
+  </div> <!-- column -->
+</div> <!-- featurette -->
+<hr class="featurette-divider">
+
+        </div>
+      </div>
+
+      <footer>
+  <p class="pull-right"><a href="#">Back to top</a></p>
+  <p>&copy; raymondcheng.net &middot; Last Updated 2022 </p>
+</footer>
+
+
+
+    </div>
+  </body>
+
+<script src='/js/jquery.min.js' type='text/javascript'></script>
+<script src='/js/bootstrap.min.js' type='text/javascript'></script>
+<script src='/js/main.js' type='text/javascript'></script>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-11930420-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

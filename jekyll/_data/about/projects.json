@@ -1,0 +1,34 @@
+{
+  "title": "Hacker &amp; Entrepreneur",
+  "subtitles": [],
+  "descriptions": [],
+  "images": [
+    {
+      "src": "/img/pic/office.jpg",
+      "alt": "office"
+    }
+  ],
+  "quotes": [{
+    "text": "The best way to predict the future is to invent it.",
+    "source": "Alan Kay"
+  }],
+  "accordians": [
+    {
+      "title": "Ongoing Work",
+      "ref": "active",
+      "text": [],
+      "includemd": [],
+      "includes": [ "projects-ongoing.html" ]
+    },
+    {
+      "title": "Selected Press",
+      "ref": "press",
+      "text": [],
+      "includemd": [
+        "projects-press-short.md"
+      ],
+      "includes": []
+    }
+
+  ]
+}

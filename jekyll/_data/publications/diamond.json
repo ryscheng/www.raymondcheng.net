@@ -1,0 +1,33 @@
+{
+  "title": "Diamond: Automating Data Management and Storage for Wide-area Reactive Applications",
+  "authors": [
+    "irene_zhang",
+    "niel_lebeck",
+    "pedro_fonseca",
+    "brandon_holt",
+    "raymond_cheng",
+    "ariadna_norberg",
+    "arvind_krishnamurthy",
+    "henry_levy"
+  ],
+  "venue": {
+    "name": "11th USENIX Symposium on Operating Systems Design and Implementation (OSDI)",
+    "url": "https://www.usenix.org/conference/osdi16"
+  },
+  "year": 2016,
+  "paper": [
+    {
+      "name": "PDF1",
+      "url": "https://www.usenix.org/conference/osdi16/technical-sessions/presentation/zhang-irene"
+    },
+    {
+      "name": "PDF2",
+      "url": "/download/papers/diamond-osdi.pdf"
+    },
+    {
+      "name": "Slides",
+      "url": "/download/papers/diamond-osdi-slides.pdf"
+    }
+  ],
+  "bibtex": "https://dblp.uni-trier.de/rec/bibtex/conf/osdi/ZhangLFHCNKL16"
+}
