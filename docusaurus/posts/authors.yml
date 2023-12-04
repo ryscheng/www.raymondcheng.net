@@ -1,17 +1,17 @@
-endi:
-  name: Endilie Yacop Sucipto
-  title: Maintainer of Docusaurus
-  url: https://github.com/endiliey
-  image_url: https://github.com/endiliey.png
+ryscheng:
+  name: Raymond Cheng
+  title: Bringer of the funk
+  url: https://www.raymondcheng.net
+  image_url: https://github.com/ryscheng.png
 
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
+jeffhsu:
+  name: Jeff Hsu
+  title: Founder
+  url: https://thectozone.com/
+  image_url: https://github.com/typeboi.png
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
+brandonholt:
+  name: Brandon Holt
+  title: Engineer
+  url: http://bholt.org/
+  image_url: https://github.com/bholt.png

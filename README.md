@@ -63,4 +63,8 @@ and [Docker](https://en.wikipedia.org/wiki/Docker_(software)) was launched in 20
 All these free services finally made it accessible for someone like me
 to play with static site generation in continuous delivery.
 
+## Docusaurus (circa 2023)
 
+It's 2023. Why am I still using Ruby-based anything (Jekyll)?
+React is the clear winner for front-ends, it's time to move to a React-based framework.
+Docusaurus seems to do a really good job with good defaults.

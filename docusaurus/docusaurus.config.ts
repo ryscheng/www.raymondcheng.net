@@ -20,6 +20,7 @@ const config: Config = {
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
+  onDuplicateRoutes: "throw",
 
   // Even if you don"t use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -44,6 +45,15 @@ const config: Config = {
           routeBasePath: "/posts",
           showReadingTime: true,
           editUrl: "https://github.com/ryscheng/www.raymondcheng.net/docusaurus/",
+          feedOptions: {
+            type: "rss",
+          },
+          blogSidebarCount: "ALL",
+          postsPerPage: "ALL",
+        },
+        gtag: {
+          trackingID: "G-ZVCB4PT25W",
+          anonymizeIP: true,
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -55,6 +65,10 @@ const config: Config = {
   themeConfig: {
     // Replace with your project"s social card
     image: "img/me.jpg",
+    metadata: [
+      {name: 'keywords', content: 'raymond, cheng, founder, startup, research, science, open source, software, education'},
+      {name: 'twitter:card', content: 'summary_large_image'},
+    ],
     navbar: {
       title: "Raymond Cheng",
       logo: {
@@ -83,7 +97,7 @@ const config: Config = {
           items: [
             {
               label: "About",
-              to: "/about/intro",
+              to: "/about",
             },
             {
               label: "Blog",

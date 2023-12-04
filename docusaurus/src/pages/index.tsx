@@ -4,8 +4,10 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
+import { PlasmicRootProvider, PlasmicComponent } from '@plasmicapp/loader-react';
 
 import styles from './index.module.css';
+import { PLASMIC } from '../plasmic-init';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -19,8 +21,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            to="/about">
+            About Me
           </Link>
         </div>
       </div>
@@ -34,10 +36,13 @@ export default function Home(): JSX.Element {
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
+      <PlasmicRootProvider loader={PLASMIC}>
+        <HomepageHeader />
+        <main>
+          <HomepageFeatures />
+        </main>
+        <PlasmicComponent component="Homepage" />
+      </PlasmicRootProvider>
     </Layout>
   );
 }
