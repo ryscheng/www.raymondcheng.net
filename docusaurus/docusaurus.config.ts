@@ -38,13 +38,13 @@ const config: Config = {
           path: "./about",
           routeBasePath: "/about",
           sidebarPath: "./sidebars.ts",
-          editUrl: "https://github.com/ryscheng/www.raymondcheng.net/docusaurus/",
+          editUrl: "https://github.com/ryscheng/www.raymondcheng.net/blob/main/docusaurus/",
         },
         blog: {
           path: "./posts",
           routeBasePath: "/posts",
           showReadingTime: true,
-          editUrl: "https://github.com/ryscheng/www.raymondcheng.net/docusaurus/",
+          editUrl: "https://github.com/ryscheng/www.raymondcheng.net/blob/main/docusaurus/",
           feedOptions: {
             type: "rss",
           },
