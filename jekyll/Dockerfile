@@ -6,6 +6,6 @@ COPY Gemfile /setup/
 
 WORKDIR /setup
 #	sudo apt-get install ruby-dev
-RUN gem install bundler
+RUN gem install bundler -v 2.4.22
 #RUN bundle install
 #RUN bundle update --bundler

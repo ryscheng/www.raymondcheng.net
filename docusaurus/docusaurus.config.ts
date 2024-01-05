@@ -38,13 +38,13 @@ const config: Config = {
           path: "./about",
           routeBasePath: "/about",
           sidebarPath: "./sidebars.ts",
-          editUrl: "https://github.com/ryscheng/www.raymondcheng.net/blob/main/docusaurus/",
+          editUrl: "https://github.com/ryscheng/www.raymondcheng.net/tree/main/docusaurus/",
         },
         blog: {
           path: "./posts",
           routeBasePath: "/posts",
           showReadingTime: true,
-          editUrl: "https://github.com/ryscheng/www.raymondcheng.net/blob/main/docusaurus/",
+          editUrl: "https://github.com/ryscheng/www.raymondcheng.net/tree/main/docusaurus/",
           feedOptions: {
             type: "rss",
           },
@@ -77,15 +77,182 @@ const config: Config = {
       },
       items: [
         {
+          type: "dropdown",
+          label: "Blog",
+          position: "left",
+          items: [
+            {
+              label: "Popular",
+              to: "/posts/tags/popular",
+            },
+            {
+              label: "Guides",
+              to: "/posts/tags/guides",
+            },
+            {
+              label: "Projects",
+              to: "/posts/tags/projects",
+            },
+            {
+              label: "Thoughts",
+              to: "/posts/tags/thoughts",
+            },
+            {
+              label: "Life",
+              to: "/posts/tags/life",
+            },
+            {
+              label: "Web",
+              to: "/posts/tags/web",
+            },
+            {
+              label: "Security",
+              to: "/posts/tags/security",
+            },
+            {
+              label: "Decentralization",
+              to: "/posts/tags/decentralization",
+            },
+            {
+              label: "Hardware",
+              to: "/posts/tags/hardware",
+            },
+            {
+              label: "Food",
+              to: "/posts/tags/food",
+            },
+            {
+              label: "Recreation",
+              to: "/posts/tags/recreation",
+            },
+          ],
+        },
+        {
           type: "docSidebar",
           sidebarId: "mainSidebar",
           position: "left",
-          label: "About",
+          label: "Docs",
         },
         {
-          to: "/posts",
-          label: "Blog",
-          position: "left"
+          type: "dropdown",
+          label: "About",
+          position: "left",
+          items: [
+            {
+              type: "doc",
+              label: "Human Being",
+              docId: "me/human",
+            },
+            {
+              type: "doc",
+              label: "Hacker & Entrepreneur",
+              docId: "me/hacker",
+            },
+            {
+              type: "doc",
+              label: "Student & Teacher",
+              docId: "me/education",
+            },
+            {
+              type: "doc",
+              label: "Scientist & Writer",
+              docId: "me/writer",
+            },
+            {
+              type: "doc",
+              label: "Realtor",
+              docId: "me/realtor",
+            },
+            {
+              type: "doc",
+              label: "Builder",
+              docId: "me/builder",
+            },
+            {
+              type: "doc",
+              label: "Traveler",
+              docId: "me/traveler",
+            },
+            {
+              type: "doc",
+              label: "Mountaineer",
+              docId: "me/mountaineer",
+            },
+            {
+              type: "doc",
+              label: "Chef & Bartender",
+              docId: "me/chef",
+            },
+            {
+              type: "doc",
+              label: "Pilot",
+              docId: "me/pilot",
+            },
+            {
+              type: "doc",
+              label: "Seaman",
+              docId: "me/seaman",
+            },
+            {
+              type: "doc",
+              label: "Diver",
+              docId: "me/diver",
+            },
+            {
+              type: "doc",
+              label: "Biker",
+              docId: "me/biker",
+            },
+            {
+              type: "doc",
+              label: "Dancer",
+              docId: "me/dancer",
+            },
+          ],
+        },
+        {
+          type: "dropdown",
+          label: "Projects",
+          position: "left",
+          items: [
+            {
+              type: "doc",
+              label: "Current projects",
+              docId: "projects/current",
+            },
+            {
+              type: "doc",
+              label: "Mature work",
+              docId: "projects/mature",
+            },
+            {
+              type: "doc",
+              label: "Hacks",
+              docId: "projects/hacks",
+            },
+          ],
+        },
+        {
+          type: "dropdown",
+          label: "Publications",
+          position: "left",
+          items: [
+            {
+              type: "doc",
+              label: "Papers",
+              docId: "publications/papers",
+            },
+            {
+              type: "doc",
+              label: "Talks",
+              docId: "publications/talks",
+            },
+            {
+              type: "doc",
+              label: "Press",
+              docId: "publications/press",
+            },
+          ],
         },
       ],
     },
@@ -96,12 +263,24 @@ const config: Config = {
           title: "Sections",
           items: [
             {
-              label: "About",
+              label: "Blog",
+              to: "/posts/tags/popular",
+            },
+            {
+              label: "Docs",
               to: "/about",
             },
             {
-              label: "Blog",
-              to: "/posts",
+              label: "About",
+              to: "/about/category/about-me",
+            },
+            {
+              label: "Projects",
+              to: "/about/category/projects",
+            },
+            {
+              label: "Publications",
+              to: "/about/category/publications",
             },
           ],
         },
@@ -184,7 +363,6 @@ const config: Config = {
             },
           ],
         },
-        
       ],
       copyright: `Copyright © ${new Date().getFullYear()} ryscheng`,
     },

@@ -1,17 +1,18 @@
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import Heading from '@theme/Heading';
-import { PlasmicRootProvider, PlasmicComponent } from '@plasmicapp/loader-react';
+import clsx from "clsx";
+import Link from "@docusaurus/Link";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
+import Heading from "@theme/Heading";
+import { PlasmicRootProvider, PlasmicComponent } from "@plasmicapp/loader-react";
 
-import styles from './index.module.css';
-import { PLASMIC } from '../plasmic-init';
+import styles from "./index.module.css";
+import { PLASMIC } from "../plasmic-init";
+import Homepage from "../components/plasmic/Homepage";
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
@@ -37,7 +38,23 @@ export default function Home(): JSX.Element {
       description="Description will go into a meta tag in <head />">
       <PlasmicRootProvider loader={PLASMIC}>
         <HomepageHeader />
-        <PlasmicComponent component="Homepage" />
+        <Homepage />
+        <div
+          style={{
+            margin: "auto",
+          }}
+        >
+          <iframe
+            src={"https://ryscheng.substack.com/embed"}
+            width={480}
+            height={120}
+            style={{
+              border: "1px solid #EEE",
+              background: "white",
+            }}
+            scrolling={"no"}
+          />
+        </div>
       </PlasmicRootProvider>
     </Layout>
   );
