@@ -131,7 +131,7 @@ const config: Config = {
           type: "docSidebar",
           sidebarId: "mainSidebar",
           position: "left",
-          label: "Docs",
+          label: "Bio",
         },
         {
           type: "dropdown",
@@ -247,7 +247,7 @@ const config: Config = {
               to: "/posts/tags/popular",
             },
             {
-              label: "Docs",
+              label: "Bio",
               to: "/about",
             },
             {
