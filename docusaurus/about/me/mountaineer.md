@@ -3,3 +3,42 @@ sidebar_position: 8
 ---
 
 # Mountaineer
+
+> We must not cease from exploration and the end of all our exploring will be to arrive where we began and to know the place for the first time. *- T.S. Elliot*
+
+![hiking](/img/pic/hiking.jpg)
+
+## Hikes
+
+- [Black Mountain](https://www.openspace.org/where-to-go/permits/camping) - Monte Bello Open Space Preserve (2023)
+- [Pinnacles National Park](https://www.nps.gov/pinn/index.htm) - (2023)
+- [Floresta Nacional do Tapajos](https://www.icmbio.gov.br/flonatapajos/) - Amazon, Brazil (2021)
+- [Moro Rock](https://www.nps.gov/seki/planyourvisit/moro.htm) - Sequoia & Kings Canyon National Park (2020)
+- [Yellowstone Grand Canyon South Rim](https://www.nps.gov/yell/index.htm) - Yellowstone National Park (2020)
+- [Big Basin Redwoods State Park](http://www.parks.ca.gov/?page_id=540) - Santa Cruz Mountain Range (2020)
+- [Wunderlich Park](https://parks.smcgov.org/wunderlich-park) - (2020)
+- [Marshall Gold Discovery State Historic Park](http://www.parks.ca.gov/?page_id=484) - (2020)
+- [MacKerricher State Park](https://www.parks.ca.gov/?page_id=436) - North CA Coast (2020)
+- [Russian Gulch State Park](https://www.parks.ca.gov/?page_id=432) - North CA Coast (2020)
+- [Hendy Woods State Park](https://www.parks.ca.gov/?page_id=438) - Hendy Grove (2020)
+- [Lake Sonoma](http://www.lakesonoma.com/) - Sonoma County (2020)
+- [Uvas Canyon County Park](https://www.sccgov.org/sites/parks/parkfinder/Pages/UvasCanyon.aspx) - Santa Cruz Mountain Range (2020)
+- [Lakes Trail](https://www.nps.gov/seki/planyourvisit/lakes-trail.htm) - Sequoia & Kings Canyon National Park (2019)
+- [Half Dome](https://www.nps.gov/yose/planyourvisit/halfdome.htm) - Yosemite National Park (2019)
+- [Coyote Lake Harvey Bear Ranch](https://www.sccgov.org/sites/parks/parkfinder/Pages/CoyoteLake.aspx) - Gilroy, CA (2019)
+- [Mt Madonna](https://www.sccgov.org/sites/parks/parkfinder/Pages/MtMadonna.aspx) - Santa Cruz Mountain Range (2019)
+- [Sanborn County Park](https://www.sccgov.org/sites/parks/parkfinder/Pages/Sanborn.aspx) - Santa Cruz Mountain Range (2019)
+- [Tomales Point Trail](https://www.alltrails.com/trail/us/california/tomales-point-trail) - Point Reyes National Seashore (2018)
+- [Sentinel Dome](https://www.yosemite.com/what-to-do/sentinel-dome-taft-point/) - Yosemite National Park (2018)
+- [Vernal Falls](https://www.nps.gov/yose/planyourvisit/vernalnevadatrail.htm) - Yosemite National Park (2018)
+- [Muir Woods](https://www.nps.gov/muwo/index.htm) - Marin (2018)
+- [Mt Diablo](http://www.parks.ca.gov/?page_id=517) - Walnut Creek (2018)
+- [Snoqualmie Tunnel](http://www.wta.org/go-hiking/hikes/iron-horse-tunnel) - Cascade Range (2017)
+- [Mount Healy](https://www.nps.gov/dena/planyourvisit/overlook.htm) - Denali National Park (2017)
+- [Hoh River Trail to Blue Glacier](http://www.wta.org/go-hiking/hikes/hoh-river-blue-glacier) - Olympic National Park (2017)
+- [Poo Poo Point](https://www.wta.org/go-hiking/hikes/poo-poo-point-chirico-trail) - Cascade Range (2017)
+- [Mount Kinabalu](https://en.wikivoyage.org/wiki/Mount_Kinabalu) - Malaysia (2015)
+- [Twin Falls](http://www.wta.org/go-hiking/hikes/twin-falls-state-park) - Cascade Range (2015)
+- [Mount Si](http://www.wta.org/go-hiking/hikes/mount-si) - Cascade Range (2013)
+- [Snow Lake](http://www.wta.org/go-hiking/hikes/snow-lake-1) - Cascade Range (2012)
+- [Mount Tai](https://en.wikivoyage.org/wiki/Mount_Tai) - China (2011)

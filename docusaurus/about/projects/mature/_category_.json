@@ -1,0 +1,8 @@
+{
+  "label": "Mature Projects",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Projects that I've worked on."
+  }
+}

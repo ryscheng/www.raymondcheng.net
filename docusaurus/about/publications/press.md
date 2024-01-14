@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+description: "Mentions in the press/media"
 ---
 
 # Press / Media

@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: "Peer-reviewed papers, technical reports, books"
 ---
 
 # Papers

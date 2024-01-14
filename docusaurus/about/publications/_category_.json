@@ -1,6 +1,6 @@
 {
-  "label": "Publications",
   "position": 4,
+  "label": "Publications",
   "link": {
     "type": "generated-index",
     "description": "A list of related publications."
