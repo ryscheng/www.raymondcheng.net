@@ -347,10 +347,10 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} ryscheng`,
     },
     algolia: {
-      appId: "PEDQP0B9J5",
-      apiKey: "db7e4c14a8d25532f1374cd7689aadd5",
-      indexName: "raymondcheng-net",
-      contextualSearch: true,
+      appId: "2RZMLKJO11",
+      apiKey: "033564583db11d180d207d01d137cdfa",
+      indexName: "raymondcheng",
+      contextualSearch: false,
     },
     prism: {
       theme: prismThemes.github,

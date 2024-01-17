@@ -6,6 +6,7 @@ description: "Conferences, seminars, talks"
 # Talks
 
 ### Measuring the impact of open source efforts with Open Source Observer
+- [Global Unity Impact Measurement Showcase](http://globalunity.org/). Online. Jan 2024.
 - [Funding the Commons Taipei](https://fundingthecommons.io/). Taipei, Taiwan. Dec 2023.
 - [PL Summit 2023](https://plsummit23.labweek.io/). Istanbul, Turkey. Nov 2023.
 [![video](/img/ico/video.png) Watch](https://youtu.be/sHvdBRj3kxE?si=MdhUTOBzkqk4zzZV&t=6250)
