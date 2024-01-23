@@ -37,13 +37,10 @@ export default function Home(): JSX.Element {
       title={`Hello from ${siteConfig.title}`}
       description="Raymond Cheng's personal website">
       <PlasmicRootProvider loader={PLASMIC}>
-        <HomepageHeader />
-        <Homepage />
-        <div
-          style={{
-            margin: "auto",
-          }}
-        >
+        <div className={styles.autoMargin} >
+          <Homepage />
+        </div>
+        <div className={styles.autoMargin} >
           <iframe
             src={"https://ryscheng.substack.com/embed"}
             width={480}

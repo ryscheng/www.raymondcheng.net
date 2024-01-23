@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "generated/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "generated/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -40,10 +40,56 @@
           "cssFilePath": "generated/raymondcheng_net/PlasmicHomepage.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "kjGuU84qQQRa",
+          "name": "Button",
+          "type": "managed",
+          "projectId": "rx1kpYqGUzeEvbcptJ7ip8",
+          "renderModuleFilePath": "generated/raymondcheng_net/PlasmicButton.tsx",
+          "importSpec": {
+            "modulePath": "Button.tsx"
+          },
+          "cssFilePath": "generated/raymondcheng_net/PlasmicButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "button"
         }
       ],
-      "icons": [],
-      "images": [],
+      "icons": [
+        {
+          "id": "YMvfPUcWJqdh",
+          "name": "ChecksvgIcon",
+          "moduleFilePath": "generated/raymondcheng_net/icons/PlasmicIcon__Checksvg.tsx"
+        },
+        {
+          "id": "xTdoxOhu_wr8",
+          "name": "IconIcon",
+          "moduleFilePath": "generated/raymondcheng_net/icons/PlasmicIcon__Icon.tsx"
+        }
+      ],
+      "images": [
+        {
+          "id": "bAvDlQcm2Rhs",
+          "name": "me-illustration",
+          "filePath": "../../../static/plasmic/plasmic/raymondcheng_net/images/meIllustration.png"
+        },
+        {
+          "id": "gIZtanz018H0",
+          "name": "emailaddr.jpg",
+          "filePath": "../../../static/plasmic/plasmic/raymondcheng_net/images/emailaddrjpg.jpg"
+        },
+        {
+          "id": "jGqqi0v7bwwo",
+          "name": "twitter.svg",
+          "filePath": "../../../static/plasmic/plasmic/raymondcheng_net/images/twittersvg.svg"
+        },
+        {
+          "id": "dkaDvMcPLo-C",
+          "name": "github-mark.svg",
+          "filePath": "../../../static/plasmic/plasmic/raymondcheng_net/images/githubMarksvg.svg"
+        }
+      ],
       "indirect": false,
       "globalContextsFilePath": "",
       "splitsProviderFilePath": "",

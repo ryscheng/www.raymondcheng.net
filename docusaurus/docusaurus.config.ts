@@ -87,6 +87,10 @@ const config: Config = {
               to: "/posts/tags/popular",
             },
             {
+              label: "Recent",
+              to: "/posts",
+            },
+            {
               label: "Guides",
               to: "/posts/tags/guides",
             },
