@@ -7,9 +7,6 @@ description: "A little about me"
 
 ![email](/img/emailaddr.jpg)
 
-- Co-founder & CEO @ [Kariba Labs](https://www.karibalabs.co/)
-- Co-founder & Head of Engineering @ [Hypercerts Foundation](https://hypercerts.org/)
-
 Specialty in distributed systems, networks, security, privacy, web, Internet freedom, & electrofunk.
 
 [Check out my CV](https://www.dropbox.com/s/xq9g9zua8ayfrsc/cv.pdf?dl=0), son.
