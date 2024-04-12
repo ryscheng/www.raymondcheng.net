@@ -49,23 +49,23 @@ You will need the following tools on your system:
 
 To install these on Ubuntu 18.04:
 ```bash
-$ sudo add-apt-repository ppa:yubico/stable
-$ sudo apt-get update
-$ sudo apt-get install pcscd scdaemon pcsc-tools gnupg2 gnupg-agent
-$ sudo apt-get install yubikey-manager yubikey-personalization-gui yubikey-personalization
+sudo add-apt-repository ppa:yubico/stable
+sudo apt-get update
+sudo apt-get install pcscd scdaemon pcsc-tools gnupg2 gnupg-agent
+sudo apt-get install yubikey-manager yubikey-personalization
 ```
 
 To install these on MacOS with [Homebrew](https://brew.sh/)
 ```bash
-$ brew install gnupg2
-$ brew install pinentry-mac
-$ brew install ykman
-$ brew install yubikey-personalization
+brew install gnupg2
+brew install pinentry-mac
+brew install ykman
+brew install yubikey-personalization
 ```
 
 To install these on MacOS with [MacPorts](https://www.macports.org/)
 ```bash
-$ sudo port install gnupg2 pinentry-mac yubikey-manager ykpers
+sudo port install gnupg2 pinentry-mac yubikey-manager ykpers
 ```
 
 ## Yubikey Configuration
@@ -114,22 +114,37 @@ Admin commands are allowed
 gpg/card> key-attr
 Changing card key attribute for: Signature key
 Please select what kind of key you want:
-  (1) RSA
-  (2) ECC
+   (1) RSA
+   (2) ECC
+Your selection? 2
+Please select which elliptic curve you want:
+   (1) Curve 25519
+   (4) NIST P-384
 Your selection? 1
-What keysize do you want? (4096) 4096
+The card will now be re-configured to generate a key of type: ed25519
+Note: There is no guarantee that the card supports the requested size.
+      If the key generation does not succeed, please check the
+      documentation of your card to see what sizes are allowed.
 Changing card key attribute for: Encryption key
 Please select what kind of key you want:
-  (1) RSA
-  (2) ECC
+   (1) RSA
+   (2) ECC
+Your selection? 2
+Please select which elliptic curve you want:
+   (1) Curve 25519
+   (4) NIST P-384
 Your selection? 1
-What keysize do you want? (4096) 4096
+The card will now be re-configured to generate a key of type: cv25519
 Changing card key attribute for: Authentication key
 Please select what kind of key you want:
-  (1) RSA
-  (2) ECC
+   (1) RSA
+   (2) ECC
+Your selection? 2
+Please select which elliptic curve you want:
+   (1) Curve 25519
+   (4) NIST P-384
 Your selection? 1
-What keysize do you want? (4096) 4096
+The card will now be re-configured to generate a key of type: ed25519
 
 gpg/card> passwd
 gpg: OpenPGP card no. XXXXXX detected
@@ -151,13 +166,13 @@ Your selection? q
 gpg/card> quit
 ```
 
-Now let's set the Yubikey mode to U2F/CCID composite mode.
+**Optional**: Now let's set the Yubikey mode to U2F/CCID composite mode.
 U2F mode is used for 2-factor authentication for web services like Google/GitHub.
 CCID mode is used for `gpg` operations.
-We will disable OTP mode to avoid the annoying keyboard behavior when the button is accidentally pressed.
-Note that mode 5 is specific to Yubikey 3.0 and above
+We can disable OTP mode to avoid the annoying keyboard behavior when the button is accidentally pressed.
+Note that the command below (mode 5) is specific to Yubikey 3.0 and 4.0
 ([details](https://developers.yubico.com/yubikey-personalization/Manuals/ykpersonalize.1.html)).
-Make sure you're setting the correct mode for your Yubikey.
+Make sure you're setting the correct mode for your Yubikey. Do not use this specific command for Yubikey 5.0 and above.
 
 ```bash
 $ ykpersonalize -m 5
@@ -174,12 +189,12 @@ You'll notice that pushing the Yubikey button no longer leads to keyboard stroke
 
 ***Optional***: It is also recommended to enable a touch requirement for all authentication requests,
 which means you have the physically touch the device to approve any encryption/signing/authentication requests.
-For details, see [here](https://support.yubico.com/hc/en-us/articles/360016614940-YubiKey-Manager-CLI-ykman-User-Manual).
+For details, see [here]([https://support.yubico.com/hc/en-us/articles/360016614940-YubiKey-Manager-CLI-ykman-User-Manual](https://docs.yubico.com/software/yubikey/tools/ykman/OpenPGP_Commands.html#ykman-openpgp-keys-set-touch-options-key-policy)).
 
 ```bash
-$ ykman openpgp touch aut on
-$ ykman openpgp touch enc on
-$ ykman openpgp touch sig on
+ykman openpgp keys set-touch aut on
+ykman openpgp keys set-touch enc on
+ykman openpgp keys set-touch sig on
 ```
 
 ## Generate Your Keys
@@ -262,7 +277,7 @@ Make a note of your `SIGNATURE_KEY_FINGERPRINT`.
 Then export your signature public key.
 For example, if your fingerprint is AED9256FF8CEC558:
 ```bash
-$ gpg --armor --export AED9256FF8CEC558 > AED9256FF8CEC558.asc
+gpg --armor --export AED9256FF8CEC558 > AED9256FF8CEC558.asc
 ```
 
 You will need to manually copy this signature public key to any computer that you want
@@ -274,7 +289,7 @@ First, you need to import your signature public key onto the machine.
 You can skip this if you generated the key on this computer.
 For example, if your signature public key is in `AED9256FF8CEC558.asc`:
 ```bash
-$ gpg --import < AED9256FF8CEC558.asc
+gpg --import < AED9256FF8CEC558.asc
 ```
 
 Then, `gpg-agent` needs to be configured with SSH support.
@@ -299,14 +314,14 @@ export GPG_TTY=$(tty)
 Remember to restart your gpg-agent and terminal for these settings to take effect.
 If you don't have gpg-agent setup to run automatically, you can start it manually:
 ```bash
-$ gpg-agent --daemon --enable-ssh-support
+gpg-agent --daemon --enable-ssh-support
 ```
 
 ## Signed git Commits
 You can manually ask git to sign at commit time.
 To do so, you need to remember to add the `-S` flag every time you commit.
 ```bash
-$ git commit -S -m 'commit message'
+git commit -S -m 'commit message'
 ```
 
 *Note: Whenever the Yubikey is asked to sign or authenticate,
@@ -333,7 +348,7 @@ We previously exported it to a file at the end of the [generate your keys sectio
 From any computer where the public key is already loaded,
 you can get it again by running:
 ```bash
-$ gpg --armor --export SIGNATURE_KEY_FINGERPRINT
+gpg --armor --export SIGNATURE_KEY_FINGERPRINT
 ```
 
 After you do this,
@@ -344,7 +359,7 @@ and show a verified status in commit history.
 After you've signed your first commit, you will see verified commits
 in the commit log both locally and on GitHub.
 ```bash
-$ git log --show-signature
+git log --show-signature
 Author: NAME <EMAIL>
 Date:  Mon Jan 01 00:00:00 2018 -0000
 
@@ -365,13 +380,13 @@ When the Yubikey is plugged in, `gpg-agent` is properly running,
 and your terminal is setup with the correct `SSH_AUTH_SOCK`,
 you can get your SSH public key by running:
 ```bash
-$ ssh-add -L
+ssh-add -L
 ```
 
 If you want to get it directly from GPG, you can run the following with
 the authentication key fingerprint:
 ```bash
-$ gpg --export-ssh-key AUTHENTICATION_KEY_FINGERPRINT
+gpg --export-ssh-key AUTHENTICATION_KEY_FINGERPRINT
 ```
 
 #### Add Your Key to a Remote Server
