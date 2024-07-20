@@ -105,7 +105,6 @@ Ravi Bhoraskar, Dominic Langenegger, Pingyang He, Raymond Cheng, Will Scott, Mic
 [The 5th ACM SIGOPS Asia-Pacific Workshop on Systems (APSYS)](http://acs.ict.ac.cn/apsys2014/technical-program/). 2014.  
 [![pdf](/img/ico/pdf.gif) PDF](/papers/bladedroid-apsys.pdf),
 [![pdf](/img/ico/pdf.gif) ACM](https://dl.acm.org/citation.cfm?id=2637228),
-[![ppt](/img/ico/ppt.gif) Slides](/slides/2014-apsys-bladedroid/),
 [![tex](/img/ico/tex.png) BibTex](https://dblp.uni-trier.de/rec/bibtex/conf/apsys/BhoraskarLHCSE14)
 
 **Blocking-Resistant Network Services using Unblock**  

@@ -11,5 +11,4 @@ BladeDroid is a system enabling user customization of Android applications, usin
 
 [APSYS 2014](http://acs.ict.ac.cn/apsys2014/)
 [![pdf](/img/ico/pdf.gif) PDF](/papers/bladedroid-apsys.pdf),
-[![ppt](/img/ico/ppt.gif) Slides](/slides/2014-apsys-bladedroid/),
 [![tex](/img/ico/tex.png) BibTex](https://dblp.uni-trier.de/rec/bibtex/conf/apsys/BhoraskarLHCSE14)

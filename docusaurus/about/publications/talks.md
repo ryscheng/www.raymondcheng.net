@@ -5,7 +5,16 @@ description: "Conferences, seminars, talks"
 
 # Talks
 
+### Funding the Commons San Francisco
+- Organized a full day conference dedicated to open source funding at UC Berkeley. Apr 2024.
+- [Full playlist](https://www.youtube.com/playlist?list=PL3C6eF-zu5AZC9dFtgMVhnclE5GtnkWvX)
+- [Introduction to Open Source Day](https://drive.google.com/file/d/1KCKp5YU36c9u3_2r-oTCH0zM9nVmqpPl/view)
+- [Morning Workshop Preview](https://www.youtube.com/watch?v=6uW2lpoXe7Q&list=PL3C6eF-zu5AZC9dFtgMVhnclE5GtnkWvX&index=12)
+- [Closing remarks](https://www.youtube.com/watch?v=vN0jG7LdkII&list=PL3C6eF-zu5AZC9dFtgMVhnclE5GtnkWvX&index=2)
+
 ### Measuring the impact of open source efforts with Open Source Observer
+- [TechSoup Webinar](https://www.techsoup.org/). Online. May 2024.
+[![video](/img/ico/video.png) Watch](https://www.youtube.com/watch?v=cNhQJ5FmvjQ)
 - [Global Unity Impact Measurement Showcase](http://globalunity.org/). Online. Jan 2024.
 - [Funding the Commons Taipei](https://fundingthecommons.io/). Taipei, Taiwan. Dec 2023.
 [![video](/img/ico/video.png) Watch](https://youtu.be/D7xS0fgRYuQ?si=wQTk9HIEi8PqA4_f)
@@ -85,7 +94,6 @@ description: "Conferences, seminars, talks"
 - Google Ideas Summit. New York, NY. Oct 2013.
 
 ### User scripting on Android using BladeDroid
-[![ppt](/img/ico/ppt.gif) Slides](/slides/2014-apsys-bladedroid/)
 - APSYS 2014. Beijing, China. Jun 2014.
 - Microsoft Research Asia. Beijing, China. Jun 2014.
 

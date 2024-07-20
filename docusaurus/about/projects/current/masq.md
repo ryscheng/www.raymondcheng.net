@@ -1,5 +1,5 @@
 ---
-sidebar_position: 0
+sidebar_position: 3
 description: "Security, privacy, public goods"
 ---
 
@@ -7,7 +7,7 @@ description: "Security, privacy, public goods"
 
 ![masq](/img/projects/masq.png)
 
-The MASQ Foundation exists to build and support security and privacy for the public good. We research, engineer, and promote widely-accessible technologies that protect individual users’ security and privacy in both the digital and physical worlds.
+The MASQ Foundation exists to improve security, privacy, and decentralization for the public good. We research, build, and teach about widely-accessible technologies that empower individual users and local communities. Our goal is to make both the digital and physical worlds more secure, respect privacy, and decentralized in power, while spurring new economic, coordination, and governance models. We believe that decentralization can lead to a world that out-innovates the extractive companies of today.
 
 - Co-Founder
 - President

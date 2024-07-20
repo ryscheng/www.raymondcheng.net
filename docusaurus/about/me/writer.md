@@ -35,15 +35,19 @@ For a complete list, click [here](/about/publications/papers)
 
 ## Selected Talks
 
+**Funding the Commons San Francisco**
+- Organized a full day conference dedicated to open source funding at UC Berkeley. Apr 2024.
+- [Full playlist](https://www.youtube.com/playlist?list=PL3C6eF-zu5AZC9dFtgMVhnclE5GtnkWvX)
+- [Introduction to Open Source Day](https://drive.google.com/file/d/1KCKp5YU36c9u3_2r-oTCH0zM9nVmqpPl/view)
+
 **Measuring the impact of open source efforts with Open Source Observer**
+- [TechSoup Webinar](https://www.techsoup.org/). Online. May 2024.
+[![video](/img/ico/video.png) Watch](https://www.youtube.com/watch?v=cNhQJ5FmvjQ)
 - [Funding the Commons Taipei](https://fundingthecommons.io/). Taipei, Taiwan. Dec 2023.
+[![video](/img/ico/video.png) Watch](https://youtu.be/D7xS0fgRYuQ?si=wQTk9HIEi8PqA4_f)
 - [PL Summit 2023](https://plsummit23.labweek.io/). Istanbul, Turkey. Nov 2023.
 [![video](/img/ico/video.png) Watch](https://youtu.be/sHvdBRj3kxE?si=MdhUTOBzkqk4zzZV&t=6250)
-- [PLN Lab Day](https://plnnews.substack.com/p/pln-updates-oct-23). Online. Oct 2023.
-[![video](/img/ico/video.png) Watch](https://www.youtube.com/watch?v=V7sI5pO3TT0&t=1354s)
 - [Coinbase Ventures Summit](https://www.cbvsummit.com/). Malibu, CA. Oct 2023.
-- [FIL Dev Summit](https://fildev.io/). Reykjavík, Iceland. Sept 2023.
-[![video](/img/ico/video.png) Watch](https://www.youtube.com/watch?v=szGLQDwm_E0)
 
 **Accelerating Science and Research with Impact Certificates**
 - [Metascience Conference](https://metascience.info/). Washington, DC. May 2023.

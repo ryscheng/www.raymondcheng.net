@@ -189,7 +189,6 @@ You'll notice that pushing the Yubikey button no longer leads to keyboard stroke
 
 ***Optional***: It is also recommended to enable a touch requirement for all authentication requests,
 which means you have the physically touch the device to approve any encryption/signing/authentication requests.
-For details, see [here]([https://support.yubico.com/hc/en-us/articles/360016614940-YubiKey-Manager-CLI-ykman-User-Manual](https://docs.yubico.com/software/yubikey/tools/ykman/OpenPGP_Commands.html#ykman-openpgp-keys-set-touch-options-key-policy)).
 
 ```bash
 ykman openpgp keys set-touch aut on
