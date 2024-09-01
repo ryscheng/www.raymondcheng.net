@@ -1,6 +1,6 @@
 ---
-sidebar_position: 3
-description: "Security, privacy, public goods"
+sidebar_position: 5
+description: "Security, privacy, and decentralization as a public good"
 ---
 
 # MASQ Foundation

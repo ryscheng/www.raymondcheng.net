@@ -13,6 +13,7 @@ description: "Conferences, seminars, talks"
 - [Closing remarks](https://www.youtube.com/watch?v=vN0jG7LdkII&list=PL3C6eF-zu5AZC9dFtgMVhnclE5GtnkWvX&index=2)
 
 ### Measuring the impact of open source efforts with Open Source Observer
+- [DWeb Camp](https://dwebcamp.org/). Camp Navarro, CA. Aug 2024.
 - [TechSoup Webinar](https://www.techsoup.org/). Online. May 2024.
 [![video](/img/ico/video.png) Watch](https://www.youtube.com/watch?v=cNhQJ5FmvjQ)
 - [Global Unity Impact Measurement Showcase](http://globalunity.org/). Online. Jan 2024.
