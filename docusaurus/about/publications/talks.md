@@ -5,10 +5,14 @@ description: "Conferences, seminars, talks"
 
 # Talks
 
+### Incentive Mechanism Design for Public Goods Funding
+- [Protocol Labs](https://www.protocol.ai/). Studio Interview. Sept 2024.
+[![video](/img/ico/video.png) Watch](https://www.youtube.com/watch?v=ZNBQ68f5xC0)
+
 ### Funding the Commons San Francisco
 - Organized a full day conference dedicated to open source funding at UC Berkeley. Apr 2024.
 - [Full playlist](https://www.youtube.com/playlist?list=PL3C6eF-zu5AZC9dFtgMVhnclE5GtnkWvX)
-- [Introduction to Open Source Day](https://drive.google.com/file/d/1KCKp5YU36c9u3_2r-oTCH0zM9nVmqpPl/view)
+- [Introduction to Open Source Day](https://www.youtube.com/watch?v=XDE5qLUT-QY&list=PL3C6eF-zu5AZC9dFtgMVhnclE5GtnkWvX&index=20)
 - [Morning Workshop Preview](https://www.youtube.com/watch?v=6uW2lpoXe7Q&list=PL3C6eF-zu5AZC9dFtgMVhnclE5GtnkWvX&index=12)
 - [Closing remarks](https://www.youtube.com/watch?v=vN0jG7LdkII&list=PL3C6eF-zu5AZC9dFtgMVhnclE5GtnkWvX&index=2)
 
