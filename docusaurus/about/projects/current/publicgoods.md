@@ -1,11 +1,11 @@
 ---
 sidebar_position: 4
-description: "an Experimental Working Group"
+description: "a non-profit advocating for public goods"
 ---
 
-# Public Goods Funding Working Group
+# Public Goods Foundation
 
-The public goods funding working group experiments with different ways to grow and sustainably fund public goods, starting with open source software.
+The Public Goods Foundation experiments with different ways to grow and sustainably fund public goods, starting with open source software. 
 
 - Co-Founder
 

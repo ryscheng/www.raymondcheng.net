@@ -7,7 +7,9 @@ description: "Funding open source impact"
 
 ![kariba](/img/projects/kariba.png)
 
-The Kariba network combines the power of an open data pipeline that tracks open source impact, with a continuous funding mechanism that rewards the most impactful projects. Our ecosystem partners define what they want to reward, open source projects get paid.
+Join an avid community of data nerds, building an open source decentralized intelligence network.
+Get rewarded when you contribute valuable data and models.
+Work with the latest frontier technology in big data and artificial intelligence.
 
 - Co-founder
 

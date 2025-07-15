@@ -5,6 +5,10 @@ description: "Conferences, seminars, talks"
 
 # Talks
 
+### Continuous Retro Funding
+- [FIL Dev Summit](https://www.fildev.io/FDS-5). Bangkok, Thailand. Nov 2024.
+[![video](/img/ico/video.png) Watch](https://www.youtube.com/watch?v=mKOi5eLwePE&list=PL_0VrY55uV1__uv3uOvZ3L6exG9y10lSy&index=63)
+
 ### Incentive Mechanism Design for Public Goods Funding
 - [Protocol Labs](https://www.protocol.ai/). Studio Interview. Sept 2024.
 [![video](/img/ico/video.png) Watch](https://www.youtube.com/watch?v=ZNBQ68f5xC0)
