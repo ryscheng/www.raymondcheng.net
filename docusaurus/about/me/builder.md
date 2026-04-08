@@ -10,6 +10,7 @@ sidebar_position: 6
 
 ## Projects
 
+- Bookshelf (2025)
 - Buttercup's Doghouse (2022)
 - [Fire on the Farm](https://www.instagram.com/p/CUuxeI0lQqz/) (2021)
 - [Rotating Circle Bed](https://www.instagram.com/p/Cp5lN3APVtQ/) (2021)

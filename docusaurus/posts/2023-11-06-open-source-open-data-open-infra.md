@@ -11,7 +11,7 @@ import Head from '@docusaurus/Head';
   <link rel="canonical" href="https://kariba.substack.com/p/open-source-open-data-open-infra" />
 </Head>
 
-At Kariba Labs, we believe deeply in the power of open source software. That is why we are building [Open Source Observer](https://www.opensource.observer/about) (aka OSO), an open source tool for measuring the impact of open source projects. In order to achieve our goal of making open source better for everyone, we believe that OSO needs more than just open source code. We are committed to being the most open and reliable source of impact metrics out there. We will achieve this by committing the OSO project to the following practices:
+At Kariba Labs, we believe deeply in the power of open source software. That is why we are building [Open Source Observer](https://www.oso.xyz/about) (aka OSO), an open source tool for measuring the impact of open source projects. In order to achieve our goal of making open source better for everyone, we believe that OSO needs more than just open source code. We are committed to being the most open and reliable source of impact metrics out there. We will achieve this by committing the OSO project to the following practices:
 
 - **Open source software**: All code is developed using permissive licenses (e.g. MIT/Apache 2.0)
 

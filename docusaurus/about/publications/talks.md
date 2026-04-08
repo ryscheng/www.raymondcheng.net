@@ -5,13 +5,15 @@ description: "Conferences, seminars, talks"
 
 # Talks
 
+### Prosperous Software Movement
+- [Funding the Commons](https://www.fundingthecommons.io/ftc-frontiertower). San Francisco, CA. Mar 2026.
+[![video](/img/ico/video.png) Watch](https://youtu.be/Fu0Vd_sauZs?si=hc7sVpAMgW2XZ2gh&t=2175)
+- [ETHBoulder](https://luma.com/o9qpeepn). Boulder, CO. Feb 2026.
+- PL Dev Summit. Buenos Aires, Argentina. Nov 2025.
+
 ### Continuous Retro Funding
 - [FIL Dev Summit](https://www.fildev.io/FDS-5). Bangkok, Thailand. Nov 2024.
 [![video](/img/ico/video.png) Watch](https://www.youtube.com/watch?v=mKOi5eLwePE&list=PL_0VrY55uV1__uv3uOvZ3L6exG9y10lSy&index=63)
-
-### Incentive Mechanism Design for Public Goods Funding
-- [Protocol Labs](https://www.protocol.ai/). Studio Interview. Sept 2024.
-[![video](/img/ico/video.png) Watch](https://www.youtube.com/watch?v=ZNBQ68f5xC0)
 
 ### Funding the Commons San Francisco
 - Organized a full day conference dedicated to open source funding at UC Berkeley. Apr 2024.

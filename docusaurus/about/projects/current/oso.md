@@ -1,21 +1,16 @@
 ---
 sidebar_position: 1
-description: "The open source data-driven growth platform"
+description: "Agentic data teams"
 ---
 
-# Open Source Observer
+# oso.xyz
 
 ![oso](/img/projects/oso.png)
 
-Open Source Observer (OSO) powers strategic data-driven decision-making in
-high-growth competitive environments.
-Enhance your proprietary datasets with access to a growing data marketplace.
-Derive rich understanding and insights using the OSO semantic layer and metrics factory.
-Accelerate analysis and decisions with AI automation.
-All on an industry-leading open source software stack that you can trust.
+OSO your agentic data team. Spend your time on strategic work, not cleaning and connecting data. Autonomous agents build and manage your entire data pipeline, extracting, validating, transforming, and loading data without manual intervention. Every run is versioned, observable, and recoverable. With infinitely customizable interfaces and seamless data enrichment, data won't get in the way of fast decision-making.
 
 - Co-founder
 
-[![www](/img/ico/website.png) Website](https://www.opensource.observer/),
+[![www](/img/ico/website.png) Website](https://www.oso.xyz/),
 [![github](/img/ico/github.ico) GitHub](https://github.com/opensource-observer/oso),
 [![twitter](/img/ico/twitter.ico) Twitter](https://twitter.com/OSObserver)

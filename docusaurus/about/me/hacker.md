@@ -12,50 +12,29 @@ sidebar_position: 2
 
 For the complete list, click [here](/about/category/projects)
 
-### Open Source Observer
+### oso.xyz
 
 ![oso](/img/projects/oso.png)
 
-Open Source Observer is a free analytics suite that helps funders measure the impact of open source software contributions to the health of their ecosystem.
+OSO your agentic data team. Spend your time on strategic work, not cleaning and connecting data. Autonomous agents build and manage your entire data pipeline, extracting, validating, transforming, and loading data without manual intervention. Every run is versioned, observable, and recoverable. With infinitely customizable interfaces and seamless data enrichment, data won't get in the way of fast decision-making.
 
 - Co-founder
 
-[![www](/img/ico/website.png) Website](https://www.opensource.observer/),
+[![www](/img/ico/website.png) Website](https://www.oso.xyz/),
 [![github](/img/ico/github.ico) GitHub](https://github.com/opensource-observer/oso),
 [![twitter](/img/ico/twitter.ico) Twitter](https://twitter.com/OSObserver)
 
 
-### Hypercerts
+### Prosperous Software Movement
 
-![hypercerts](/img/projects/hypercerts.png)
-
-To solve the challenges we face this century, we need scalable and sustainable financing models for public goods that reward contributors for the positive impact they create.
-
-Hypercerts are a new protocol for funding and rewarding positive impact. Every hypercert is a public claim on a discrete piece of work and impact resulting from that work. Projects can create hypercerts and distribute them to contributors. Funders can own hypercert fractions — and the rights that come with them. Impact evaluators can create value for projects and funders by assessing the quality of hypercerts and offering ratings.
-
-Hypercerts create interoperability by serving as a single, open, shared, decentralized database for impact claims and funding mechanisms. This allows funders and projects to create a scalable, interoperable and transparent funding environment for innovative public goods.
-
-- Co-founder
-- Head of Engineering
-- Technical Advisory Committee Chair
-
-[![www](/img/ico/website.png) Website](https://hypercerts.org/),
-[![github](/img/ico/github.ico) GitHub](https://github.com/hypercerts-org),
-[![twitter](/img/ico/twitter.ico) Twitter](https://twitter.com/hypercerts),
-
-
-### MASQ Foundation
-
-![masq](/img/projects/masq.png)
-
-The MASQ Foundation exists to build and support security and privacy for the public good. We research, engineer, and promote widely-accessible technologies that protect individual users’ security and privacy in both the digital and physical worlds.
+We propose that we need a new phase of software, called the Prosperous Software Movement, with the goal of enabling all the value creators in the economy to financially benefit from the prosperity they helped create. At the heart of this proposal is the intention of revenue-sharing. The mechanism behind PPL is simple: if you use PPL-licensed software in your stack and you make over $X in annual revenue, you must share Y% of your revenue back to your dependencies.
 
 - Co-Founder
 - President
 
-[![www](/img/ico/website.png) Website](https://www.masq.foundation/),
-[![github](/img/ico/github.ico) GitHub](https://github.com/masqfoundation),
-[![twitter](/img/ico/twitter.ico) Twitter](https://twitter.com/MASQFoundation)
+[![www](/img/ico/website.png) Website](https://www.prosperous.software/),
+[![github](/img/ico/github.ico) GitHub](https://github.com/publicgoodsfunding/)
+
 
 ## Selected Press
 

@@ -10,6 +10,7 @@ sidebar_position: 8
 
 ## Hikes
 
+- [White Wolf to Tuolumne Meadows](https://maps.app.goo.gl/G8BdKSG2RuxisLye8) - Yosemite National Park (2025)
 - [Black Mountain](https://www.openspace.org/where-to-go/permits/camping) - Monte Bello Open Space Preserve (2023)
 - [Pinnacles National Park](https://www.nps.gov/pinn/index.htm) - (2023)
 - [Floresta Nacional do Tapajos](https://www.icmbio.gov.br/flonatapajos/) - Amazon, Brazil (2021)

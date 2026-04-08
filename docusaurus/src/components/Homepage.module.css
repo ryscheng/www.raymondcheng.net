@@ -1,0 +1,118 @@
+/* Root: inline-flex column, centered — matches Plasmic .root__vKH */
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-self: flex-start;
+  height: auto;
+  position: relative;
+  width: auto;
+}
+
+/* Outer row wrapper — matches .freeBox__vWVq3_xy7h */
+.row {
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 100%;
+  padding: 8px;
+}
+
+/* Illustration container: fixed 300px wide — matches .freeBox___4Gxkn_ua9d */
+.illustrationBox {
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  height: auto;
+  justify-content: flex-start;
+  max-width: 100%;
+  padding: 8px;
+  position: relative;
+  width: 300px;
+}
+
+/* Illustration image: fills its container — matches .img__bvqds_pwB7 */
+.illustration {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+/* Right-side content column — matches .freeBox__fdEdw_pwRL */
+.content {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: center;
+  min-width: 0;
+  max-width: 100%;
+  padding: 8px;
+  position: relative;
+  row-gap: 4px;
+  width: 100%;
+}
+
+/* Name: 32px bold — matches .text__ymzkB_RmIw */
+.name {
+  font-size: 32px;
+  font-weight: 600;
+  height: auto;
+  max-width: 100%;
+  width: auto;
+}
+
+/* Tagline: 18px — matches .text__bkYw7_qRXF */
+.tagline {
+  font-size: 18px;
+  height: auto;
+  max-width: 100%;
+  width: auto;
+}
+
+/* Email address image — matches .img__eX3Xj_cuEv */
+.emailImg {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+/* Social link rows: icon + handle — matches .freeBox__c7M_cQJz / .freeBox__kBsYv_Mct7 */
+.socialRow {
+  align-items: center;
+  column-gap: 4px;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  justify-content: flex-start;
+  max-width: 100%;
+  position: relative;
+  width: auto;
+}
+
+/* Social icons: 16×16 — matches .img__mLnq2_YfSC / .img__uQv19_Qb2h */
+.socialIcon {
+  flex-shrink: 0;
+  height: 16px;
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  width: 16px;
+}
+
+/* Responsive: stack vertically on small screens */
+@media screen and (max-width: 600px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .illustrationBox {
+    width: 100%;
+    max-width: 300px;
+  }
+}

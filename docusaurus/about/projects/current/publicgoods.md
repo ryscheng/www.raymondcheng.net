@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 description: "a non-profit advocating for public goods"
 ---
 

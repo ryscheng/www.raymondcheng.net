@@ -3,11 +3,25 @@ sidebar_position: 3
 description: "Mentions in the press/media"
 ---
 
-# Press / Media
+# Press / Media / Panels
 
-## Impact funding
+## Prosperous Software
+- [S.10 Ep.7 Prosperous Software: Rethinking Open Source Funding Through Licensing | Green Pill Podcast 2026](https://www.youtube.com/watch?v=zE1hELsGLNk)
 
-- [Open Source Observer - KYB #5 with Raymond Cheng & Carl Cervone | L2BEAT Podcast](https://www.youtube.com/watch?v=Ji5v3_urn0Y)
+## Protocol Labs Founder Highlights
+
+- More Than 70M OP Funded Across 700+ Projects in the Superchain Ecosystem
+[![video](/img/ico/video.png) Watch](https://www.youtube.com/watch?v=f-BmjZHxDLA)
+- Tens of Thousands of Developers Building Across the Superchain Ecosystem
+[![video](/img/ico/video.png) Watch](https://www.youtube.com/watch?v=kEMQD_Zn2bA)
+- Incentive Mechanism Design for Public Goods Funding. Studio Interview. Sept 2024.
+[![video](/img/ico/video.png) Watch](https://www.youtube.com/watch?v=ZNBQ68f5xC0)
+
+## Impact and Public Goods Funding
+
+- [Funding Mechanisms Beyond One Model | Funding the Commons SF 2026](https://youtu.be/Fu0Vd_sauZs?si=hc7sVpAMgW2XZ2gh&t=2175)
+- [The Future of Public Goods Funding Panel | Funding the Commons Buenos Aires 2025](https://youtu.be/DmHQ2E8a9Fs?si=N9mnurVcfpFcDSgx)
+- [Open Source Observer - KYB #5 with Raymond Cheng & Carl Cervone | L2BEAT Podcast 2025](https://www.youtube.com/watch?v=Ji5v3_urn0Y)
 - [Open Source Observer with Raymond Cheng | Green Pill Season 3](https://pod.link/1609313639/episode/1a680b882440464bd0d90d8b187a090b)
 - [Hypercerts.org with Carl Cervone | Green Pill #112](https://pod.link/1609313639/episode/fb436e8107f23e109a32739b7bfad1e0)
 - [Hypercerts.xyz with Holke Brammer | Green Pill #66](https://pod.link/1609313639/episode/4ffaee0447c35598f5cf4c63a0a6c947)

@@ -3,11 +3,9 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import Heading from "@theme/Heading";
-import { PlasmicRootProvider, PlasmicComponent } from "@plasmicapp/loader-react";
 
 import styles from "./index.module.css";
-import { PLASMIC } from "../plasmic-init";
-import Homepage from "../components/plasmic/Homepage";
+import Homepage from "../components/Homepage";
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -36,23 +34,21 @@ export default function Home(): JSX.Element {
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="Raymond Cheng's personal website">
-      <PlasmicRootProvider loader={PLASMIC}>
-        <div className={styles.autoMargin} >
-          <Homepage />
-        </div>
-        <div className={styles.autoMargin} >
-          <iframe
-            src={"https://ryscheng.substack.com/embed"}
-            width={480}
-            height={120}
-            style={{
-              border: "1px solid #EEE",
-              background: "white",
-            }}
-            scrolling={"no"}
-          />
-        </div>
-      </PlasmicRootProvider>
+      <div className={styles.autoMargin} >
+        <Homepage />
+      </div>
+      <div className={styles.autoMargin} >
+        <iframe
+          src={"https://ryscheng.substack.com/embed"}
+          width={480}
+          height={120}
+          style={{
+            border: "1px solid #EEE",
+            background: "white",
+          }}
+          scrolling={"no"}
+        />
+      </div>
     </Layout>
   );
 }

@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Realtor
 
-Licensed in California (DRE#02153285)
+Licensed  Broker in California (DRE#02153285)
 
 > Real estate cannot be lost or stolen, nor can it be carried away. Purchased with common sense, paid for in full, and managed with reasonable care, it is about the safest investment in the world. *-  Franklin D. Roosevelt*
 
