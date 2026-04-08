@@ -123,10 +123,6 @@ const config: Config = {
               to: "/posts/tags/hardware",
             },
             {
-              label: "Food",
-              to: "/posts/tags/food",
-            },
-            {
               label: "Recreation",
               to: "/posts/tags/recreation",
             },
