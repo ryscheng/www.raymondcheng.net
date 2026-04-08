@@ -144,6 +144,10 @@ const config: Config = {
               to: "/about/me/human",
             },
             {
+              label: "Father",
+              to: "/about/me/father",
+            },
+            {
               label: "Hacker & Entrepreneur",
               to: "/about/me/hacker",
             },
