@@ -9,7 +9,7 @@ tags: [popular, thoughts, public-goods]
 import Head from '@docusaurus/Head';
 
 <Head>
-  <link rel="canonical" href="https://docs.oso.xyz/blog/prosperous-software" />
+  <link rel="canonical" href="https://podcast.prosperous.software/p/prosperous-software-movement" />
 </Head>
 
 _Bringing sustainable funding to public goods by revenue-sharing towards dependencies_
