@@ -53,16 +53,5 @@
   },
   "engines": {
     "node": ">=18.0"
-  },
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "core-js-pure"
-    ],
-    "onlyBuiltDependencies": [
-      "core-js-pure"
-    ],
-    "overrides": {
-      "webpack": "5.105.4"
-    }
   }
 }
