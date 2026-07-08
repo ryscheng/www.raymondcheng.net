@@ -19,7 +19,7 @@ description: "Mentions in the press/media"
 
 ## Impact and Public Goods Funding
 
-- ["Is AI the most dangerous centralization risk in crypto?" | Octant livestream 2026](https://www.youtube.com/watch?v=ZLdQ65RDrl0)
+- [Is AI the most dangerous centralization risk in crypto? | Octant livestream 2026](https://www.youtube.com/watch?v=ZLdQ65RDrl0)
 - [Funding Mechanisms Beyond One Model | Funding the Commons SF 2026](https://youtu.be/Fu0Vd_sauZs?si=hc7sVpAMgW2XZ2gh&t=2175)
 - [The Future of Public Goods Funding Panel | Funding the Commons Buenos Aires 2025](https://youtu.be/DmHQ2E8a9Fs?si=N9mnurVcfpFcDSgx)
 - [Open Source Observer - KYB #5 with Raymond Cheng & Carl Cervone | L2BEAT Podcast 2025](https://www.youtube.com/watch?v=Ji5v3_urn0Y)
