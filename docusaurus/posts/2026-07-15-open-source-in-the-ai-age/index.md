@@ -17,11 +17,10 @@ will out-innovate their closed counterparts._
 ## What is open source once AI writes the code?
 
 What does **open source in the AI age** look like once the machines write most of
-the code? Microsoft's CEO says [20-30% of the
-code](https://techcrunch.com/2025/04/29/microsoft-ceo-says-up-to-30-of-the-companys-code-was-written-by-ai/)
-in its repositories is already written by AI, and that share only climbs. So the
-question sounds almost rhetorical: if a model can generate any library you need on
-demand, why do we even need open source libraries anymore?
+the code? AI agents already write a growing fraction of the code in production
+codebases, and that share only climbs. So the question sounds almost rhetorical:
+if a model can generate any library you need on demand, why do we even need open
+source libraries anymore?
 
 _I think that intuition is exactly backwards._
 
