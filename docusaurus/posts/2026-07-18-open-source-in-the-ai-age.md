@@ -23,7 +23,9 @@ shares it (breadth), and in the medium term it will be driven by super-powered
 maintainers with taste who out-build whole teams (depth). The two answers
 resolve along a timeline — depth dominates the medium term, breadth becomes
 essential once software teams go autonomous. Either way, the open ecosystem
-out-innovates any closed one — on one condition.
+out-innovates any closed one — on one condition. Falling software costs only
+reinforce the shift: as easy SaaS rents collapse, releasing open becomes the
+rational default.
 
 ## Reader & Goal
 For technically literate builders, open-source contributors, and people thinking
@@ -48,6 +50,8 @@ flowchart TD
     TWO --> BREADTH["BREADTH — long term:<br/>caching society's search for what works"]
     DEPTH --> WIN["Open out-innovates closed<br/>(AI itself is the case study)"]
     BREADTH --> WIN
+    TWO --> COST["Falling software costs<br/>(SaaSpocalypse) → open by default"]
+    COST --> WIN
     WIN --> BET["...on one bet:<br/>the best models stay universally available"]
     BET --> CLOSE["An invitation"]
 ```
@@ -83,6 +87,16 @@ Ordered highest-stakes / hardest-to-verify first.
   usage TREND is real (see https://npmtrends.com/ ); the attribution to AI agents
   is the author's INTERPRETATION — frame accordingly, don't present causation as
   measured. `[interpretation, not a measured causal claim]`
+- **Caching stays economically rational because production cost never hits zero.**
+  LLM inference has a real, recurring cost; as long as storing a result is cheaper
+  than recomputing it, caching pays. This is an economic/logical argument, not a
+  measured figure — present as reasoning. No external source required.
+- **The "death of SaaS" / "SaaSpocalypse" and falling-price argument.** Others have
+  predicted software rents collapsing as production cost falls; the author's read is
+  that this pushes more code toward open by default. Attribute the discourse to
+  others (not the author's coinage) and frame the open-by-default consequence as a
+  directional market-forces prediction, not a law. `[add source: a representative
+  death-of-SaaS / SaaSpocalypse piece]`
 - **The two-answer thesis and the medium-/long-term predictions** (super-powered
   maintainers; fully autonomous software teams; caching mattering most once teams
   are autonomous) are the author's OPINION and forecast. Framed as thesis, not
@@ -115,6 +129,9 @@ read as a rehash. May appear once as a glancing callback at most.
       established fact.
 - [ ] Keyword "open source in the AI age" appears in the title, description, and
       opening lines.
+- [ ] The falling-cost / SaaSpocalypse argument is framed as a market-forces
+      prediction (not a law), and the caching-economics point (storage cheaper than
+      recompute) grounds why caching persists as production cost falls.
 - [ ] Reads as fully standalone (no reliance on network-intelligence) and is
       clearly differentiated: this is about open-source *software*, not data.
 -->
@@ -221,6 +238,10 @@ Beats:
   branches. Open source lets the whole ecosystem explore in parallel and keep the
   wins. (Connect back: taste from the depth section is what keeps the BFS from
   being literal/wasteful.)
+- The economics that make caching permanent: the cost of software production is
+  falling fast but never reaches zero — LLM inference has a real, recurring cost.
+  As long as storing a result is cheaper than recomputing it, caching always pays,
+  so a shared open commons keeps winning even as raw generation gets cheap.
 - The long-term shift: when we trust AI to design, iterate, and experiment
   autonomously — entire software teams gone autonomous — the volume of exploration
   explodes. Caching what works, in the open, is the only way that exploration
@@ -237,6 +258,42 @@ Builds on / See also: Builds on "Depth: the super-powered maintainer" (reuses th
 taste-prunes-the-BFS idea and contrasts long-term with medium-term). Feeds the
 "why open out-innovates closed" section.
 Target: ~400 words · Core
+-->
+
+## As software gets cheaper, open becomes the default
+
+<!-- PLAN
+Objective: Show that the collapsing cost of software production is itself a market
+force pushing developers toward open source — reinforcing the thesis from the
+supply side, distinct from the innovation-dynamics argument.
+Beats:
+- Start from the observed shift: as the cost of producing software plummets, people
+  have predicted the "death of SaaS" / a "SaaSpocalypse" — buyers grow less willing
+  to pay rents for software that is now cheap to build or regenerate.
+- The consequence for pricing: when software is cheap and substitutes are easy,
+  rent-seeking gets harder and the market price of most software drifts toward its
+  (falling) cost. Tolerance for lock-in and markups drops.
+- The consequence for open source: if a given piece of software is hard to monetize
+  anyway, keeping it closed buys you little. The rational default shifts toward just
+  releasing it open — you capture reputation, distribution, and contributions
+  instead of defending a shrinking rent.
+- Tie back to the thesis: falling production cost doesn't threaten open source, it
+  feeds it. The same force that ends easy SaaS rents pushes more code into the
+  commons.
+- Keep it honest: this is a market-forces prediction, not a law. Monetization
+  doesn't vanish — support, hosting, proprietary data, and value-added services
+  remain. The claim is directional, not absolute.
+Evidence & Sources:
+- The "death of SaaS" / "SaaSpocalypse" discourse — attribute as a prediction
+  others have made, not the author's coinage. [add source: a representative
+  death-of-SaaS / SaaSpocalypse piece]
+- The pricing logic (price drifts toward falling marginal cost; weak monetization
+  lowers the cost of choosing open) is argument, not data — present as reasoning.
+Builds on / See also: Builds on "Two answers, and when each one matters" (the AI-age
+cost collapse); complements "Depth" and "Breadth" and feeds "Why open ecosystems
+out-innovate closed ones." See also: prosperous-software (the monetization/funding
+counter-thread).
+Target: ~300 words · Supporting
 -->
 
 ## Why open ecosystems out-innovate closed ones
