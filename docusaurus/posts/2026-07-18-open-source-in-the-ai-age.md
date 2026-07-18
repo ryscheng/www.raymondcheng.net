@@ -1,7 +1,7 @@
 ---
 slug: open-source-in-the-ai-age
 title: Open Source in the AI Age
-description: "What does open source look like in the AI age? An opinionated answer: how open source caches society's progress and gives rise to super-powered maintainers."
+description: "Open source in the AI age: an opinionated answer to what open source becomes once AI writes the code, and how it caches society's progress and gives rise to super-powered maintainers."
 authors: [ryscheng]
 tags: [popular, thoughts, open-source]
 draft: true
@@ -19,7 +19,7 @@ soon out-build entire teams._
 When AI can write most of the code, the obvious question is whether open source
 still matters. This post argues it matters more, not less, and gives an
 opinionated two-part answer: open source is how society *caches* progress and
-shares it (breadth), and in the near term it will be driven by super-powered
+shares it (breadth), and in the medium term it will be driven by super-powered
 maintainers with taste who out-build whole teams (depth). The two answers
 resolve along a timeline — depth dominates the medium term, breadth becomes
 essential once software teams go autonomous. Either way, the open ecosystem
@@ -36,7 +36,7 @@ and decide whether they take that bet too.
 
 ## Angle / Thesis
 Open source in the AI age is how society runs a breadth-first search on
-innovation — caching what works so it can be shared — and in the near term it
+innovation — caching what works so it can be shared — and in the medium term it
 will be powered by individual maintainers with taste who produce more, and
 better, than entire teams. The open ecosystem will out-innovate any closed one,
 conditional on the best models staying universally available.
@@ -135,6 +135,8 @@ Beats:
   open source is for.
 - State the shape of the answer to come: there's a breadth answer and a depth
   answer, and they play out over a timeline.
+- Work the exact target phrase "open source in the AI age" into the opening
+  line, naturally — it anchors the title, slug, and description.
 - Keep it tight and provocative; this is the hook that earns the rest.
 Evidence & Sources:
 - Observation that AI coding assistants now generate large fractions of new code
@@ -163,7 +165,7 @@ Beats:
   need human taste to avoid a literal, wasteful breadth-first search); breadth
   becomes essential in the long term, once software teams are autonomous and
   caching what works is the only way to share it.
-- Signpost: the next two sections take each answer in turn, near-term first.
+- Signpost: the next two sections take each answer in turn, medium-term first.
 Evidence & Sources:
 - No external sources — this is the thesis statement. Everything here is the
   author's framing; keep it crisp and declarative.
@@ -188,8 +190,7 @@ Beats:
   1,000+ packages solo, PRE-AI. Extrapolate: AI removes the plumbing, so the
   ceiling rises sharply.
 - The exciting version: 100x engineers with taste, sharing ideas with each other —
-  a small number of super-powered maintainers setting the direction of whole
-  ecosystems.
+  a small number of individuals setting the direction of whole ecosystems.
 - Brief, honest gesture at sustainability: who funds these maintainers? (optional
   see-also to prosperous-software; don't rathole — it's a different post.)
 Evidence & Sources:
@@ -225,7 +226,7 @@ Beats:
   explodes. Caching what works, in the open, is the only way that exploration
   compounds across actors instead of being repeated in silos.
 - So the two answers meet on the timeline: depth (taste-driven maintainers) is the
-  near-term face; breadth (caching for autonomous sharing) is the long-term face of
+  medium-term face; breadth (caching for autonomous sharing) is the long-term face of
   the same thing.
 Evidence & Sources:
 - Primarily conceptual/argumentative — this is the author's model. No fabricated
@@ -241,7 +242,7 @@ Target: ~400 words · Core
 ## Why open ecosystems out-innovate closed ones
 
 <!-- PLAN
-Objective: Land the central claim that the open ecosystem will out-innovate any
+Objective: Land the through-line claim that the open ecosystem will out-innovate any
 closed one (companies included), using AI itself as the case study — and do it
 without leaning on the reserved 70% stat.
 Beats:
