@@ -1,6 +1,6 @@
 ---
 slug: open-source-in-the-ai-age
-title: Open Source in the AI Age
+title: Open Source will win in the AI Age
 description: "Open source in the AI age: an opinionated answer to what open source becomes once AI writes the code, and how it caches society's progress and gives rise to super-powered maintainers."
 authors: [ryscheng]
 tags: [popular, thoughts, open-source]
@@ -8,224 +8,189 @@ draft: false
 ---
 
 _An opinionated answer to what open source becomes once the AI writes the code:
-how it caches society's progress, and why a single maintainer with taste will
-soon out-build entire teams._
+how it will grow in importance as the caching layer for technological
+breakthroughs, and why a sea of solo open source developers with superior taste
+will out-innovate their closed counterparts._
 
 <!-- truncate -->
 
 ## What is open source once AI writes the code?
 
-What does **open source in the AI age** look like once the machines are writing
-most of the code? Microsoft's CEO already says [20–30% of the
+What does **open source in the AI age** look like once the machines write most of
+the code? Microsoft's CEO says [20-30% of the
 code](https://techcrunch.com/2025/04/29/microsoft-ceo-says-up-to-30-of-the-companys-code-was-written-by-ai/)
-in the company's repositories is written by AI, and that fraction only climbs
-from here. So the question sounds almost rhetorical: if a model can generate any
-library you need on demand, why would anyone bother publishing one?
+in its repositories is already written by AI, and that share only climbs. So the
+question sounds almost rhetorical: if a model can generate any library you need on
+demand, why do we even need open source libraries anymore?
 
-I think that intuition is exactly backwards.
+_I think that intuition is exactly backwards._
 
-Writing code used to be the expensive part. When it stops being expensive, the
-bottleneck doesn't disappear. It moves. The hard question is no longer _can we
-build it_ but _what is worth building, and how do we avoid everyone redoing the
-same work_. That is precisely what open source is for.
+Writing code was the expensive part. When it gets cheap, the bottleneck moves. The
+hard question is no longer _can we build it_ but _what is worth building, and how
+do we avoid everyone rebuilding the same thing_. That is what open source is for,
+and it matters more in the AI age, not less.
 
-So open source doesn't fade in the AI age. It matters more. My answer for _why_
-comes in two parts, a breadth answer and a depth answer, and the interesting part
-is how they trade off over time. (I've made [the parallel argument for
-data](/posts/network-intelligence) elsewhere; here I mean software.)
+My answer has two parts. They are different arguments, but they reach the same
+conclusion: open source out-innovates closed.
 
-## Two answers, and when each one matters
+**Depth.** A single developer with great taste, armed with AI, will out-build
+entire teams. In the medium term, taste is the scarce input, and the people who
+have it will produce more and better software than everyone else.
 
-Here are the two answers, each in a sentence.
+**Breadth.** Open source is how society caches its progress. Every published
+library is a solved subproblem nobody has to solve again. In the long run, as
+software teams go autonomous, that shared cache is the only thing that lets
+exploration compound instead of being repeated in isolation.
 
-**Breadth: open source is how society caches its progress and shares it — a
-breadth-first search over what's worth building.** Every published library is a
-solved subproblem that no one else has to solve again.
-
-**Depth: a single maintainer with taste, amplified by AI, will soon out-build
-entire teams.** One person with good judgment can produce hundreds of
-high-quality libraries, faster and better than a room full of engineers.
-
-They aren't rival answers. They're the same phenomenon seen at two points on a
-timeline:
-
-- **Medium term — depth.** We still need human taste to steer, or the search
-  degenerates into a wasteful crawl over every possible branch. The maintainer
-  with taste keeps it tractable.
-- **Long term — breadth.** Once we trust AI to design and experiment on its own,
-  the volume of exploration explodes, and caching what works in the open is what
-  lets the gains compound.
-
-The next two sections take each answer in turn, starting with the one closer at
-hand.
+(I've made [the parallel argument for data](/posts/network-intelligence)
+elsewhere; here I'll focus on software.)
 
 ![Timeline: in the medium term, depth (the super-powered maintainer); in the long term, breadth (caching the search for what works); either way, open ecosystems out-innovate closed ones](./breadth-depth-timeline.svg)
 
 ## Depth: the super-powered maintainer
 
-Give a maintainer with genuine taste an army of tireless coding agents, and what
-do you get? Not a hundred mediocre libraries. Hundreds of _good_ ones. **In the
-medium term, the most productive unit in open source won't be the team. It will
-be the individual with taste.**
+Give everyone the same coding agents, and taste becomes the only thing that
+separates them. **A single developer with great taste will build a hundred great
+libraries. A hundred developers with average taste will build a hundred mediocre
+ones.** Same tools, wildly different output.
 
-Here's the inversion: when generating code is cheap, code is no longer the scarce
-input. _Judgment_ is. Knowing what to build, what "good" looks like, and, above
-all, what to throw away is the constraint. Taste is what prunes the search tree
-down from everything-possible to everything-worth-having. An agent can write a
-thousand variations; only taste picks the one worth publishing.
+Here is why. The prompt to the coding agent is the easy part. The hard part is
+knowing which package is actually battle-tested, which one holds up across real
+use cases and deployments, and which of a thousand generated variations is worth
+publishing. That judgment is taste, and no agent supplies it. When code is cheap,
+taste is the scarce input.
 
-This isn't a fantasy that waits on future models. It's already visible in the
-pre-AI world. Sindre Sorhus, one developer, [actively maintains over 1,000 npm
-packages](https://sindresorhus.com/about), building blocks depended on by millions
-of projects. He did that _before_ agents could carry the plumbing. Now imagine the
-ceiling once the boilerplate, the tests, the release chores, and the issue triage
-are largely automated.
+This is not a bet on future models. It is already visible. Sindre Sorhus, one
+developer, [maintains over 1,000 npm packages](https://sindresorhus.com/about)
+that millions of projects depend on, and he did it before agents could carry the
+plumbing. Automate the boilerplate, the tests, the release chores, and the triage,
+and the ceiling for one person with taste rises sharply.
 
-The exciting version: a small number of 100x engineers, each with taste, trading
-ideas and setting the direction of whole ecosystems. Fewer hands, more leverage,
-better libraries.
+Picture a small number of developers with exceptional taste, each running an army
+of agents, trading ideas and setting the direction of whole ecosystems. Fewer
+hands, far more leverage, better libraries.
 
-There's an obvious open question, who pays these people, that I won't resolve
-here; I've [written separately](/posts/prosperous-software) on how we might fund
-the maintainers everything else depends on. The point for now is simpler: **the
-super-powered maintainer is coming, and taste is their superpower.**
+Who pays these people is a real question, and I've [written
+separately](/posts/prosperous-software) about funding the maintainers everything
+depends on. The point here is simpler: **the super-powered maintainer is coming,
+and taste is the superpower.**
 
 ## Breadth: how society caches its search for what works
 
-Think of open source as a **cache**. Publishing a working library is caching a
-solved subproblem so that no one, anywhere, has to solve it again. The global
-commons of open source is society's memoized answer to _what works_.
+Open source is a **cache**. Publishing a working library caches a solved
+subproblem so nobody, anywhere, has to solve it again. The global commons of open
+source is society's stored answer to _what works_.
 
-Why does that make it a _breadth_-first search? Because without a shared cache,
-every actor re-explores the same branches alone: the same JSON parser, the same
-auth flow, the same date library, written a million times over. Open source lets
-the whole ecosystem explore in parallel and _keep_ the wins. (This is where depth
-meets breadth: the maintainer's taste from the last section is what keeps that
-search from being a blind, wasteful crawl.)
+Without that cache, every developer re-solves the same problems alone: the same
+JSON parser, the same auth flow, the same date library. The same bugs. The same
+incompatibilities. The same edge cases. Open source lets the whole world explore
+in parallel and keep the wins. Taste, the depth argument, is what keeps that
+search from being a blind, wasteful crawl.
 
-There's a durable economic reason caching wins, and it survives even as AI gets
-cheap. The cost of producing software is falling fast, but it will never reach
-zero, because model inference has a real, recurring cost. **As long as storing a
-result is cheaper than recomputing it, caching pays.**
+Caching wins for a durable economic reason, and it holds even as AI gets cheap.
+The cost of producing software is falling fast, but it never reaches zero, because
+model inference has a real, recurring cost. **As long as storing a result is
+cheaper than recomputing it, caching pays.**
 
-And it's already playing out in real time. Coding agents conserve effort exactly
-the way a good engineer does: they reach for an existing dependency instead of
-re-deriving or vendoring the code inline. The result is a visible surge in
-open-source library installs.
+This is already happening. Coding agents do what any good engineer does: they
+install an existing dependency instead of re-deriving or vendoring the code. The
+result is a surge in open-source library installs.
 
 ![Combined monthly npm downloads for ten ubiquitous packages, rising from about 2.6 billion in mid-2024 to 5.9 billion by mid-2026, with the steepest climb in 2026](./npm-downloads.svg)
 _Combined monthly npm downloads for ten ubiquitous packages (react, typescript, express, axios, and others). [Source: npm registry download API](https://api.npmjs.org/downloads/)_
 
-Install volume for that basket is up roughly **69% year over year**, with the
-sharpest climb in 2026. I'll be honest about what the graph does and doesn't show:
-raw download counts include CI and automation, so this measures install
-_activity_, not distinct developers, and the claim that _agents_ are driving it is
-my interpretation, not something the chart proves. But the direction is
-unmistakable.
+Install volume for a basket of ten ubiquitous packages is up **69% year over
+year**, steepest in 2026. One caveat: raw download counts include CI and
+automation, so this is install activity, not distinct developers, and attributing
+the rise to agents is my read, not proof. The direction is not in doubt.
 
-Now extrapolate. When entire software teams go autonomous, designing and
-experimenting without a human in the loop, the volume of exploration explodes.
-Caching what works, in the open, becomes the only way that exploration compounds
-across the world instead of being repeated behind a thousand closed doors.
-**Depth is the medium-term face of this; breadth is the long-term one. They're
-the same thing.**
+Now extrapolate. When software teams go fully autonomous, the volume of
+exploration explodes, and an open cache of what works is the only way those
+discoveries compound across the world instead of staying locked behind closed
+doors. Depth and breadth are different arguments. They point at the same outcome:
+**open source out-innovates closed.**
 
 ## As software gets cheaper, open becomes the default
 
-There's a second force pushing the same direction, and it comes from the market,
-not the technology.
+A second force pushes the same way, and it comes from the market rather than the
+technology.
 
-As the cost of producing software collapses, people have started predicting the
-**death of SaaS** — a "SaaSpocalypse." The logic is simple: when a coding agent
-can rebuild your tool over a weekend, buyers grow far less willing to pay rent for
-it. a16z devoted [an entire episode](https://a16z.com/podcast/anish-acharya-is-saas-dead-in-a-world-of-ai/)
-to asking whether SaaS is dead in a world of AI; as they put it, "SaaS switching
-costs are actually going down thanks to coding agents." The headlines are already
-[declaring the collapse](https://www.forbes.com/sites/donmuir/2026/02/04/300-billion-evaporated-the-saaspocalypse-has-begun/).
+As software gets cheap to produce, people are predicting the **death of SaaS**, a
+"SaaSpocalypse." The logic is simple. When a coding agent can rebuild your tool in
+a weekend, buyers stop paying rent for it. a16z ran [an
+episode](https://a16z.com/podcast/anish-acharya-is-saas-dead-in-a-world-of-ai/)
+asking whether SaaS is dead in a world of AI, noting that "SaaS switching costs
+are actually going down thanks to coding agents," and the
+[headlines](https://www.forbes.com/sites/donmuir/2026/02/04/300-billion-evaporated-the-saaspocalypse-has-begun/)
+are already declaring the collapse.
 
 Follow the price. When software is cheap to produce and easy to substitute, its
-market price drifts toward its falling cost, and tolerance for lock-in and markups
-drops with it. Rent-seeking gets harder.
+price falls toward its cost, and tolerance for lock-in drops with it. Rent-seeking
+gets harder.
 
-Now watch what that does to the release decision. **If a piece of software is hard
-to monetize anyway, keeping it closed buys you almost nothing.** The friction of a
-proprietary license is guarding a shrinking rent. The rational move flips toward
-releasing it in the open, where you capture reputation, distribution, and
-contributions instead.
+That changes the release decision. **If software is hard to monetize anyway,
+keeping it closed buys you almost nothing.** A proprietary license just guards a
+shrinking rent. The rational move is to release in the open and capture
+reputation, distribution, and contributions instead.
 
-So falling production cost doesn't threaten open source. It _feeds_ it. The same
-force that ends easy SaaS rents pushes more code into the commons.
+Falling production cost does not threaten open source. It feeds it. The same force
+that ends easy SaaS rents pushes more code into the commons.
 
-I don't want to overstate this; it's a directional prediction, not a law.
-Monetization doesn't vanish. Support, hosting, proprietary data, and genuine
-value-added services still command a price. But for the vast middle of software,
-the default tilts open.
+This is a directional prediction, not a law. Monetization does not vanish. Support,
+hosting, proprietary data, and real value-added services still command a price. But
+for the vast middle of software, the default tilts open.
 
 ## Why open ecosystems out-innovate closed ones
 
-Put the two mechanisms together, super-powered maintainers and a shared cache of
-what works, and you reach the thesis this whole essay is building toward. **An
-open ecosystem explores more of the space, and compounds its wins faster, than any
-single closed organization can.** No company, however well-funded, out-innovates
-the entire world working in parallel and keeping every result.
+Combine the two mechanisms, super-powered maintainers and a shared cache, and the
+conclusion is hard to avoid. **No closed organization out-innovates the entire
+world working in parallel and keeping every result.**
 
-If you doubt it, look at how we got here. Modern AI is itself the strongest case
-study for the argument.
+Modern AI is the proof. The technology now writing our code was built in the open.
+The Transformer, the architecture under every frontier model, was published in
+2017 as "[Attention Is All You Need](https://arxiv.org/abs/1706.03762)." The labs
+now racing to build closed models grew out of a culture that shared its core ideas
+freely, on arXiv and at conferences.
 
-The technology now writing our code was built in the open. The Transformer, the
-architecture under every frontier model, was published openly in 2017 as
-"[Attention Is All You Need](https://arxiv.org/abs/1706.03762)." The labs now
-racing to build proprietary models grew directly out of an arXiv-and-conference
-culture where the core ideas were shared freely, the moment they were found.
-
-That's the punchline, and it's recursive: **AI is both a product of open
-ecosystems out-innovating closed ones, and the tool that will accelerate the next
-round.** Open ideas built the thing that is now supercharging open source. And the
-opening of the technology behind it is only beginning.
+The result is recursive. **AI is both a product of open out-innovating closed, and
+the tool that accelerates the next round.** Open ideas built the thing now
+supercharging open source, and that opening has only started.
 
 ## The bet: the best models stay universally available
 
-Everything I've argued rests on a single assumption, and I want to name it plainly
-rather than smuggle it in.
+This whole argument rests on one assumption, so let me state it plainly.
 
-**The whole thesis is conditional on the best models staying universally available,
-not locked away.** Open source out-innovates closed only as long as the frontier's
-most capable models stay broadly accessible to the people and agents doing the
-building. Lock the best models behind a wall, and the open ecosystem loses its
-engine.
+**It holds only if the best models stay universally available, not locked away.**
+Open source out-innovates closed as long as the most capable frontier models stay
+accessible to the people and agents doing the building. Lock the best models
+behind a wall, and the open ecosystem loses its engine.
 
-So why do I take the bet? Two reasons.
-
-First, the frontier has stayed reachable so far. The leading closed labs expose
-their best models through APIs, and open-weight models have kept surprisingly close
-behind. One mechanism there is distillation, training a smaller model on a larger
-one's outputs, a decades-old and legitimate technique, if contested at the edges.
-Contested enough that OpenAI has [formally accused
+Two reasons I take the bet. First, the frontier has stayed reachable. The leading
+closed labs expose their best models through APIs, and open-weight models have
+stayed close behind. One mechanism is distillation, training a smaller model on a
+larger one's outputs. It is a decades-old, legitimate technique, though contested
+at the edges: OpenAI has [formally accused
 DeepSeek](https://www.bloomberg.com/news/articles/2026-02-12/openai-accuses-deepseek-of-distilling-us-models-to-gain-an-edge)
-of distilling its models to catch up. That's an _allegation_, not an adjudicated
-fact, but the fact that it's plausible tells you how hard the frontier is to keep
-sealed.
+of distilling its models to catch up. That is an allegation, not a finding, but its
+plausibility shows how hard the frontier is to seal.
 
-Second, AI is its own precedent. The field advanced fastest precisely when
-research flowed freely, and that same pressure toward openness now applies to the
-models themselves.
+Second, AI is its own precedent. The field moved fastest when research flowed
+freely, and the same pressure toward openness now applies to the models.
 
-Here's the honest failure mode, the thing that would prove me wrong: if frontier
-capability concentrates in a few hands and _stays_ locked, with access metered,
-weights sealed, and the gap widening, then the open ecosystem stalls and the
-closed players win. That's the bet. You can hold me to it.
+What would prove me wrong: frontier capability concentrating in a few hands and
+staying locked, with access metered and the gap widening. Then the open ecosystem
+stalls and the closed players win. That is the bet.
 
 ## An invitation
 
-Strip it back and the answer is simple. **Open source in the AI age is how we
-cache and compound humanity's search for better software**, pruned by the taste of
-a new kind of super-powered maintainer in the medium term, and, in the long run,
-the only way an autonomous, experimenting world keeps its discoveries. If the best
-models stay open, no closed ecosystem keeps up.
+The answer, in one line: **open source will win in the AI age.** It is how the
+world caches and compounds its search for better software, driven in the medium
+term by developers with superior taste and in the long term by the need to share
+what autonomous systems discover. If the best models stay open, no closed
+ecosystem keeps up.
 
-I hold this as a conviction, but it's still a bet, resting on that one assumption
-and on a future that hasn't arrived yet.
+It is a conviction, but still a bet, resting on that one assumption and on a future
+that has not arrived.
 
-So I'd genuinely like to know where you think I'm wrong. That's the most
-open-source thing I can do with an idea: publish it, and let better ones build on
-top.
+Tell me where I'm wrong. Publishing an idea so better ones can build on it is the
+most open-source thing I can do.
