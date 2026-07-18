@@ -54,11 +54,10 @@ separates them. **A single developer with great taste will build a hundred great
 libraries. A hundred developers with average taste will build a hundred mediocre
 ones.** Same tools, wildly different output.
 
-Here is why. The prompt to the coding agent is the easy part. The hard part is
-knowing which package is actually battle-tested, which one holds up across real
-use cases and deployments, and which of a thousand generated variations is worth
-publishing. That judgment is taste, and no agent supplies it. When code is cheap,
-taste is the scarce input.
+Here is why. When generating code is cheap, code is no longer the scarce input.
+Judgment is. Knowing what to build, what good looks like, and which of a thousand
+generated variations is worth publishing is the constraint. That judgment is
+taste, and no agent supplies it.
 
 This is not a bet on future models. It is already visible. Sindre Sorhus, one
 developer, [maintains over 1,000 npm packages](https://sindresorhus.com/about)
@@ -82,10 +81,9 @@ subproblem so nobody, anywhere, has to solve it again. The global commons of ope
 source is society's stored answer to _what works_.
 
 Without that cache, every developer re-solves the same problems alone: the same
-JSON parser, the same auth flow, the same date library. The same bugs. The same
-incompatibilities. The same edge cases. Open source lets the whole world explore
-in parallel and keep the wins. Taste, the depth argument, is what keeps that
-search from being a blind, wasteful crawl.
+bugs, the same incompatibilities, the same edge cases. Open source lets the whole
+world explore in parallel and keep the wins. Taste, the depth argument, is what
+keeps that search from being a blind, wasteful crawl.
 
 Caching wins for a durable economic reason, and it holds even as AI gets cheap.
 The cost of producing software is falling fast, but it never reaches zero, because
@@ -94,7 +92,10 @@ cheaper than recomputing it, caching pays.**
 
 This is already happening. Coding agents do what any good engineer does: they
 install an existing dependency instead of re-deriving or vendoring the code. The
-result is a surge in open-source library installs.
+prompt is the easy part. The hard part is knowing which package is battle-tested,
+which one holds up across real use cases and deployments. That is what the cache
+stores: not raw code, which is now cheap, but proven code. The result is a surge
+in open-source library installs.
 
 ![Combined monthly npm downloads for ten ubiquitous packages, rising from about 2.6 billion in mid-2024 to 5.9 billion by mid-2026, with the steepest climb in 2026](./npm-downloads.svg)
 _Combined monthly npm downloads for ten ubiquitous packages (react, typescript, express, axios, and others). [Source: npm registry download API](https://api.npmjs.org/downloads/)_
