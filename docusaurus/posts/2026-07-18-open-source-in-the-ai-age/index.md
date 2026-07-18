@@ -83,10 +83,14 @@ Ordered highest-stakes / hardest-to-verify first.
   1,000." `[verify count is still 1,000+ at publish time]`
 - **Closed frontier labs expose their best models via API.** OpenAI, Anthropic,
   Google et al. General, easily verifiable knowledge; light or no citation needed.
-- **Open-source library usage is climbing as AI agents automate plumbing.** The
-  usage TREND is real (see https://npmtrends.com/ ); the attribution to AI agents
-  is the author's INTERPRETATION — frame accordingly, don't present causation as
-  measured. `[interpretation, not a measured causal claim]`
+- **Open-source library installs are surging (real data, chart included).**
+  Combined monthly npm downloads for a 10-package basket rose from ~2.6B (Jul 2024)
+  to ~5.9B (Jun 2026) — +69% YoY (mid-2025 → mid-2026), steepest in 2026. Chart:
+  `./npm-downloads.svg`; source: npm registry download API
+  (https://api.npmjs.org/downloads/). The TREND is measured fact; the
+  agents-install-rather-than-vendor CAUSE is the author's INTERPRETATION. Caveat:
+  raw downloads include CI/automation, so this is install activity, not distinct
+  developers. `[trend = fact; cause = interpretation]`
 - **Caching stays economically rational because production cost never hits zero.**
   LLM inference has a real, recurring cost; as long as storing a result is cheaper
   than recomputing it, caching pays. This is an economic/logical argument, not a
@@ -132,6 +136,9 @@ read as a rehash. May appear once as a glancing callback at most.
 - [ ] The falling-cost / SaaSpocalypse argument is framed as a market-forces
       prediction (not a law), and the caching-economics point (storage cheaper than
       recompute) grounds why caching persists as production cost falls.
+- [ ] The npm-downloads chart is used to show caching happening in real time, with
+      the rising trend stated as fact and the AI-agent cause (plus the CI/automation
+      caveat) kept as interpretation.
 - [ ] Reads as fully standalone (no reliance on network-intelligence) and is
       clearly differentiated: this is about open-source *software*, not data.
 -->
@@ -214,9 +221,10 @@ Evidence & Sources:
 - Sindre Sorhus maintains 1,000+ npm packages (cite conservatively as "over
   1,000"). Source: https://www.npmjs.com/~sindresorhus (corrob.
   https://sindresorhus.com/about). [verify count still 1,000+ at publish]
-- Open-source library usage climbing as AI agents automate plumbing:
-  https://npmtrends.com/ — frame the trend as observed, AI attribution as the
-  author's read. [interpretation]
+- Open-source library usage climbing as AI agents automate plumbing — see the real
+  chart introduced in the Breadth section (`./npm-downloads.svg`, npm registry
+  data). Frame the trend as observed fact, the AI attribution as the author's read.
+  [interpretation]
 - Optional see-also: /posts/prosperous-software for the funding thread.
 Builds on / See also: Builds on "Two answers, and when each one matters" (uses the
 breadth/depth + timeline framing; this is the medium-term answer). See also:
@@ -242,6 +250,16 @@ Beats:
   falling fast but never reaches zero — LLM inference has a real, recurring cost.
   As long as storing a result is cheaper than recomputing it, caching always pays,
   so a shared open commons keeps winning even as raw generation gets cheap.
+- It's already playing out in real time: coding agents conserve effort by
+  installing an existing dependency rather than re-deriving or vendoring the code
+  inline — they reach for the cache by default. The visible result is a surge in
+  open-source library installs. Embed the chart (`./npm-downloads.svg`): combined
+  monthly npm downloads for a basket of 10 ubiquitous packages rose ~2.3x from
+  mid-2024 to mid-2026 (+69% year over year), with the steepest climb in 2026.
+  Honesty caveat to keep in the prose: raw download counts include CI and
+  automation, so this measures install activity, not distinct developers — and the
+  AI-agent attribution is interpretation, not proven by the graph. State the trend
+  as fact, the cause as argument.
 - The long-term shift: when we trust AI to design, iterate, and experiment
   autonomously — entire software teams gone autonomous — the volume of exploration
   explodes. Caching what works, in the open, is the only way that exploration
@@ -254,6 +272,13 @@ Evidence & Sources:
   data. Any concrete illustration (e.g. package registries as shared caches) should
   be qualitative unless a real source is added. [add source only if a specific
   figure is introduced]
+- REAL DATA (chart committed alongside this post): `./npm-downloads.svg` — combined
+  monthly npm downloads for react, typescript, express, axios, eslint, next, vue,
+  webpack, dotenv, chalk, Jul 2024–Jun 2026. Source: npm registry download API
+  (https://api.npmjs.org/downloads/). ~2.6B → ~5.9B downloads/month; +69% YoY
+  (mid-2025 → mid-2026), steepest climb in 2026. Caveat: downloads include
+  CI/automation (install activity, not distinct users); the AI-agent cause is
+  interpretation, not shown by the graph.
 Builds on / See also: Builds on "Depth: the super-powered maintainer" (reuses the
 taste-prunes-the-BFS idea and contrasts long-term with medium-term). Feeds the
 "why open out-innovates closed" section.
