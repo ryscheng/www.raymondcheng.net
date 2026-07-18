@@ -159,39 +159,33 @@ supercharging open source, and that opening has only started.
 
 ## The bet: the best models stay universally available
 
-This whole argument rests on one assumption, so let me state it plainly.
+One assumption holds up everything above.
 
-**It holds only if the best models stay universally available, not locked away.**
-Open source out-innovates closed as long as the most capable frontier models stay
-accessible to the people and agents doing the building. Lock the best models
-behind a wall, and the open ecosystem loses its engine.
+**It works only if the best models stay universally available, not locked away.**
+Open source out-innovates closed only while the most capable models stay within
+reach of the people and agents building on them. Wall them off, and the open
+ecosystem loses its engine.
 
-Two reasons I take the bet. First, the frontier has stayed reachable. The leading
-closed labs expose their best models through APIs, and open-weight models have
-stayed close behind. One mechanism is distillation, training a smaller model on a
-larger one's outputs. It is a decades-old, legitimate technique, though contested
-at the edges: OpenAI has [formally accused
+So far the frontier has stayed reachable. Closed labs expose their best models
+through APIs, and open-weight models track close behind, partly through
+distillation: training a smaller model on a larger one's outputs. OpenAI has
+[accused
 DeepSeek](https://www.bloomberg.com/news/articles/2026-02-12/openai-accuses-deepseek-of-distilling-us-models-to-gain-an-edge)
-of distilling its models to catch up. That is an allegation, not a finding, but its
-plausibility shows how hard the frontier is to seal.
+of doing exactly this to catch up. That is an allegation, not a finding, but its
+plausibility shows how hard the frontier is to seal. And AI is its own precedent:
+the field moved fastest when research flowed freely.
 
-Second, AI is its own precedent. The field moved fastest when research flowed
-freely, and the same pressure toward openness now applies to the models.
-
-What would prove me wrong: frontier capability concentrating in a few hands and
-staying locked, with access metered and the gap widening. Then the open ecosystem
-stalls and the closed players win. That is the bet.
+What breaks the bet: frontier capability concentrating in a few hands and staying
+locked. Then open stalls, and closed wins.
 
 ## An invitation
 
-The answer, in one line: **open source will win in the AI age.** It is how the
-world caches and compounds its search for better software, driven in the medium
-term by developers with superior taste and in the long term by the need to share
-what autonomous systems discover. If the best models stay open, no closed
-ecosystem keeps up.
+**Open source will win in the AI age.** It is how the world caches and compounds
+its search for better software: driven in the medium term by developers with
+superior taste, and in the long term by the need to share what autonomous systems
+discover. If the best models stay open, no closed ecosystem keeps up.
 
-It is a conviction, but still a bet, resting on that one assumption and on a future
-that has not arrived.
+That is a conviction, but still a bet on a future that has not arrived.
 
 Tell me where I'm wrong. Publishing an idea so better ones can build on it is the
 most open-source thing I can do.
