@@ -4,7 +4,7 @@ title: Open Source in the AI Age
 description: "Open source in the AI age: an opinionated answer to what open source becomes once AI writes the code, and how it caches society's progress and gives rise to super-powered maintainers."
 authors: [ryscheng]
 tags: [popular, thoughts, open-source]
-draft: true
+draft: false
 ---
 
 _An opinionated answer to what open source becomes once the AI writes the code:
