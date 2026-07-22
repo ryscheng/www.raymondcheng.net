@@ -16,29 +16,25 @@ In other words, these are systems designed to behave reliably and exactly as you
 
 We as a society have yet to fully reconcile with the fact that we have now built digital systems that can never truly go away.
 
-In this post, I want to break down the ramifications of that fact—first for the crypto industry, then for the broader tech industry, and finally, for the world at large.
+That fact has ramifications: first for the crypto industry, then for the broader tech industry, and finally for the world at large.
 
-But before we explore the consequences, let's establish a foundation. What is a Byzantine Fault Tolerant system, and where did it come from?
+First, a foundation. What is a Byzantine Fault Tolerant system, and where did it come from?
 
-## **Understanding the "Why": What is Byzantine Fault Tolerance?**
+## Understanding the "Why": What is Byzantine Fault Tolerance?
 
 At the heart of computer science is a field called distributed systems, and at the heart of that field is the concept of **fault tolerance**.
 
-* Machines are inherently faulty.  
-* Devices can fail, power can be shut off, and memory chips can get corrupted.  
-* Natural disasters can happen.
+Machines are inherently faulty. Devices fail, power gets shut off, memory chips get corrupted, and natural disasters happen. Despite all of this, we want to build global-scale services that remain reliable over a network. This fundamental property is what drives the entire cloud computing industry and is at the heart of modern data center design. It's what allows us to take the infinite scale of modern software for granted.
 
-Despite this, we want to build global-scale services that remain reliable over a network. This fundamental property is what drives the entire cloud computing industry and is at the heart of modern data center design. It's what allows us to take the infinite scale of modern software for granted.
-
-### **From Crash Faults to Malicious Actors**
+### From Crash Faults to Malicious Actors
 
 Most systems we rely on today, like Google Docs or Gmail, are built on **crash-fault** assumptions. This basically means we believe the worst thing that can happen to a server is that it can crash and fail. We generally assume that systems will behave honestly and won't lie to you.
 
-When you use a service like Google Docs, your data isn't stored in just one data center; it's stored in many different data centers all over the world. A famous protocol called Paxos—a type of "consensus protocol"—acts like a high-frequency voting system. It allows these data centers to come to an agreement (consensus) on the current state of your document, storing it in a highly replicated, fault-tolerant way so it can recover from any single data center failure. These protocols are called “consensus protocols” and they already form the resilient data foundation of many global applications that we use today.
+When you use a service like Google Docs, your data isn't stored in just one data center; it's stored in many different data centers all over the world. A famous protocol called Paxos (a type of "consensus protocol") acts like a high-frequency voting system. It allows these data centers to come to an agreement (consensus) on the current state of your document, storing it in a highly replicated, fault-tolerant way so it can recover from any single data center failure. These protocols are called “consensus protocols” and they already form the resilient data foundation of many global applications that we use today.
 
-### **The Byzantine General's Problem**
+### The Byzantine General's Problem
 
-Years ago, computer scientists, most notably Turing Award winner Leslie Lamport, started asking a critical question: **What happens if these machines start acting adversarially and actually lie to you?**
+Years ago, computer scientists, most notably Turing Award winner Leslie Lamport, started asking a critical question: what happens if these machines start acting adversarially and actually lie to you?
 
 What if a machine in one data center starts advertising that the state of your document is something other than what it actually is? This is known as the "Byzantine General's Problem."
 
@@ -46,7 +42,7 @@ Over the next few decades, scientists created more reliable and practical BFT pr
 
 For many years, these protocols saw little use outside of niche applications, like satellites, where cosmic radiation could flip bits in memory and cause a system to act erroneously.
 
-## **The Catalyst: Bitcoin and the BFT Boom**
+## The Catalyst: Bitcoin and the BFT Boom
 
 Then came Bitcoin.
 
@@ -56,14 +52,11 @@ This coincided with an acceleration of sophisticated hackers, some state-sponsor
 
 Fast forward to today, and there are countless blockchain networks in operation, providing financial ledgers or computation frameworks that are reliable, robust, and truly global.
 
-The core assumption of many of these systems is different.
-
-* Instead of relying on assuming that all servers are 100% honest, we assume that only a certain threshold (e.g., ⅔ or ½, depending on the protocol) will behave honestly.  
-* We then use financial incentives to keep them from behaving maliciously.
+The core assumption of many of these systems is different. Instead of assuming that all servers are 100% honest, we assume that only a certain threshold (e.g. ⅔ or ½, depending on the protocol) will behave honestly, and we use financial incentives to keep them from behaving maliciously.
 
 These systems are designed to withstand a significantly more sophisticated threat model, and we now have nearly two decades of production operation giving us significant confidence in their design.
 
-## **Cloud vs. Blockchain: What's the Real Difference?**
+## Cloud vs. Blockchain: What's the Real Difference?
 
 What is the fundamental difference between a replicated database in the cloud and a modern blockchain? Surprisingly, less than you would think.
 
@@ -71,31 +64,29 @@ At their root, both are **replicated state machines** that rely on a distributed
 
 The three major differences are:
 
-1. **Fault Model:** The cloud primarily uses **Crash Fault Tolerant (CFT)** protocols. Blockchains use **Byzantine Fault Tolerant (BFT)** protocols.  
-2. **Access Control:** The cloud is **"permissioned."** A central operator (like Google, AWS, or Microsoft) controls who can run servers. Blockchains are typically **"permissionless."** Anybody on the internet can join, which is precisely *why* they must assume participants could be malicious.  
+1. **Fault Model:** The cloud primarily uses Crash Fault Tolerant (CFT) protocols. Blockchains use Byzantine Fault Tolerant (BFT) protocols.  
+2. **Access Control:** The cloud is "permissioned." A central operator (like Google, AWS, or Microsoft) controls who can run servers. Blockchains are typically "permissionless." Anybody on the internet can join, which is precisely *why* they must assume participants could be malicious.  
 3. **Application Pattern:** This is currently different (databases vs. smart contracts), but this is an arbitrary design choice. We could build databases on BFT systems, and we could build smart contract platforms on CFT systems.
 
-## **Part 1: Ramifications for the Crypto Industry**
+## What this means for crypto
 
-What does this BFT foundation mean for the crypto industry?
-
-It means that applications built on blockchains, like tokenized assets, **are never going to go away.** As long as there is a group of honest (or semi-honest) operators in the world willing to run the network, the network will exist.
+For crypto, the BFT foundation means that applications built on blockchains, like tokenized assets, are never going to go away. As long as there is a group of honest (or semi-honest) operators in the world willing to run the network, the network will exist.
 
 You can't control the *market value* of an asset, that will be driven by supply and demand. But you cannot, by definition, ban these assets from *existence*. You can only cut off *access*.
 
 A regulator could, for example, target the on-ramps and off-ramps (the exchanges that convert fiat currency to cryptocurrency). But once you are in the system and you hold a crypto asset, as long as you have eventual access to the network, there is very little anyone can do. This property is what makes self-custody on these systems such a powerful primitive.
 
-## **Part 2: Ramifications for the Broader Tech Industry**
+## The broader tech industry is next
 
-I don't expect everyone to build everything on-chain tomorrow. But we are already starting to see companies move critical functions on-chain when they demand highly reliability and global access. For example, Stripe is using increasingly using stablecoins for international payment rails.
+I don't expect everyone to build everything on-chain tomorrow. But we are already starting to see companies move critical functions on-chain when they demand high reliability and global access. For example, Stripe is increasingly using stablecoins for international payment rails.
 
-As the world moves more functions to the cloud, we have created the greatest honeypots in history. These are centralized locations of data and power, which makes them increasing targets for attack.
+As the world moves more functions to the cloud, we have created the greatest honeypots in history. These are centralized locations of data and power, which makes them increasingly attractive targets for attack.
 
 We are seeing sophisticated attacks, including foreign nation-states placing malicious employees inside tech companies to covertly steal information or place malware. I only anticipate these types of attacks will increase in sophistication.
 
 We will increasingly need to rely on digital systems to provide guarantees that we are unable or unwilling to trust humans to provide.
 
-## **Part 3: Ramifications for Society and Global Citizens**
+## Digital institutions for a low-trust world
 
 We are at an interesting point in time, marked by a waning of collective trust in centralized, human-based institutions.
 
@@ -106,7 +97,7 @@ Most cloud systems rely on a fundamental trust that:
 
 That is increasingly not the case.
 
-This creates an urgency among builders to create **digital institutions** that can undeniably encode human rights into the systems themselves—systems that cannot be taken down, modified, or subverted.
+This creates an urgency among builders to create **digital institutions** that can undeniably encode human rights into the systems themselves: systems that cannot be taken down, modified, or subverted.
 
 These rights include:
 
@@ -116,11 +107,11 @@ These rights include:
 
 If we can build digital institutions that act more reliably than human institutions, what does that mean for our future?
 
-## **Conclusion: Our Moral Imperative**
+## Our moral imperative
 
 We regularly hear that in the long arc of human history, governments and democracies don't last long. A couple of centuries is a long time without major upheaval. There is no guarantee that governments naturally evolve to become more respectful of their citizens.
 
-If we truly believe we are building the technology that forms the digital institutions that are here to stay, not just for centuries but for *millennia*, then we as engineers have a **moral imperative** not to turn a blind eye.
+If we truly believe we are building the technology that forms the digital institutions that are here to stay, not just for centuries but for *millennia*, then we as engineers have a moral imperative not to turn a blind eye.
 
 We have a moral imperative to choose, build, and improve blockchains in a way that betters society, improves human agency, and protects our collective rights.
 
