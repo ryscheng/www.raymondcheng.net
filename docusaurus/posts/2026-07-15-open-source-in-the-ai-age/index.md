@@ -67,8 +67,9 @@ hands, far more leverage, better libraries.
 
 Who pays these people is a real question, and I've [written
 separately](/posts/prosperous-software) about funding the maintainers everything
-depends on. The point here is simpler: the super-powered maintainer is coming, and
-taste is the superpower.
+depends on. The point here is simpler:
+
+> The super-powered maintainer is coming, and taste is the superpower.
 
 ## Breadth: how society caches its search for what works
 
@@ -106,6 +107,8 @@ exploration explodes, and an open cache of what works is the only way those
 discoveries compound across the world instead of staying locked behind closed
 doors.
 
+> Open source out-innovates closed
+
 ## As software gets cheaper, open becomes the default
 
 A second force pushes the same way, and it comes from the market rather than the
@@ -139,8 +142,9 @@ for the vast middle of software, the default tilts open.
 ## Why open ecosystems out-innovate closed ones
 
 Combine the two mechanisms, super-powered maintainers and a shared cache, and the
-conclusion is hard to avoid. No closed organization out-innovates the entire world
-working in parallel and keeping every result.
+conclusion is hard to avoid.
+
+> No closed organization out-innovates the entire world working in parallel and keeping every result.
 
 Modern AI is the proof. The technology now writing our code was built in the open.
 The Transformer, the architecture under every frontier model, was published in

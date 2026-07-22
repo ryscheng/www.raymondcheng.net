@@ -24,7 +24,11 @@ First, a foundation. What is a Byzantine Fault Tolerant system, and where did it
 
 At the heart of computer science is a field called distributed systems, and at the heart of that field is the concept of **fault tolerance**.
 
-Machines are inherently faulty. Devices fail, power gets shut off, memory chips get corrupted, and natural disasters happen. Despite all of this, we want to build global-scale services that remain reliable over a network. This fundamental property is what drives the entire cloud computing industry and is at the heart of modern data center design. It's what allows us to take the infinite scale of modern software for granted.
+* Machines are inherently faulty.  
+* Devices can fail, power can be shut off, and memory chips can get corrupted.  
+* Natural disasters can happen.
+
+Despite this, we want to build global-scale services that remain reliable over a network. This fundamental property is what drives the entire cloud computing industry and is at the heart of modern data center design. It's what allows us to take the infinite scale of modern software for granted.
 
 ### From Crash Faults to Malicious Actors
 
