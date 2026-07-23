@@ -115,7 +115,7 @@ A second force pushes the same way, and it comes from the market rather than the
 technology.
 
 As software gets cheap to produce, people are predicting the death of SaaS, a
-"SaaSpocalypse." The logic is simple. When a coding agent can rebuild your tool in
+"SaaSpocalypse." When a coding agent can rebuild your tool in
 a weekend, buyers stop paying rent for it. a16z ran [an
 episode](https://a16z.com/podcast/anish-acharya-is-saas-dead-in-a-world-of-ai/)
 asking whether SaaS is dead in a world of AI, noting that "SaaS switching costs
@@ -146,9 +146,9 @@ conclusion is hard to avoid.
 
 > No closed organization out-innovates the entire world working in parallel and keeping every result.
 
-Modern AI is the proof. The technology now writing our code was built in the open.
-The Transformer, the architecture under every frontier model, was published in
-2017 as "[Attention Is All You Need](https://arxiv.org/abs/1706.03762)." The labs
+Modern AI is its own proof point. The technology now writing our code was built in the open.
+The Transformer, the architecture under every frontier model, was published as
+an [open paper in 2017](https://arxiv.org/abs/1706.03762). The labs
 now racing to build closed models grew out of a culture that shared its core ideas
 freely, on arXiv and at conferences.
 
@@ -158,24 +158,27 @@ supercharging open source, and that opening has only started.
 
 ## The bet: the best models stay universally available
 
-One assumption holds up everything above.
+I would be naive if I ignored the big assumption that holds up everything above.
 
-It works only if the best models stay universally available, not locked away.
+It works only if the best models stay universally available.
 Open source out-innovates closed only while the most capable models stay within
 reach of the people and agents building on them. Wall them off, and the open
-ecosystem loses its engine.
+ecosystem loses a powerful engine.
 
 So far the frontier has stayed reachable. Closed labs expose their best models
-through APIs, and open-weight models track close behind, partly through
+through APIs. The best coding agents that are used to accelerate frontier lab
+development, are also accessible to anyone with a subscription.
+Open-weight models track close behind, partly through
 distillation: training a smaller model on a larger one's outputs. OpenAI has
-[accused
-DeepSeek](https://www.bloomberg.com/news/articles/2026-02-12/openai-accuses-deepseek-of-distilling-us-models-to-gain-an-edge)
-of doing exactly this to catch up. That is an allegation, not a finding, but its
-plausibility shows how hard the frontier is to seal. And AI is its own precedent:
-the field moved fastest when research flowed freely.
+[accused DeepSeek](https://www.bloomberg.com/news/articles/2026-02-12/openai-accuses-deepseek-of-distilling-us-models-to-gain-an-edge)
+of doing exactly this to catch up. Its plausibility shows how hard the frontier is to seal.
+AI is its own precedent: the field moves fastest when research flowed freely.
 
-What breaks the bet: frontier capability concentrating in a few hands and staying
-locked. Then open stalls, and closed wins.
+The systemic risk is that frontier capability becomes closed, concentrated,
+and accessible to a small group, and far beyond the open counterparts,
+choking open development. Imagine a singular proprietary superintelligence
+that only sells finished products, but better than every other company in the world.
+Conceivable, but not the world I want to live in.
 
 ## An invitation
 
@@ -184,7 +187,6 @@ its search for better software: driven in the medium term by developers with
 superior taste, and in the long term by the need to share what autonomous systems
 discover. If the best models stay open, no closed ecosystem keeps up.
 
-That is a conviction, but still a bet on a future that has not arrived.
-
-Tell me where I'm wrong. Publishing an idea so better ones can build on it is the
-most open-source thing I can do.
+It's a still a bet on a future that has not arrived, but I'd put money on it.
+I could be wrong, but publishing the thought process so better ones can build on it
+is the most open-source thing I can do.

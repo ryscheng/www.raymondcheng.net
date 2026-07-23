@@ -140,7 +140,7 @@ It can transform collective strategic decision making, too. This is not limited 
 
 ### Towards open collective intelligence
 
-The reason why open source software is powerful, is because of the deep interconnected dependency tree. It is what makes us able to easily collaborate and depend on the works of others. It is what makes modern software development a positive-sum endeavor. Recent studies have shown that on average, 64% of open source usage came from transitive or indirect dependencies ([1](https://www.synopsys.com/software-integrity/resources/analyst-reports/open-source-security-risk-analysis.html#introMenu)).
+The reason why open source software is powerful, is because of the deep interconnected dependency tree. It is what makes us able to easily collaborate and depend on the works of others. It is what makes modern software development a positive-sum endeavor. Recent studies have shown that on average, 64% of open source usage came from transitive or indirect dependencies [[1](https://www.synopsys.com/software-integrity/resources/analyst-reports/open-source-security-risk-analysis.html#introMenu)].
 
 Data and insights have yet to reach this level of societal-wide collaboration. But when we do, we'll reach closer to the ideals of collective intelligence, where humans can work together to achieve greater ends like a superorganism.
 
