@@ -18,7 +18,7 @@ _Revolutionize the data industry with open source principles_
 
 For decades, the data industry has operated under a similar model, vertically integrated silos with data licensing between parties. While we've built incredible technology under this model, we have yet to fully capture the opportunity of open source innovation. The open source software movement has shown that there is a different, more powerful way to build productive digital goods. The data business is waiting to be disrupted, just as software has been since the 1990's.
 
-In this blog post, we'll share a vision for how open source can fundamentally transform how we collaborate on data in the global economy. Data scientists across the industry ought to be able to collaborate on data models as simply as software developers use `npm publish` and `npm install`.
+Open source can fundamentally transform how we collaborate on data in the global economy. Data scientists across the industry ought to be able to collaborate on data models as simply as software developers use `npm publish` and `npm install`.
 
 ## Data today: who can build the tallest data silo?
 
@@ -96,7 +96,7 @@ The challenge comes from a 90% standard. Every data platform has its own SQL dia
 
 ### Forkable open source data, models, and dashboards
 
-It is encouraging to see the budding ecosystems of open-source dashboards, on platforms like Jupyter, GitHub and Colab. It feels a lot like Linux applications of the 90s - less sophisticated than their proprietary counterparts, but clearly a growing force that will only get better over time.
+It is encouraging to see the budding ecosystems of open-source dashboards, on platforms like Jupyter, GitHub and Colab. It feels a lot like Linux applications of the 90s: less sophisticated than their proprietary counterparts, but clearly a growing force that will only get better over time.
 
 GitHub has been an enabling force for data science and engineering, as much as it has for software at large. However, it misses the opportunity to collaborate on both the data and the code, as opposed to just the code. In analytics, the code is relatively meaningless without seeing how it works in the context of the data you're analyzing. In order to deeply collaborate, we need the ability to more easily share data with the code, whether it is raw data, data from intermediate models, or cached results. In order to collaborate on building/expanding what you've done, you need the ability to reproduce what has been done before.
 
@@ -128,21 +128,19 @@ At the core, our open source thesis is ultimately about the benefits of sharing.
 
 We believe that open source is the most powerful force behind accelerationism. We often over-credit companies with innovation, which leads to a near-sighted view of public goods. In the US, we often take public goods for granted, and rely on tech CEOs to push the future forward.
 
-When Linux came out in the 1990's, the media was fixated on what it would do to Windows and other proprietary operating systems. If we gave away a free operating system, what would that do to one of the wealthiest companies in the world? Does open source destroy economic value? **We strongly believe that open source grows the pie by orders of magnitude in ways we cannot predict.**
+When Linux came out in the 1990's, the media was fixated on what it would do to Windows and other proprietary operating systems. If we gave away a free operating system, what would that do to one of the wealthiest companies in the world? Does open source destroy economic value?
+
+> We strongly believe that open source grows the pie by orders of magnitude in ways we cannot predict.
 
 The brightest experts in the world could not have predicted the cloud revolution, and how quickly technologies like Docker, Kubernetes, Xen, and KVM have completely changed how we deploy software in the cloud. No one could have predicted how quickly Android would put a computer in the hands of over half of the world's population. Our aggregate capabilities built on Linux are exponentially greater now than the past eras of PCs or mainframes, and it happened significantly faster because of open source. We have only begun to see what it looks like when more people are empowered with open source AI models. Whether you agree or not, open source has already won. 99% of companies use it, and over 70% of code deployed to production today comes from the open source community ([1](https://www.synopsys.com/software-integrity/resources/analyst-reports/open-source-security-risk-analysis.html#introMenu), [2](https://www.linuxfoundation.org/blog/blog/a-summary-of-census-ii-open-source-software-application-libraries-the-world-depends-on)). It is the foundation of the entire global economy, and that will only expand in the future with AI.
 
-**Open source data can transform science and knowledge discovery**
+Open source data can also transform science and knowledge discovery. With more open access to data, we will understand the universe and all its mysteries in increasingly faster ways. Reproducible science based on a shared data foundation will drastically improve science past the low-bandwidth way we collaborate today, via unstructured manuscripts and papers.
 
-With more open access to data, we will understand the universe and all its mysteries in increasingly faster ways. Reproducible science based on a shared data foundation will drastically improve science past the low-bandwidth way we collaborate today, via unstructured manuscripts and papers.
-
-**Open source data can transform collective strategic decision making**
-
-This is not limited to just the corporate board room. Imagine a future where political and legal systems can operate on a greater wealth of public data, and where the public can directly make improvements to policy based on a shared foundation of understanding and knowledge.
+It can transform collective strategic decision making, too. This is not limited to just the corporate board room. Imagine a future where political and legal systems can operate on a greater wealth of public data, and where the public can directly make improvements to policy based on a shared foundation of understanding and knowledge.
 
 ### Towards open collective intelligence
 
-The reason why open source software is powerful, is because of the deep interconnected dependency tree. It is what makes us able to easily collaborate and depend on the works of others. It is what makes modern software development a positive-sum endeavor. Recent studies have shown that on average, 64% of open source usage came from transitive or indirect dependencies ([1](https://www.synopsys.com/software-integrity/resources/analyst-reports/open-source-security-risk-analysis.html#introMenu)).
+The reason why open source software is powerful, is because of the deep interconnected dependency tree. It is what makes us able to easily collaborate and depend on the works of others. It is what makes modern software development a positive-sum endeavor. Recent studies have shown that on average, 64% of open source usage came from transitive or indirect dependencies [[1](https://www.synopsys.com/software-integrity/resources/analyst-reports/open-source-security-risk-analysis.html#introMenu)].
 
 Data and insights have yet to reach this level of societal-wide collaboration. But when we do, we'll reach closer to the ideals of collective intelligence, where humans can work together to achieve greater ends like a superorganism.
 
@@ -152,4 +150,4 @@ Data and insights have yet to reach this level of societal-wide collaboration. B
 
 When we pair open source data with open source software, we join 2 symbiotic components of a great whole. Software is productive in nature; it exerts influence on the world. Data is analytical and observational in nature; it seeks to understand what is happening in the world. In my dreams, I see an image of a mythological giant. The open source software movement is like strength training. Old repositories are replaced with new ones, like muscle fibers. When we give the giant an open source brain, the resulting superorganism becomes a self-improving force. One that can see the world, act, see what happens, and do better over time.
 
-Will any company still be here 1000 years from now? Maybe it will, maybe it'll get swallowed for pennies on the dollar like DEC was in the 1990's. Corporate powers tend to come and go, but free knowledge, the underlying principle of open source; that tends to stay for centuries to come.
+Will any company still be here 1000 years from now? Maybe it will, maybe it'll get swallowed for pennies on the dollar like DEC was in the 1990's. Corporate powers tend to come and go, but free knowledge, the underlying principle of open source, tends to stay for centuries to come.
