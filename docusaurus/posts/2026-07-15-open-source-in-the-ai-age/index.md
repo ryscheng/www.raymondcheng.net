@@ -14,6 +14,8 @@ will out-innovate their closed counterparts._
 
 <!-- truncate -->
 
+![oss-vs-closed](./banner.png)
+
 ## What is open source once AI writes the code?
 
 AI agents already write a growing fraction of the code in production
