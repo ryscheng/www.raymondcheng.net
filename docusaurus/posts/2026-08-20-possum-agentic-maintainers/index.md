@@ -4,7 +4,7 @@ title: "POSSUM: Agentic Maintainers for the World's Most Critical Software"
 description: "A proposal to fork the world's most economically valuable open source packages and maintain them with agents, so a critical vulnerability gets a patched package in hours instead of months."
 authors: [ryscheng]
 tags: [projects, security, open-source, popular]
-draft: true
+draft: false
 ---
 
 **POSSUM** (Parallel Open Source Software Universe Maintainer) is a proposal to fork the open source packages the world's economy actually runs on, maintain them with agents, and serve them through a drop-in registry mirror. When a critical vulnerability lands, a patched package should exist in hours, not whenever an unpaid volunteer gets to it after work. This post covers how we would pick which packages to fork, what an agent is allowed to ship on its own, and why this has to be a public commons rather than another security product. Nothing is built yet. We are looking for people to build it with us.
