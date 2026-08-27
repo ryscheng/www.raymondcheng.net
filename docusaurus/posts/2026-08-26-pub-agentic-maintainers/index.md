@@ -1,13 +1,13 @@
 ---
-slug: possum-agentic-maintainers
-title: "POSSUM: Agentic Maintainers for the World's Most Critical Software"
+slug: pub-agentic-maintainers
+title: "PUB: Agentic Maintainers for the World's Most Critical Software"
 description: "A proposal to fork the world's most economically valuable open source packages and maintain them with agents, so a critical vulnerability gets a patched package in hours instead of months."
 authors: [ryscheng]
 tags: [projects, security, open-source, popular]
 draft: false
 ---
 
-**POSSUM** (Parallel Open Source Software Universe Maintainer) is a proposal to fork the most important open source packages that the world's economy runs on, maintain them with agents, and serve them through a drop-in registry mirror. When a critical vulnerability lands, a patched package should exist in hours, not whenever an unpaid volunteer gets to it. This post covers how we would pick which packages to fork, what an agent is allowed to ship on its own, and why this has to be a public commons rather than another security product.
+**PUB** (Prosperous Universal Backports) is a proposal to fork the most important open source packages that the world's economy runs on, maintain them with agents, and serve them through a drop-in registry mirror. When a critical vulnerability lands, a patched package should exist in hours, not whenever an unpaid volunteer gets to it. This post covers how we would pick which packages to fork, what an agent is allowed to ship on its own, and why this has to be a public commons rather than another security product.
 
 <!--truncate-->
 
@@ -19,11 +19,13 @@ That work currently lands on volunteers. [Census III](https://www.linuxfoundatio
 
 Other ecosystems have solved this before in a different context. Most Linux distributions, like Debian or Red Hat, run a downstream maintenance layer: people who carry patches, backport the minimal security fix into the exact version they shipped, and publish on their own schedule. Debian's [security FAQ](https://www.debian.org/security/faq) has a dedicated entry for users who look at their version number and think they are still vulnerable, because the fix went in without the version bump.
 
-In contrast, npm, PyPI, and crates.io never got that layer. Code goes from the author's laptop to your production build with nobody in between. No downstream maintainer, security team, or backport policy protects users, leading to countless security incidents with massive reach. Traditionally, a distro layer required paid humans reading diffs, which would be difficult to scale to package registries of millions of packages. **Agents change the calculus.**
+In contrast, npm, PyPI, and crates.io never got that layer. Code goes from the author's laptop straight to your production build. Without a downstream maintainer, security team, or backport policy protecting users, countless security incidents with massive reach have happened just in the last year. In the past, a distro layer would have required hiring a large staff to review and manage diffs. This would have been difficult to scale to package registries of millions of packages. 
 
-## How POSSUM works
+**Agents now make that scale possible.**
 
-POSSUM automatically maintains a fork of the most important packages, leveraging AI agents to perform maintenance. We aim to achieve the following goals:
+## How PUB works
+
+PUB automatically maintains a fork of the most important packages, leveraging AI agents to perform maintenance. We aim to achieve the following goals:
 
 - **Scale**:
   Our target is to be able to automatically maintain the top 100K to 1M packages with minimal human intervention, empowering a small team of [agent-powered maintainers](/posts/open-source-in-the-ai-age).
@@ -32,53 +34,63 @@ POSSUM automatically maintains a fork of the most important packages, leveraging
   The time from a new CVE being discovered to a patched package distributed on the registry should be as short as possible, ideally from minutes to hours, not days to weeks.
 - **Low operationing costs**:
   Processes should be automated as much as possible, requiring minimal human oversight. We should evaluate ROI in terms of true costs across human time and LLM tokens spent.
+- **Security-enhancing**:
+  We don't expect automated patches to fix 100% of bugs. Even a 70% fix rate would be valuable, as long as the agent does not introduce new vulnerabilities.
 - **Simple to use**:
-  Users that want to benefit from POSSUM-managed packages should be able with minimal refactoring work.
+  Users that want to benefit from PUB-managed packages should be able with minimal refactoring work.
 
-### POSSUM publishing
+### PUB publishing
 
-![publish-flow](./possum-publish.jpeg)
+![publish-flow](./pub-publish.jpeg)
 
 1. We scan the Internet for the top package versions used by the most important applications.
    (See the section on [Bunny](#bunny-ranking-packages-by-the-economy-they-carry)).
-2. POSSUM agents fork these packages into agent-driven repositories.
-3. We monitor sources of bug reports (e.g. [NVD](https://nvd.nist.gov/), [CVE](https://www.cve.org/), [GitHub](https://github.com/advisories)) and automatically generate backport patches for the most widely used major/minor package versions.
-4. These patched versions are automatically published to the POSSUM package registry.
-5. When possible, we send out automated notices to affected applications to update their dependencies.
-6. When possible, we upstream fixes to the original repository for review.
+2. PUB agents fork these packages into agent-driven repositories.
+3. Maintenance:
+  (a) We regularly scan upstream diffs for security issues, such as malicious payloads, before pulling downstream.
+  (b) **We monitor sources of bug reports (e.g. [NVD](https://nvd.nist.gov/), [CVE](https://www.cve.org/), [GitHub](https://github.com/advisories)) and automatically generate backport patches for the most widely used major/minor package versions.**
+4. Patched versions are automatically built and published to the PUB package registry through a high assurance verified build system.
+5. Notifications:
+  (a) When possible, we send out automated notices to affected applications to update their dependencies, and
+  (b) we upstream fixes to the original repository for review.
 
 While the mandate today is security backports, we may explore more duties involved in general maintenance in the future, from issue triage, re-packaging for distribution to other ecosystems, and broader feature development.
 
-### POSSUM usage
+### PUB usage
 
-Anyone can consume POSSUM-maintained packages by configuring their package manager
+Anyone can consume PUB-maintained packages by configuring their package manager
 to use the new registry.
 
-```
-npm config set registry https://registry.possum...
+For example for npm:
+```bash
+npm config set registry https://registry.PUB...
 ```
 
 The one line change masks a number of benefits your application receives:
 
 1. **Transitive dependencies** are covered in your software supply chain, resolving issues even if you did not directly import the package yourself.
 2. **Packages are mirrored**, so users automatically receive the same upgrades as the original registry.
-3. **Reproducible fixes**: every POSSUM build is reproducible and the diff against upstream is published before the package is installable. Builds are tagged so you always know what you are running (`4.17.21+possum.1`).
+3. **Reproducible fixes**: every PUB build is reproducible and the diff against upstream is published before the package is installable. Builds are tagged so you always know what you are running (`4.17.21+PUB.1`).
 
 In summary, patched versions arrive on an opt-in channel with staged rollout. We make rollbacks simple and you can always pin to the upstream version.
 
-## What an agent is allowed to ship by itself
+### What an agent is allowed to ship by itself
 
 A wrong fix at machine speed can be worse than a right fix on a delayed timeline. Modern agents are good at finding flaws, but not necessarily good at judging severity or the quality of a patch.
 
-POSSUM aims to narrow the amount of judgement left to the agent. Security backports are a form of software task with a machine-checkable definition of done, because a vulnerability often comes with clear reproduction steps. We build confidence in agent-supplied patches by doing the following:
+PUB aims to narrow the amount of judgement left to the agent. Security backports are a form of software task with a machine-checkable definition of done, because a vulnerability often comes with clear reproduction steps. We build confidence in agent-supplied patches by doing the following:
 
 1. The agent produces a failing test that reproduces the vulnerability against the unpatched package. If we cannot programmatically reproduce the bug, we fail-stop any autonomous deployment and it goes to a human queue for review.
 2. Agents autonomously produce patches that makes that test pass, and ensures the full upstream test suite stays green.
-3. If these steps succeed, agents can ship to the POSSUM registry automatically without being gated on human review.
+3. If these steps succeed, agents can ship to the PUB registry automatically without being gated on human review.
 
 When any of the earlier steps fail, we rely on humans to guide the agent towards a fix. When possible, we'll work with the original maintainers to ship suitable outcomes. As a fork on a separate registry, we bias for correctness first, velocity second, and taste third. We expect to regularly deprecate any versions where the upstream fork has pushed a fix.
 
-POSSUM is autonomous for vulnerabilities that come with reproducers and human-gated for everything else. By focusing on a smaller surface than "fully autonomous", we hope to make an actionable improvement over the status quo.
+PUB is autonomous for vulnerabilities that come with reproducers and human-gated for everything else. By focusing on a smaller surface than "fully autonomous", we hope to make an actionable improvement over the status quo.
+
+### CVE case study
+
+*Coming soon... We are working on a quick proof of concept to show how this works with a real CVE to illustrate why we believe this is suitable for agents*
 
 ## Bunny: ranking packages by the economy they carry
 
@@ -87,28 +99,28 @@ Download counts are the usual proxy, but they are a noisy signal due to CI runs,
 
 **Bunny**, a project we are building at [OSO](https://www.oso.xyz/), comes at the gap from the other end. It scrapes the web for JavaScript bundles, decompiles them, and extracts which packages are present in code that is actually shipped to users. Once you can attribute a package to the products running it, you can attribute it to the businesses behind those products, and rank by their market cap or annual revenue.
 
-We aim to answer a different question than how many machines downloaded a package; it asks how much of the economy would notice if it broke. POSSUM's selection function focuses on forking where economic value is high and maintenance capacity is low. Our measurement study is ongoing and an academic paper is in progress.
+We aim to answer a different question than how many machines downloaded a package; it asks how much of the economy would notice if it broke. PUB's selection function focuses on forking where economic value is high and maintenance capacity is low. Our measurement study is ongoing and an academic paper is in progress.
 
 ## Related work
 
 [Chainguard Libraries](https://www.chainguard.dev/libraries) rebuilds packages from source, backports critical and high severity CVE fixes, tests every remediation, and ships signed provenance and SBOMs. [Google's Assured OSS](https://cloud.google.com/blog/products/identity-security/google-cloud-assured-open-source-software-service-now-ga) is a free service, covering more than a thousand Java and Python packages, and pointedly does not fork: it keeps packages current and sends fixes upstream. [HeroDevs](https://www.herodevs.com/) sells drop-in patched replacements for end-of-life packages on an SLA.
 
 These commercial offerings point to a strong market demand for secure alternatives.
-POSSUM aims to distinguish itself in 4 ways:
+PUB aims to distinguish itself in 4 ways:
 
-1. POSSUM is operated by the Public Goods Foundation (PGF), a registered 501(c)6 non-profit.
+1. PUB is operated by the Public Goods Foundation (PGF), a registered 501(c)6 non-profit.
 2. We aim to make our work as widely accessible as possible to secure software at scale. Hobbyists, students, and small startups can use our registry for free. The PGF membership models asks those with the most resources and the most to lose, pay to keep the commons sustainable for everyone.
-3. POSSUM chooses its target list by aiming to secure the largest economic surface it can with limited budget, rather than by enterprise demand. [Chainguard](https://edu.chainguard.dev/chainguard/libraries/cve-remediation/) and [Assured OSS](https://cloud.google.com/security/products/assured-open-source-software) currently limits backports to Java and Python.
-4. POSSUM tries to automate the process of creating backport patches end-to-end with agents. As far as we are aware, no other effort has shipped similar functionality yet. We hope to scale to millions of packages in the future, rather than the single digit thousands from alternatives today.
+3. PUB chooses its target list by aiming to secure the largest economic surface it can with limited budget, rather than by enterprise demand. [Chainguard](https://edu.chainguard.dev/chainguard/libraries/cve-remediation/) and [Assured OSS](https://cloud.google.com/security/products/assured-open-source-software) currently limits backports to Java and Python.
+4. PUB tries to automate the process of creating backport patches end-to-end with agents. As far as we are aware, no other effort has shipped similar functionality yet. We hope to scale to millions of packages in the future, rather than the single digit thousand packages available from alternatives today.
 
 ## Who owns this and who gets paid
 
-POSSUM will be owned and operated by the Public Goods Foundation, a 501(c)6 non-profit.
+PUB will be owned and operated by the Public Goods Foundation, a 501(c)6 non-profit.
 Our mission is to expand and improve the sustainability of public goods, such as open source software.
-We plan to make POSSUM freely available without warranty to anyone under $1M in annual revenue,
+We plan to make PUB freely available without warranty to anyone under $1M in annual revenue,
 covering the vast majority of individual users.
 Companies over $1M in annual revenue will need to join as a member of the nonprofit
-and pay dues proportional to the firm size in order to use the POSSUM registry.
+and pay dues proportional to the firm size in order to use the PUB registry.
 Members also enjoy a range of other benefits from governance rights to training and support.
 Depending on the success of the Foundation, we hope to bring financial sustainability
 to a broader cross-section of the open source ecosystem, potentially by
