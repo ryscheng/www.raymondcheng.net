@@ -7,13 +7,22 @@ tags: [projects, security, open-source, popular]
 draft: false
 ---
 
-**PUB** (Prosperous Universal Backports) is a proposal to fork the most important open source packages that the world's economy runs on, maintain them with agents, and serve them through a drop-in registry mirror. When a critical vulnerability lands, a patched package should exist in hours, not whenever an unpaid volunteer gets to it. This post covers how we would pick which packages to fork, what an agent is allowed to ship on its own, and why this has to be a public commons rather than another security product.
+import CodeCompare from "@site/src/components/CodeCompare";
+import diffs from "./diffs.json";
+
+**PUB** (Prosperous Universal Backports) is a proposal to fork the most important open source packages that the world's economy runs on,
+maintain them with agents, and serve them through a drop-in registry mirror. 
+When a critical vulnerability lands, every widely used package version should be patched in hours, not whenever an unpaid volunteer gets to it.
+This post covers how we would pick which packages and versions to fork,
+what an agent is allowed to ship on its own, and why this has to be a public commons rather than another security product.
 
 <!--truncate-->
 
 ## The registries never got a distro layer
 
 Daniel Stenberg has maintained curl for nearly three decades. Before AI, the project received [roughly one security report per week](https://cybernews.com/security/curl-bug-bounty-ai-security-reports-daniel-stenberg/). In 2025 that became one every 48 hours. By June 2026 it was one every 18 hours, and unlike the slop wave of early 2025, most of them are now technically accurate. As Stenberg describes, it is cheap to run a scan and turn up thousands of issues, and complicated to get an engineering team to work through them. His warning to the rest of us is that everyone will have to upgrade faster, release faster, and patch more.
+
+![census3](./census3.png)
 
 That work currently lands on volunteers. [Census III](https://www.linuxfoundation.org/research/census-iii), the Linux Foundation and Harvard study of what companies actually depend on, found that many of the most widely deployed libraries are maintained by only a handful of contributors.
 
@@ -56,23 +65,64 @@ PUB automatically maintains a fork of the most important packages, leveraging AI
 
 While the mandate today is security backports, we may explore more duties involved in general maintenance in the future, from issue triage, re-packaging for distribution to other ecosystems, and broader feature development.
 
+### CVE case study CVE-2026-13697
+
+As a proof of concept, we tested an agent's ability to fix 6 CVEs across different ecosystems: npm, PyPI, and the Node.js runtime (C++). These CVEs were disclosed past the cutoff date of the tested model, Claude Opus 5. 
+The reproduction steps and results can be found in [publicgoodsfunding/pub-cve-study](https://github.com/publicgoodsfunding/pub-cve-study). We found that in 5 of 6 cases, the agent was able to fix the bug with no human intervention, while passing the full test suite.
+
+![cve-metrics](./cve-metrics.png)
+
+This section walks through one of them, Undici, the HTTP client for Node.js, powering the `fetch()` function.
+[CVE-2026-13697](https://github.com/nodejs/undici/security/advisories/GHSA-4cwx-7wf7-3272) was disclosed on July 29th, 2026 with a high severity of 7.4/10. 
+Responses with a malformed `Cache-Control: private=""` header can be stored in the default cache, and later served to a caller with the same cache key. This meant that user-private responses, including the HTTP headers, body, and cookies could be leaked.
+The advisory covered a large number of package versions, from 7.0.0-7.28.x to 8.0.0-8.8.x.
+The maintainer shipped a fix in 7.29.0 and 8.9.0 on July 24, 2026.
+As typical in security reporting, vulnerabilities and fixes are coordinated in private
+before vulnerabilities are reported to the public.
+
+In our proof of concept, we did the following:
+1. Clone Undici at the commit before the fix.
+2. Sandbox the agent so that it cannot reach the answer via web searches.
+3. Give the agent the security advisory text only.
+4. Ask the agent to reproduce the issue, by writing a test case. An agent grader checks that the test fails properly and triggers the vulnerability.
+5. Ask the agent to patch the code and iterate until the full test suite passes.
+6. We manually verify the agent's work by running the maintainer's patched test cases and compare patch diffs.
+
+The total cost for this process was $2.61 USD in LLM tokens and 17 minutes of machine time.
+See the [Appendix](#agent-diff-vs-maintainer-diff) for the full diff to compare
+the agent's patch to the maintainer's patch.
+
 ### PUB usage
 
+Distributing backports via registry enables us to automatically patch all vulnerable versions on the next build.
 Anyone can consume PUB-maintained packages by configuring their package manager
 to use the new registry.
-
 For example for npm:
+
 ```bash
-npm config set registry https://registry.PUB...
+npm config set registry https://registry.pub...
 ```
 
-The one line change masks a number of benefits your application receives:
+Patched versions arrive on an opt-in channel with staged rollout. We make rollbacks simple and you can always pin to the upstream version. The one line change masks a number of benefits your application receives:
 
 1. **Transitive dependencies** are covered in your software supply chain, resolving issues even if you did not directly import the package yourself.
 2. **Packages are mirrored**, so users automatically receive the same upgrades as the original registry.
 3. **Reproducible fixes**: every PUB build is reproducible and the diff against upstream is published before the package is installable. Builds are tagged so you always know what you are running (`4.17.21+PUB.1`).
 
-In summary, patched versions arrive on an opt-in channel with staged rollout. We make rollbacks simple and you can always pin to the upstream version.
+Compare this to the current state of the art, where fixes are shipped in the next version.
+Even though undici maintainers might have shipped a fix in 7.29.0,
+package lockfiles keep vulnerable dependant applications fixed at vulnerable versions.
+For example, suppose an application `foobar` depends on `undici@7.11.0`.
+Unless the `foobar` developer runs `npm upgrade` or `npm install undici@latest`, it would remain
+vulnerable to the bug, even though the fix was already released.
+Making the problem worse, the average application has [hundreds](https://arxiv.org/pdf/2512.14739)
+of direct and transitive dependencies in its lockfile.
+Developers often do not monitor every security report in its dependency tree.
+GitHub's [Dependabot](https://github.com/dependabot) tries to automatically run `npm upgrade`
+and submit pull requests to the applications.
+However, because npm package versions conflate security fixes with feature releases,
+these contributions are often difficult to incorporate, especially if interfaces or behaviors change.
+With a backport you get the same fix published as 7.10.x+PUB, on the exact version your application uses.
 
 ### What an agent is allowed to ship by itself
 
@@ -87,10 +137,6 @@ PUB aims to narrow the amount of judgement left to the agent. Security backports
 When any of the earlier steps fail, we rely on humans to guide the agent towards a fix. When possible, we'll work with the original maintainers to ship suitable outcomes. As a fork on a separate registry, we bias for correctness first, velocity second, and taste third. We expect to regularly deprecate any versions where the upstream fork has pushed a fix.
 
 PUB is autonomous for vulnerabilities that come with reproducers and human-gated for everything else. By focusing on a smaller surface than "fully autonomous", we hope to make an actionable improvement over the status quo.
-
-### CVE case study
-
-*Coming soon... We are working on a quick proof of concept to show how this works with a real CVE to illustrate why we believe this is suitable for agents*
 
 ## Bunny: ranking packages by the economy they carry
 
@@ -132,6 +178,7 @@ There remain a number of open questions that we hope to solve with the community
 
 - **Rogue agents**: There are a number of ways that agents can act maliciously, such as from prompt injection or embedded sleeper agent behavior. Automating package distribution expands their reach. How can we ensure that agents fix issues as intended without introducing other vulnerabilities?
 - **Supply Chain Provenance**: Even if agents were producing code as intended, many recent supply chain attacks impacted the build and distribution channels. How can we take advantage of existing trusted infrastructure to ensure reliable delivery of secure code to end users?
+- **Detection**: Our harness starts where the advisory does. How do we securely integrate into the proper disclosure channels to ship fixes faster?
 - **Liability**: Open source software historically involved no liability or warranty. How should we address the systemic failures that come from vulnerabilities in the open source foundation?
 - **Trust bootstrapping.** Debian earned its position over thirty years with well-known humans. A new foundation shipping agent-authored builds starts at zero. What earns the first thousand users?
 - **The human queue.** The reproducer gate leaves the most subtle vulnerabilities to people. Who staffs that queue, and does it scale with the rest?
@@ -151,3 +198,12 @@ Three ways you can help:
 3. If you are a builder and want to make this a reality,
 
 For each of these, find me in the [group chat](https://t.me/prosperous_software).
+
+## Appendix
+
+### Agent diff vs. maintainer diff
+
+<CodeCompare
+  left={{ title: "Agent diff", code: diffs.agent, language: "diff" }}
+  right={{ title: "Maintainer diff", code: diffs.maintainer, language: "diff" }}
+/>
