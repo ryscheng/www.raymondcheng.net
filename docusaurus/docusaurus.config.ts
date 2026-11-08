@@ -162,6 +162,10 @@ const config: Config = {
               to: "/about/me/writer",
             },
             {
+              label: "Philanthropist",
+              to: "/about/me/philanthropist",
+            },
+            {
               label: "Realtor",
               to: "/about/me/realtor",
             },
