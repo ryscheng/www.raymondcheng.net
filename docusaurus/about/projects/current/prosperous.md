@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 description: "Bringing sustainable funding to public goods by revenue-sharing towards dependencies"
 ---
 
