@@ -313,7 +313,7 @@ const config: Config = {
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/RaymondCheng00",
+              href: "https://x.com/raymondchengnet",
             },
             {
               label: "Instagram",

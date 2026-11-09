@@ -24,5 +24,5 @@ The premise is simple – submit one post or creation a week. Miss a week and pu
 While meetups have been postponed during the pandemic, we have our fingers crossed on resuming sometime soon.
 Subscribe to my 
 [mailing list](https://ryscheng.substack.com/)
-or follow me on [Twitter](https://twitter.com/RaymondCheng00)
+or follow me on [Twitter](https://x.com/raymondchengnet)
 to get the latest!
