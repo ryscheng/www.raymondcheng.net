@@ -132,7 +132,7 @@ It's filled with lovely pilots who are ready to answer questions, share trip pla
 Agree? Disagree? Want to share your own personal experiences? Join the conversation on:
 - [Facebook](https://www.facebook.com/groups/bayareafledglings/permalink/1235079280292072/)
 - [Reddit](https://www.reddit.com/r/Hanggliding/comments/q8gvih/how_to_become_an_h3_hang_glider_pilot_in_the_bay/)
-- [Twitter](https://twitter.com/RaymondCheng00/status/1448871887094779908)
+- [Twitter](https://x.com/raymondchengnet/status/1448871887094779908)
 
 ### Related articles
 - [Norcal H3 Strategy Guide](https://www.hanggliding.org/wiki/Northern_California_H2/H3_Strategy_Guide)

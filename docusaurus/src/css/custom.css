@@ -28,3 +28,20 @@
   --ifm-color-primary-lightest: #c3cdfe;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Small link icons in markdown (e.g. [![github](/img/ico/github.ico) GitHub]).
+   Some .ico files contain a 32px image, so pin them all to the text size. */
+.markdown img:is(
+    [alt="www"],
+    [alt="github"],
+    [alt="twitter"],
+    [alt="youtube"],
+    [alt="pdf"],
+    [alt="ppt"],
+    [alt="tex"],
+    [alt="video"]
+  ) {
+  height: 1em;
+  width: auto;
+  vertical-align: -0.125em;
+}

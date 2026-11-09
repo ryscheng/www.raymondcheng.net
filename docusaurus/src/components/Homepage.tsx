@@ -29,11 +29,11 @@ export default function Homepage() {
               className={styles.socialIcon}
             />
             <a
-              href="https://twitter.com/RaymondCheng00"
+              href="https://x.com/raymondchengnet"
               target="_blank"
               rel="noopener noreferrer"
             >
-              @RaymondCheng00
+              @raymondchengnet
             </a>
           </div>
           <div className={styles.socialRow}>

@@ -162,6 +162,10 @@ const config: Config = {
               to: "/about/me/writer",
             },
             {
+              label: "Philanthropist",
+              to: "/about/me/philanthropist",
+            },
+            {
               label: "Realtor",
               to: "/about/me/realtor",
             },
@@ -309,7 +313,7 @@ const config: Config = {
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/RaymondCheng00",
+              href: "https://x.com/raymondchengnet",
             },
             {
               label: "Instagram",

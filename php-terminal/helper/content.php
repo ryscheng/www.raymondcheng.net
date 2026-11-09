@@ -45,7 +45,7 @@ ram name='wmode' value='transparent' /><param name='FlashVars' value='id=d98c98d
   </tr><tr>
     <td><a href='download/doc/cv.pdf'>CV</a></td>
     <td><img width='15px' src='img/icons/twitter.ico'></td>
-    <td><a href='http://www.twitter.com/RaymondCheng00'>Twitter</a></td>
+    <td><a href='https://x.com/raymondchengnet'>Twitter</a></td>
   </tr><tr>
     <td><img width='15px' src='img/icons/blogger.ico'> <a href='http://ryscheng.blogspot.com'>Blog</a></td>
     <td><img width='15px' src='img/icons/linkedin.ico'></td>
