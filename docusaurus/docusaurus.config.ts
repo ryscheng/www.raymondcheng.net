@@ -316,6 +316,14 @@ const config: Config = {
               href: "https://x.com/raymondchengnet",
             },
             {
+              label: "Bluesky",
+              href: "https://bsky.app/profile/ryscheng.bsky.social",
+            },
+            {
+              label: "Mastodon",
+              href: "https://mastodon.social/@ryscheng",
+            },
+            {
               label: "Instagram",
               href: "https://instagram.com/ryscheng/",
             },
